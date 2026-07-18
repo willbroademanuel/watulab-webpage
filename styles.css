@@ -1,0 +1,841 @@
+/* ==========================================================
+   WATULAB PRIMARY STYLESHEET
+   ==========================================================
+   This file controls the visual appearance of the website.
+   It is broken down into logical sections to make editing easy.
+   ========================================================== */
+
+/* ==========================================================
+   1. BASE STYLES & SCROLLBAR
+   ========================================================== */
+body {
+    background-color: #050505;
+    /* Main website background color (very dark gray/off-black) */
+    color: #ffffff;
+    /* Default text color (white) */
+    overflow-x: clip;
+    /* Prevents horizontal scrolling but preserves position: sticky */
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+    /* How wide the scrollbar is */
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+    /* Background color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    /* Color of the draggable scroll handle */
+    border-radius: 4px;
+    /* Rounds the edges of the handle */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* Color when you hover over the scroll handle */
+}
+
+
+/* ==========================================================
+   2. REUSABLE UI COMPONENTS (CARDS, NAV)
+   ========================================================== */
+
+/* Glass Navigation Bar */
+.glass-nav {
+    background: rgba(5, 5, 5, 0.7);
+    /* Extremely dark, semi-transparent background */
+    backdrop-filter: blur(12px);
+    /* This creates the frosted glass blur effect behind the nav */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    /* Very subtle white line at the bottom */
+}
+
+/* Glass Effect for Service & Industry Cards */
+.glass-card {
+    background: rgba(26, 26, 26, 0.4);
+    /* Dark semi-transparent background */
+    backdrop-filter: blur(8px);
+    /* Frost effect */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Subtle border outline */
+    transition: all 0.4s ease-out;
+    /* Smooth transition for when you hover over it */
+}
+
+/* What happens when you hover over a card */
+.glass-card:hover {
+    background: rgba(26, 26, 26, 0.6);
+    /* Gets slightly darker/more opaque */
+    border-color: rgba(255, 255, 255, 0.2);
+    /* Border gets brighter */
+    transform: translateY(-4px) scale(1.01);
+    /* Elevates slightly (floats up) and grows 1% */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    /* Adds a subtle shadow below */
+}
+
+/* Navigation Links - Bottom border line on hover */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    /* Starts out invisible (0 width) */
+    height: 1px;
+    /* Thickness of the underline */
+    bottom: 0;
+    left: 50%;
+    background-color: #fff;
+    /* White underline */
+    transition: all 0.3s ease;
+    /* Speeds of the sliding line animation (0.3 seconds) */
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    /* Expands to full width when hovering */
+}
+
+
+/* ==========================================================
+   3. ANIMATIONS & TRANSITIONS
+   ========================================================== */
+
+/* General Scroll Reveal Class (Elements fade in as you scroll down) */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    /* Starts 30px below its final position */
+    transition: all 0.8s ease-out;
+    /* Takes 0.8 seconds to animate into place */
+}
+
+.reveal.active {
+    opacity: 1;
+    /* Becomes fully visible */
+    transform: translateY(0);
+    /* Moves to its natural position */
+}
+
+/* Bouncy Reveal (Used for stats and industries blocks) */
+.reveal-bounce {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+    /* Starts shrunken and shifted down */
+}
+
+.reveal-bounce.active {
+    animation: bouncePopCustom 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    /* The cubic-bezier values give it that snappy "spring" bounce effect */
+}
+
+@keyframes bouncePopCustom {
+    0% {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1.02) translateY(-2px);
+        /* Overshoots slightly (102%) */
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        /* Settles at 100% */
+    }
+}
+
+/* Hide scrollbar completely but allow scrolling (used in the tech marquee) */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    /* For Internet Explorer & Edge */
+    scrollbar-width: none;
+    /* For Firefox */
+}
+
+/* Smooth fade out logic for absolute items (like scroll indicators) */
+.swipe-indicator {
+    transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+.swipe-indicator.fade-out {
+    opacity: 0;
+    /* Turns invisible */
+    visibility: hidden;
+    /* Removes pointer interactions */
+    pointer-events: none;
+}
+
+
+/* ==========================================================
+   4. INTRO & PAGE TRANSITIONS
+   ========================================================== */
+
+/* Black overlay shown between page switches */
+#page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #050505;
+    z-index: 9999;
+    /* Super high so it stays on top of literally everything */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    /* 0.5 seconds to fade black screen */
+}
+
+#page-transition.fade-out {
+    opacity: 0;
+}
+
+#page-transition.fade-in {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#page-transition .brand-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s ease-out;
+}
+
+#page-transition .brand-text.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* One-time opening black screen (Welcome, Choose Language) */
+#intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease-out;
+    /* 1 second cross-fade to hide */
+}
+
+.intro-text {
+    font-size: 2rem;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    /* 0.8 seconds to fade words in/out during intro sequence */
+    text-align: center;
+    padding: 0 20px;
+}
+
+.visible {
+    opacity: 1;
+}
+
+.hidden-screen {
+    pointer-events: none;
+    opacity: 0;
+}
+
+/* Choose Language Screen Buttons */
+.lang-btn {
+    position: relative;
+    padding: 15px 40px;
+    margin: 10px;
+    background: transparent;
+    color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Faint white border */
+}
+
+/* Shimmer effect inside button on hover */
+.lang-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: 0.5s;
+    /* Sweep speed */
+}
+
+.lang-btn:hover::before {
+    left: 100%;
+    /* Triggers sweeping rightwards */
+}
+
+.lang-btn:hover {
+    border-color: #fff;
+    /* Intense white border */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    /* Glowing text */
+}
+
+/* Entire Homepage content wrapper (fades in after intro) */
+#main-content {
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    position: relative;
+}
+
+
+/* ==========================================================
+   5. TABS COMPONENT STYLES (Used in About & Projects pages)
+   ========================================================== */
+
+/* Homepage 'About Us' Tab Buttons */
+.tab-btn {
+    position: relative;
+    padding-bottom: 10px;
+    color: #666;
+    /* Unselected text color (dark gray) */
+    transition: color 0.3s ease;
+}
+
+.tab-btn.active {
+    color: #fff;
+    /* Selected text color (white) */
+}
+
+.tab-btn::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    /* Tab underline color */
+    transition: width 0.3s ease;
+}
+
+.tab-btn.active::after {
+    width: 100%;
+    /* Shows line across entire text */
+}
+
+.tab-content {
+    grid-area: 1 / 1;
+    /* Stacks all contents directly on top of each other */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.tab-content.active {
+    opacity: 1;
+    /* Fades the active tab content in */
+    visibility: visible;
+    pointer-events: auto;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Projects Page tabs isolated styling */
+.projects-tabs .tab-btn {
+    padding: 10px 20px;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 300;
+}
+
+.projects-tabs .tab-btn.active {
+    font-weight: 500;
+}
+
+.projects-tabs .tab-btn::after {
+    left: 50%;
+    transform: translateX(-50%);
+    /* Centers the underline under the text */
+}
+
+.projects-tabs .tab-content {
+    display: none;
+}
+
+.projects-tabs .tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+/* ==========================================================
+   6. SCI-FI ENERGY GLOW BUTTON (Contact Section)
+   ========================================================== */
+
+/* Base Sci-Fi Button setup */
+.sci-fi-fluid-btn {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+    border: none;
+    color: #000;
+    /* Text color inside button (black) */
+    border-radius: 9999px;
+    /* Very large number keeps the sides perfectly pill-shaped */
+}
+
+/* LAYER 1: OUTER PURE COLOR GLOW AURA */
+.sci-fi-fluid-btn::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    /* Hangs slightly outside the button to be seen as a glow */
+
+    /* Edit the colors below to change the outer glow aura */
+    background: linear-gradient(110deg,
+            rgba(59, 130, 246, 0.9) 0%,
+            /* Pure Blue */
+            rgba(16, 185, 129, 0.9) 33%,
+            /* Pure Green */
+            rgba(250, 204, 21, 0.9) 66%,
+            /* Pure Gold */
+            rgba(239, 68, 68, 0.9) 100%
+            /* Pure Red */
+        );
+    background-size: 300% 100%;
+    animation: fluidEnergy 4s ease-in-out infinite alternate;
+    z-index: -2;
+    border-radius: inherit;
+    filter: blur(15px);
+    /* Size of the blur/glow radius */
+    opacity: 0.7;
+    /* Default glow intensity */
+    transition: all 0.3s ease;
+}
+
+/* Hover effect for the outer glow */
+.sci-fi-fluid-btn:hover::before {
+    filter: blur(20px);
+    /* Becomes more diffused/larger */
+    opacity: 1;
+    /* Becomes fully bright */
+    inset: -4px;
+    /* Spreads further out */
+}
+
+/* LAYER 2: INNER SYMBIOTE GLOW */
+.sci-fi-fluid-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    /* Edit #ffffff below to change the base color of the inside of the button */
+    background-color: #ffffff;
+
+    /* 
+       Edit these radial gradients to change the blob shapes/colors that swim inside.
+       Change the 'rgba(R, G, B, Opacity)' digits to alter hue.
+    */
+    background-image:
+        radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.8) 0%, transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.8) 0%, transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(244, 206, 36, 0.8) 0%, transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(209, 53, 53, 0.8) 0%, transparent 60%);
+
+    background-repeat: no-repeat;
+
+    /* 'symbioteGoo' is what moves them around. '7s' is how fast they pulse/swim. */
+    animation: symbioteGoo 7s infinite alternate cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    z-index: -1;
+    border-radius: inherit;
+}
+
+/* This keyframe mathematically creates the organic "symbiote" swimming path */
+@keyframes symbioteGoo {
+    0% {
+        background-position:
+            0% 50%,
+            100% 20%,
+            40% 100%,
+            80% 0%;
+        background-size: 150% 150%, 180% 180%, 140% 140%, 160% 160%;
+    }
+
+    33% {
+        background-position:
+            100% 80%,
+            0% 50%,
+            80% 20%,
+            20% 100%;
+        background-size: 180% 180%, 140% 140%, 160% 160%, 150% 150%;
+    }
+
+    66% {
+        background-position:
+            60% 0%,
+            50% 100%,
+            0% 60%,
+            100% 40%;
+        background-size: 140% 140%, 160% 160%, 150% 150%, 180% 180%;
+    }
+
+    100% {
+        background-position:
+            20% 100%,
+            80% 0%,
+            100% 80%,
+            0% 20%;
+        background-size: 160% 160%, 150% 150%, 180% 180%, 140% 140%;
+    }
+}
+
+/* Simpler back-and-forth flow animation for the outer aura layer */
+@keyframes fluidEnergy {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+
+/* ==========================================================
+   7. PAGE-SPECIFIC UTILITIES 
+   ========================================================== */
+
+/* Keeps footer strictly at the bottom on short pages (like Privacy or Projects) */
+.flex-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+/* ==========================================================
+   8. MOBILE SIDE SCROLL INDICATORS
+   ========================================================== 
+   Edit these styles to easily adjust the animation or colors of the chevrons 
+*/
+#side-scroll-indicators {
+    transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+#side-scroll-indicators.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.gradient-chevrons {
+    /* Adjust spacing between the stacked arrows */
+    line-height: 0.6;
+    /* Adjust overall size of the arrows here. Reduce to make smaller. */
+    font-size: 1.25rem;
+
+    /* The color gradient - dark grey with a pure white band flowing through */
+    background: linear-gradient(to top, #333333 0%, #333333 30%, #ffffff 50%, #333333 70%, #333333 100%);
+    background-size: 100% 300%;
+
+    /* Make background only visible inside the text/icons */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+    /* Change '1.5s' to alter how fast the light flows up */
+    animation: gradientFlowUp 1.5s linear infinite;
+}
+
+/* Keyframe for the glowing flow going downwards */
+@keyframes gradientFlowUp {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+
+/* ==========================================================
+   9. BEFORE/AFTER IMAGE SLIDER (PixTrend Product Page)
+   ==========================================================
+   Structural styles for the interactive image comparison sliders.
+   Uses the site's monochrome palette — no gold.
+*/
+
+/* Main Before/After Slider */
+.ba-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 520px;
+    margin: 0 auto;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.8);
+    background: #0a0a0a;
+    cursor: ew-resize;
+}
+
+.ba-base-img,
+.ba-clip-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 28%;
+    pointer-events: none;
+    user-select: none;
+}
+
+.ba-clip-layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: inset(0 0 0 50%);
+    z-index: 3;
+}
+
+.ba-divider {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, #fff 8%, #fff 92%, transparent 100%);
+    transform: translateX(-50%);
+    z-index: 5;
+    pointer-events: none;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.ba-slider-input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 10;
+    cursor: ew-resize;
+    margin: 0;
+}
+
+.ba-handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 8;
+    pointer-events: none;
+}
+
+.handle-pill {
+    width: 52px;
+    height: 52px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.08), 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.ba-label {
+    position: absolute;
+    bottom: 18px;
+    z-index: 6;
+    padding: 5px 16px;
+    border-radius: 60px;
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+    text-transform: uppercase;
+}
+
+.ba-label-left {
+    left: 20px;
+    color: #999;
+}
+
+.ba-label-right {
+    right: 20px;
+    color: #fff;
+}
+
+/* Mini Before/After Sliders (inside feature cards) */
+.mini-ba {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background: #0a0a0a;
+    margin-bottom: 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    cursor: ew-resize;
+}
+
+.mini-ba-base,
+.mini-ba-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    pointer-events: none;
+    user-select: none;
+}
+
+.mini-ba-clip {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: inset(0 0 0 50%);
+    z-index: 2;
+}
+
+.mini-ba-div {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: #fff;
+    transform: translateX(-50%);
+    z-index: 4;
+    pointer-events: none;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.mini-ba-slider {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: ew-resize;
+    z-index: 8;
+    margin: 0;
+}
+
+.mini-ba-handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 6;
+    pointer-events: none;
+}
+
+.mini-handle-pill {
+    width: 36px;
+    height: 36px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.06), 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+.mini-lbl {
+    position: absolute;
+    bottom: 10px;
+    z-index: 5;
+    pointer-events: none;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    padding: 3px 10px;
+    border-radius: 60px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mini-lbl-b {
+    left: 10px;
+    color: #999;
+}
+
+.mini-lbl-a {
+    right: 10px;
+    color: #fff;
+}
+
+/* Responsive adjustments for sliders */
+@media (max-width: 640px) {
+    .ba-wrapper {
+        height: 340px;
+        border-radius: 1.5rem;
+    }
+
+    .handle-pill {
+        width: 44px;
+        height: 44px;
+    }
+
+    .ba-label {
+        font-size: 0.6rem;
+        padding: 4px 12px;
+    }
+
+    .mini-ba {
+        height: 200px;
+    }
+}
+
+/* Touch device slider visibility */
+@media (hover: none) and (pointer: coarse) {
+    .ba-slider-input,
+    .mini-ba-slider {
+        opacity: 0.01;
+    }
+}

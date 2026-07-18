@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="sw" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Ukurasa Haupatikani | Watu Lab</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#050505">
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Space Grotesk', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            overflow: hidden;
+        }
+        /* Background blobs */
+        .blob-wrap { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            animation: blob 7s infinite;
+        }
+        .blob-1 { width: 24rem; height: 24rem; background: #1a1a1a; top: 0; left: 25%; opacity: 0.2; }
+        .blob-2 { width: 24rem; height: 24rem; background: #111; top: 50%; right: 25%; opacity: 0.2; animation-delay: 2s; }
+        @keyframes blob {
+            0%   { transform: translate(0,0) scale(1); }
+            33%  { transform: translate(30px,-50px) scale(1.1); }
+            66%  { transform: translate(-20px,20px) scale(0.9); }
+            100% { transform: translate(0,0) scale(1); }
+        }
+
+        /* Glitch effect on 404 */
+        .error-code {
+            font-size: clamp(6rem, 20vw, 12rem);
+            font-weight: 700;
+            letter-spacing: -0.05em;
+            line-height: 1;
+            color: #ffffff;
+            position: relative;
+            animation: glitch 3s infinite;
+        }
+        .error-code::before,
+        .error-code::after {
+            content: '404';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+        }
+        .error-code::before { color: rgba(255,100,100,0.5); animation: glitch-1 3s infinite; clip-path: polygon(0 0,100% 0,100% 33%,0 33%); }
+        .error-code::after  { color: rgba(100,200,255,0.5); animation: glitch-2 3s infinite; clip-path: polygon(0 66%,100% 66%,100% 100%,0 100%); }
+        @keyframes glitch-1 { 0%,95%{transform:translate(0)}96%{transform:translate(-4px,2px)}98%{transform:translate(4px,-2px)}100%{transform:translate(0)} }
+        @keyframes glitch-2 { 0%,95%{transform:translate(0)}96%{transform:translate(4px,-2px)}98%{transform:translate(-4px,2px)}100%{transform:translate(0)} }
+
+        .content { position: relative; z-index: 1; max-width: 38rem; }
+        .subtitle  { font-size: 1.5rem; font-weight: 600; margin: 1rem 0 0.5rem; letter-spacing: -0.02em; }
+        .desc      { color: #9ca3af; font-weight: 300; line-height: 1.7; margin-bottom: 2.5rem; }
+        .home-btn  {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 1rem 2.5rem; background: #ffffff; color: #050505;
+            font-weight: 700; border-radius: 9999px; text-decoration: none;
+            transition: all 0.3s ease; font-size: 0.9rem; letter-spacing: 0.02em;
+        }
+        .home-btn:hover { background: #e5e7eb; transform: scale(1.05); }
+        .brand {
+            margin-top: 3rem;
+            font-size: 0.75rem;
+            color: #4b5563;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="blob-wrap">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="content">
+        <div class="error-code">404</div>
+        <p class="subtitle">Ukurasa Haukupatikana</p>
+        <p class="desc">Ukurasa unaotafuta haupo, umehamishwa, au haupatikani kwa sasa. Rudi kwenye ukurasa wa kwanza.</p>
+        <a href="/" class="home-btn">
+            <i class="fas fa-arrow-left" style="font-size:0.75rem"></i>
+            Rudi Nyumbani
+        </a>
+        <p class="brand notranslate">Watu Lab &nbsp;·&nbsp; watulab.com</p>
+    </div>
+</body>
+</html>

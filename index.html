@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="sw" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watu Lab</title>
+    <!-- ═══ SEO ═══ -->
+    <meta name="description" content="Watu Lab — wavumbuzi na watatuzi wa changamoto za kidigitali. Tunaunda programu za kisasa, mifumo ya AI, na bidhaa za kidijitali kwa ajili ya Afrika Mashariki na zaidi.">
+    <link rel="canonical" href="https://watulab.com/">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#050505">
+
+    <!-- ═══ Open Graph ═══ -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://watulab.com/">
+    <meta property="og:title" content="Watu Lab — Bidhaa Bora Za Kidijitali kwa Watu">
+    <meta property="og:description" content="Wavumbuzi na watatuzi wa changamoto za kidigitali. Programu za kisasa, AI, na mifumo ya kidijitali kwa Afrika Mashariki.">
+    <meta property="og:image" content="https://watulab.com/assets/logo.jpeg">
+    <meta property="og:locale" content="sw_TZ">
+
+    <!-- ═══ Twitter Card ═══ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Watu Lab — Bidhaa Bora Za Kidijitali">
+    <meta name="twitter:description" content="Wavumbuzi na watatuzi wa changamoto za kidigitali kwa Afrika Mashariki.">
+    <meta name="twitter:image" content="https://watulab.com/assets/logo.jpeg">
+
+    <!-- ═══ JSON-LD Structured Data ═══ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Watu Lab",
+      "url": "https://watulab.com",
+      "logo": "https://watulab.com/assets/logo.jpeg",
+      "description": "Wavumbuzi na watatuzi wa changamoto za kidigitali kwa Afrika Mashariki.",
+      "email": "info@watulab.com",
+      "telephone": "+255788129212",
+      "foundingDate": "2022",
+      "sameAs": [
+        "https://instagram.com/watu.lab"
+      ]
+    }
+    </script>
+
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#050505',
+                            dark: '#0a0a0a',
+                            grey: '#1a1a1a',
+                            light: '#d4d4d4',
+                            white: '#ffffff'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                    },
+                    animation: {
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'blob': 'blob 7s infinite',
+                        'fade-up': 'fadeUp 0.8s ease-out forwards',
+                        'bouncePop': 'bouncePop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
+                    },
+                    keyframes: {
+                        glow: {
+                            '0%': { textShadow: '0 0 5px rgba(255,255,255,0.1)' },
+                            '100%': { textShadow: '0 0 20px rgba(255,255,255,0.8), 0 0 10px rgba(255,255,255,0.6)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' }
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        bouncePop: {
+                            '0%': { opacity: '0', transform: 'scale(0.8) translateY(20px)' },
+                            '60%': { opacity: '1', transform: 'scale(1.05) translateY(-5px)' },
+                            '100%': { opacity: '1', transform: 'scale(1) translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="page-transition">
+        <div class="notranslate brand-text show" id="transition-text">WATU LAB</div>
+    </div>
+
+    <div id="intro-overlay" class="notranslate" translate="no">
+        <div id="intro-sequence" class="hidden absolute inset-0 flex items-center justify-center z-10">
+            <h1 id="sequence-text" class="intro-text text-3xl md:text-5xl text-white tracking-tighter"></h1>
+        </div>
+    </div>
+
+    <div id="main-content">
+
+        <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+            <div
+                class="absolute top-0 left-1/4 w-96 h-96 bg-gray-800 rounded-full mix-blend-screen filter blur-[100px] opacity-20 animate-blob">
+            </div>
+            <div class="absolute top-1/2 right-1/4 w-96 h-96 bg-gray-700 rounded-full mix-blend-screen filter blur-[100px] opacity-20 animate-blob"
+                style="animation-delay: 2s"></div>
+            <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-gray-900 rounded-full mix-blend-screen filter blur-[100px] opacity-30 animate-blob"
+                style="animation-delay: 4s"></div>
+            <div id="mouse-blob"
+                class="absolute w-[400px] h-[400px] bg-white rounded-full mix-blend-overlay filter blur-[120px] opacity-5 transition-transform duration-1000 ease-out"
+                style="top: -200px; left: -200px;"></div>
+        </div>
+
+        <nav class="glass-nav fixed w-full z-40 top-0 pt-5 md:pt-0">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex-shrink-0 flex items-center gap-3">
+                        <div
+                            class="h-10 w-10 border border-white/20 rounded-full flex items-center justify-center overflow-hidden bg-brand-grey transition-transform hover:rotate-12">
+                            <img src="/assets/logo.jpeg" alt="Wakishua Logo" class="object-cover h-full w-full"
+                                id="nav-logo">
+                        </div>
+                        <span class="notranslate font-bold text-xl tracking-tight cursor-default">WATU LAB</span>
+                    </div>
+
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-8">
+                            <a href="#services"
+                                class="nav-link text-sm font-medium transition-colors text-gray-300 hover:text-white px-1 py-2">Huduma</a>
+                            <a href="#about"
+                                class="nav-link text-sm font-medium transition-colors text-gray-300 hover:text-white px-1 py-2">Kuhusu
+                                Sisi</a>
+                            <a href="/projects/"
+                                class="nav-link text-sm font-medium transition-colors text-gray-300 hover:text-white px-1 py-2">Miradi</a>
+                            <a href="#contact"
+                                class="px-6 py-2 rounded-full text-sm font-bold bg-white text-black hover:bg-gray-200 transition-all transform hover:scale-105">Wasiliana</a>
+                        </div>
+                    </div>
+
+                    <div class="-mr-2 flex md:hidden">
+                        <button onclick="toggleMobileMenu()"
+                            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white focus:outline-none">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:hidden hidden bg-black/95 backdrop-blur-xl border-b border-gray-800 absolute w-full transition-all duration-300 origin-top"
+                id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="#services"
+                        class="mobile-menu-item block px-3 py-4 text-lg font-medium border-b border-gray-800 opacity-0 -translate-y-4 transition-all duration-300 ease-out">Huduma</a>
+                    <a href="#about"
+                        class="mobile-menu-item block px-3 py-4 text-lg font-medium border-b border-gray-800 opacity-0 -translate-y-4 transition-all duration-300 ease-out">Kuhusu
+                        Sisi</a>
+                    <a href="/projects/"
+                        class="mobile-menu-item block px-3 py-4 text-lg font-medium border-b border-gray-800 opacity-0 -translate-y-4 transition-all duration-300 ease-out">Miradi</a>
+                    <a href="#contact"
+                        class="mobile-menu-item block px-3 py-4 text-lg font-medium bg-white/80 text-black mt-4 text-center rounded-lg opacity-0 -translate-y-4 transition-all duration-300 ease-out">Wasiliana</a>
+                </div>
+            </div>
+        </nav>
+
+        <section
+            class="min-h-[100svh] flex items-start justify-center pt-24 pb-10 md:pt-20 md:pb-0 px-12 md:px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center reveal active md:pt-0 relative">
+                <p
+                    class="absolute top-0 left-0 right-0 text-brand-light text-sm md:text-base tracking-[0.3em] uppercase opacity-70">
+                    Wavumbuzi na watatuzi wa changamoto za kidigitali</p>
+                <h1
+                    class="mt-24 md:mt-10 text-3xl md:text-7xl lg:text-9xl font-bold mb-8 leading-tight tracking-tighter mix-blend-difference">
+                    <span>Bidhaa Bora</span><br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-gray-600">Za
+                        Kidijitali, kwa ajili ya watu.</span>
+                </h1>
+                <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light leading-relaxed">Tunaelewa
+                    kero na changamoto za kiteknolojia, kwa kutumia ubunifu na ubobezi wetu, tunaunda programu maalum
+                    kwa kutumia teknolojia za kisasa ili kutatua changamoto mbaili mbali zinazoikumba jamii </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-6">
+                    <a href="#contact"
+                        class="group relative px-8 py-4 bg-white text-black font-bold rounded-full overflow-hidden transition-all hover:pr-10">
+                        <span class="relative z-10">Anza Mradi</span>
+                        <div
+                            class="absolute inset-0 bg-gray-200 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left">
+                        </div>
+                        <i
+                            class="fas fa-arrow-right absolute right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all z-10 text-xs"></i>
+                    </a>
+                    <a href="#services"
+                        class="px-8 py-4 border border-white/10 text-white font-medium rounded-full hover:bg-white/5 hover:border-white/30 transition-all backdrop-blur-sm">Ona
+                        Huduma</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- <div class="swipe-indicator fixed bottom-20 left-1/2 transform -translate-x-1/2 z-20 text-white text-center hidden md:hidden"
+            id="swipe-indicator">
+            <div class="flex flex-col items-center">
+                <i class="fas fa-chevron-down text-2xl mb-2 animate-bounce"></i>
+                <span class="text-sm font-medium">Swipe to explore</span>
+            </div>
+        </div> -->
+
+        <!-- ====== MOBILE SIDE SCROLL INDICATORS ====== -->
+        <!-- These chevrons appear only on mobile. Hidden by default on md and larger (md:hidden). -->
+        <!-- TO ADJUST VERTICAL POSITION: change "items-start" to "items-center" (middle). "pt-32" controls the space from the top. -->
+        <div id="side-scroll-indicators"
+            class="fixed inset-y-0 left-0 right-0 z-20 pointer-events-none flex justify-between px-2 items-start pt-28 md:hidden">
+            <!-- Left side chevrons -->
+            <div class="flex flex-col items-center gradient-chevrons">
+                <i class="fas fa-chevron-up"></i>
+                <i class="fas fa-chevron-up"></i>
+                <i class="fas fa-chevron-up"></i>
+                <i class="fas fa-chevron-up"></i>
+                <i class="fas fa-chevron-up"></i>
+                <i class="fas fa-chevron-up"></i>
+                <i class="fas fa-chevron-up"></i>
+            </div>
+            <!-- Right side chevrons -->
+            <div class="flex flex-col items-center gradient-chevrons">
+                <i class="fas fa-chevron-up"></i>
+                <i class="fas fa-chevron-up"></i>
+                <i class="fas fa-chevron-up"></i>
+                <i class="fas fa-chevron-up"></i>
+                <i class="fas fa-chevron-up"></i>
+                <i class="fas fa-chevron-up"></i>
+                <i class="fas fa-chevron-up"></i>
+            </div>
+        </div>
+
+        <section id="services" class="py-24 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
+                    <div>
+                        <h2 class="text-4xl md:text-6xl font-bold mb-2 tracking-tighter">Utaalam Wetu</h2>
+                        <div class="h-1 w-20 bg-white"></div>
+                    </div>
+                    <p class="text-gray-400 max-w-sm mt-6 md:mt-0 text-right md:text-left">Solving problems with clarity
+                        and simplicity.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div
+                        class="glass-card p-10 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-gray-500/50 cursor-pointer">
+                        <div
+                            class="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all text-gray-300">
+                            <i class="fas fa-arrow-up-right-from-square text-xl"></i>
+                        </div>
+                        <div
+                            class="h-16 w-16 bg-gray-700/50 text-gray-300 rounded-2xl flex items-center justify-center mb-8 text-3xl transition-transform group-hover:scale-110">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Uundaji wa Programu za Kompyuta na za simu</h3>
+                        <p class="text-gray-400 text-base leading-relaxed">Tunaunda mifumo na programu za kisasa ,zinazo
+                            tatua changamoto mbali mbali, zikilenga zaidi kukidhi mahitaji ya mtumiaji.</p>
+                    </div>
+
+                    <div class="glass-card p-10 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-gray-500/50 cursor-pointer"
+                        style="animation-delay: 150ms">
+                        <div
+                            class="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all text-gray-300">
+                            <i class="fas fa-arrow-up-right-from-square text-xl"></i>
+                        </div>
+                        <div
+                            class="h-16 w-16 bg-gray-700/50 text-gray-300 rounded-2xl flex items-center justify-center mb-8 text-3xl transition-transform group-hover:scale-110">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Akili Mnemba (AI)</h3>
+                        <p class="text-gray-400 text-base leading-relaxed">Tunatengeneza suluhisho za AI zinazosaidia
+                            watu na jamii kuongeza ufanisi wa kazi zao, kuboresha michakato ya kila siku, na kupata
+                            maarifa muhimu kwa maendeleo ya jamii.</p>
+                    </div>
+
+                    <div class="glass-card p-10 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-gray-500/50 cursor-pointer"
+                        style="animation-delay: 300ms">
+                        <div
+                            class="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all text-gray-300">
+                            <i class="fas fa-arrow-up-right-from-square text-xl"></i>
+                        </div>
+                        <div
+                            class="h-16 w-16 bg-gray-700/50 text-gray-300 rounded-2xl flex items-center justify-center mb-8 text-3xl transition-transform group-hover:scale-110">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Mageuzi ya Kidijitali</h3>
+                        <p class="text-gray-400 text-base leading-relaxed">Tunawaongoza wafanyabiashara na jamii kwa
+                            ujumla kupitia mageuzi ya kidijitali, kuanzia mikakati mpaka utekelezaji halisi katika
+                            kutatua changamoto zao.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="industries" class="relative z-10 w-full bg-black/50">
+            <!-- 400vh Scroll Track -->
+            <div class="relative w-full h-[400vh]" id="industries-scroll-track">
+
+                <!-- The flex-col Sticky Wrapper -->
+                <div
+                    class="sticky top-0 w-full h-screen overflow-hidden flex flex-col items-center justify-center gap-10 md:gap-24 pb-10 z-40">
+
+                    <div class="text-center shrink-0 w-full px-4 mt-20 md:mt-24">
+                        <p class="text-gray-400 text-sm font-bold tracking-[0.2em] uppercase mb-4">Sekta</p>
+                        <h2 class="text-3xl md:text-5xl font-bold mb-2 tracking-tighter">Jenga na ukue pamoja nasi</h2>
+                        <h2 class="text-3xl md:text-5xl font-bold text-gray-400 tracking-tighter">katika sekta yako</h2>
+                    </div>
+
+                    <!-- The relative height-constrained cards zone -->
+                    <div class="relative w-full max-w-5xl flex-1 px-4 flex items-center justify-center">
+                        <div class="relative w-full h-[55vh] md:h-[450px]">
+
+                            <!-- Card 1 -->
+                            <div class="stack-anim-card absolute inset-0 flex flex-col items-center justify-center w-full h-full rounded-3xl border border-white/10 bg-[#080808] backdrop-blur-none shadow-[0_-20px_50px_rgba(0,0,0,0.8)] origin-top z-10 will-change-transform"
+                                id="anim-card-1">
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 px-4 md:px-12 w-full">
+                                    <div
+                                        class="glass-card p-4 md:p-8 rounded-2xl flex flex-col items-center justify-center text-center border border-white/5 bg-white/5 hover:bg-white/10 transition-colors">
+                                        <i class="fas fa-tractor text-3xl md:text-4xl text-green-600 mb-2 md:mb-4"></i>
+                                        <h3 class="text-sm md:text-base font-bold text-white">Kilimo</h3>
+                                    </div>
+                                    <div
+                                        class="glass-card p-4 md:p-8 rounded-2xl flex flex-col items-center justify-center text-center border border-white/5 bg-white/5 hover:bg-white/10 transition-colors">
+                                        <i
+                                            class="fas fa-university text-3xl md:text-4xl text-amber-400 mb-2 md:mb-4"></i>
+                                        <h3 class="text-sm md:text-base font-bold text-white">Benki & Fedha</h3>
+                                    </div>
+                                    <div
+                                        class="glass-card p-4 md:p-8 rounded-2xl flex flex-col items-center justify-center text-center border border-white/5 bg-white/5 hover:bg-white/10 transition-colors">
+                                        <i
+                                            class="fas fa-landmark text-3xl md:text-4xl text-emerald-600 mb-2 md:mb-4"></i>
+                                        <h3 class="text-sm md:text-base font-bold text-white">Serikali</h3>
+                                    </div>
+                                    <div
+                                        class="glass-card p-4 md:p-8 rounded-2xl flex flex-col items-center justify-center text-center border border-white/5 bg-white/5 hover:bg-white/10 transition-colors">
+                                        <i class="fas fa-heartbeat text-3xl md:text-4xl text-pink-400 mb-2 md:mb-4"></i>
+                                        <h3 class="text-sm md:text-base font-bold text-white">Afya</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="stack-anim-card absolute inset-0 flex flex-col items-center justify-center w-full h-full rounded-3xl border border-white/10 bg-[#0a0a0a] backdrop-blur-none shadow-[0_-20px_50px_rgba(0,0,0,0.8)] origin-top z-20 will-change-transform translate-y-[120%] opacity-0"
+                                id="anim-card-2">
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 px-4 md:px-12 w-full">
+                                    <div
+                                        class="glass-card p-4 md:p-8 rounded-2xl flex flex-col items-center justify-center text-center border border-white/5 bg-white/5 hover:bg-white/10 transition-colors">
+                                        <i
+                                            class="fas fa-shield-alt text-3xl md:text-4xl text-orange-400 mb-2 md:mb-4"></i>
+                                        <h3 class="text-sm md:text-base font-bold text-white">Bima</h3>
+                                    </div>
+                                    <div
+                                        class="glass-card p-4 md:p-8 rounded-2xl flex flex-col items-center justify-center text-center border border-white/5 bg-white/5 hover:bg-white/10 transition-colors">
+                                        <i class="fas fa-truck text-3xl md:text-4xl text-sky-600 mb-2 md:mb-4"></i>
+                                        <h3 class="text-sm md:text-base font-bold text-white">Usafirishaji & Ugavi</h3>
+                                    </div>
+                                    <div
+                                        class="glass-card p-4 md:p-8 rounded-2xl flex flex-col items-center justify-center text-center border border-white/5 bg-white/5 hover:bg-white/10 transition-colors">
+                                        <i
+                                            class="fas fa-hard-hat text-3xl md:text-4xl text-yellow-600 mb-2 md:mb-4"></i>
+                                        <h3 class="text-sm md:text-base font-bold text-white">Madini</h3>
+                                    </div>
+                                    <div
+                                        class="glass-card p-4 md:p-8 rounded-2xl flex flex-col items-center justify-center text-center border border-white/5 bg-white/5 hover:bg-white/10 transition-colors">
+                                        <i
+                                            class="fas fa-building-ngo text-3xl md:text-4xl text-lime-600 mb-2 md:mb-4"></i>
+                                        <h3 class="text-sm md:text-base font-bold text-white">Mashirika Yasiyo ya
+                                            Kiserikali (NGOs)</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="stack-anim-card absolute inset-0 flex flex-col items-center justify-center w-full h-full rounded-3xl border border-white/10 bg-[#111111] backdrop-blur-none shadow-[0_-20px_50px_rgba(0,0,0,0.8)] origin-top z-30 will-change-transform translate-y-[120%] opacity-0"
+                                id="anim-card-3">
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 px-4 md:px-12 w-full">
+                                    <div
+                                        class="glass-card p-4 md:p-8 rounded-2xl flex flex-col items-center justify-center text-center border border-white/5 bg-white/5 hover:bg-white/10 transition-colors">
+                                        <i
+                                            class="fas fa-graduation-cap text-3xl md:text-4xl text-blue-400 mb-2 md:mb-4"></i>
+                                        <h3 class="text-sm md:text-base font-bold text-white">Education</h3>
+                                    </div>
+                                    <div
+                                        class="glass-card p-4 md:p-8 rounded-2xl flex flex-col items-center justify-center text-center border border-white/5 bg-white/5 hover:bg-white/10 transition-colors">
+                                        <i class="fas fa-plane text-3xl md:text-4xl text-teal-400 mb-2 md:mb-4"></i>
+                                        <h3 class="text-sm md:text-base font-bold text-white">Tourism</h3>
+                                    </div>
+                                    <div
+                                        class="glass-card p-4 md:p-8 rounded-2xl flex flex-col items-center justify-center text-center border border-white/5 bg-white/5 hover:bg-white/10 transition-colors">
+                                        <i
+                                            class="fas fa-shopping-cart text-3xl md:text-4xl text-purple-400 mb-2 md:mb-4"></i>
+                                        <h3 class="text-sm md:text-base font-bold text-white">E-Commerce</h3>
+                                    </div>
+                                    <div
+                                        class="glass-card p-4 md:p-8 rounded-2xl flex flex-col items-center justify-center text-center border border-white/5 bg-white/5 hover:bg-white/10 transition-colors">
+                                        <i class="fas fa-film text-3xl md:text-4xl text-red-400 mb-2 md:mb-4"></i>
+                                        <h3 class="text-sm md:text-base font-bold text-white">Entertainment</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-24 relative z-10">
+            <div class="max-w-6xl mx-auto px-4 reveal bg-[#050505] shadow-[0_-20px_50px_rgba(0,0,0,0.5)] rounded-3xl">
+                <div class="glass-card rounded-3xl p-8 md:p-16 border border-white/5 bg-black/40">
+                    <div class="flex flex-col md:flex-row gap-12">
+                        <div class="w-full md:w-1/3 border-r border-white/10 pr-0 md:pr-12 space-y-8">
+                            <h2 class="text-3xl font-bold mb-8">About Us</h2>
+                            <div class="flex flex-col items-start gap-6">
+                                <button onclick="switchTab('mission')" id="btn-mission"
+                                    class="tab-btn active text-xl uppercase tracking-widest font-light">Mission</button>
+                                <button onclick="switchTab('vision')" id="btn-vision"
+                                    class="tab-btn text-xl uppercase tracking-widest font-light">Vision</button>
+                                <button onclick="switchTab('why')" id="btn-why"
+                                    class="tab-btn text-xl uppercase tracking-widest font-light">Why Us</button>
+                            </div>
+                        </div>
+
+                        <div class="w-full md:w-2/3 pt-4 grid">
+                            <div id="content-mission" class="tab-content active">
+                                <h3 class="text-2xl text-white mb-6">Dhumuni Letu</h3>
+                                <p class="text-gray-400 text-lg leading-relaxed font-light">Kuwawezesha watu katika
+                                    jamii kutumia mbinu sahihi na mifumo ya kisasa ya kidijitali. Kwani tunaamini katika
+                                    nguvu ya teknolojia katika kuboresha maisha na kutatua changamoto za watu na kukuza
+                                    maendeleo ya jamii kiujumla.</p>
+                            </div>
+                            <div id="content-vision" class="tab-content">
+                                <h3 class="text-2xl text-white mb-6">Maono Yetu</h3>
+                                <p class="text-gray-400 text-lg leading-relaxed font-light">Kutengeneza mifumo bora
+                                    zaidi na yenye usalama kwa ajili ya watu katika jamii zetu, itakayo wawezesha watu
+                                    kukabili changamoto mbali mbali za kila siku kwa kutumia mifumo ya kidigitali kwa
+                                    ajili ya kukuza maendeleo katika jamii.</p>
+                            </div>
+                            <div id="content-why" class="tab-content">
+                                <h3 class="text-2xl text-white mb-6">Kwa Nini Sisi</h3>
+                                <ul class="space-y-4 text-gray-400 font-light">
+                                    <li class="flex items-center gap-3">
+                                        <i
+                                            class="fas fa-check text-white text-xs border border-white rounded-full p-1"></i>
+                                        <span>Mikakati inayotegemea data</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i
+                                            class="fas fa-check text-white text-xs border border-white rounded-full p-1"></i>
+                                        <span>Ubunifu wa kisasa na unaozingatia ubora</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i
+                                            class="fas fa-check text-white text-xs border border-white rounded-full p-1"></i>
+                                        <span>Msaada wa karibu 24/7</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12 relative z-10 border-b border-white/5 overflow-hidden">
+            <h3 class="text-center text-gray-400 font-light tracking-[0.2em] uppercase text-sm mb-12">Zana za Kazi</h3>
+            <div class="relative flex w-full group">
+                <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-theme-dark to-transparent z-10 pointer-events-none"
+                    style="background: linear-gradient(to right, #050505 0%, transparent 100%);"></div>
+                <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-theme-dark to-transparent z-10 pointer-events-none"
+                    style="background: linear-gradient(to left, #050505 0%, transparent 100%);"></div>
+
+                <div id="tech-marquee" class="flex w-full overflow-x-hidden cursor-grab no-scrollbar select-none py-4">
+                    <div class="flex gap-16 md:gap-24 pr-16 md:pr-24 items-center shrink-0">
+                        <div
+                            class="flex flex-col items-center justify-center gap-4 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-amazonwebservices-plain-wordmark text-6xl md:text-7xl text-gray-400 hover:text-white transition-colors"></i>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center gap-4 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-googlecloud-plain-wordmark text-6xl md:text-7xl text-gray-400 hover:text-white transition-colors"></i>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center gap-4 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-azure-plain-wordmark text-6xl md:text-7xl text-gray-400 hover:text-white transition-colors"></i>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-react-original text-6xl text-gray-400 hover:text-[#61DAFB] transition-colors"></i><span
+                                class="text-xs font-bold tracking-widest text-gray-500">REACT</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-nodejs-plain text-6xl text-gray-400 hover:text-[#339933] transition-colors"></i><span
+                                class="text-xs font-bold tracking-widest text-gray-500">NODE.JS</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-spring-original text-6xl text-gray-400 hover:text-[#6DB33F] transition-colors"></i><span
+                                class="text-xs font-bold tracking-widest text-gray-500">SPRING BOOT</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-nextjs-plain text-6xl text-gray-400 hover:text-white transition-colors"></i><span
+                                class="text-xs font-bold tracking-widest text-gray-500">NEXT.JS</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-flutter-plain text-6xl text-gray-400 hover:text-[#02569B] transition-colors"></i><span
+                                class="text-xs font-bold tracking-widest text-gray-500">FLUTTER</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-kotlin-plain text-6xl text-gray-400 hover:text-[#7F52FF] transition-colors"></i><span
+                                class="text-xs font-bold tracking-widest text-gray-500">KOTLIN</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-docker-plain text-6xl text-gray-400 hover:text-[#2496ED] transition-colors"></i><span
+                                class="text-xs font-bold tracking-widest text-gray-500">DOCKER</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-python-plain text-6xl text-gray-400 hover:text-[#3776AB] transition-colors"></i><span
+                                class="text-xs font-bold tracking-widest text-gray-500">PYTHON</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-typescript-plain text-6xl text-gray-400 hover:text-[#3178C6] transition-colors"></i><span
+                                class="text-xs font-bold tracking-widest text-gray-500">TYPESCRIPT</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-java-plain text-6xl text-gray-400 hover:text-[#ED8B00] transition-colors"></i><span
+                                class="text-xs font-bold tracking-widest text-gray-500">JAVA</span>
+                        </div>
+                    </div>
+                    <div class="flex gap-16 md:gap-24 pr-16 md:pr-24 items-center shrink-0" aria-hidden="true">
+                        <div
+                            class="flex flex-col items-center justify-center gap-4 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-amazonwebservices-plain-wordmark text-6xl md:text-7xl text-gray-400 hover:text-white transition-colors"></i>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center gap-4 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-googlecloud-plain-wordmark text-6xl md:text-7xl text-gray-400 hover:text-white transition-colors"></i>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center gap-4 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-azure-plain-wordmark text-6xl md:text-7xl text-gray-400 hover:text-white transition-colors"></i>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-react-original text-6xl text-gray-400 hover:text-[#61DAFB] transition-colors"></i><span
+                                class="text-xs font-bold tracking-widest text-gray-500">REACT</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-nodejs-plain text-6xl text-gray-400 hover:text-[#339933] transition-colors"></i><span
+                                class="text-xs font-bold tracking-widest text-gray-500">NODE.JS</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-spring-original text-6xl text-gray-400 hover:text-[#6DB33F] transition-colors"></i><span
+                                class="text-xs font-bold tracking-widest text-gray-500">SPRING BOOT</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-nextjs-plain text-6xl text-gray-400 hover:text-white transition-colors"></i><span
+                                class="text-xs font-bold tracking-widest text-gray-500">NEXT.JS</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-flutter-plain text-6xl text-gray-400 hover:text-[#02569B] transition-colors"></i><span
+                                class="text-xs font-bold tracking-widest text-gray-500">FLUTTER</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-kotlin-plain text-6xl text-gray-400 hover:text-[#7F52FF] transition-colors"></i><span
+                                class="text-xs font-bold tracking-widest text-gray-500">KOTLIN</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-docker-plain text-6xl text-gray-400 hover:text-[#2496ED] transition-colors"></i><span
+                                class="text-xs font-bold tracking-widest text-gray-500">DOCKER</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-python-plain text-6xl text-gray-400 hover:text-[#3776AB] transition-colors"></i><span
+                                class="text-xs font-bold tracking-widest text-gray-500">PYTHON</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-typescript-plain text-6xl text-gray-400 hover:text-[#3178C6] transition-colors"></i><span
+                                class="text-xs font-bold tracking-widest text-gray-500">TYPESCRIPT</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 opacity-50 hover:opacity-100 transition-opacity cursor-pointer transform hover:scale-110 duration-300">
+                            <i
+                                class="devicon-java-plain text-6xl text-gray-400 hover:text-[#ED8B00] transition-colors"></i><span
+                                class="text-xs font-bold tracking-widest text-gray-500">JAVA</span>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+
+        <section id="stats" class="py-16 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                    <div
+                        class="glass-card p-8 rounded-2xl flex flex-col justify-center reveal-bounce border border-white/5 relative overflow-hidden group">
+                        <i
+                            class="fas fa-calendar-alt absolute -right-4 -bottom-4 text-7xl text-white/5 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="text-4xl md:text-5xl font-bold text-white mb-2">2022</h3>
+                        <p class="text-gray-400 text-sm md:text-base font-light">Mwaka Ulionzishwa</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl flex flex-col justify-center reveal-bounce border border-white/5 relative overflow-hidden group"
+                        style="animation-delay: 100ms">
+                        <i
+                            class="fas fa-lightbulb absolute -right-4 -bottom-4 text-7xl text-white/5 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="text-4xl md:text-5xl font-bold text-white mb-2">8+</h3>
+                        <p class="text-gray-400 text-sm md:text-base font-light">Mifumo Iliyotengenezwa</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl flex flex-col justify-center reveal-bounce border border-white/5 relative overflow-hidden group"
+                        style="animation-delay: 200ms">
+                        <i
+                            class="fas fa-users absolute -right-4 -bottom-4 text-7xl text-white/5 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="text-4xl md:text-5xl font-bold text-white mb-2">6+</h3>
+                        <p class="text-gray-400 text-sm md:text-base font-light">Wataalamu Wa Teknolojia</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl flex flex-col justify-center reveal-bounce border border-white/5 relative overflow-hidden group"
+                        style="animation-delay: 300ms">
+                        <i
+                            class="fas fa-globe-africa absolute -right-4 -bottom-4 text-7xl text-white/5 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="text-4xl md:text-5xl font-bold text-white mb-2">4+</h3>
+                        <p class="text-gray-400 text-sm md:text-base font-light">Nchi zitakazohudumiwa Afrika</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl flex flex-col justify-center reveal-bounce border border-white/5 relative overflow-hidden group"
+                        style="animation-delay: 400ms">
+                        <i
+                            class="fas fa-tachometer-alt absolute -right-4 -bottom-4 text-7xl text-white/5 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="text-4xl md:text-5xl font-bold text-white mb-2">9.8</h3>
+                        <p class="text-gray-400 text-sm md:text-base font-light">Alama Ya Ubora (NPS)</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl flex flex-col justify-center reveal-bounce border border-white/5 relative overflow-hidden group"
+                        style="animation-delay: 500ms">
+                        <i
+                            class="fas fa-award absolute -right-4 -bottom-4 text-7xl text-white/5 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="text-4xl md:text-5xl font-bold text-white mb-2">4+</h3>
+                        <p class="text-gray-400 text-sm md:text-base font-light">Miaka Ya Uzoefu</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24 relative z-10 bg-gradient-to-b from-transparent to-black/80">
+            <div
+                class="max-w-4xl mx-auto px-4 text-center reveal border border-white/5 rounded-3xl p-12 bg-gray-900/30 backdrop-blur-sm">
+
+                <p
+                    class="notranslate text-gray-400 text-lg md:text-xl md:tracking-widest uppercase mb-4 font-light reveal-bounce">
+                    Technology <span class="notranslate font-bold text-white" id="typewriter"></span><span
+                        class="animate-pulse text-white">|</span> for people.
+                </p>
+
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tighter">Tufanye Kazi Pamoja</h2>
+                <p class="text-gray-400 mb-10 text-lg font-light max-w-2xl mx-auto">Uko tayari kupeleka maisha yako au
+                    biashara yako ngazi nyingine? Wasiliana nasi.</p>
+                <a href="mailto:info@watulab.com"
+                    class="sci-fi-fluid-btn inline-flex items-center justify-center gap-3 px-10 py-5 text-black font-bold rounded-full transition-all transform hover:scale-105">
+                    Tuma Ujumbe <i class="fas fa-arrow-right"></i>
+                    </i>
+                </a>
+            </div>
+        </section>
+
+        <footer class="border-t border-gray-900 pt-16 pb-8 relative z-10 bg-black">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+
+                    <div>
+                        <h4 class="text-white font-bold text-xl mb-6">Kampuni</h4>
+                        <ul class="space-y-4">
+                            <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">Kuhusu
+                                    Sisi</a></li>
+                            <li><a href="/projects/" class="text-gray-400 hover:text-white transition-colors">Kazi
+                                    Zetu</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Wasiliana
+                                    Nasi</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold text-xl mb-6">Huduma</h4>
+                        <ul class="space-y-4">
+                            <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Akili
+                                    Mnemba (AI &amp; ML)</a></li>
+                            <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Uundaji wa
+                                    Programu za Kompyuta</a></li>
+                            <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Mageuzi ya
+                                    Kidijitali</a></li>
+                            <li><a href="/projects/"
+                                    class="text-gray-400 hover:text-white transition-colors">Programu za Simu</a></li>
+                            <li><a href="/projects/" class="text-gray-400 hover:text-white transition-colors">Mifumo
+                                    ya Kimtandao</a></li>
+                            <li><a href="/clients/glorahrts/" class="text-gray-400 hover:text-white transition-colors">GlorahArts
+                                    (Mteja Wetu)</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold text-xl mb-6">Ungana Nasi</h4>
+
+                        <div class="space-y-6">
+                            <a href="mailto:info@watulab.com"
+                                class="flex items-center gap-4 text-gray-400 hover:text-white transition-colors group">
+                                <div
+                                    class="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center group-hover:bg-green-600 transition-all">
+                                    <i class="fas fa-envelope text-sm"></i>
+                                </div>
+                                <span class="font-mono text-sm">info@watulab.com</span>
+                            </a>
+                            <a href="tel:+255788129212"
+                                class="flex items-center gap-4 text-gray-400 hover:text-white transition-colors group">
+                                <div
+                                    class="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center group-hover:bg-pink-600 transition-all">
+                                    <i class="fas fa-phone-alt text-sm"></i>
+                                </div>
+                                <span class="font-mono text-sm">+255 788 129 212</span>
+                            </a>
+
+                            <div class="flex gap-4 pt-2">
+                                <a href="#"
+                                    class="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-600 transition-all">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-sky-600 transition-all">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://instagram.com/watu.lab" target="_blank" rel="noopener noreferrer"
+                                    class="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-pink-600 transition-all">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-red-600 transition-all">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div
+                    class="notranslate border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm">
+                    <p>&copy; 2026 Watu Lab. All Rights Reserved.</p>
+                    <a href="/privacy/" class="hover:text-white transition-colors mt-4 md:mt-0">Sera ya Faragha</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

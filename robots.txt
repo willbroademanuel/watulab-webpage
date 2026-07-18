@@ -1,0 +1,5 @@
+﻿User-agent: *
+Allow: /
+Disallow: /clients/
+
+Sitemap: https://watulab.com/sitemap.xml
