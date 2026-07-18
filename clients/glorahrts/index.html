@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ═══ SEO ═══ -->
+    <title>GlorahArts | Bring Your Imagination to Life</title>
+    <meta name="description" content="GlorahArts — handcrafted artwork, paper crafts, logo design, fabric design, and gift items inspired by African culture. Custom creative works for every occasion.">
+    <link rel="canonical" href="https://watulab.com/clients/glorahrts/">
+    <!-- Client pages are hosted on watulab.com — noindex keeps SEO clean for both parties -->
+    <meta name="robots" content="noindex, follow">
+    <meta name="theme-color" content="#fff0f3">
+
+    <!-- ═══ Open Graph ═══ -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://watulab.com/clients/glorahrts/">
+    <meta property="og:title" content="GlorahArts | Bring Your Imagination to Life">
+    <meta property="og:description" content="Handcrafted artwork, paper crafts, logo design, and gift items inspired by African culture.">
+    <meta property="og:image" content="https://watulab.com/clients/glorahrts/assets/image-01.jpeg">
+
+    <!-- ═══ Twitter Card ═══ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GlorahArts | Bring Your Imagination to Life">
+    <meta name="twitter:description" content="Handcrafted artwork inspired by African culture.">
+    <meta name="twitter:image" content="https://watulab.com/clients/glorahrts/assets/image-01.jpeg">
+
+    <!-- ═══ JSON-LD Structured Data ═══ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "GlorahArts",
+      "description": "Handcrafted artwork, paper crafts, logo design, fabric design, and gift items.",
+      "url": "https://watulab.com/clients/glorahrts/",
+      "telephone": "+255678438537",
+      "email": "glorah.gift@icloud.com",
+      "sameAs": [
+        "https://instagram.com/_glorahrts",
+        "https://tiktok.com/@gloraharts",
+        "https://wa.me/255678438537"
+      ]
+    }
+    </script>
+
+    <!-- ═══ Fonts & Icons ═══ -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- ═══ Module CSS ═══ -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-50 text-gray-800 transition-colors duration-300">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/40 glass-effect px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center">
+            <span class="text-2xl font-bold bg-gradient-to-r from-pink-500 to-orange-400 bg-clip-text text-transparent tracking-tighter">GlorahArts</span>
+        </div>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex space-x-8">
+            <a href="#home" class="relative text-gray-700 hover:text-pink-500 transition-all duration-300 text-sm md:text-base group">
+                <span>Home</span><span class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#about" class="relative text-gray-700 hover:text-pink-500 transition-all duration-300 text-sm md:text-base group">
+                <span>About</span><span class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#services" class="relative text-gray-700 hover:text-pink-500 transition-all duration-300 text-sm md:text-base group">
+                <span>Services</span><span class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#portfolio" class="relative text-gray-700 hover:text-pink-500 transition-all duration-300 text-sm md:text-base group">
+                <span>Portfolio</span><span class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#contact" class="relative text-gray-700 hover:text-pink-500 transition-all duration-300 text-sm md:text-base group">
+                <span>Contact</span><span class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="flex items-center">
+            <button id="mobileMenuButton" aria-label="Open menu" class="md:hidden p-2 rounded-md text-gray-700 focus:outline-none hover:bg-pink-100 transition-all">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 bg-white/95 z-40 flex flex-col items-center justify-center hidden glass-effect">
+        <button id="closeMobileMenu" aria-label="Close menu" class="absolute top-8 right-8 text-gray-700 hover:text-pink-500 transition-all">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <nav class="flex flex-col items-center space-y-8">
+            <a href="#home"      class="text-2xl text-gray-700 hover:text-pink-500 transition-all px-4 py-2">Home</a>
+            <a href="#about"     class="text-2xl text-gray-700 hover:text-pink-500 transition-all px-4 py-2">About</a>
+            <a href="#services"  class="text-2xl text-gray-700 hover:text-pink-500 transition-all px-4 py-2">Services</a>
+            <a href="#portfolio" class="text-2xl text-gray-700 hover:text-pink-500 transition-all px-4 py-2">Portfolio</a>
+            <a href="#contact"   class="text-2xl text-gray-700 hover:text-pink-500 transition-all px-4 py-2">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient min-h-screen flex items-center justify-center px-4 pt-24 pb-16 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+            <div class="absolute top-1/3 right-1/4 w-64 h-64 bg-orange-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+            <div class="absolute bottom-1/4 left-1/2 w-64 h-64 bg-red-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+        </div>
+        <div class="max-w-5xl mx-auto text-center relative z-10 fade-in mt-10">
+            <div class="mb-8 slide-in-left">
+                <!-- ✅ Fixed: was <h3> (semantic error) — now proper <h1> for the brand name -->
+                <h1 class="hero-heading" style="font-size:4rem;font-weight:800;margin-bottom:1rem;background:linear-gradient(45deg,#FF6B6B,#FF8E53,#FFB3B3);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block;letter-spacing:-0.05em;">GlorahArts</h1>
+            </div>
+            <p class="text-5xl md:text-7xl font-bold text-white mb-6 md:mb-8 tracking-tight slide-in-right">
+                <span class="heading-gradient">Bring your imagination</span> to life
+            </p>
+            <p class="text-xl md:text-2xl text-white mb-10 max-w-3xl mx-auto leading-relaxed px-4 text-secondary">
+                Transforming creative visions into beautiful, handcrafted reality through art and design
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 px-4">
+                <a href="#contact" class="relative overflow-hidden bg-gradient-to-r from-pink-500 to-orange-400 text-white px-8 py-4 rounded-full font-medium hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-sm md:text-base glow-on-hover group">
+                    <span class="relative z-10">Let's Create Together</span>
+                    <span class="absolute inset-0 bg-gradient-to-r from-pink-600 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                </a>
+                <a href="#portfolio" class="border-2 border-white/30 text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 transform hover:scale-105 text-sm md:text-base">
+                    View Portfolio
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-0 right-0 flex justify-center">
+            <a href="#about" class="text-white animate-bounce" aria-label="Scroll to About">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center gap-12 px-4">
+                <div class="md:w-1/2 fade-in">
+                    <div class="artist-image-container">
+                        <img src="assets/image-01.jpeg" alt="Glorah — Artist and founder of GlorahArts" class="artist-image">
+                    </div>
+                </div>
+                <div class="md:w-1/2 fade-in">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
+                        About <span class="heading-gradient">Glorah</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-6 text-secondary">
+                        Inspired by the vibrant colors of African sunsets and the intricate patterns of traditional crafts, Glorah transforms ordinary materials into extraordinary works of art. Her journey began as a child watching her grandmother weave baskets, sparking a lifelong passion for creating beauty with her hands.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 text-secondary">
+                        Each piece Glorah creates tells a story, blending contemporary techniques with cultural heritage to bring your imagination to life. Her work has been featured in local exhibitions and has adorned homes across the region with its unique charm and craftsmanship.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <span class="text-sm bg-pink-100 text-pink-800 px-4 py-2 rounded-full">Handmade with love</span>
+                        <span class="text-sm bg-orange-100 text-orange-800 px-4 py-2 rounded-full">Cultural inspiration</span>
+                        <span class="text-sm bg-red-100 text-red-800 px-4 py-2 rounded-full">Unique designs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 px-6 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight">My <span class="heading-gradient">Services</span></h2>
+                <p class="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto px-4 text-secondary">Comprehensive creative solutions tailored to your artistic needs</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 px-4">
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover fade-in gradient-border">
+                    <div class="w-14 h-14 bg-pink-100 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-paint-brush text-2xl text-pink-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 heading-gradient">Custom Artwork</h3>
+                    <p class="text-gray-600 text-base md:text-lg mb-6 text-secondary">Hand-painted artworks tailored to your vision and space, perfect for home or office decoration.</p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="text-xs bg-pink-100 text-pink-800 px-3 py-1.5 rounded-full">Canvas</span>
+                        <span class="text-xs bg-pink-100 text-pink-800 px-3 py-1.5 rounded-full">Acrylic</span>
+                        <span class="text-xs bg-pink-100 text-pink-800 px-3 py-1.5 rounded-full">Watercolor</span>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover fade-in gradient-border" style="transition-delay:100ms">
+                    <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-cut text-2xl text-orange-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 heading-gradient">Paper Crafts</h3>
+                    <p class="text-gray-600 text-base md:text-lg mb-6 text-secondary">Elegant paper designs for invitations, decorations, and keepsakes with intricate detailing.</p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="text-xs bg-orange-100 text-orange-800 px-3 py-1.5 rounded-full">Greeting Cards</span>
+                        <span class="text-xs bg-orange-100 text-orange-800 px-3 py-1.5 rounded-full">Wall Art</span>
+                        <span class="text-xs bg-orange-100 text-orange-800 px-3 py-1.5 rounded-full">Origami</span>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover fade-in gradient-border" style="transition-delay:200ms">
+                    <div class="w-14 h-14 bg-red-100 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-pen-fancy text-2xl text-red-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 heading-gradient">Logo Design</h3>
+                    <p class="text-gray-600 text-base md:text-lg mb-6 text-secondary">Handcrafted logos that capture your brand's essence with artistic flair and cultural depth.</p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="text-xs bg-red-100 text-red-800 px-3 py-1.5 rounded-full">Business</span>
+                        <span class="text-xs bg-red-100 text-red-800 px-3 py-1.5 rounded-full">Personal Brand</span>
+                        <span class="text-xs bg-red-100 text-red-800 px-3 py-1.5 rounded-full">Events</span>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover fade-in gradient-border">
+                    <div class="w-14 h-14 bg-pink-100 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-gifts text-2xl text-pink-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 heading-gradient">Gift Items</h3>
+                    <p class="text-gray-600 text-base md:text-lg mb-6 text-secondary">Thoughtfully crafted personalized gifts that celebrate special moments and relationships.</p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="text-xs bg-pink-100 text-pink-800 px-3 py-1.5 rounded-full">Weddings</span>
+                        <span class="text-xs bg-pink-100 text-pink-800 px-3 py-1.5 rounded-full">Anniversaries</span>
+                        <span class="text-xs bg-pink-100 text-pink-800 px-3 py-1.5 rounded-full">Birthdays</span>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover fade-in gradient-border" style="transition-delay:100ms">
+                    <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-tshirt text-2xl text-orange-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 heading-gradient">Fabric Design</h3>
+                    <p class="text-gray-600 text-base md:text-lg mb-6 text-secondary">Custom fabric patterns and textile designs inspired by traditional and contemporary motifs.</p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="text-xs bg-orange-100 text-orange-800 px-3 py-1.5 rounded-full">Clothing</span>
+                        <span class="text-xs bg-orange-100 text-orange-800 px-3 py-1.5 rounded-full">Home Decor</span>
+                        <span class="text-xs bg-orange-100 text-orange-800 px-3 py-1.5 rounded-full">Accessories</span>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover fade-in gradient-border" style="transition-delay:200ms">
+                    <div class="w-14 h-14 bg-red-100 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-chalkboard-teacher text-2xl text-red-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 heading-gradient">Workshops</h3>
+                    <p class="text-gray-600 text-base md:text-lg mb-6 text-secondary">Hands-on creative workshops teaching various art and craft techniques for all skill levels.</p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="text-xs bg-red-100 text-red-800 px-3 py-1.5 rounded-full">Beginners</span>
+                        <span class="text-xs bg-red-100 text-red-800 px-3 py-1.5 rounded-full">Advanced</span>
+                        <span class="text-xs bg-red-100 text-red-800 px-3 py-1.5 rounded-full">Corporate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Featured <span class="heading-gradient">Projects</span></h2>
+                <p class="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto px-4 text-secondary">A showcase of my recent creative works across different mediums</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 px-4">
+                <div class="group relative overflow-hidden rounded-2xl shadow-xl fade-in h-96">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-end p-8">
+                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <h3 class="text-2xl font-bold text-white mb-2">Cultural Art Patterns</h3>
+                            <p class="text-gray-300 mb-6">Handmade Paper Art</p>
+                            <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-white hover:text-pink-300 flex items-center transition">View more <i class="fas fa-arrow-right ml-2"></i></a>
+                        </div>
+                    </div>
+                    <img src="assets/cultural-patterns.jpeg" alt="Cultural art patterns — handmade paper art by GlorahArts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl shadow-xl fade-in h-96" style="transition-delay:100ms">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-end p-8">
+                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <h3 class="text-2xl font-bold text-white mb-2">Creative Arts for Client Office</h3>
+                            <p class="text-gray-300 mb-6">Acrylic Painting</p>
+                            <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-white hover:text-pink-300 flex items-center transition">View more <i class="fas fa-arrow-right ml-2"></i></a>
+                        </div>
+                    </div>
+                    <img src="assets/logo-crafts.jpeg" alt="Creative arts for client office — acrylic painting by GlorahArts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl shadow-xl fade-in h-96" style="transition-delay:100ms">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-end p-8">
+                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <h3 class="text-2xl font-bold text-white mb-2">Extracting Nature's Beauty</h3>
+                            <p class="text-gray-300 mb-6">Feeling Alive Arts</p>
+                            <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-white hover:text-pink-300 flex items-center transition">View more <i class="fas fa-arrow-right ml-2"></i></a>
+                        </div>
+                    </div>
+                    <img src="assets/natures-beauty.jpeg" alt="Extracting nature's beauty — artwork by GlorahArts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl shadow-xl fade-in h-96" style="transition-delay:100ms">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-end p-8">
+                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <h3 class="text-2xl font-bold text-white mb-2">Africans King of the Jungle</h3>
+                            <p class="text-gray-300 mb-6">Wood Painting</p>
+                            <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-white hover:text-pink-300 flex items-center transition">View more <i class="fas fa-arrow-right ml-2"></i></a>
+                        </div>
+                    </div>
+                    <img src="assets/wood-and-art.jpeg" alt="African king of the jungle — wood painting by GlorahArts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl shadow-xl fade-in h-96" style="transition-delay:100ms">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-end p-8">
+                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <h3 class="text-2xl font-bold text-white mb-2">Guess What Time Is It</h3>
+                            <p class="text-gray-300 mb-6">Handcrafted Innovations</p>
+                            <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-white hover:text-pink-300 flex items-center transition">View more <i class="fas fa-arrow-right ml-2"></i></a>
+                        </div>
+                    </div>
+                    <img src="assets/creative-crafts.jpeg" alt="Handcrafted clock innovation by GlorahArts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl shadow-xl fade-in h-96" style="transition-delay:200ms">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-end p-8">
+                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <h3 class="text-2xl font-bold text-white mb-2">Life Is a Journey</h3>
+                            <p class="text-gray-300 mb-6">Life is full of possibilities</p>
+                            <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-white hover:text-pink-300 flex items-center transition">View more <i class="fas fa-arrow-right ml-2"></i></a>
+                        </div>
+                    </div>
+                    <img src="assets/boat.jpeg" alt="Life is a journey — boat artwork by GlorahArts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+            </div>
+            <div class="text-center mt-16 fade-in">
+                <div class="flex flex-col sm:flex-row justify-center gap-6 px-4">
+                    <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-white px-8 py-4 rounded-full font-medium text-gray-900 hover:shadow-lg transition-all duration-300 border-2 border-gray-200 hover:border-pink-400">
+                        <i class="fab fa-instagram mr-3 text-lg"></i><span>View on Instagram</span>
+                    </a>
+                    <a href="https://tiktok.com/@gloraharts" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-white px-8 py-4 rounded-full font-medium text-gray-900 hover:shadow-lg transition-all duration-300 border-2 border-gray-200 hover:border-pink-400">
+                        <i class="fab fa-tiktok mr-3 text-lg"></i><span>View on TikTok</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 px-6 bg-gray-50">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Get In <span class="heading-gradient">Touch</span></h2>
+                <p class="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto px-4 text-secondary">Ready to bring your creative vision to life? Reach out through these channels.</p>
+            </div>
+            <div class="grid sm:grid-cols-3 gap-8 text-center px-4">
+                <div class="bg-white p-8 rounded-2xl shadow-lg fade-in hover:shadow-xl transition-shadow">
+                    <div class="w-16 h-16 bg-gradient-to-r from-pink-500 to-orange-400 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 animate-float">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">WhatsApp</h3>
+                    <a href="https://wa.me/255678438537" target="_blank" rel="noopener noreferrer" class="text-pink-500 hover:text-pink-700 text-base">+255 678 438 537</a>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg fade-in hover:shadow-xl transition-shadow" style="transition-delay:100ms">
+                    <div class="w-16 h-16 bg-gradient-to-r from-pink-500 to-orange-400 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 animate-float" style="animation-delay:0.5s">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Email</h3>
+                    <a href="mailto:glorah.gift@icloud.com" class="text-pink-500 hover:text-pink-700 text-base">glorah.gift@icloud.com</a>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg fade-in hover:shadow-xl transition-shadow" style="transition-delay:200ms">
+                    <div class="w-16 h-16 bg-gradient-to-r from-pink-500 to-orange-400 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 animate-float" style="animation-delay:1s">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Instagram</h3>
+                    <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-pink-500 hover:text-pink-700 text-base">@glorahrts</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-16 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0 text-center md:text-left">
+                    <a href="#home" class="flex items-center justify-center md:justify-start">
+                        <span class="text-3xl font-bold text-white tracking-tighter">Glorah</span>
+                        <span class="heading-gradient text-3xl font-bold ml-2 tracking-tighter">Arts</span>
+                    </a>
+                    <p class="mt-3 text-sm text-secondary">Bring your imagination to life</p>
+                </div>
+                <div class="flex space-x-8 mb-8 md:mb-0">
+                    <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-all transform hover:scale-125" aria-label="GlorahArts on Instagram">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                    <a href="https://tiktok.com/@gloraharts" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-all transform hover:scale-125" aria-label="GlorahArts on TikTok">
+                        <i class="fab fa-tiktok text-2xl"></i>
+                    </a>
+                    <a href="https://wa.me/255678438537" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-all transform hover:scale-125" aria-label="Chat with GlorahArts on WhatsApp">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm mb-4 md:mb-0 text-secondary">&copy; 2026 GlorahArts. All rights reserved.</p>
+                <div class="flex items-center gap-4">
+                    <span class="text-xs bg-gray-800 text-gray-400 px-3 py-1.5 rounded-full">Web crafted by <a href="https://watulab.com" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 transition-colors font-medium">Watu Lab</a></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Module Script -->
+    <script src="js/scripts.js"></script>
+</body>
+</html>

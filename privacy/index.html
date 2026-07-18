@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="sw" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sera ya Faragha — Watu Lab</title>
+    <meta name="description" content="Sera ya Faragha ya Watu Lab — jinsi tunavyohifadhi na kutumia taarifa zako.">
+    <link rel="canonical" href="https://watulab.com/privacy/">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#050505">
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Page Module CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { brand: { black: '#050505', dark: '#0a0a0a', grey: '#1a1a1a', light: '#d4d4d4', white: '#ffffff' } },
+                    fontFamily: { sans: ['Space Grotesk', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="pt-24 flex-body">
+
+    <div id="page-transition">
+        <div class="notranslate brand-text show" id="transition-text">WATU LAB</div>
+    </div>
+
+    <nav class="glass-nav fixed w-full z-40 top-0 pt-5 md:pt-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a href="/" class="flex items-center gap-3 group">
+                        <div class="h-10 w-10 border border-white/20 rounded-full flex items-center justify-center overflow-hidden bg-brand-grey transition-transform group-hover:-translate-x-1">
+                            <i class="fas fa-arrow-left text-sm"></i>
+                        </div>
+                        <span class="font-bold text-xl tracking-tight">Rudi Mwanzo</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow flex flex-col items-center justify-center px-4 py-12 relative z-10 w-full max-w-4xl mx-auto">
+        <div class="glass-card w-full rounded-3xl p-8 md:p-12 border border-white/5 opacity-0 transition-opacity duration-1000 ease-out"
+            id="policy-container">
+            <h1 class="text-4xl md:text-5xl font-bold mb-8 tracking-tighter">Sera ya Faragha</h1>
+
+            <div class="space-y-6 text-gray-400 font-light leading-relaxed">
+                <p>Imeboreshwa mwisho: Julai 2026</p>
+                <p>Karibu kwenye Sera ya Faragha ya Watu Lab. Tunaheshimu faragha yako na tumejitolea kulinda taarifa zako binafsi.</p>
+
+                <h2 class="text-2xl text-white font-medium mt-8 mb-4">1. Taarifa Tunazokusanya</h2>
+                <p>Tunaweza kukusanya, kutumia, kuhifadhi na kuhamisha aina mbalimbali za taarifa zako binafsi unapotumia tovuti yetu au huduma zetu, ikiwa ni pamoja na taarifa za utambulisho, mawasiliano, na taarifa za kiufundi.</p>
+
+                <h2 class="text-2xl text-white font-medium mt-8 mb-4">2. Jinsi Tunavyotumia Taarifa Zako</h2>
+                <p>Tutatumia tu taarifa zako binafsi pale sheria inapoturuhusu. Mara nyingi sana, tutatumia taarifa zako kutoa huduma zetu, kusimamia uhusiano wetu na wewe, na kuboresha matoleo ya tovuti yetu.</p>
+
+                <h2 class="text-2xl text-white font-medium mt-8 mb-4">3. Usalama wa Taarifa</h2>
+                <p>Tumeweka hatua madhubuti za usalama kuzuia taarifa zako binafsi kupotea kwa bahati mbaya, kutumiwa, au kufikiwa kwa njia isiyoidhinishwa, kubadilishwa, au kufichuliwa.</p>
+
+                <p class="mt-8 italic">Ikwa una maswali yoyote kuhusu Sera hii ya Faragha, tafadhali wasiliana nasi kupitia <a class="text-blue-300 hover:text-blue-200 transition-colors" href="mailto:info@watulab.com">info@watulab.com</a></p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t border-gray-900 py-8 relative z-10 bg-black mt-auto">
+        <div class="notranslate max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-600 text-sm">
+            <p>&copy; 2026 Watu Lab. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Self-contained privacy page boot
+        document.addEventListener('DOMContentLoaded', () => {
+            const pt = document.getElementById('page-transition');
+            const tt = document.getElementById('transition-text');
+            if (pt && tt) {
+                setTimeout(() => { tt.classList.remove('show'); pt.classList.add('fade-out'); }, 600);
+            }
+            setTimeout(() => {
+                const pc = document.getElementById('policy-container');
+                if (pc) pc.style.opacity = '1';
+            }, 100);
+        });
+        window.addEventListener('pageshow', (e) => {
+            if (e.persisted) {
+                const pt = document.getElementById('page-transition');
+                const tt = document.getElementById('transition-text');
+                if (pt) { pt.classList.remove('fade-in'); pt.classList.add('fade-out'); }
+                if (tt) tt.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+
+</html>

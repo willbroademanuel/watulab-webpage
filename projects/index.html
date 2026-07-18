@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="sw" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ═══ SEO ═══ -->
+    <title>Miradi Yetu — Watu Lab | Bidhaa za Kidijitali za Afrika Mashariki</title>
+    <meta name="description" content="Tazama miradi ya Watu Lab — Smart Event, PixTrend AI, na mifumo mingine iliyoundwa ili kutatua changamoto za kidijitali Afrika Mashariki.">
+    <link rel="canonical" href="https://watulab.com/projects/">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#050505">
+
+    <!-- ═══ Open Graph ═══ -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://watulab.com/projects/">
+    <meta property="og:title" content="Miradi Yetu — Watu Lab">
+    <meta property="og:description" content="Bidhaa za kidijitali zilizoundwa na Watu Lab kwa ajili ya Afrika Mashariki.">
+    <meta property="og:image" content="https://watulab.com/assets/logo.jpeg">
+
+    <!-- ═══ Twitter Card ═══ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Miradi Yetu — Watu Lab">
+    <meta name="twitter:description" content="Bidhaa za kidijitali zilizoundwa na Watu Lab.">
+    <meta name="twitter:image" content="https://watulab.com/assets/logo.jpeg">
+
+    <!-- ═══ Favicon ═══ -->
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+
+    <!-- ═══ Fonts ═══ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- ═══ Icons ═══ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- ═══ Page Module CSS ═══ -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- ═══ Tailwind (CDN — development mode) ═══ -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { black: '#050505', dark: '#0a0a0a', grey: '#1a1a1a', light: '#d4d4d4', white: '#ffffff' }
+                    },
+                    fontFamily: { sans: ['Space Grotesk', 'sans-serif'] },
+                    animation: { 'fade-in': 'fadeIn 0.5s ease-out forwards' },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0', transform: 'translateY(4px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="pt-24 flex-body">
+
+    <!-- Page Transition Overlay -->
+    <div id="page-transition">
+        <div class="notranslate brand-text show" id="transition-text">WATU LAB</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav fixed w-full z-40 top-0 pt-5 md:pt-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 flex items-center gap-3 opacity-0 transition-all duration-1000 ease-out -translate-x-4 delay-500"
+                    id="back-btn-container">
+                    <a href="/" class="flex items-center gap-3 group">
+                        <div
+                            class="h-10 w-10 border border-white/20 rounded-full flex items-center justify-center overflow-hidden bg-brand-grey transition-transform group-hover:-translate-x-1">
+                            <i class="fas fa-arrow-left text-sm"></i>
+                        </div>
+                        <span class="font-bold text-xl tracking-tight text-white group-hover:text-gray-300 transition-colors">Rudi Mwanzo</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow flex flex-col items-center px-4 pt-4 pb-12 relative z-10 w-full max-w-6xl mx-auto">
+
+        <div class="text-center mb-8 opacity-0 transition-all duration-1000 ease-out translate-y-4" id="header-container">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 tracking-tighter">Miradi Yetu</h1>
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-light">Ukuaji wa kidijitali unaofanywa na Watu Lab.</p>
+        </div>
+
+        <div class="w-full flex justify-center gap-8 mb-8 border-b border-gray-800 pb-2 opacity-0 transition-all duration-1000 ease-out translate-y-4 delay-200 projects-tabs"
+            id="tabs-container">
+            <button onclick="switchProjectTab('ongoing')" id="btn-ongoing" class="tab-btn">Inayoendelea</button>
+            <button onclick="switchProjectTab('market')" id="btn-market" class="tab-btn active">Iliyokamilika</button>
+        </div>
+
+        <div class="w-full relative min-h-[400px] opacity-0 transition-all duration-1000 ease-out translate-y-4 delay-300 projects-tabs"
+            id="projects-container">
+
+            <!-- Ongoing Projects -->
+            <div id="content-ongoing" class="tab-content w-full">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <div class="glass-card rounded-2xl overflow-hidden group">
+                        <div class="h-48 bg-gray-900 border-b border-white/5 flex items-center justify-center relative overflow-hidden">
+                            <i class="fas fa-code text-5xl text-gray-700 group-hover:scale-110 transition-transform duration-500"></i>
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
+                            <span class="absolute bottom-3 left-4 text-xs font-bold uppercase tracking-widest text-brand-light bg-black/50 px-2 py-1 rounded backdrop-blur">Tovuti</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-white">Dashibodi ya Biashara</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4">Suluhisho kamili la dashibodi kwa wauzaji Afrika Mashariki, ikilenga kasi ya kuhifadhi hesabu.</p>
+                            <div class="flex items-center gap-2 text-xs text-yellow-500 font-mono tracking-wider">
+                                <i class="fas fa-hammer"></i>
+                                <span>Ipo Kwenye Ujenzi (60%)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl overflow-hidden group">
+                        <div class="h-48 bg-gray-900 border-b border-white/5 flex items-center justify-center relative overflow-hidden">
+                            <i class="fas fa-mobile-alt text-5xl text-gray-700 group-hover:scale-110 transition-transform duration-500"></i>
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
+                            <span class="absolute bottom-3 left-4 text-xs font-bold uppercase tracking-widest text-brand-light bg-black/50 px-2 py-1 rounded backdrop-blur">Programu ya Simu</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-white">Mfumo wa Usafirishaji</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4">Kufuatilia GPS muda halisi kwa wafanyabiashara wa usafirishaji hata bila intaneti.</p>
+                            <div class="flex items-center gap-2 text-xs text-yellow-500 font-mono tracking-wider">
+                                <i class="fas fa-hammer"></i>
+                                <span>Majadiliano (Beta)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Completed Projects -->
+            <div id="content-market" class="tab-content active w-full">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <!-- Smart Event -->
+                    <div class="glass-card rounded-2xl overflow-hidden flex flex-col h-full group">
+                        <div class="h-48 bg-gray-900 border-b border-white/5 flex items-center justify-center relative overflow-hidden">
+                            <i class="fab fa-google text-5xl text-green-500 group-hover:scale-110 transition-transform duration-500"></i>
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
+                            <span class="absolute top-4 right-4 text-xs font-bold text-white bg-green-500/20 border border-green-500 px-2 py-1 rounded-full backdrop-blur">Live</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <h3 class="text-xl font-bold mb-2 text-white">Smart Event</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">Mfumo bora wa usimamizi wa matukio, unaotoa Kadi za Mialiko za Kidigitali, Usimamizi wa Wageni, Taarifa za SMS, na Usimamizi wa Michango kwa ajili ya harusi, send-offs, kitchen party, na matukio ya kijamii.</p>
+                            <div class="flex flex-col gap-3 mt-auto">
+                                <a href="https://smartevent.co.tz" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center justify-center gap-2 w-full py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors border border-white/10">
+                                    <span class="font-bold text-sm">Web app</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PixTrend AI -->
+                    <div class="glass-card rounded-2xl overflow-hidden flex flex-col h-full group">
+                        <div class="h-48 bg-gray-900 border-b border-white/5 flex items-center justify-center relative overflow-hidden">
+                            <i class="fas fa-wand-magic-sparkles text-5xl text-gray-300 group-hover:scale-110 transition-transform duration-500"></i>
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
+                            <span class="absolute top-4 right-4 text-xs font-bold text-white bg-green-500/20 border border-green-500 px-2 py-1 rounded-full backdrop-blur">Live</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <h3 class="text-xl font-bold mb-2 text-white">PixTrend AI</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">Jukwaa kamili la AI la kuhariri na kuunda picha. Inajumuisha Text to Photo, Photo to Video, AI Inpainting, Studio ya Mandharinyuma, na AI Assistant ndani ya App kukurahisishia ubunifu wako wote.</p>
+                            <div class="flex flex-col gap-3 mt-auto">
+                                <a href="/pixtrend/"
+                                    class="flex items-center justify-center gap-2 w-full py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors border border-white/10">
+                                    <span class="font-bold text-sm">Soma Zaidi</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="border-t border-gray-900 py-8 relative z-10 bg-black mt-auto w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm">
+            <p class="notranslate">&copy; 2026 Watu Lab. All Rights Reserved.</p>
+            <a href="/privacy/" class="hover:text-white transition-colors mt-4 md:mt-0">Sera ya Faragha</a>
+        </div>
+    </footer>
+
+    <!-- Page Module Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>

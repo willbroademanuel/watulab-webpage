@@ -1,0 +1,985 @@
+﻿<!DOCTYPE html>
+<html lang="sw" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixtrend · AI Visual Excellence | Watu Lab</title>
+    <meta name="description" content="Pixtrend — teknolojia ya AI inayoboresha picha zako hadi ubora wa 4K. DesignLab, Text to Photo, Photo to Video, AI Inpainting, na zaidi. Zao la Watu Lab.">
+    <link rel="canonical" href="https://watulab.com/pixtrend/">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#050505">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://watulab.com/pixtrend/">
+    <meta property="og:title" content="Pixtrend · AI Visual Excellence | Watu Lab">
+    <meta property="og:description" content="Jukwaa kamili la AI — uboreshaji wa picha hadi 4K, Text to Photo, Photo to Video, na zaidi.">
+    <meta property="og:image" content="https://watulab.com/assets/logo.jpeg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pixtrend · AI Visual Excellence | Watu Lab">
+    <meta name="twitter:description" content="Jukwaa kamili la AI — uboreshaji wa picha hadi 4K.">
+    <meta name="twitter:image" content="https://watulab.com/assets/logo.jpeg">
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- TODO(security): Add SRI hashes to all CDN resources -->
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#050505',
+                            dark: '#0a0a0a',
+                            grey: '#1a1a1a',
+                            light: '#d4d4d4',
+                            white: '#ffffff'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(4px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="page-transition">
+        <div class="notranslate brand-text show" id="transition-text">WATU LAB</div>
+    </div>
+
+    <!-- Background blobs â€” same as index.html -->
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-gray-800 rounded-full mix-blend-screen filter blur-[100px] opacity-20"
+            style="animation: blob 7s infinite"></div>
+        <div class="absolute top-1/2 right-1/4 w-96 h-96 bg-gray-700 rounded-full mix-blend-screen filter blur-[100px] opacity-20"
+            style="animation: blob 7s infinite; animation-delay: 2s"></div>
+        <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-gray-900 rounded-full mix-blend-screen filter blur-[100px] opacity-30"
+            style="animation: blob 7s infinite; animation-delay: 4s"></div>
+    </div>
+
+    <!-- Navigation â€” matches index pattern -->
+    <nav class="glass-nav fixed w-full z-40 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a href="/" class="flex items-center gap-3 group">
+                        <div
+                            class="h-10 w-10 border border-white/20 rounded-full flex items-center justify-center overflow-hidden bg-brand-grey transition-transform group-hover:-translate-x-1">
+                            <i class="fas fa-arrow-left text-sm"></i>
+                        </div>
+                        <span
+                            class="font-bold text-xl tracking-tight text-white group-hover:text-gray-300 transition-colors hidden sm:inline">Rudi
+                            Mwanzo</span>
+                    </a>
+                    <span class="text-gray-600 hidden sm:inline">Â·</span>
+                    <span class="notranslate font-bold text-xl tracking-tight cursor-default">Pixtrend</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#demo"
+                        class="nav-link text-sm font-medium transition-colors text-gray-300 hover:text-white px-1 py-2">Demo</a>
+                    <a href="#features"
+                        class="nav-link text-sm font-medium transition-colors text-gray-300 hover:text-white px-1 py-2">Vipengele</a>
+                    <a href="#how"
+                        class="nav-link text-sm font-medium transition-colors text-gray-300 hover:text-white px-1 py-2">Jinsi</a>
+                    <a href="#testimonials"
+                        class="nav-link text-sm font-medium transition-colors text-gray-300 hover:text-white px-1 py-2">Maoni</a>
+                    <a href="https://pixtrend.watulab.com/auth/signup" rel="noopener noreferrer"
+                        class="px-6 py-2 rounded-full text-sm font-bold bg-white text-black hover:bg-gray-200 transition-all transform hover:scale-105">Jaribu
+                        Bure</a>
+                </div>
+
+                <div class="flex md:hidden items-center gap-3">
+                    <a href="https://pixtrend.watulab.com/auth/signup" rel="noopener noreferrer"
+                        class="px-5 py-2 rounded-full text-xs font-bold bg-white text-black hover:bg-gray-200 transition-all">Jaribu
+                        Bure</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ====== HERO ====== -->
+    <section
+        class="min-h-[100svh] flex items-start justify-center pt-24 pb-10 md:pt-20 md:pb-0 px-6 md:px-4 relative z-10">
+        <div class="max-w-4xl mx-auto text-center reveal active md:pt-0 relative">
+            <p
+                class="absolute top-0 left-0 right-0 text-brand-light text-sm md:text-base tracking-[0.3em] uppercase opacity-70">
+                Powered by WatuLab</p>
+            <h1
+                class="mt-12 md:mt-10 text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight tracking-tighter mix-blend-difference">
+                <span>Ubunifu Wako, Na picha zako zinastahili Ubora wa Hali ya Juu.</span><br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-gray-600">Wewe
+                    ndiye Mhandisi wa picha zako.</span>
+            </h1>
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light leading-relaxed">Jukwaa
+                kamili la zana za ubunifu â€” DesignLab, uboreshaji wa picha kwa kutumia AI, inpaint editing,
+                text-to-photo,
+                text-to-video, TTS, na zaidi. Zana zote unazohitaji, mahali pamoja.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="https://pixtrend.watulab.com/auth/signup" rel="noopener noreferrer"
+                    class="group relative px-8 py-4 bg-white text-black font-bold rounded-full overflow-hidden transition-all hover:pr-10">
+                    <span class="relative z-10">Jaribu Bure Sasa</span>
+                    <div
+                        class="absolute inset-0 bg-gray-200 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left">
+                    </div>
+                    <i
+                        class="fas fa-arrow-right absolute right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all z-10 text-xs"></i>
+                </a>
+                <a href="#demo"
+                    class="px-8 py-4 border border-white/10 text-white font-medium rounded-full hover:bg-white/5 hover:border-white/30 transition-all backdrop-blur-sm">Ona
+                    Demo</a>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mt-12 text-xs text-gray-500">
+                <div class="flex items-center gap-2"><i class="fas fa-check text-white text-[10px]"></i> Bila kadi ya
+                    benki</div>
+                <div class="flex items-center gap-2"><i class="fas fa-shield-halved text-white text-[10px]"></i> Face
+                    Lockerâ„¢ salama</div>
+                <div class="flex items-center gap-2"><i class="fas fa-bolt text-white text-[10px]"></i> Sekunde chache
+                    tu</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== STATS BAR ====== -->
+    <section class="py-12 relative z-10 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 reveal">
+                <div
+                    class="glass-card p-8 rounded-2xl text-center border border-white/5 relative overflow-hidden group">
+                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-2"><span class="counter-val"
+                            data-target="3400" data-suffix="+" data-compact="true">0</span></h3>
+                    <p class="text-gray-400 text-sm font-light">Picha zilizoboreshwa</p>
+                </div>
+                <div
+                    class="glass-card p-8 rounded-2xl text-center border border-white/5 relative overflow-hidden group">
+                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-2"><span class="counter-val"
+                            data-target="99.99" data-suffix="%" data-decimal="true">0</span></h3>
+                    <p class="text-gray-400 text-sm font-light">Usahihi wa uso</p>
+                </div>
+                <div
+                    class="glass-card p-8 rounded-2xl text-center border border-white/5 relative overflow-hidden group">
+                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-2"><span class="counter-val"
+                            data-target="8.5" data-suffix="s" data-decimal="true">0</span></h3>
+                    <p class="text-gray-400 text-sm font-light">Muda wastani</p>
+                </div>
+                <div
+                    class="glass-card p-8 rounded-2xl text-center border border-white/5 relative overflow-hidden group">
+                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-2"><span class="counter-val"
+                            data-target="180" data-suffix="+">0</span></h3>
+                    <p class="text-gray-400 text-sm font-light">Watumiaji</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== DEMO (Before/After Slider) ====== -->
+    <section id="demo" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
+                <div>
+                    <h2 class="text-4xl md:text-6xl font-bold mb-2 tracking-tighter">Demo ya Uboreshaji</h2>
+                    <div class="h-1 w-20 bg-white"></div>
+                </div>
+                <p class="text-gray-400 max-w-sm mt-6 md:mt-0 text-right md:text-left">Sogeza kiteuzi uone tofauti â€”
+                    kutoka ukungu hadi uhalisia wa 4K.</p>
+            </div>
+
+            <div class="ba-wrapper reveal">
+                <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                    alt="Kabla ya uboreshaji" class="ba-base-img"
+                    style="filter:blur(5px) contrast(.8) brightness(.62) saturate(.45);">
+                <div class="ba-clip-layer" id="baClipLayer">
+                    <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                        alt="Baada ya AI 4K" class="ba-clip-img"
+                        style="filter:contrast(1.08) saturate(1.28) brightness(1.06);">
+                </div>
+                <div class="ba-divider" id="baDivider"></div>
+                <input type="range" min="0" max="100" value="50" class="ba-slider-input" id="baSlider"
+                    aria-label="Kiteuzi cha Kabla na Baada">
+                <div class="ba-handle" id="baHandle">
+                    <div class="handle-pill"><i class="fas fa-arrows-left-right text-black text-lg"></i></div>
+                </div>
+                <div class="ba-label ba-label-left">KABLA</div>
+                <div class="ba-label ba-label-right">BAADA (AI 4K)</div>
+            </div>
+
+            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
+                <p class="text-gray-500 text-sm flex items-center gap-2">
+                    <i class="fas fa-hand-pointer text-white/40"></i>
+                    Buruta mpini â€” teknolojia yetu huboresha maelezo.
+                </p>
+                <a href="https://pixtrend.watulab.com/auth/signup" rel="noopener noreferrer"
+                    class="px-8 py-3 border border-white/10 text-white font-medium rounded-full hover:bg-white/5 hover:border-white/30 transition-all text-sm">
+                    Jaribu na Picha Yako <i class="fas fa-arrow-right text-xs ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== FEATURES â€” Full AI Creative Suite ====== -->
+    <section id="features" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
+                <div>
+                    <h2 class="text-4xl md:text-6xl font-bold mb-2 tracking-tighter">Zana Zetu</h2>
+                    <div class="h-1 w-20 bg-white"></div>
+                </div>
+                <p class="text-gray-400 max-w-sm mt-6 md:mt-0 text-right md:text-left">Jukwaa kamili la ubunifu â€” zana
+                    zote unazohitaji, mahali pamoja.</p>
+            </div>
+
+            <!-- Hero Feature â€” Uboreshaji wa Picha -->
+            <div class="mb-20">
+                <!-- Photo Enhancement Card -->
+                <div
+                    class="glass-card p-8 md:p-12 rounded-3xl reveal relative overflow-hidden group border border-white/10 hover:border-gray-500/50 flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch">
+
+                    <div class="w-full lg:w-1/2 flex flex-col items-start text-left justify-center">
+                        <div
+                            class="h-16 w-16 bg-gray-700/50 text-gray-300 rounded-2xl flex items-center justify-center mb-6 text-3xl transition-transform group-hover:scale-110">
+                            <i class="fas fa-wand-magic-sparkles"></i>
+                        </div>
+                        <h3 class="text-3xl md:text-4xl font-bold mb-3 text-white">Uboreshaji wa Picha</h3>
+                        <p
+                            class="text-green-400 font-medium text-xs mb-6 bg-green-500/10 px-3 py-1 rounded-full border border-green-500/20">
+                            Ubora wa 4K</p>
+
+                        <p class="text-gray-400 text-lg leading-relaxed mb-8 max-w-lg">Pakia picha yoyote â€” AI yetu
+                            inaboresha ubora hadi 4K, inasafisha uso, na kuongeza mwangaza kwa usahihi wa hali ya juu.
+                        </p>
+                        <a href="https://pixtrend.watulab.com/auth/signup" rel="noopener noreferrer"
+                            class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-gray-200 transition-all hover:pr-10 relative overflow-hidden">
+                            Jaribu Sasa <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+
+                    <div class="w-full lg:w-1/2 flex items-stretch">
+                        <div class="mini-ba shadow-2xl rounded-xl overflow-hidden w-full h-full min-h-[350px] m-0"
+                            style="height: auto; margin-bottom: 0;">
+                            <img src="https://images.pexels.com/photos/3998420/pexels-photo-3998420.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+                                alt="Kabla" class="mini-ba-base"
+                                style="filter:blur(3.5px) saturate(.22) brightness(.62) contrast(.82)">
+                            <div class="mini-ba-clip">
+                                <img src="https://images.pexels.com/photos/3998420/pexels-photo-3998420.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+                                    alt="Baada" class="mini-ba-img"
+                                    style="filter:contrast(1.12) saturate(1.45) brightness(1.06)">
+                            </div>
+                            <div class="mini-ba-div"></div>
+                            <input type="range" min="0" max="100" value="50" class="mini-ba-slider"
+                                aria-label="Uboreshaji kabla/baada">
+                            <div class="mini-ba-handle">
+                                <div class="mini-handle-pill"><i class="fas fa-arrows-left-right text-black"
+                                        style="font-size:.55rem"></i></div>
+                            </div>
+                            <span class="mini-lbl mini-lbl-b">KABLA</span><span class="mini-lbl mini-lbl-a">BAADA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Tools Grid (8 items) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Text to Photo -->
+                <a href="https://pixtrend.watulab.com/auth/signup" rel="noopener noreferrer"
+                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-gray-500/50 cursor-pointer">
+                    <div
+                        class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all text-gray-300">
+                        <i class="fas fa-arrow-up-right-from-square text-sm"></i>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="h-12 w-12 shrink-0 bg-gray-700/50 text-gray-300 rounded-xl flex items-center justify-center text-xl transition-transform group-hover:scale-110">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-gray-200 transition-colors mb-1">
+                                Text to Photo</h3>
+                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Unda picha za kipekee kutoka kwa
+                                maneno kwa kutumia AI.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- AI Inpainting -->
+                <a href="https://pixtrend.watulab.com/auth/signup" rel="noopener noreferrer"
+                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-gray-500/50 cursor-pointer"
+                    style="animation-delay: 50ms">
+                    <div
+                        class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all text-gray-300">
+                        <i class="fas fa-arrow-up-right-from-square text-sm"></i>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="h-12 w-12 shrink-0 bg-gray-700/50 text-gray-300 rounded-xl flex items-center justify-center text-xl transition-transform group-hover:scale-110">
+                            <i class="fas fa-eraser"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-gray-200 transition-colors mb-1">AI
+                                Inpainting</h3>
+                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Studio ya kuhariri na kuboresha
+                                sehemu za picha kwa AI.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- DesignLab -->
+                <a href="https://pixtrend.watulab.com/auth/signup" rel="noopener noreferrer"
+                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-gray-500/50 cursor-pointer"
+                    style="animation-delay: 100ms">
+                    <div
+                        class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all text-gray-300">
+                        <i class="fas fa-arrow-up-right-from-square text-sm"></i>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="h-12 w-12 shrink-0 bg-gray-700/50 text-gray-300 rounded-xl flex items-center justify-center text-xl transition-transform group-hover:scale-110">
+                            <i class="fas fa-pen-ruler"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-gray-200 transition-colors mb-1">
+                                DesignLab</h3>
+                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Zana kamili ya usanifu wa
+                                mabango na machapisho.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Studio ya Mandharinyuma -->
+                <a href="https://pixtrend.watulab.com/auth/signup" rel="noopener noreferrer"
+                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-gray-500/50 cursor-pointer"
+                    style="animation-delay: 150ms">
+                    <div
+                        class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all text-gray-300">
+                        <i class="fas fa-arrow-up-right-from-square text-sm"></i>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="h-12 w-12 shrink-0 bg-gray-700/50 text-gray-300 rounded-xl flex items-center justify-center text-xl transition-transform group-hover:scale-110">
+                            <i class="fas fa-mountain-sun"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-gray-200 transition-colors mb-1">
+                                Mandharinyuma</h3>
+                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Ondoa au badilisha mandharinyuma
+                                ya picha yoyote.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Photo to Video -->
+                <a href="https://pixtrend.watulab.com/auth/signup" rel="noopener noreferrer"
+                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-gray-500/50 cursor-pointer"
+                    style="animation-delay: 200ms">
+                    <div
+                        class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all text-gray-300">
+                        <i class="fas fa-arrow-up-right-from-square text-sm"></i>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="h-12 w-12 shrink-0 bg-gray-700/50 text-gray-300 rounded-xl flex items-center justify-center text-xl transition-transform group-hover:scale-110">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-gray-200 transition-colors mb-1">
+                                Photo to Video</h3>
+                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Badilisha picha tulivu kuwa
+                                video zinazovutia kwa kutumia AI.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Text to Speech -->
+                <a href="https://pixtrend.watulab.com/auth/signup" rel="noopener noreferrer"
+                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-gray-500/50 cursor-pointer"
+                    style="animation-delay: 250ms">
+                    <div
+                        class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all text-gray-300">
+                        <i class="fas fa-arrow-up-right-from-square text-sm"></i>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="h-12 w-12 shrink-0 bg-gray-700/50 text-gray-300 rounded-xl flex items-center justify-center text-xl transition-transform group-hover:scale-110">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-gray-200 transition-colors mb-1">
+                                Text to Speech</h3>
+                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Geuza maandishi kuwa sauti ya
+                                asili kwa ubora wa juu.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Mchota Maneno (OCR) -->
+                <a href="https://pixtrend.watulab.com/auth/signup" rel="noopener noreferrer"
+                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-gray-500/50 cursor-pointer"
+                    style="animation-delay: 300ms">
+                    <div
+                        class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all text-gray-300">
+                        <i class="fas fa-arrow-up-right-from-square text-sm"></i>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="h-12 w-12 shrink-0 bg-gray-700/50 text-gray-300 rounded-xl flex items-center justify-center text-xl transition-transform group-hover:scale-110">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-gray-200 transition-colors mb-1">
+                                Mchota Maneno</h3>
+                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Chota maneno (OCR) kutoka kwenye
+                                picha yoyote kwa urahisi.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Na Zana Nyingine -->
+                <a href="https://pixtrend.watulab.com/auth/signup" rel="noopener noreferrer"
+                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-gray-500/50 cursor-pointer"
+                    style="animation-delay: 350ms">
+                    <div
+                        class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all text-gray-300">
+                        <i class="fas fa-arrow-right text-sm"></i>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="h-12 w-12 shrink-0 bg-gray-700/50 text-gray-300 rounded-xl flex items-center justify-center text-xl transition-transform group-hover:scale-110">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-gray-200 transition-colors mb-1">Na
+                                Zana Nyingine...</h3>
+                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Compressor, OCR, vichungi,
+                                mboreshaji wavuti, kibadilisha fomati, na zaidi.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== AI ASSISTANT BANNER ====== -->
+    <section class="py-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div
+                class="glass-card rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 border border-white/5 bg-gray-900/50 reveal">
+                <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+                    <div
+                        class="h-16 w-16 shrink-0 bg-yellow-500/10 text-yellow-500 rounded-full flex items-center justify-center text-3xl border border-yellow-500/20 shadow-[0_0_15px_rgba(234,179,8,0.1)]">
+                        <i class="far fa-comment-dots"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Je, unahitaji msaada wa haraka
+                            unapotumia PixTrend?</h3>
+                        <p class="text-gray-400 text-sm md:text-base leading-relaxed">Kutana na Monica, msaidizi wako
+                            ndani ya PixTrend, yupo tayari kukupa mwongozo muda wowote. Chat na Monica kwenye app
+                            kumuuliza jinsi ya
+                            kutumia zana, kupata maelekezo, ushauri, au msaada wowote.</p>
+                    </div>
+                </div>
+                <div class="shrink-0 mt-4 md:mt-0">
+                    <span
+                        class="inline-flex items-center gap-2 text-xs font-bold text-yellow-500 bg-yellow-500/10 px-4 py-2 rounded-full border border-yellow-500/20">
+                        <span class="relative flex h-2 w-2">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-yellow-500"></span>
+                        </span>
+                        Msaada Ndani ya App
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== HOW IT WORKS ====== -->
+    <section id="how" class="py-24 relative z-10 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
+                <div>
+                    <h2 class="text-4xl md:text-6xl font-bold mb-2 tracking-tighter">Hatua Tatu Tu</h2>
+                    <div class="h-1 w-20 bg-white"></div>
+                </div>
+                <p class="text-gray-400 max-w-sm mt-6 md:mt-0 text-right md:text-left">Jinsi inavyofanya kazi â€” rahisi,
+                    haraka, na matokeo bora.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-10 rounded-2xl reveal border border-white/10 relative group"
+                    style="animation-delay: 0ms">
+                    <span
+                        class="absolute top-6 right-6 text-gray-700 text-6xl font-bold leading-none select-none">01</span>
+                    <div
+                        class="h-16 w-16 bg-gray-700/50 text-gray-300 rounded-2xl flex items-center justify-center mb-8 text-3xl transition-transform group-hover:scale-110">
+                        <i class="fas fa-cloud-arrow-up"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Pakia Picha</h3>
+                    <p class="text-gray-400 text-base leading-relaxed">Pakia selfie, picha ya studio, au screenshot â€”
+                        formatiti zote zinakubaliwa bila tatizo.</p>
+                </div>
+
+                <div class="glass-card p-10 rounded-2xl reveal border border-white/10 relative group"
+                    style="animation-delay: 150ms">
+                    <span
+                        class="absolute top-6 right-6 text-gray-700 text-6xl font-bold leading-none select-none">02</span>
+                    <div
+                        class="h-16 w-16 bg-gray-700/50 text-gray-300 rounded-2xl flex items-center justify-center mb-8 text-3xl transition-transform group-hover:scale-110">
+                        <i class="fas fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Chagua Mtindo</h3>
+                    <p class="text-gray-400 text-base leading-relaxed">Chagua kutoka kwa mitindo ya nywele, mavazi, au
+                        uboreshaji wa picha kwa kubonyeza moja.</p>
+                </div>
+
+                <div class="glass-card p-10 rounded-2xl reveal border border-white/10 relative group"
+                    style="animation-delay: 300ms">
+                    <span
+                        class="absolute top-6 right-6 text-gray-700 text-6xl font-bold leading-none select-none">03</span>
+                    <div
+                        class="h-16 w-16 bg-gray-700/50 text-gray-300 rounded-2xl flex items-center justify-center mb-8 text-3xl transition-transform group-hover:scale-110">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Pakua Matokeo</h3>
+                    <p class="text-gray-400 text-base leading-relaxed">Sekunde 8.5 tu â€” picha yako ya 4K iko tayari.
+                        Pakua au shiriki moja kwa moja.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== DIFFERENTIATORS ====== -->
+    <section class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-16 items-center">
+                <!-- Text Side -->
+                <div class="w-full md:w-1/2 reveal">
+                    <h2 class="text-4xl md:text-6xl font-bold mb-2 tracking-tighter">Siri ya Uhalisia Kamili</h2>
+                    <div class="h-1 w-20 bg-white mb-10"></div>
+
+                    <div class="space-y-4 mb-10">
+                        <div
+                            class="flex items-start gap-4 p-5 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-white/20 transition-all">
+                            <div
+                                class="h-10 w-10 bg-gray-700/50 text-gray-300 rounded-xl flex items-center justify-center text-lg flex-shrink-0">
+                                <i class="fas fa-face-smile"></i>
+                            </div>
+                            <div>
+                                <strong class="block text-white font-bold mb-0.5 tracking-tight">No AI
+                                    Plasticity</strong>
+                                <span class="text-gray-400 text-sm">Tunabakiza vinyweleo, mikunjo ya ngozi na mwonekano
+                                    asilia â€” bila uso wa plastiki wa AI.</span>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-start gap-4 p-5 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-white/20 transition-all">
+                            <div
+                                class="h-10 w-10 bg-gray-700/50 text-gray-300 rounded-xl flex items-center justify-center text-lg flex-shrink-0">
+                                <i class="fas fa-eraser"></i>
+                            </div>
+                            <div>
+                                <strong class="block text-white font-bold mb-0.5 tracking-tight">Noise Removal
+                                    Pro</strong>
+                                <span class="text-gray-400 text-sm">Tunaondoa vitu visivyohitajika â€” logos, watu nyuma,
+                                    UI â€” kwa usahihi wa hali ya juu.</span>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-start gap-4 p-5 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-white/20 transition-all">
+                            <div
+                                class="h-10 w-10 bg-gray-700/50 text-gray-300 rounded-xl flex items-center justify-center text-lg flex-shrink-0">
+                                <i class="fas fa-fingerprint"></i>
+                            </div>
+                            <div>
+                                <strong class="block text-white font-bold mb-0.5 tracking-tight">Face
+                                    Lockerâ„¢</strong>
+                                <span class="text-gray-400 text-sm">Sura yako inahifadhiwa kwa usimbaji fiche wa
+                                    kiwango cha juu â€” wewe pekee ndiye unayeiona.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="glass-card p-4 rounded-2xl text-center border border-white/5">
+                            <h3 class="text-2xl md:text-3xl font-bold text-white mb-1"><span class="counter-val"
+                                    data-target="99.99" data-suffix="%" data-decimal="true">0</span></h3>
+                            <p class="text-gray-500 text-[10px] uppercase font-bold tracking-wider">usahihi</p>
+                        </div>
+                        <div class="glass-card p-4 rounded-2xl text-center border border-white/5">
+                            <h3 class="text-2xl md:text-3xl font-bold text-white mb-1"><span class="counter-val"
+                                    data-target="8.5" data-suffix="s" data-decimal="true">0</span></h3>
+                            <p class="text-gray-500 text-[10px] uppercase font-bold tracking-wider">muda</p>
+                        </div>
+                        <div class="glass-card p-4 rounded-2xl text-center border border-white/5">
+                            <h3 class="text-2xl md:text-3xl font-bold text-white mb-1"><span class="counter-val"
+                                    data-target="4.9" data-suffix="/5" data-decimal="true">0</span></h3>
+                            <p class="text-gray-500 text-[10px] uppercase font-bold tracking-wider">alama</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Side -->
+                <div class="w-full md:w-1/2 reveal flex justify-center" style="animation-delay: 200ms">
+                    <div class="relative rounded-3xl border border-white/10 shadow-2xl overflow-hidden max-w-sm w-full">
+                        <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop"
+                            alt="Mfano wa uboreshaji wa AI"
+                            class="w-full object-cover hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-5">
+                            <div class="flex gap-0.5 mb-2">
+                                <i class="fas fa-star text-white text-xs"></i>
+                                <i class="fas fa-star text-white text-xs"></i>
+                                <i class="fas fa-star text-white text-xs"></i>
+                                <i class="fas fa-star text-white text-xs"></i>
+                                <i class="fas fa-star text-white text-xs"></i>
+                            </div>
+                            <p class="text-white font-bold text-sm flex items-center gap-2">
+                                <i class="fas fa-circle-check text-white/60"></i> Uhalisia wa 99% Â· Imehakikiwa
+                            </p>
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 bg-black/60 backdrop-blur-md border border-white/20 rounded-full px-3 py-1.5 flex items-center gap-1.5">
+                            <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                            <span class="text-white text-[10px] uppercase tracking-widest font-bold">AI Enhanced</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== TESTIMONIALS ====== -->
+    <section id="testimonials" class="py-24 relative z-10 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
+                <div>
+                    <h2 class="text-4xl md:text-6xl font-bold mb-2 tracking-tighter">Wanasema Nini?</h2>
+                    <div class="h-1 w-20 bg-white"></div>
+                </div>
+                <p class="text-gray-400 max-w-sm mt-6 md:mt-0 text-right md:text-left">Watumiaji wetu kutoka Afrika
+                    Mashariki wanashiriki uzoefu wao wa kweli.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl reveal border border-white/10">
+                    <div class="flex gap-1 mb-4">
+                        <i class="fas fa-star text-white text-xs"></i>
+                        <i class="fas fa-star text-white text-xs"></i>
+                        <i class="fas fa-star text-white text-xs"></i>
+                        <i class="fas fa-star text-white text-xs"></i>
+                        <i class="fas fa-star text-white text-xs"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">"Nilishangaa sana na matokeo. Picha yangu ya
+                        LinkedIn ilikuwa chafu â€” baada ya Pixtrend ikawa professional kabisa. Msimamizi wangu aliuliza
+                        nimepiga wapi studio!"</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+                        <div
+                            class="w-10 h-10 rounded-full bg-gray-800 border border-white/10 flex items-center justify-center font-bold text-sm text-white">
+                            A</div>
+                        <div>
+                            <p class="text-white text-sm font-bold tracking-tight">Amina Hassan</p>
+                            <p class="text-gray-500 text-xs">Software Engineer Â· Dar</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl reveal border border-white/10" style="animation-delay: 150ms">
+                    <div class="flex gap-1 mb-4">
+                        <i class="fas fa-star text-white text-xs"></i>
+                        <i class="fas fa-star text-white text-xs"></i>
+                        <i class="fas fa-star text-white text-xs"></i>
+                        <i class="fas fa-star text-white text-xs"></i>
+                        <i class="fas fa-star text-white text-xs"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">"Badala ya kulipa sh 150,000 kwa studio,
+                        ninapata picha bora zaidi kwa sekunde chache tu. Professional Shots imebadilisha biashara yangu
+                        kabisa."</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+                        <div
+                            class="w-10 h-10 rounded-full bg-gray-800 border border-white/10 flex items-center justify-center font-bold text-sm text-white">
+                            K</div>
+                        <div>
+                            <p class="text-white text-sm font-bold tracking-tight">Kwame Osei</p>
+                            <p class="text-gray-500 text-xs">Entrepreneur Â· Nairobi</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl reveal border border-white/10" style="animation-delay: 300ms">
+                    <div class="flex gap-1 mb-4">
+                        <i class="fas fa-star text-white text-xs"></i>
+                        <i class="fas fa-star text-white text-xs"></i>
+                        <i class="fas fa-star text-white text-xs"></i>
+                        <i class="fas fa-star text-white text-xs"></i>
+                        <i class="fas fa-star-half-alt text-white text-xs"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">"Kama mtu wa fashion, Kabati Langu
+                        imebadilisha
+                        kazi yangu. Ninaonyesha wateja mavazi mapya bila hata kuvaa â€” wote wanaridhika na muundo."</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+                        <div
+                            class="w-10 h-10 rounded-full bg-gray-800 border border-white/10 flex items-center justify-center font-bold text-sm text-white">
+                            F</div>
+                        <div>
+                            <p class="text-white text-sm font-bold tracking-tight">Fatima Nkosi</p>
+                            <p class="text-gray-500 text-xs">Fashion Influencer Â· Kampala</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== CTA ====== -->
+    <section class="py-24 relative z-10 bg-gradient-to-b from-transparent to-black/80">
+        <div
+            class="max-w-4xl mx-auto px-4 text-center reveal border border-white/5 rounded-3xl p-12 bg-gray-900/30 backdrop-blur-sm">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tighter">Upo Tayari kuzipatia Picha zako ubora wa
+                hali ya juu?</h2>
+            <p class="text-gray-400 mb-10 text-lg font-light max-w-2xl mx-auto">Jiunge na watumiaji wanaotumia Pixtrend
+                kila siku. Hakuna kadi ya benki inayohitajika.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://pixtrend.watulab.com/auth/signup" rel="noopener noreferrer"
+                    class="group relative px-10 py-5 bg-white text-black font-bold rounded-full overflow-hidden transition-all hover:pr-12 inline-flex items-center justify-center gap-3">
+                    <span class="relative z-10">Anza Bure Sasa</span>
+                    <div
+                        class="absolute inset-0 bg-gray-200 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left">
+                    </div>
+                    <i
+                        class="fas fa-arrow-right absolute right-5 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all z-10 text-xs"></i>
+                </a>
+                <a href="#demo"
+                    class="px-10 py-5 border border-white/10 text-white font-medium rounded-full hover:bg-white/5 hover:border-white/30 transition-all backdrop-blur-sm inline-flex items-center justify-center gap-2">
+                    <i class="fas fa-play text-xs"></i> Tazama Demo
+                </a>
+            </div>
+            <p class="text-gray-600 text-xs mt-8">Hakuna usajili wa kadi za kibenki unaohitajika Â· Matokeo kwa sekunde
+            </p>
+        </div>
+    </section>
+
+    <!-- ====== FOOTER â€” matches index.html ====== -->
+    <footer class="border-t border-gray-900 pt-16 pb-8 relative z-10 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+
+                <div>
+                    <h4 class="text-white font-bold text-xl mb-6">Pixtrend</h4>
+                    <ul class="space-y-4">
+                        <li><a href="https://pixtrend.watulab.com/auth/signup" rel="noopener noreferrer"
+                                class="text-gray-400 hover:text-white transition-colors">Uboreshaji wa Picha</a></li>
+                        <li><a href="https://pixtrend.watulab.com/auth/signup" rel="noopener noreferrer"
+                                class="text-gray-400 hover:text-white transition-colors">Text to Photo / Video</a></li>
+                        <li><a href="https://pixtrend.watulab.com/auth/signup" rel="noopener noreferrer"
+                                class="text-gray-400 hover:text-white transition-colors">DesignLab</a></li>
+                        <li><a href="https://pixtrend.watulab.com/auth/signup" rel="noopener noreferrer"
+                                class="text-gray-400 hover:text-white transition-colors">BG Studio & Inpaint</a></li>
+                        <li><a href="https://pixtrend.watulab.com/auth/signup" rel="noopener noreferrer"
+                                class="text-gray-400 hover:text-white transition-colors">Picha za HQ Bure</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-xl mb-6">Kampuni</h4>
+                    <ul class="space-y-4">
+                        <li><a href="/" class="text-gray-400 hover:text-white transition-colors">Kuhusu Watu
+                                Lab</a></li>
+                        <li><a href="/#about" class="text-gray-400 hover:text-white transition-colors">Kuhusu
+                                Sisi</a></li>
+                        <li><a href="/projects/" class="text-gray-400 hover:text-white transition-colors">Miradi</a>
+                        </li>
+                        <li><a href="/privacy/" class="text-gray-400 hover:text-white transition-colors">Sera ya
+                                Faragha</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-xl mb-6">Ungana Nasi</h4>
+                    <div class="space-y-6">
+                        <a href="mailto:info@watulab.com"
+                            class="flex items-center gap-4 text-gray-400 hover:text-white transition-colors group">
+                            <div
+                                class="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center group-hover:bg-green-600 transition-all">
+                                <i class="fas fa-envelope text-sm"></i>
+                            </div>
+                            <span class="font-mono text-sm">info@watulab.com</span>
+                        </a>
+
+                        <div class="flex gap-4 pt-2">
+                            <a href="https://www.youtube.com/@Pixtrend" target="_blank" rel="noopener noreferrer"
+                                class="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-red-600 transition-all">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://www.instagram.com/watulab" target="_blank" rel="noopener noreferrer"
+                                class="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-pink-600 transition-all">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/watulab" target="_blank" rel="noopener noreferrer"
+                                class="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-sky-600 transition-all">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@watulab" target="_blank" rel="noopener noreferrer"
+                                class="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-600 transition-all">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div
+                class="notranslate border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm">
+                <p>&copy; 2026 Pixtrend Â· <a href="/" class="hover:text-white transition-colors font-bold">Watu
+                        Lab</a>. All Rights Reserved.</p>
+                <a href="/privacy/" class="hover:text-white transition-colors mt-4 md:mt-0">Sera ya Faragha</a>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script>
+            /* ===================================================
+               PIXTREND PAGE â€” Interactive Components
+               ===================================================
+               Handles: Before/After sliders, animated counters,
+               scroll reveals, and smooth scrolling.
+            */
+            (function () {
+
+                /* 1. SCROLL REVEAL â€” Uses same observer pattern as main site */
+                const revealObs = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                        }
+                    });
+                }, { threshold: 0.1, rootMargin: '0px 0px -24px 0px' });
+
+                document.querySelectorAll('.reveal').forEach(function (el) {
+                    revealObs.observe(el);
+                });
+
+                /* 2. ANIMATED COUNTERS */
+                var animatedSet = new Set();
+
+                function runCounter(el) {
+                    if (animatedSet.has(el)) return;
+                    animatedSet.add(el);
+                    var target = parseFloat(el.dataset.target);
+                    var isDecimal = el.dataset.decimal === 'true';
+                    var isCompact = el.dataset.compact === 'true';
+                    var suffix = el.dataset.suffix || '';
+                    var dur = 2400;
+                    var t0 = performance.now();
+
+                    (function tick(now) {
+                        if (!animatedSet.has(el)) return;
+                        var p = Math.min((now - t0) / dur, 1);
+                        var ease = 1 - Math.pow(1 - p, 4);
+                        var cur = target * ease;
+                        var display;
+                        if (isCompact && cur >= 1000) {
+                            display = (cur / 1000).toFixed(cur < 10000 ? 1 : 0) + 'K';
+                        } else if (isDecimal) {
+                            display = cur.toFixed(2);
+                        } else {
+                            display = Math.round(cur).toLocaleString();
+                        }
+                        el.textContent = display + suffix;
+                        if (p < 1) requestAnimationFrame(tick);
+                    })(t0);
+                }
+
+                function resetCounter(el) {
+                    animatedSet.delete(el);
+                    el.textContent = '0' + (el.dataset.suffix || '');
+                }
+
+                var cntObs = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            runCounter(entry.target);
+                        } else {
+                            resetCounter(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                document.querySelectorAll('.counter-val').forEach(function (el) {
+                    cntObs.observe(el);
+                });
+
+                /* 3. MAIN BEFORE/AFTER SLIDER */
+                var baSlider = document.getElementById('baSlider');
+                var baClip = document.getElementById('baClipLayer');
+                var baHandle = document.getElementById('baHandle');
+                var baDiv = document.getElementById('baDivider');
+
+                if (baSlider && baClip) {
+                    var upMain = function (v) {
+                        baClip.style.clipPath = 'inset(0 0 0 ' + v + '%)';
+                        if (baHandle) baHandle.style.left = v + '%';
+                        if (baDiv) baDiv.style.left = v + '%';
+                    };
+                    baSlider.addEventListener('input', function (e) { upMain(+e.target.value); });
+                    baSlider.addEventListener('touchmove', function (e) { upMain(+e.target.value); });
+                    upMain(50);
+                }
+
+                /* 4. MINI BEFORE/AFTER SLIDERS */
+                document.querySelectorAll('.mini-ba').forEach(function (w) {
+                    var clip = w.querySelector('.mini-ba-clip');
+                    var slider = w.querySelector('.mini-ba-slider');
+                    var handle = w.querySelector('.mini-ba-handle');
+                    var div = w.querySelector('.mini-ba-div');
+
+                    var up = function (v) {
+                        clip.style.clipPath = 'inset(0 0 0 ' + v + '%)';
+                        if (handle) handle.style.left = v + '%';
+                        if (div) div.style.left = v + '%';
+                    };
+                    slider.addEventListener('input', function (e) { up(+e.target.value); });
+                    slider.addEventListener('touchmove', function (e) { up(+e.target.value); });
+                    up(50);
+                });
+
+                /* 5. SMOOTH SCROLL for anchor links */
+                document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+                    a.addEventListener('click', function (e) {
+                        var t = document.querySelector(a.getAttribute('href'));
+                        if (t) {
+                            e.preventDefault();
+                            t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    });
+                });
+
+            })();
+    </script>
+
+<script src="script.js"></script></body>
+
+</html>
+

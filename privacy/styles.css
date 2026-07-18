@@ -1,0 +1,56 @@
+/* ==========================================================
+   PRIVACY PAGE — SELF-CONTAINED STYLESHEET
+   Module: /privacy/
+   Delete this folder to remove all privacy page resources.
+   ========================================================== */
+
+/* ── BASE ── */
+body {
+    background-color: #050505;
+    color: #ffffff;
+    overflow-x: clip;
+}
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
+
+/* ── GLASS NAV ── */
+.glass-nav {
+    background: rgba(5, 5, 5, 0.7);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ── GLASS CARD ── */
+.glass-card {
+    background: rgba(26, 26, 26, 0.4);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ── PAGE TRANSITION ── */
+#page-transition {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: #050505;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+#page-transition.fade-out { opacity: 0; }
+#page-transition.fade-in  { opacity: 1; pointer-events: all; }
+#page-transition .brand-text {
+    font-size: 2.5rem; font-weight: 700; letter-spacing: 0.1em;
+    color: #ffffff; opacity: 0; transform: translateY(10px);
+    transition: all 0.5s ease-out;
+}
+#page-transition .brand-text.show { opacity: 1; transform: translateY(0); }
+
+/* ── FLEX BODY ── */
+.flex-body { display: flex; flex-direction: column; min-height: 100vh; }
