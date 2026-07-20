@@ -1,4 +1,5 @@
-# Clients — Hosted Microsites
+
+Clients — Hosted Microsites
 
 This folder contains websites hosted by **Watu Lab** for clients who have not yet purchased their own domain.
 
@@ -23,7 +24,6 @@ clients/
 4. Make sure the client's `index.html` includes:
    - `<meta name="robots" content="noindex, follow">` (unless client wants Google indexing)
    - `<link rel="canonical" href="https://watulab.com/clients/<client-slug>/">`
-   - "Web crafted by Watu Lab" credit in the footer with a link to `https://watulab.com`
 
 ## Naming Conventions
 
