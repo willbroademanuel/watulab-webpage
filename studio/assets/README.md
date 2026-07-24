@@ -1,6 +1,6 @@
-# PixTrend Assets
+# Studio Assets
 
-This folder is reserved for PixTrend product images and media.
+This folder is reserved for Studio product images and media.
 
 ## Add Your Images Here
 
@@ -21,16 +21,16 @@ Drop your images into this folder and reference them in `index.html` as:
 
 | Usage | Recommended size |
 |---|---|
-| Hero / before-after demo | 1260×750px |
-| Feature card mini-slider | 600×400px |
-| Portrait / product shot | 600×800px |
+| Hero / before-after demo | 1260Ã—750px |
+| Feature card mini-slider | 600Ã—400px |
+| Portrait / product shot | 600Ã—800px |
 
 ## Example
 
 ```
 assets/
-├── demo-before.jpg
-├── demo-after.jpg
-├── feature-enhancement.jpg
-└── testimonial-result.jpg
+â”œâ”€â”€ demo-before.jpg
+â”œâ”€â”€ demo-after.jpg
+â”œâ”€â”€ feature-enhancement.jpg
+â””â”€â”€ testimonial-result.jpg
 ```

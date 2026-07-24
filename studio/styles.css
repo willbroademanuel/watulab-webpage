@@ -1,17 +1,17 @@
 /* ==========================================================
-   PIXTREND PAGE — SELF-CONTAINED STYLESHEET
-   Module: /pixtrend/
-   Delete this folder to remove all PixTrend page resources.
+   STUDIO PAGE â€” SELF-CONTAINED STYLESHEET
+   Module: /studio/
+   Delete this folder to remove all Studio page resources.
    ========================================================== */
 
-/* ── 1. BASE ── */
+/* â”€â”€ 1. BASE â”€â”€ */
 body { background-color: #050505; color: #ffffff; overflow-x: clip; }
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: #0a0a0a; }
 ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: #555; }
 
-/* ── 2. GLASS NAV & CARDS ── */
+/* â”€â”€ 2. GLASS NAV & CARDS â”€â”€ */
 .glass-nav {
     background: rgba(5, 5, 5, 0.7);
     backdrop-filter: blur(12px);
@@ -30,7 +30,7 @@ body { background-color: #050505; color: #ffffff; overflow-x: clip; }
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* ── 3. NAV LINK UNDERLINE ── */
+/* â”€â”€ 3. NAV LINK UNDERLINE â”€â”€ */
 .nav-link { position: relative; }
 .nav-link::after {
     content: ''; position: absolute; width: 0; height: 1px;
@@ -39,11 +39,11 @@ body { background-color: #050505; color: #ffffff; overflow-x: clip; }
 }
 .nav-link:hover::after { width: 100%; }
 
-/* ── 4. SCROLL REVEAL ── */
+/* â”€â”€ 4. SCROLL REVEAL â”€â”€ */
 .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
-/* ── 5. PAGE TRANSITION ── */
+/* â”€â”€ 5. PAGE TRANSITION â”€â”€ */
 #page-transition {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
     background-color: #050505; z-index: 9999;
@@ -58,7 +58,7 @@ body { background-color: #050505; color: #ffffff; overflow-x: clip; }
 }
 #page-transition .brand-text.show { opacity: 1; transform: translateY(0); }
 
-/* ── 6. ANIMATIONS ── */
+/* â”€â”€ 6. ANIMATIONS â”€â”€ */
 @keyframes blob {
     0%   { transform: translate(0px, 0px) scale(1); }
     33%  { transform: translate(30px, -50px) scale(1.1); }
@@ -70,7 +70,7 @@ body { background-color: #050505; color: #ffffff; overflow-x: clip; }
     100% { opacity: 1; transform: translateY(0); }
 }
 
-/* ── 7. BEFORE/AFTER MAIN SLIDER ── */
+/* â”€â”€ 7. BEFORE/AFTER MAIN SLIDER â”€â”€ */
 .ba-wrapper {
     position: relative;
     width: 100%;
@@ -122,7 +122,7 @@ body { background-color: #050505; color: #ffffff; overflow-x: clip; }
 .ba-label-left  { left: 20px; color: #999; }
 .ba-label-right { right: 20px; color: #fff; }
 
-/* ── 8. MINI BEFORE/AFTER SLIDERS (feature cards) ── */
+/* â”€â”€ 8. MINI BEFORE/AFTER SLIDERS (feature cards) â”€â”€ */
 .mini-ba {
     position: relative; width: 100%; height: 240px;
     border-radius: 0.75rem; overflow: hidden; background: #0a0a0a;
@@ -167,7 +167,7 @@ body { background-color: #050505; color: #ffffff; overflow-x: clip; }
 .mini-lbl-b { left: 10px; color: #999; }
 .mini-lbl-a { right: 10px; color: #fff; }
 
-/* ── 9. RESPONSIVE ── */
+/* â”€â”€ 9. RESPONSIVE â”€â”€ */
 @media (max-width: 640px) {
     .ba-wrapper { height: 340px; border-radius: 1.5rem; }
     .handle-pill { width: 44px; height: 44px; }
