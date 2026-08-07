@@ -29,7 +29,7 @@ body {
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 1.25rem;
+    border-radius: 2.25rem; /* Softer, smooth, ultra-modern curved edges */
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .glass-card:hover {
@@ -124,11 +124,10 @@ body {
         inset 0 0 25px 0 #ffbf4780,
         inset 0 20px 50px 0 #bf4a1d80;
     animation: sp-colorize calc(var(--sp-t) * 3) ease-in-out infinite;
-    overflow: hidden;
+    overflow: visible;
     flex-shrink: 0;
 }
-.sp-logo--xs { width: 36px; height: 36px; }
-.sp-logo--sm { width: 64px; height: 64px; }
+.sp-logo--sm { width: 48px; height: 48px; }
 .sp-logo--lg { width: 140px; height: 140px; }
 .sp-logo::before {
     content: "";
@@ -159,16 +158,11 @@ body {
 .sp-b3 { width: 30px; height: 30px; top: 28px; left: 35px; transform-origin: -30% -10%; animation: sp-spin var(--sp-t) linear infinite reverse; }
 .sp-b4 { width: 28px; height: 28px; top: 30px; left: 36px; transform-origin: -30% -10%; animation: sp-spin var(--sp-t) linear infinite reverse; animation-delay: calc(var(--sp-t) / -2); }
 .sp-b5 { width: 30px; height: 30px; top: 28px; left: 35px; transform-origin: 130% -10%; animation: sp-spin var(--sp-t) linear infinite; }
-.sp-logo--xs .sp-b1 { width: 16px; height: 16px; top: 5px; left: 10px; }
-.sp-logo--xs .sp-b2 { width: 15px; height: 15px; top: 6px; left: 11px; }
-.sp-logo--xs .sp-b3 { width: 11px; height: 11px; top: 10px; left: 13px; }
-.sp-logo--xs .sp-b4 { width: 10px; height: 10px; top: 11px; left: 13px; }
-.sp-logo--xs .sp-b5 { width: 11px; height: 11px; top: 10px; left: 13px; }
-.sp-logo--sm .sp-b1 { width: 28px; height: 28px; top: 8px; left: 18px; }
-.sp-logo--sm .sp-b2 { width: 26px; height: 26px; top: 11px; left: 19px; }
-.sp-logo--sm .sp-b3 { width: 19px; height: 19px; top: 18px; left: 22px; }
-.sp-logo--sm .sp-b4 { width: 18px; height: 18px; top: 19px; left: 23px; }
-.sp-logo--sm .sp-b5 { width: 19px; height: 19px; top: 18px; left: 22px; }
+.sp-logo--sm .sp-b1 { width: 21px; height: 21px; top: 6px; left: 13px; }
+.sp-logo--sm .sp-b2 { width: 19px; height: 19px; top: 8px; left: 14px; }
+.sp-logo--sm .sp-b3 { width: 14px; height: 14px; top: 13px; left: 16px; }
+.sp-logo--sm .sp-b4 { width: 13px; height: 13px; top: 14px; left: 17px; }
+.sp-logo--sm .sp-b5 { width: 14px; height: 14px; top: 13px; left: 16px; }
 .sp-logo--lg .sp-b1 { width: 62px; height: 62px; top: 17px; left: 39px; }
 .sp-logo--lg .sp-b2 { width: 56px; height: 56px; top: 25px; left: 42px; }
 .sp-logo--lg .sp-b3 { width: 42px; height: 42px; top: 39px; left: 49px; }
@@ -195,9 +189,9 @@ body {
     height: 100px;
     perspective: 800px;
     flex-shrink: 0;
+    overflow: visible;
 }
-.stb-logo--xs { width: 36px; height: 36px; }
-.stb-logo--sm { width: 64px; height: 64px; }
+.stb-logo--sm { width: 48px; height: 48px; }
 .stb-logo--lg { width: 140px; height: 140px; }
 .stb-wrapper {
     position: relative;
@@ -244,9 +238,9 @@ body {
     height: 100px;
     flex-shrink: 0;
     filter: drop-shadow(0 8px 20px rgba(0, 119, 182, 0.4));
+    overflow: visible;
 }
-.sc-logo--xs { width: 36px; height: 36px; }
-.sc-logo--sm { width: 64px; height: 64px; }
+.sc-logo--sm { width: 48px; height: 48px; }
 .sc-logo--lg { width: 140px; height: 140px; }
 .sc-logo svg {
     display: block;
