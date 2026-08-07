@@ -25,16 +25,18 @@ body {
 
 /* ── 3. GLASS CARD ── */
 .glass-card {
-    background: rgba(26, 26, 26, 0.4);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.4s ease-out;
+    background: rgba(18, 18, 18, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.25rem;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .glass-card:hover {
-    background: rgba(26, 26, 26, 0.6);
-    border-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-4px) scale(1.01);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    background: rgba(24, 24, 24, 0.85);
+    border-color: rgba(255, 255, 255, 0.18);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 30px 0 rgba(255, 255, 255, 0.03);
 }
 
 /* ── 4. PAGE TRANSITION ── */
@@ -106,12 +108,7 @@ body {
 }
 
 /* ==========================================================
-   PRODUCT LOGOS — StudyPal blob + Studio butterfly
-   ==========================================================
-   Standalone copies (this page has its own product cards, no
-   cross-page/cross-repo dependency). Keep in sync by hand with
-   the same blocks in /styles.css, /studio/styles.css,
-   /studypal/styles.css if the marks are ever changed.
+   PRODUCT LOGOS — StudyPal blob + Studio butterfly + Scope
    ========================================================== */
 .sp-logo {
     --sp-c1: #ffbf48;
@@ -130,6 +127,7 @@ body {
     overflow: hidden;
     flex-shrink: 0;
 }
+.sp-logo--xs { width: 36px; height: 36px; }
 .sp-logo--sm { width: 64px; height: 64px; }
 .sp-logo--lg { width: 140px; height: 140px; }
 .sp-logo::before {
@@ -161,6 +159,11 @@ body {
 .sp-b3 { width: 30px; height: 30px; top: 28px; left: 35px; transform-origin: -30% -10%; animation: sp-spin var(--sp-t) linear infinite reverse; }
 .sp-b4 { width: 28px; height: 28px; top: 30px; left: 36px; transform-origin: -30% -10%; animation: sp-spin var(--sp-t) linear infinite reverse; animation-delay: calc(var(--sp-t) / -2); }
 .sp-b5 { width: 30px; height: 30px; top: 28px; left: 35px; transform-origin: 130% -10%; animation: sp-spin var(--sp-t) linear infinite; }
+.sp-logo--xs .sp-b1 { width: 16px; height: 16px; top: 5px; left: 10px; }
+.sp-logo--xs .sp-b2 { width: 15px; height: 15px; top: 6px; left: 11px; }
+.sp-logo--xs .sp-b3 { width: 11px; height: 11px; top: 10px; left: 13px; }
+.sp-logo--xs .sp-b4 { width: 10px; height: 10px; top: 11px; left: 13px; }
+.sp-logo--xs .sp-b5 { width: 11px; height: 11px; top: 10px; left: 13px; }
 .sp-logo--sm .sp-b1 { width: 28px; height: 28px; top: 8px; left: 18px; }
 .sp-logo--sm .sp-b2 { width: 26px; height: 26px; top: 11px; left: 19px; }
 .sp-logo--sm .sp-b3 { width: 19px; height: 19px; top: 18px; left: 22px; }
@@ -193,6 +196,7 @@ body {
     perspective: 800px;
     flex-shrink: 0;
 }
+.stb-logo--xs { width: 36px; height: 36px; }
 .stb-logo--sm { width: 64px; height: 64px; }
 .stb-logo--lg { width: 140px; height: 140px; }
 .stb-wrapper {
@@ -234,15 +238,6 @@ body {
     50%      { transform: translateY(-5%) rotateX(15deg); }
 }
 
-/* ==========================================================
-   SCOPE LOGO — brand mark
-   ==========================================================
-   This is ScopeAI's actual app icon (scope.watulab.com/app/icon.svg)
-   duplicated as inline SVG — not a custom animation. Same rounded
-   gradient-square mark used as the real app's favicon, so the
-   marketing site and the product look like the same company.
-   Self-contained, no cross-repo/cross-page dependency.
-   ========================================================== */
 .sc-logo {
     position: relative;
     width: 100px;
@@ -250,6 +245,7 @@ body {
     flex-shrink: 0;
     filter: drop-shadow(0 8px 20px rgba(0, 119, 182, 0.4));
 }
+.sc-logo--xs { width: 36px; height: 36px; }
 .sc-logo--sm { width: 64px; height: 64px; }
 .sc-logo--lg { width: 140px; height: 140px; }
 .sc-logo svg {
