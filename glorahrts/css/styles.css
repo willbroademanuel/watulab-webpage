@@ -6,16 +6,16 @@ body {
     overflow-x: hidden;
 }
 .hero-gradient {
-    background: linear-gradient(135deg, #FF9A9E 0%, #FAD0C4 100%);
+    background: linear-gradient(135deg, #8A640F 0%, #D4AF37 50%, #F9F1DC 100%);
 }
 .text-gradient {
-    background: linear-gradient(90deg, #FF6B6B 0%, #FF8E8E 100%);
+    background: linear-gradient(90deg, #B8860B 0%, #D4AF37 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
 .heading-gradient {
-    background: linear-gradient(90deg, #FF6B6B 0%, #FF8E53 100%);
+    background: linear-gradient(90deg, #996515 0%, #D4AF37 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -25,7 +25,7 @@ body {
 }
 .card-hover:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 25px 50px -12px rgba(255, 107, 107, 0.2);
+    box-shadow: 0 25px 50px -12px rgba(212, 175, 55, 0.25);
 }
 .fade-in {
     opacity: 0;
@@ -62,7 +62,7 @@ body {
     transition: box-shadow 0.3s ease;
 }
 .glow-on-hover:hover {
-    box-shadow: 0 0 15px rgba(255, 107, 107, 0.6);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
 }
 .gradient-border {
     position: relative;
@@ -77,7 +77,7 @@ body {
     right: -2px;
     bottom: -2px;
     z-index: -1;
-    background: linear-gradient(45deg, #FF6B6B, #FF8E53, #FFB3B3);
+    background: linear-gradient(45deg, #B8860B, #D4AF37, #F3E5AB);
     border-radius: 1rem;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -135,7 +135,7 @@ body {
     left: -10px;
     right: -10px;
     bottom: -10px;
-    border: 2px dashed #FF6B6B;
+    border: 2px dashed #D4AF37;
     border-radius: 50%;
     opacity: 0.5;
     z-index: -1;

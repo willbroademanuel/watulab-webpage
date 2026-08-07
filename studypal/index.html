@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="sw" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyPal · Msaidizi wa AI wa Kusoma | Watu Lab</title>
+    <meta name="description" content="StudyPal — pakia notisi zako, pata maswali ya mazoezi yaliyotengenezwa na AI, fuatilia maeneo yako dhaifu, na shindana na wenzako. Zao la Watu Lab.">
+    <link rel="canonical" href="https://watulab.com/studypal/">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#050505">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://watulab.com/studypal/">
+    <meta property="og:title" content="StudyPal · Msaidizi wa AI wa Kusoma | Watu Lab">
+    <meta property="og:description" content="Jukwaa la AI la kusoma — maswali ya mazoezi, ufuatiliaji wa udhaifu, na mashindano ya vikundi.">
+    <meta property="og:image" content="https://watulab.com/assets/logo.jpeg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="StudyPal · Msaidizi wa AI wa Kusoma | Watu Lab">
+    <meta name="twitter:description" content="Jukwaa la AI la kusoma — kwa ajili ya wanafunzi wa Afrika Mashariki.">
+    <meta name="twitter:image" content="https://watulab.com/assets/logo.jpeg">
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#050505',
+                            dark: '#0a0a0a',
+                            grey: '#1a1a1a',
+                            light: '#d4d4d4',
+                            white: '#ffffff'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(4px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="page-transition">
+        <div class="notranslate brand-text show" id="transition-text">WATU LAB</div>
+    </div>
+
+    <!-- Background blobs — same as index.html -->
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-amber-900/30 rounded-full mix-blend-screen filter blur-[100px] opacity-20"
+            style="animation: blob 7s infinite"></div>
+        <div class="absolute top-1/2 right-1/4 w-96 h-96 bg-gray-700 rounded-full mix-blend-screen filter blur-[100px] opacity-20"
+            style="animation: blob 7s infinite; animation-delay: 2s"></div>
+        <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-gray-900 rounded-full mix-blend-screen filter blur-[100px] opacity-30"
+            style="animation: blob 7s infinite; animation-delay: 4s"></div>
+    </div>
+
+    <!-- Navigation — matches index pattern -->
+    <nav class="glass-nav fixed w-full z-40 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a href="/" class="flex items-center gap-3 group">
+                        <div
+                            class="h-10 w-10 border border-white/20 rounded-full flex items-center justify-center overflow-hidden bg-brand-grey transition-transform group-hover:-translate-x-1">
+                            <i class="fas fa-arrow-left text-sm"></i>
+                        </div>
+                        <span
+                            class="font-bold text-xl tracking-tight text-white group-hover:text-gray-300 transition-colors hidden sm:inline">Rudi
+                            Mwanzo</span>
+                    </a>
+                    <span class="text-gray-600 hidden sm:inline">&middot;</span>
+                    <span class="notranslate font-bold text-xl tracking-tight cursor-default">StudyPal</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#features"
+                        class="nav-link text-sm font-medium transition-colors text-gray-300 hover:text-white px-1 py-2">Vipengele</a>
+                    <a href="#how"
+                        class="nav-link text-sm font-medium transition-colors text-gray-300 hover:text-white px-1 py-2">Jinsi</a>
+                    <a href="#why"
+                        class="nav-link text-sm font-medium transition-colors text-gray-300 hover:text-white px-1 py-2">Kwa
+                        Nini</a>
+                    <a href="https://studypal.watulab.com/sign-up" rel="noopener noreferrer"
+                        class="px-6 py-2 rounded-full text-sm font-bold bg-white text-black hover:bg-gray-200 transition-all transform hover:scale-105">Jaribu
+                        Bure</a>
+                </div>
+
+                <div class="flex md:hidden items-center gap-3">
+                    <a href="https://studypal.watulab.com/sign-up" rel="noopener noreferrer"
+                        class="px-5 py-2 rounded-full text-xs font-bold bg-white text-black hover:bg-gray-200 transition-all">Jaribu
+                        Bure</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ====== HERO ====== -->
+    <section
+        class="min-h-[100svh] flex items-start justify-center pt-24 pb-10 md:pt-20 md:pb-0 px-6 md:px-4 relative z-10">
+        <div class="max-w-4xl mx-auto text-center reveal active md:pt-0 relative">
+            <p
+                class="absolute top-0 left-0 right-0 text-brand-light text-sm md:text-base tracking-[0.3em] uppercase opacity-70">
+                Powered by WatuLab</p>
+
+            <div class="flex justify-center mb-8 mt-16 md:mt-10">
+                <div class="sp-logo sp-logo--lg">
+                    <div class="sp-logo-inner">
+                        <div class="sp-blob sp-b1"></div>
+                        <div class="sp-blob sp-b2"></div>
+                        <div class="sp-blob sp-b3"></div>
+                        <div class="sp-blob sp-b4"></div>
+                        <div class="sp-blob sp-b5"></div>
+                    </div>
+                </div>
+            </div>
+
+            <h1
+                class="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight tracking-tighter mix-blend-difference">
+                <span>Soma Kwa Akili,</span><br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-orange-600">Sio
+                    kwa Bahati.</span>
+            </h1>
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light leading-relaxed">Pakia
+                notisi zako, na StudyPal itakutengenezea maswali ya mazoezi, itafuatilia maeneo yako dhaifu, na
+                itakusaidia kusoma kwa ufanisi zaidi kwa msaada wa AI &mdash; peke yako au na kikundi chako.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="https://studypal.watulab.com/sign-up" rel="noopener noreferrer"
+                    class="group relative px-8 py-4 bg-white text-black font-bold rounded-full overflow-hidden transition-all hover:pr-10">
+                    <span class="relative z-10">Anza Kusoma Bure</span>
+                    <div
+                        class="absolute inset-0 bg-gray-200 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left">
+                    </div>
+                    <i
+                        class="fas fa-arrow-right absolute right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all z-10 text-xs"></i>
+                </a>
+                <a href="#features"
+                    class="px-8 py-4 border border-white/10 text-white font-medium rounded-full hover:bg-white/5 hover:border-white/30 transition-all backdrop-blur-sm">Ona
+                    Vipengele</a>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mt-12 text-xs text-gray-500">
+                <div class="flex items-center gap-2"><i class="fas fa-check text-amber-400 text-[10px]"></i> Bila
+                    kadi ya benki</div>
+                <div class="flex items-center gap-2"><i class="fas fa-brain text-amber-400 text-[10px]"></i>
+                    Umekwama? Uliza Tutor wa AI</div>
+                <div class="flex items-center gap-2"><i class="fas fa-users text-amber-400 text-[10px]"></i>
+                    Shindana na kikundi chako</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== FEATURES ====== -->
+    <section id="features" class="py-24 relative z-10 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
+                <div>
+                    <h2 class="text-4xl md:text-6xl font-bold mb-2 tracking-tighter">Zana Zako za Kusoma</h2>
+                    <div class="h-1 w-20 bg-amber-400"></div>
+                </div>
+                <p class="text-gray-400 max-w-sm mt-6 md:mt-0 text-right md:text-left">Kila kitu unachohitaji ili
+                    kusoma kwa ufanisi &mdash; mahali pamoja.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <div class="glass-card p-8 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-amber-500/40">
+                    <div
+                        class="h-14 w-14 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center mb-6 text-2xl border border-amber-500/20 transition-transform group-hover:scale-110">
+                        <i class="fas fa-file-arrow-up"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Maswali Kutoka kwa Notisi Zako</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Pakia PDF, picha, au hati zako za darasa &mdash; AI
+                        yetu inasoma na kutengeneza maswali ya mazoezi yanayolingana na maudhui yako halisi.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-amber-500/40"
+                    style="animation-delay: 50ms">
+                    <div
+                        class="h-14 w-14 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center mb-6 text-2xl border border-amber-500/20 transition-transform group-hover:scale-110">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Ufuatiliaji wa Maeneo Dhaifu</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Tunafuatilia mada unazokosea mara kwa mara na
+                        kukupatia mazoezi yaliyolengwa kuboresha maeneo hayo hasa.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-amber-500/40"
+                    style="animation-delay: 100ms">
+                    <div
+                        class="h-14 w-14 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center mb-6 text-2xl border border-amber-500/20 transition-transform group-hover:scale-110">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Tutor wa AI</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Umekwama kwenye swali? Muulize Tutor wa AI moja
+                        kwa moja ndani ya somo lako, akikupatia maelezo bila kukuachia jibu tu.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-amber-500/40"
+                    style="animation-delay: 150ms">
+                    <div
+                        class="h-14 w-14 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center mb-6 text-2xl border border-amber-500/20 transition-transform group-hover:scale-110">
+                        <i class="fas fa-people-group"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Vikundi na Mashindano</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Unda kikundi na wanafunzi wenzako, endesheni
+                        mashindano ya siku kadhaa, na muone ubao wa ushindi (leaderboard) ukibadilika muda halisi.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-amber-500/40"
+                    style="animation-delay: 200ms">
+                    <div
+                        class="h-14 w-14 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center mb-6 text-2xl border border-amber-500/20 transition-transform group-hover:scale-110">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Streaks za Kila Siku</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Jenga tabia ya kusoma kila siku &mdash; fuatilia
+                        mfululizo wako wa siku na upate alama za heshima unapoendelea.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-amber-500/40"
+                    style="animation-delay: 250ms">
+                    <div
+                        class="h-14 w-14 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center mb-6 text-2xl border border-amber-500/20 transition-transform group-hover:scale-110">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Maktaba Yako Binafsi</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Hifadhi na tafuta notisi zako zote mahali
+                        pamoja, tayari kutumika tena wakati wowote wa kutengeneza mazoezi mapya.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== HOW IT WORKS ====== -->
+    <section id="how" class="py-24 relative z-10 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
+                <div>
+                    <h2 class="text-4xl md:text-6xl font-bold mb-2 tracking-tighter">Hatua Tatu Tu</h2>
+                    <div class="h-1 w-20 bg-amber-400"></div>
+                </div>
+                <p class="text-gray-400 max-w-sm mt-6 md:mt-0 text-right md:text-left">Rahisi kuanza, haraka kupata
+                    matokeo.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-10 rounded-2xl reveal border border-white/10 relative group"
+                    style="animation-delay: 0ms">
+                    <span
+                        class="absolute top-6 right-6 text-gray-700 text-6xl font-bold leading-none select-none">01</span>
+                    <div
+                        class="h-16 w-16 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center mb-8 text-3xl border border-amber-500/20 transition-transform group-hover:scale-110">
+                        <i class="fas fa-cloud-arrow-up"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Pakia Notisi</h3>
+                    <p class="text-gray-400 text-base leading-relaxed">Pakia PDF, picha za notisi, au hati za darasa
+                        &mdash; formati zote zinakubaliwa.</p>
+                </div>
+
+                <div class="glass-card p-10 rounded-2xl reveal border border-white/10 relative group"
+                    style="animation-delay: 150ms">
+                    <span
+                        class="absolute top-6 right-6 text-gray-700 text-6xl font-bold leading-none select-none">02</span>
+                    <div
+                        class="h-16 w-16 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center mb-8 text-3xl border border-amber-500/20 transition-transform group-hover:scale-110">
+                        <i class="fas fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">AI Yatengeneza Mazoezi</h3>
+                    <p class="text-gray-400 text-base leading-relaxed">Ndani ya sekunde, AI inatengeneza maswali ya
+                        mazoezi yanayolingana moja kwa moja na maudhui yako.</p>
+                </div>
+
+                <div class="glass-card p-10 rounded-2xl reveal border border-white/10 relative group"
+                    style="animation-delay: 300ms">
+                    <span
+                        class="absolute top-6 right-6 text-gray-700 text-6xl font-bold leading-none select-none">03</span>
+                    <div
+                        class="h-16 w-16 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center mb-8 text-3xl border border-amber-500/20 transition-transform group-hover:scale-110">
+                        <i class="fas fa-chart-simple"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Soma na Uboreshe</h3>
+                    <p class="text-gray-400 text-base leading-relaxed">Fanya mazoezi, ona maeneo yako dhaifu, na
+                        endelea kuboresha &mdash; peke yako au ukishindana na kikundi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== WHY STUDYPAL ====== -->
+    <section id="why" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-16 items-center">
+                <div class="w-full md:w-1/2 reveal">
+                    <h2 class="text-4xl md:text-6xl font-bold mb-2 tracking-tighter">Kwa Nini StudyPal?</h2>
+                    <div class="h-1 w-20 bg-amber-400 mb-10"></div>
+
+                    <div class="space-y-4">
+                        <div
+                            class="flex items-start gap-4 p-5 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-amber-500/30 transition-all">
+                            <div
+                                class="h-10 w-10 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center text-lg flex-shrink-0 border border-amber-500/20">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div>
+                                <strong class="block text-white font-bold mb-0.5 tracking-tight">Mazoezi
+                                    Yanayolengwa, Si ya Jumla</strong>
+                                <span class="text-gray-400 text-sm">Maswali yanatoka kwenye notisi zako halisi, si
+                                    benki kubwa ya maswali ya jumla yasiyokuhusu.</span>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-start gap-4 p-5 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-amber-500/30 transition-all">
+                            <div
+                                class="h-10 w-10 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center text-lg flex-shrink-0 border border-amber-500/20">
+                                <i class="fas fa-magnifying-glass-chart"></i>
+                            </div>
+                            <div>
+                                <strong class="block text-white font-bold mb-0.5 tracking-tight">Unajua Hasa Wapi
+                                    Ulipokosea</strong>
+                                <span class="text-gray-400 text-sm">Badala ya alama tu, StudyPal inakuonyesha mada
+                                    hasa unazohitaji kuzirudia.</span>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-start gap-4 p-5 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-amber-500/30 transition-all">
+                            <div
+                                class="h-10 w-10 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center text-lg flex-shrink-0 border border-amber-500/20">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div>
+                                <strong class="block text-white font-bold mb-0.5 tracking-tight">Kusoma Kwa
+                                    Pamoja Kunavutia Zaidi</strong>
+                                <span class="text-gray-400 text-sm">Mashindano ya vikundi na ubao wa ushindi
+                                    unaobadilika muda halisi hukufanya uendelee kusoma bila kuchoka.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/2 reveal flex justify-center" style="animation-delay: 200ms">
+                    <div
+                        class="relative rounded-3xl border border-white/10 shadow-2xl overflow-hidden max-w-sm w-full bg-[#0a0a0a] p-12 flex items-center justify-center min-h-[380px]">
+                        <div class="sp-logo sp-logo--lg">
+                            <div class="sp-logo-inner">
+                                <div class="sp-blob sp-b1"></div>
+                                <div class="sp-blob sp-b2"></div>
+                                <div class="sp-blob sp-b3"></div>
+                                <div class="sp-blob sp-b4"></div>
+                                <div class="sp-blob sp-b5"></div>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md border border-white/20 rounded-full px-3 py-1.5 flex items-center gap-1.5">
+                            <span class="w-1.5 h-1.5 bg-amber-400 rounded-full animate-pulse"></span>
+                            <span class="text-white text-[10px] uppercase tracking-widest font-bold">AI Powered</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== CTA ====== -->
+    <section class="py-24 relative z-10 bg-gradient-to-b from-transparent to-black/80">
+        <div
+            class="max-w-4xl mx-auto px-4 text-center reveal border border-white/5 rounded-3xl p-12 bg-gray-900/30 backdrop-blur-sm">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tighter">Upo Tayari Kusoma kwa Ufanisi Zaidi?</h2>
+            <p class="text-gray-400 mb-10 text-lg font-light max-w-2xl mx-auto">Jiunge na wanafunzi wanaotumia
+                StudyPal kila siku. Hakuna kadi ya benki inayohitajika kuanza.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://studypal.watulab.com/sign-up" rel="noopener noreferrer"
+                    class="group relative px-10 py-5 bg-white text-black font-bold rounded-full overflow-hidden transition-all hover:pr-12 inline-flex items-center justify-center gap-3">
+                    <span class="relative z-10">Anza Bure Sasa</span>
+                    <div
+                        class="absolute inset-0 bg-gray-200 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left">
+                    </div>
+                    <i
+                        class="fas fa-arrow-right absolute right-5 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all z-10 text-xs"></i>
+                </a>
+                <a href="/projects/"
+                    class="px-10 py-5 border border-white/10 text-white font-medium rounded-full hover:bg-white/5 hover:border-white/30 transition-all backdrop-blur-sm inline-flex items-center justify-center gap-2">
+                    <i class="fas fa-layer-group text-xs"></i> Ona Miradi Mengine
+                </a>
+            </div>
+            <p class="text-gray-600 text-xs mt-8">Hakuna usajili wa kadi za kibenki unaohitajika &middot; Anza kwa
+                dakika chache</p>
+        </div>
+    </section>
+
+    <!-- ====== FOOTER — matches index.html ====== -->
+    <footer class="border-t border-gray-900 pt-16 pb-8 relative z-10 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+
+                <div>
+                    <h4 class="text-white font-bold text-xl mb-6">StudyPal</h4>
+                    <ul class="space-y-4">
+                        <li><a href="https://studypal.watulab.com/sign-up" rel="noopener noreferrer"
+                                class="text-gray-400 hover:text-white transition-colors">Maswali ya AI</a></li>
+                        <li><a href="https://studypal.watulab.com/sign-up" rel="noopener noreferrer"
+                                class="text-gray-400 hover:text-white transition-colors">Vikundi na Mashindano</a></li>
+                        <li><a href="https://studypal.watulab.com/sign-up" rel="noopener noreferrer"
+                                class="text-gray-400 hover:text-white transition-colors">Tutor wa AI</a></li>
+                        <li><a href="https://studypal.watulab.com/sign-up" rel="noopener noreferrer"
+                                class="text-gray-400 hover:text-white transition-colors">Ufuatiliaji wa Udhaifu</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-xl mb-6">Kampuni</h4>
+                    <ul class="space-y-4">
+                        <li><a href="/" class="text-gray-400 hover:text-white transition-colors">Kuhusu Watu
+                                Lab</a></li>
+                        <li><a href="/#about" class="text-gray-400 hover:text-white transition-colors">Kuhusu
+                                Sisi</a></li>
+                        <li><a href="/projects/" class="text-gray-400 hover:text-white transition-colors">Miradi</a>
+                        </li>
+                        <li><a href="/privacy/" class="text-gray-400 hover:text-white transition-colors">Sera ya
+                                Faragha</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-xl mb-6">Ungana Nasi</h4>
+                    <div class="space-y-6">
+                        <a href="mailto:info@watulab.com"
+                            class="flex items-center gap-4 text-gray-400 hover:text-white transition-colors group">
+                            <div
+                                class="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center group-hover:bg-green-600 transition-all">
+                                <i class="fas fa-envelope text-sm"></i>
+                            </div>
+                            <span class="font-mono text-sm">info@watulab.com</span>
+                        </a>
+
+                        <div class="flex gap-4 pt-2">
+                            <a href="https://instagram.com/watu.lab" target="_blank" rel="noopener noreferrer"
+                                class="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-pink-600 transition-all">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/watulab" target="_blank" rel="noopener noreferrer"
+                                class="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-sky-600 transition-all">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@watulab" target="_blank" rel="noopener noreferrer"
+                                class="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-600 transition-all">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div
+                class="notranslate border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm">
+                <p>&copy; 2026 StudyPal &middot; <a href="/" class="hover:text-white transition-colors font-bold">Watu
+                        Lab</a>. All Rights Reserved.</p>
+                <a href="/privacy/" class="hover:text-white transition-colors mt-4 md:mt-0">Sera ya Faragha</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var revealObs = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) entry.target.classList.add('active');
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -24px 0px' });
+            document.querySelectorAll('.reveal').forEach(function (el) { revealObs.observe(el); });
+
+            document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+                a.addEventListener('click', function (e) {
+                    var t = document.querySelector(a.getAttribute('href'));
+                    if (t) {
+                        e.preventDefault();
+                        t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        })();
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

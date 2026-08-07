@@ -104,3 +104,156 @@ body {
     0%   { opacity: 0; transform: translateY(4px); }
     100% { opacity: 1; transform: translateY(0); }
 }
+
+/* ==========================================================
+   PRODUCT LOGOS — StudyPal blob + Studio butterfly
+   ==========================================================
+   Standalone copies (this page has its own product cards, no
+   cross-page/cross-repo dependency). Keep in sync by hand with
+   the same blocks in /styles.css, /studio/styles.css,
+   /studypal/styles.css if the marks are ever changed.
+   ========================================================== */
+.sp-logo {
+    --sp-c1: #ffbf48;
+    --sp-c2: #be4a1d;
+    --sp-t: 2s;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow:
+        0 0 25px 0 #ffbf47a0,
+        0 10px 45px 0 #bf4a1d80,
+        inset 0 0 25px 0 #ffbf4780,
+        inset 0 20px 50px 0 #bf4a1d80;
+    animation: sp-colorize calc(var(--sp-t) * 3) ease-in-out infinite;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.sp-logo--sm { width: 64px; height: 64px; }
+.sp-logo--lg { width: 140px; height: 140px; }
+.sp-logo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border-top: 1px solid var(--sp-c1);
+    border-bottom: 1px solid var(--sp-c2);
+    background: linear-gradient(180deg, #ffbf4740, #bf4a1d80);
+    box-shadow:
+        inset 0 10px 10px 0 #ffbf4780,
+        inset 0 -10px 10px 0 #bf4a1d80;
+}
+.sp-logo-inner {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="g"><feGaussianBlur in="SourceGraphic" stdDeviation="5"/><feColorMatrix values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -9"/></filter></svg>#g');
+}
+.sp-blob {
+    position: absolute;
+    border-radius: 42%;
+    background: linear-gradient(180deg, var(--sp-c1) 30%, var(--sp-c2) 70%);
+}
+.sp-b1 { width: 44px; height: 44px; top: 12px; left: 28px; transform-origin: 50% 130%; animation: sp-spin var(--sp-t) linear infinite reverse; }
+.sp-b2 { width: 40px; height: 40px; top: 18px; left: 30px; transform-origin: 50% -30%; animation: sp-spin var(--sp-t) linear infinite; animation-delay: calc(var(--sp-t) / -3); }
+.sp-b3 { width: 30px; height: 30px; top: 28px; left: 35px; transform-origin: -30% -10%; animation: sp-spin var(--sp-t) linear infinite reverse; }
+.sp-b4 { width: 28px; height: 28px; top: 30px; left: 36px; transform-origin: -30% -10%; animation: sp-spin var(--sp-t) linear infinite reverse; animation-delay: calc(var(--sp-t) / -2); }
+.sp-b5 { width: 30px; height: 30px; top: 28px; left: 35px; transform-origin: 130% -10%; animation: sp-spin var(--sp-t) linear infinite; }
+.sp-logo--sm .sp-b1 { width: 28px; height: 28px; top: 8px; left: 18px; }
+.sp-logo--sm .sp-b2 { width: 26px; height: 26px; top: 11px; left: 19px; }
+.sp-logo--sm .sp-b3 { width: 19px; height: 19px; top: 18px; left: 22px; }
+.sp-logo--sm .sp-b4 { width: 18px; height: 18px; top: 19px; left: 23px; }
+.sp-logo--sm .sp-b5 { width: 19px; height: 19px; top: 18px; left: 22px; }
+.sp-logo--lg .sp-b1 { width: 62px; height: 62px; top: 17px; left: 39px; }
+.sp-logo--lg .sp-b2 { width: 56px; height: 56px; top: 25px; left: 42px; }
+.sp-logo--lg .sp-b3 { width: 42px; height: 42px; top: 39px; left: 49px; }
+.sp-logo--lg .sp-b4 { width: 39px; height: 39px; top: 42px; left: 50px; }
+.sp-logo--lg .sp-b5 { width: 42px; height: 42px; top: 39px; left: 49px; }
+@keyframes sp-spin { to { transform: rotate(360deg); } }
+@keyframes sp-colorize {
+    0%   { filter: hue-rotate(0deg); }
+    20%  { filter: hue-rotate(-30deg); }
+    40%  { filter: hue-rotate(-60deg); }
+    60%  { filter: hue-rotate(-90deg); }
+    80%  { filter: hue-rotate(-45deg); }
+    100% { filter: hue-rotate(0deg); }
+}
+
+.stb-logo {
+    --stb-c1: #d4af37;
+    --stb-c2: #b8860b;
+    --stb-c3: #f0dc8a;
+    --stb-body-light: #4a3820;
+    --stb-body-dark: #1a1309;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    perspective: 800px;
+    flex-shrink: 0;
+}
+.stb-logo--sm { width: 64px; height: 64px; }
+.stb-logo--lg { width: 140px; height: 140px; }
+.stb-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: stb-bob 2s ease-in-out infinite;
+}
+.stb-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    filter: drop-shadow(0 10px 18px rgba(212, 175, 55, 0.35));
+}
+.stb-wing-right {
+    transform-origin: 256px 256px;
+    animation: stb-flap-right 0.4s ease-in-out infinite alternate;
+}
+.stb-wing-left {
+    transform-origin: 256px 256px;
+    animation: stb-flap-left 0.4s ease-in-out infinite alternate;
+}
+.stb-fill-a { fill: var(--stb-c1); }
+.stb-fill-b { fill: var(--stb-c2); }
+.stb-fill-c { fill: var(--stb-c3); }
+.stb-body-light { fill: var(--stb-body-light); }
+.stb-body-dark  { fill: var(--stb-body-dark); }
+@keyframes stb-flap-right {
+    0%   { transform: rotateZ(30deg) rotateY(0deg) rotateX(0deg) scale(0.9); }
+    100% { transform: rotateZ(-20deg) rotateY(-40deg) rotateX(20deg) scale(1.1); }
+}
+@keyframes stb-flap-left {
+    0%   { transform: rotateZ(-30deg) rotateY(0deg) rotateX(0deg) scale(0.9); }
+    100% { transform: rotateZ(20deg) rotateY(40deg) rotateX(20deg) scale(1.1); }
+}
+@keyframes stb-bob {
+    0%, 100% { transform: rotateX(5deg); }
+    50%      { transform: translateY(-5%) rotateX(15deg); }
+}
+
+/* ==========================================================
+   SCOPE LOGO — brand mark
+   ==========================================================
+   This is ScopeAI's actual app icon (scope.watulab.com/app/icon.svg)
+   duplicated as inline SVG — not a custom animation. Same rounded
+   gradient-square mark used as the real app's favicon, so the
+   marketing site and the product look like the same company.
+   Self-contained, no cross-repo/cross-page dependency.
+   ========================================================== */
+.sc-logo {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 8px 20px rgba(0, 119, 182, 0.4));
+}
+.sc-logo--sm { width: 64px; height: 64px; }
+.sc-logo--lg { width: 140px; height: 140px; }
+.sc-logo svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}

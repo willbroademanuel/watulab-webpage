@@ -179,71 +179,25 @@ body { background-color: #050505; color: #ffffff; overflow-x: clip; }
 }
 
 /* ==========================================================
-   STUDIO LOGO — animated bird/butterfly mark
+   SCOPE LOGO — brand mark
    ==========================================================
-   Ported from the Uiverse.io loader by kiranmayee-abbireddy —
-   the wing-flap keyframes (rotateZ+rotateY+rotateX+scale, a real
-   hinge-fold, not a flat squash) and the SVG wing artwork are
-   used as-is; only the card/background/clouds/wind/text chrome
-   is dropped and the fills are remapped to Studio's own brand
-   tokens (--gold-500/400/300, dark theme, see
-   studio.watulab.com/app/globals.css) instead of the original
-   coral palette. Self-contained, no cross-repo/cross-page dependency.
+   This is ScopeAI's actual app icon (scope.watulab.com/app/icon.svg)
+   duplicated as inline SVG — not a custom animation. Same rounded
+   gradient-square mark used as the real app's favicon, so the
+   marketing site and the product look like the same company.
+   Self-contained, no cross-repo/cross-page dependency.
    ========================================================== */
-.stb-logo {
-    --stb-c1: #d4af37;
-    --stb-c2: #b8860b;
-    --stb-c3: #f0dc8a;
-    --stb-body-light: #4a3820;
-    --stb-body-dark: #1a1309;
+.sc-logo {
     position: relative;
     width: 100px;
     height: 100px;
-    perspective: 800px;
     flex-shrink: 0;
+    filter: drop-shadow(0 8px 20px rgba(0, 119, 182, 0.4));
 }
-.stb-logo--sm { width: 64px; height: 64px; }
-.stb-logo--lg { width: 140px; height: 140px; }
-
-.stb-wrapper {
-    position: relative;
+.sc-logo--sm { width: 64px; height: 64px; }
+.sc-logo--lg { width: 140px; height: 140px; }
+.sc-logo svg {
+    display: block;
     width: 100%;
     height: 100%;
-    transform-style: preserve-3d;
-    animation: stb-bob 2s ease-in-out infinite;
-}
-
-.stb-svg {
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-    filter: drop-shadow(0 10px 18px rgba(212, 175, 55, 0.35));
-}
-
-.stb-wing-right {
-    transform-origin: 256px 256px;
-    animation: stb-flap-right 0.4s ease-in-out infinite alternate;
-}
-.stb-wing-left {
-    transform-origin: 256px 256px;
-    animation: stb-flap-left 0.4s ease-in-out infinite alternate;
-}
-
-.stb-fill-a { fill: var(--stb-c1); }
-.stb-fill-b { fill: var(--stb-c2); }
-.stb-fill-c { fill: var(--stb-c3); }
-.stb-body-light { fill: var(--stb-body-light); }
-.stb-body-dark  { fill: var(--stb-body-dark); }
-
-@keyframes stb-flap-right {
-    0%   { transform: rotateZ(30deg) rotateY(0deg) rotateX(0deg) scale(0.9); }
-    100% { transform: rotateZ(-20deg) rotateY(-40deg) rotateX(20deg) scale(1.1); }
-}
-@keyframes stb-flap-left {
-    0%   { transform: rotateZ(-30deg) rotateY(0deg) rotateX(0deg) scale(0.9); }
-    100% { transform: rotateZ(20deg) rotateY(40deg) rotateX(20deg) scale(1.1); }
-}
-@keyframes stb-bob {
-    0%, 100% { transform: rotateX(5deg); }
-    50%      { transform: translateY(-5%) rotateX(15deg); }
 }
