@@ -1018,3 +1018,24 @@ body {
     width: 100%;
     height: 100%;
 }
+
+/* ==========================================================
+   SMARTEVENT LOGO — brand mark
+   ==========================================================
+   Official SmartEvent brand mark: clean standalone SVG icon.
+   ========================================================== */
+.se-logo {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+}
+.se-logo--sm { width: 64px; height: 64px; }
+.se-logo--lg { width: 140px; height: 140px; }
+.se-logo svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+

@@ -1,0 +1,16 @@
+<svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="smarteventGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3EE58F" />
+      <stop offset="30%" stop-color="#30D794" />
+      <stop offset="70%" stop-color="#18B991" />
+      <stop offset="100%" stop-color="#089A81" />
+    </linearGradient>
+  </defs>
+  <!-- Top Loop -->
+  <path d="M 142 38 L 84 38 A 38 38 0 0 0 84 114 L 118 114" 
+        stroke="url(#smarteventGrad)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- Bottom Loop -->
+  <path d="M 58 162 L 116 162 A 38 38 0 0 0 116 86 L 82 86" 
+        stroke="url(#smarteventGrad)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
