@@ -7,37 +7,31 @@
 
 <url>
   <loc>https://watulab.com/</loc>
-  <lastmod>2026-07-18T00:00:00+00:00</lastmod>
+  <lastmod>2026-08-15T00:00:00+00:00</lastmod>
   <changefreq>monthly</changefreq>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://watulab.com/projects/</loc>
-  <lastmod>2026-07-18T00:00:00+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
   <loc>https://watulab.com/studio/</loc>
-  <lastmod>2026-07-18T00:00:00+00:00</lastmod>
+  <lastmod>2026-08-15T00:00:00+00:00</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://watulab.com/studypal/</loc>
-  <lastmod>2026-08-07T00:00:00+00:00</lastmod>
+  <lastmod>2026-08-15T00:00:00+00:00</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://watulab.com/scope/</loc>
-  <lastmod>2026-08-07T00:00:00+00:00</lastmod>
+  <lastmod>2026-08-15T00:00:00+00:00</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://watulab.com/privacy/</loc>
-  <lastmod>2026-07-18T00:00:00+00:00</lastmod>
+  <lastmod>2026-08-15T00:00:00+00:00</lastmod>
   <changefreq>yearly</changefreq>
   <priority>0.40</priority>
 </url>
