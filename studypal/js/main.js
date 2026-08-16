@@ -318,11 +318,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 ['free', 'pro', 'pro_max'].forEach((planKey) => {
                     const card = document.querySelector(`[data-plan="${planKey}"]`);
                     if (!card) return;
-                    const priceEl = card.querySelector('[data-price-val]');
                     const planData = data[planKey];
-                    if (priceEl && planData && planData.price) {
+                    if (!planData) return;
+
+                    const priceEl = card.querySelector('[data-price-val]');
+                    if (priceEl && planData.price) {
                         const period = planData.period || '';
                         priceEl.innerHTML = `${planData.price}${period ? `<span>${period}</span>` : ''}`;
+                    }
+
+                    const qEl = card.querySelector('[data-feature="questions"]');
+                    if (qEl && planData.questionsPerMonth) {
+                        qEl.textContent = planData.questionsPerMonth.startsWith('~') 
+                            ? planData.questionsPerMonth 
+                            : `~${planData.questionsPerMonth}`;
                     }
                 });
             }
