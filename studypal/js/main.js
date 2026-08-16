@@ -305,4 +305,29 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (cursorDot) {
         cursorDot.style.display = 'none';
     }
+
+    // --- Dynamic Pricing Sync with App DB / API Endpoint ---
+    (async function syncLivePricing() {
+        const endpoint = 'https://studypal.watulab.com/api/pricing';
+        try {
+            const res = await fetch(endpoint, { headers: { 'Accept': 'application/json' } });
+            if (!res.ok) return;
+            const data = await res.json();
+
+            if (data && typeof data === 'object') {
+                ['free', 'pro', 'pro_max'].forEach((planKey) => {
+                    const card = document.querySelector(`[data-plan="${planKey}"]`);
+                    if (!card) return;
+                    const priceEl = card.querySelector('[data-price-val]');
+                    const planData = data[planKey];
+                    if (priceEl && planData && planData.price) {
+                        const period = planData.period || '';
+                        priceEl.innerHTML = `${planData.price}${period ? `<span>${period}</span>` : ''}`;
+                    }
+                });
+            }
+        } catch (e) {
+            // Strict fallback policy: Maintain neutral placeholder if fetch fails to avoid displaying outdated prices
+        }
+    })();
 });

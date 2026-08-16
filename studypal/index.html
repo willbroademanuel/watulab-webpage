@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <title>StudyPal - Turn Lecture Notes into Your Next Advantage</title>
-    <meta name="description" content="Upload your syllabus, discover your weak areas, and compete with classmates in daily challenges.">
+    <meta name="description" content="Upload your syllabus, discover your weak areas, and compete with classmates in daily quiz challenges.">
     <meta property="og:title" content="StudyPal - Play your notes.">
-    <meta property="og:description" content="Upload your syllabus, discover your weak areas, and compete with classmates in daily challenges.">
+    <meta property="og:description" content="Upload your syllabus, discover your weak areas, and compete with classmates in daily quiz challenges.">
     <meta property="og:image" content="assets/hero_mockup.jpg">
     <meta property="og:type" content="website">
     <link rel="icon" type="image/png" href="assets/logo.png">
@@ -102,13 +102,13 @@
                 <div class="hero-index">
                     <span class="eyebrow">Study Smarter, Not Harder</span>
                     <hr class="rule">
-                    <span class="eyebrow" style="color: var(--ink-muted);">01 / Study OS</span>
+                    <span class="eyebrow hero-os-tag" style="color: var(--ink-muted);">01 / Study OS</span>
                 </div>
                 <h1>
                     Turn your notes into your next
                     <span class="rotator" id="rotator">advantage.</span>
                 </h1>
-                <p class="hero-lede">Upload your syllabus, discover your exact weak areas, and compete with classmates in daily AI-generated challenges.</p>
+                <p class="hero-lede">Upload your syllabus, discover your exact weak areas, and compete with classmates in daily quiz challenges.</p>
                 <div class="hero-cta-group">
                     <a href="https://studypal.watulab.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                         Start Studying for Free
@@ -240,44 +240,47 @@
                 <div class="feature-visual reveal-scale">
                     <div class="app-mockup">
                         <div class="lb-container">
-
-                            <div class="lb-row">
-                                <div class="lb-left">
-                                    <span class="lb-rank gold">1</span>
-                                    <div class="lb-name">
-                                        <p class="name-text">Sarah M.</p>
-                                        <p class="name-sub">4 days completed</p>
-                                    </div>
-                                </div>
-                                <div class="lb-right">
-                                    <span class="lb-pts">450 pts</span>
-                                </div>
+                            <div class="lb-header">
+                                <h4>Group Leaderboard</h4>
                             </div>
-
-                            <div class="lb-row is-me">
-                                <div class="lb-left">
-                                    <span class="lb-rank">2</span>
-                                    <div class="lb-name">
-                                        <p class="name-text">You</p>
-                                        <p class="name-sub">4 days completed</p>
+                            <div class="lb-list">
+                                <div class="lb-row">
+                                    <div class="lb-left">
+                                        <span class="lb-rank">01</span>
+                                        <div class="lb-name">
+                                            <p class="name-text">Sarah M.</p>
+                                            <p class="name-sub">4 days completed</p>
+                                        </div>
+                                    </div>
+                                    <div class="lb-right">
+                                        <span class="lb-pts">450 pts</span>
                                     </div>
                                 </div>
-                                <div class="lb-right">
-                                    <span class="lb-streak"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>4</span>
-                                    <span class="lb-pts">420 pts</span>
-                                </div>
-                            </div>
 
-                            <div class="lb-row">
-                                <div class="lb-left">
-                                    <span class="lb-rank">3</span>
-                                    <div class="lb-name">
-                                        <p class="name-text">Alex T.</p>
-                                        <p class="name-sub">3 days completed</p>
+                                <div class="lb-row is-me">
+                                    <div class="lb-left">
+                                        <span class="lb-rank">02</span>
+                                        <div class="lb-name">
+                                            <p class="name-text">You</p>
+                                            <p class="name-sub">4 days completed</p>
+                                        </div>
+                                    </div>
+                                    <div class="lb-right">
+                                        <span class="lb-pts">420 pts</span>
                                     </div>
                                 </div>
-                                <div class="lb-right">
-                                    <span class="lb-pts">415 pts</span>
+
+                                <div class="lb-row">
+                                    <div class="lb-left">
+                                        <span class="lb-rank">03</span>
+                                        <div class="lb-name">
+                                            <p class="name-text">Alex T.</p>
+                                            <p class="name-sub">3 days completed</p>
+                                        </div>
+                                    </div>
+                                    <div class="lb-right">
+                                        <span class="lb-pts">415 pts</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -298,25 +301,28 @@
                 <div class="feature-visual reveal-scale">
                     <div class="app-mockup">
                         <div class="weak-container">
-                            <h4>Your Weak Areas</h4>
-
-                            <div class="weak-card">
-                                <div class="weak-header">
-                                    <span>Photosynthesis</span>
-                                    <span class="weak-pct bad">2/5 (40%)</span>
-                                </div>
-                                <div class="weak-bar-bg">
-                                    <div class="weak-bar-fill bad" style="width: 40%;"></div>
-                                </div>
+                            <div class="weak-header-title">
+                                <h4>Your Weak Areas</h4>
                             </div>
-
-                            <div class="weak-card">
-                                <div class="weak-header">
-                                    <span>Cell Division</span>
-                                    <span class="weak-pct good">13/19 (68%)</span>
+                            <div class="weak-list">
+                                <div class="weak-row">
+                                    <div class="weak-row-header">
+                                        <span class="weak-topic">Photosynthesis</span>
+                                        <span class="weak-pct bad">2/5 (40%)</span>
+                                    </div>
+                                    <div class="weak-bar-bg">
+                                        <div class="weak-bar-fill bad" style="width: 40%"></div>
+                                    </div>
                                 </div>
-                                <div class="weak-bar-bg">
-                                    <div class="weak-bar-fill good" style="width: 68%;"></div>
+
+                                <div class="weak-row">
+                                    <div class="weak-row-header">
+                                        <span class="weak-topic">Cell Division</span>
+                                        <span class="weak-pct good">13/19 (68%)</span>
+                                    </div>
+                                    <div class="weak-bar-bg">
+                                        <div class="weak-bar-fill good" style="width: 68%"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -361,9 +367,9 @@
 
             <div class="pricing-grid">
                 <!-- Free -->
-                <div class="pricing-card reveal">
+                <div class="pricing-card reveal" data-plan="free">
                     <h3>Free</h3>
-                    <div class="price">Tsh 0<span>/mo</span></div>
+                    <div class="price" data-price-val>Free</div>
                     <p class="text-sm">Perfect to test the waters.</p>
                     <ul class="pricing-features">
                         <li>3,000 AI Credits monthly</li>
@@ -372,14 +378,14 @@
                         <li>Standard AI Tutor (GLM)</li>
                         <li>30MB Storage</li>
                     </ul>
-                    <a href="https://studypal.watulab.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Get Started</a>
+                    <a href="https://studypal.watulab.com/pricing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Get Started</a>
                 </div>
 
                 <!-- Pro -->
-                <div class="pricing-card recommended reveal">
+                <div class="pricing-card recommended reveal" data-plan="pro">
                     <span class="pricing-badge">Recommended</span>
                     <h3>Pro</h3>
-                    <div class="price">$1.99<span>/mo</span></div>
+                    <div class="price" data-price-val>—</div>
                     <p class="text-sm">For serious students.</p>
                     <ul class="pricing-features">
                         <li>25,000 AI Credits monthly</li>
@@ -388,13 +394,13 @@
                         <li>Advanced AI (DeepSeek)</li>
                         <li>180MB Storage</li>
                     </ul>
-                    <a href="https://studypal.watulab.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Upgrade to Pro</a>
+                    <a href="https://studypal.watulab.com/pricing" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Upgrade to Pro</a>
                 </div>
 
                 <!-- Pro Max -->
-                <div class="pricing-card reveal">
+                <div class="pricing-card reveal" data-plan="pro_max">
                     <h3>Pro Max</h3>
-                    <div class="price">$2.99<span>/mo</span></div>
+                    <div class="price" data-price-val>—</div>
                     <p class="text-sm">Maximum study power.</p>
                     <ul class="pricing-features">
                         <li>50,000 AI Credits monthly</li>
@@ -403,7 +409,7 @@
                         <li>Premium AI (Qwen)</li>
                         <li>300MB Storage</li>
                     </ul>
-                    <a href="https://studypal.watulab.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Upgrade to Pro Max</a>
+                    <a href="https://studypal.watulab.com/pricing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Upgrade to Pro Max</a>
                 </div>
             </div>
         </section>
