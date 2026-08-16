@@ -508,6 +508,12 @@ p { margin-bottom: var(--space-4); color: var(--ink-secondary); }
     color: var(--ink-secondary);
     padding: 8px 10px;
     border-radius: var(--radius-sm);
+    transition: background-color 0.2s, color 0.2s;
+    cursor: default;
+}
+.dash-nav-item:not(.active):hover {
+    background: color-mix(in srgb, var(--ink-secondary) 8%, transparent);
+    color: var(--ink);
 }
 .dash-nav-item.active {
     background: color-mix(in srgb, var(--coral) 12%, transparent);
