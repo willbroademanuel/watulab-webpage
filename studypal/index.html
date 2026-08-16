@@ -1,526 +1,459 @@
 <!DOCTYPE html>
-<html lang="sw" dir="ltr">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudyPal · Mtandao wa Kujifunzia na Mazoezi | Watu Lab</title>
-    <meta name="description" content="StudyPal — pakia nyenzo zako, fanya mazoezi, shindana na vikundi, gundua maeneo dhaifu, na thibitisha ufaulu wako. Zao la Watu Lab.">
-    <link rel="canonical" href="https://watulab.com/studypal/">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#050505">
-    <!-- Analytics: add tracking script here when ready (e.g. Plausible, Umami) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <title>StudyPal - Turn Lecture Notes into Your Next Advantage</title>
+    <meta name="description" content="Upload your syllabus, discover your weak areas, and compete with classmates in daily challenges.">
+    <meta property="og:title" content="StudyPal - Play your notes.">
+    <meta property="og:description" content="Upload your syllabus, discover your weak areas, and compete with classmates in daily challenges.">
+    <meta property="og:image" content="assets/hero_mockup.jpg">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://watulab.com/studypal/">
-    <meta property="og:title" content="StudyPal · Mtandao wa Kujifunzia na Mazoezi | Watu Lab">
-    <meta property="og:description" content="Pakia nyenzo zako → fanya mazoezi → shindana → gundua udhaifu → boreka → thibitisha ufaulu wako.">
-    <meta property="og:image" content="https://watulab.com/assets/logo.jpeg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="StudyPal · Mtandao wa Kujifunzia na Mazoezi | Watu Lab">
-    <meta name="twitter:description" content="Mtandao wa kujifunzia na mazoezi kwa wanafunzi wa Afrika Mashariki.">
-    <meta name="twitter:image" content="https://watulab.com/assets/logo.jpeg">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "StudyPal",
-        "description": "Mtandao wa kujifunzia na mazoezi — pakia nyenzo zako, fanya mazoezi, shindana na vikundi, gundua maeneo dhaifu, na thibitisha ufaulu wako.",
-        "url": "https://studypal.watulab.com",
-        "applicationCategory": "EducationalApplication",
-        "operatingSystem": "Web",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "TZS"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Watu Lab",
-            "url": "https://watulab.com"
-        }
-    }
-    </script>
-    <link rel="icon" type="image/png" href="/assets/favicon.png">
+    <link rel="icon" type="image/png" href="assets/logo.png">
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            black: '#050505',
-                            dark: '#0a0a0a',
-                            grey: '#1a1a1a',
-                            light: '#d4d4d4',
-                            white: '#ffffff'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Space Grotesk', 'sans-serif'],
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-out forwards',
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(4px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
-                        }
-                    }
-                }
-            }
-        }
+        (function () {
+            try {
+                var stored = localStorage.getItem('studypal-theme');
+                var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {}
+        })();
     </script>
 </head>
-
 <body>
+    <div class="cursor-dot" id="cursor-dot"></div>
 
-    <div id="page-transition">
-        <div class="notranslate brand-text show" id="transition-text">WATU LAB</div>
-    </div>
-
-    <!-- Background blobs — same as index.html -->
-    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-amber-900/30 rounded-full mix-blend-screen filter blur-[100px] opacity-20"
-            style="animation: blob 7s infinite"></div>
-        <div class="absolute top-1/2 right-1/4 w-96 h-96 bg-gray-700 rounded-full mix-blend-screen filter blur-[100px] opacity-20"
-            style="animation: blob 7s infinite; animation-delay: 2s"></div>
-        <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-gray-900 rounded-full mix-blend-screen filter blur-[100px] opacity-30"
-            style="animation: blob 7s infinite; animation-delay: 4s"></div>
-    </div>
-
-    <!-- Navigation — matches index pattern -->
-    <nav class="glass-nav fixed w-full z-40 top-0">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex-shrink-0 flex items-center gap-3">
-                    <a href="/" class="flex items-center gap-3 group">
-                        <div
-                            class="h-10 w-10 border border-white/20 rounded-full flex items-center justify-center overflow-hidden bg-brand-grey transition-transform group-hover:-translate-x-1">
-                            <i class="fas fa-arrow-left text-sm"></i>
-                        </div>
-                        <span
-                            class="font-bold text-xl tracking-tight text-white group-hover:text-gray-300 transition-colors hidden sm:inline">Rudi
-                            Mwanzo</span>
-                    </a>
-                    <span class="text-gray-600 hidden sm:inline">&middot;</span>
-                    <span class="notranslate font-bold text-xl tracking-tight cursor-default">StudyPal</span>
-                </div>
-
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="#features"
-                        class="nav-link text-sm font-medium transition-colors text-gray-300 hover:text-white px-1 py-2">Vipengele</a>
-                    <a href="#how"
-                        class="nav-link text-sm font-medium transition-colors text-gray-300 hover:text-white px-1 py-2">Jinsi</a>
-                    <a href="#why"
-                        class="nav-link text-sm font-medium transition-colors text-gray-300 hover:text-white px-1 py-2">Kwa
-                        Nini</a>
-                    <a href="https://studypal.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                        class="px-6 py-2 rounded-full text-sm font-bold bg-white text-black hover:bg-gray-200 transition-all transform hover:scale-105">Jaribu
-                        Bure</a>
-                </div>
-
-                <div class="flex md:hidden items-center gap-3">
-                    <a href="https://studypal.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                        class="px-5 py-2 rounded-full text-xs font-bold bg-white text-black hover:bg-gray-200 transition-all">Jaribu
-                        Bure</a>
-                </div>
+    <!-- Ambient brand mark: the same blob loader used as the nav logo, blown up huge and
+         parked in a corner as a soft background glow rather than a literal small animated
+         icon in the nav — a more premium way to keep the brand present on screen. -->
+    <div class="brand-bg-orb brand-bg-orb-tr" aria-hidden="true">
+        <div class="loader">
+            <div class="loaderInner">
+                <div class="blob b1"></div>
+                <div class="blob b2"></div>
+                <div class="blob b3"></div>
+                <div class="blob b4"></div>
+                <div class="blob b5"></div>
             </div>
         </div>
+    </div>
+    <div class="brand-bg-orb brand-bg-orb-bl" aria-hidden="true">
+        <div class="loader">
+            <div class="loaderInner">
+                <div class="blob b1"></div>
+                <div class="blob b2"></div>
+                <div class="blob b3"></div>
+                <div class="blob b4"></div>
+                <div class="blob b5"></div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                StudyPal
+            </a>
+            <div class="nav-links">
+                <a href="#workflow">How it Works</a>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+                </button>
+                <a href="https://studypal.watulab.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Login</a>
+                <a href="https://studypal.watulab.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Get Started</a>
+            </div>
+            <button class="theme-toggle theme-toggle-mobile" id="theme-toggle-mobile" aria-label="Toggle theme">
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+            </button>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="nav-progress" id="nav-progress"></div>
     </nav>
 
-    <!-- ====== HERO ====== -->
-    <section
-        class="min-h-[100svh] flex items-start justify-center pt-24 pb-10 md:pt-20 md:pb-0 px-6 md:px-4 relative z-10">
-        <div class="max-w-4xl mx-auto text-center reveal active md:pt-0 relative">
-            <p
-                class="absolute top-0 left-0 right-0 text-brand-light text-sm md:text-base tracking-[0.3em] uppercase opacity-70">
-                Powered by WatuLab</p>
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#workflow" class="mobile-link">How it Works</a>
+        <a href="#features" class="mobile-link">Features</a>
+        <a href="#pricing" class="mobile-link">Pricing</a>
+        <a href="https://studypal.watulab.com" target="_blank" rel="noopener noreferrer" class="mobile-link">Login</a>
+        <a href="https://studypal.watulab.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Start Studying</a>
+    </div>
 
-            <div class="flex justify-center mb-8 mt-16 md:mt-10">
-                <div class="sp-logo sp-logo--lg">
-                    <div class="sp-logo-inner">
-                        <div class="sp-blob sp-b1"></div>
-                        <div class="sp-blob sp-b2"></div>
-                        <div class="sp-blob sp-b3"></div>
-                        <div class="sp-blob sp-b4"></div>
-                        <div class="sp-blob sp-b5"></div>
-                    </div>
+    <main>
+        <!-- Hero -->
+        <header class="section hero container">
+            <div class="hero-content">
+                <div class="hero-index">
+                    <span class="eyebrow">Study Smarter, Not Harder</span>
+                    <hr class="rule">
+                    <span class="eyebrow" style="color: var(--ink-muted);">01 / Study OS</span>
                 </div>
+                <h1>
+                    Turn your notes into your next
+                    <span class="rotator" id="rotator">advantage.</span>
+                </h1>
+                <p class="hero-lede">Upload your syllabus, discover your exact weak areas, and compete with classmates in daily AI-generated challenges.</p>
+                <div class="hero-cta-group">
+                    <a href="https://studypal.watulab.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        Start Studying for Free
+                        <span class="btn-arrow">→</span>
+                    </a>
+                    <a href="#workflow" class="btn btn-secondary">See How it Works</a>
+                </div>
+                <p class="hero-meta">No credit card required — 3,000 AI credits on the house.</p>
             </div>
-
-            <h1
-                class="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight tracking-tighter mix-blend-difference">
-                <span>Soma Kwa Akili,</span><br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-orange-600">Sio
-                    kwa Bahati.</span>
-            </h1>
-            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light leading-relaxed">Pakia
-                notisi zako, na StudyPal itakutengenezea maswali ya mazoezi, itafuatilia maeneo yako dhaifu, na
-                itakusaidia kusoma kwa ufanisi zaidi kwa msaada wa AI &mdash; peke yako au na kikundi chako.</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-6">
-                <a href="https://studypal.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                    class="group relative px-8 py-4 bg-white text-black font-bold rounded-full overflow-hidden transition-all hover:pr-10">
-                    <span class="relative z-10">Anza Kusoma Bure</span>
-                    <div
-                        class="absolute inset-0 bg-gray-200 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left">
+            <div class="hero-visual reveal-scale">
+                <div class="app-mockup dash-mockup">
+                    <div class="dash-sidebar">
+                        <div class="dash-nav-item active">Dashboard</div>
+                        <div class="dash-nav-item">New Quiz</div>
+                        <div class="dash-nav-item">Groups</div>
+                        <div class="dash-nav-item">Weakness</div>
+                        <div class="dash-nav-item">Marathon</div>
+                        <div class="dash-nav-item">Library</div>
                     </div>
-                    <i
-                        class="fas fa-arrow-right absolute right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all z-10 text-xs"></i>
-                </a>
-                <a href="#features"
-                    class="px-8 py-4 border border-white/10 text-white font-medium rounded-full hover:bg-white/5 hover:border-white/30 transition-all backdrop-blur-sm">Ona
-                    Vipengele</a>
-            </div>
-
-            <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mt-12 text-xs text-gray-500">
-                <div class="flex items-center gap-2"><i class="fas fa-check text-amber-400 text-[10px]"></i> Bila
-                    kadi ya benki</div>
-                <div class="flex items-center gap-2"><i class="fas fa-brain text-amber-400 text-[10px]"></i>
-                    Umekwama? Uliza Tutor wa AI</div>
-                <div class="flex items-center gap-2"><i class="fas fa-users text-amber-400 text-[10px]"></i>
-                    Shindana na kikundi chako</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ====== FEATURES ====== -->
-    <section id="features" class="py-24 relative z-10 border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
-                <div>
-                    <h2 class="text-4xl md:text-6xl font-bold mb-2 tracking-tighter">Zana Zako za Kusoma</h2>
-                    <div class="h-1 w-20 bg-amber-400"></div>
-                </div>
-                <p class="text-gray-400 max-w-sm mt-6 md:mt-0 text-right md:text-left">Kila kitu unachohitaji ili
-                    kusoma kwa ufanisi &mdash; mahali pamoja.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                <div class="glass-card p-8 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-amber-500/40">
-                    <div
-                        class="h-14 w-14 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center mb-6 text-2xl border border-amber-500/20 transition-transform group-hover:scale-110">
-                        <i class="fas fa-file-arrow-up"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Mazoezi ya Maudhui Yako Halisi</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Pakia PDF, picha, au hati zako za darasa &mdash;
-                        mfumo unatoa maswali halisi yanayolingana na silabasi na mtihani unaojiandaa nao.</p>
-                </div>
-
-                <div class="glass-card p-8 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-amber-500/40"
-                    style="animation-delay: 50ms">
-                    <div
-                        class="h-14 w-14 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center mb-6 text-2xl border border-amber-500/20 transition-transform group-hover:scale-110">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Uchambuzi wa Maeneo Dhaifu</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Tunafuatilia mada unazokosea mara kwa mara na
-                        kukupatia mazoezi yaliyolengwa kuboresha maeneo hayo hasa kabla ya mtihani.</p>
-                </div>
-
-                <div class="glass-card p-8 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-amber-500/40"
-                    style="animation-delay: 100ms">
-                    <div
-                        class="h-14 w-14 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center mb-6 text-2xl border border-amber-500/20 transition-transform group-hover:scale-110">
-                        <i class="fas fa-comment-dots"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Mwongozo wa Dhana</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Umekwama kwenye swali? Pata ufafanuzi wa hatua kwa
-                        hatua unaokufundisha mantiki na dhana ya msingi badala ya majibu mepesi.</p>
-                </div>
-
-                <div class="glass-card p-8 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-amber-500/40"
-                    style="animation-delay: 150ms">
-                    <div
-                        class="h-14 w-14 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center mb-6 text-2xl border border-amber-500/20 transition-transform group-hover:scale-110">
-                        <i class="fas fa-people-group"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Vikundi na Mashindano</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Unda kikundi na wanafunzi wenzako, endesheni
-                        mashindano ya siku kadhaa, na muone ubao wa ushindi (leaderboard) ukibadilika muda halisi.</p>
-                </div>
-
-                <div class="glass-card p-8 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-amber-500/40"
-                    style="animation-delay: 200ms">
-                    <div
-                        class="h-14 w-14 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center mb-6 text-2xl border border-amber-500/20 transition-transform group-hover:scale-110">
-                        <i class="fas fa-fire"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Streaks za Kila Siku</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Jenga tabia ya kusoma kila siku &mdash; fuatilia
-                        mfululizo wako wa siku na upate alama za heshima unapoendelea.</p>
-                </div>
-
-                <div class="glass-card p-8 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-amber-500/40"
-                    style="animation-delay: 250ms">
-                    <div
-                        class="h-14 w-14 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center mb-6 text-2xl border border-amber-500/20 transition-transform group-hover:scale-110">
-                        <i class="fas fa-book-open"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Maktaba Yako Binafsi</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Hifadhi na tafuta notisi zako zote mahali
-                        pamoja, tayari kutumika tena wakati wowote wa kutengeneza mazoezi mapya.</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ====== HOW IT WORKS ====== -->
-    <section id="how" class="py-24 relative z-10 border-y border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
-                <div>
-                    <h2 class="text-4xl md:text-6xl font-bold mb-2 tracking-tighter">Hatua Tatu Tu</h2>
-                    <div class="h-1 w-20 bg-amber-400"></div>
-                </div>
-                <p class="text-gray-400 max-w-sm mt-6 md:mt-0 text-right md:text-left">Rahisi kuanza, haraka kupata
-                    matokeo.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glass-card p-10 rounded-2xl reveal border border-white/10 relative group"
-                    style="animation-delay: 0ms">
-                    <span
-                        class="absolute top-6 right-6 text-gray-700 text-6xl font-bold leading-none select-none">01</span>
-                    <div
-                        class="h-16 w-16 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center mb-8 text-3xl border border-amber-500/20 transition-transform group-hover:scale-110">
-                        <i class="fas fa-cloud-arrow-up"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-white">Pakia Nyenzo Zako</h3>
-                    <p class="text-gray-400 text-base leading-relaxed">Pakia PDF, picha za notisi, au vitabu vya darasa
-                        &mdash; mfumo unageuza maudhui yako halisi kuwa moduli za mazoezi.</p>
-                </div>
-
-                <div class="glass-card p-10 rounded-2xl reveal border border-white/10 relative group"
-                    style="animation-delay: 150ms">
-                    <span
-                        class="absolute top-6 right-6 text-gray-700 text-6xl font-bold leading-none select-none">02</span>
-                    <div
-                        class="h-16 w-16 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center mb-8 text-3xl border border-amber-500/20 transition-transform group-hover:scale-110">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-white">Fanya Mazoezi na Shindana</h3>
-                    <p class="text-gray-400 text-base leading-relaxed">Pima uelewa wako kila siku, shindana kwenye
-                        vikundi vya darasa, na panda kwenye ubao wa ushindi (leaderboard).</p>
-                </div>
-
-                <div class="glass-card p-10 rounded-2xl reveal border border-white/10 relative group"
-                    style="animation-delay: 300ms">
-                    <span
-                        class="absolute top-6 right-6 text-gray-700 text-6xl font-bold leading-none select-none">03</span>
-                    <div
-                        class="h-16 w-16 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center mb-8 text-3xl border border-amber-500/20 transition-transform group-hover:scale-110">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-white">Gundua Udhaifu & Thibitisha Ufaulu</h3>
-                    <p class="text-gray-400 text-base leading-relaxed">Tambua mada hasa zilizokupa shida, fanya
-                        marekebisho yaliyolengwa, na thibitisha alama zako kabla ya mtihani halisi.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ====== WHY STUDYPAL ====== -->
-    <section id="why" class="py-24 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row gap-16 items-center">
-                <div class="w-full md:w-1/2 reveal">
-                    <h2 class="text-4xl md:text-6xl font-bold mb-2 tracking-tighter">Kwa Nini StudyPal?</h2>
-                    <div class="h-1 w-20 bg-amber-400 mb-10"></div>
-
-                    <div class="space-y-4">
-                        <div
-                            class="flex items-start gap-4 p-5 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-amber-500/30 transition-all">
-                            <div
-                                class="h-10 w-10 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center text-lg flex-shrink-0 border border-amber-500/20">
-                                <i class="fas fa-bullseye"></i>
-                            </div>
+                    <div class="dash-main">
+                        <div class="dash-header">
                             <div>
-                                <strong class="block text-white font-bold mb-0.5 tracking-tight">Mazoezi
-                                    Yanayolengwa, Si ya Jumla</strong>
-                                <span class="text-gray-400 text-sm">Maswali yanatoka kwenye notisi zako halisi, si
-                                    benki kubwa ya maswali ya jumla yasiyokuhusu.</span>
+                                <h3>Welcome back, Jordan</h3>
+                                <p class="dash-sub">Ready to close a few knowledge gaps today?</p>
                             </div>
                         </div>
-                        <div
-                            class="flex items-start gap-4 p-5 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-amber-500/30 transition-all">
-                            <div
-                                class="h-10 w-10 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center text-lg flex-shrink-0 border border-amber-500/20">
-                                <i class="fas fa-magnifying-glass-chart"></i>
+                        <div class="dash-actions">
+                            <div class="dash-action-card">
+                                <span class="dash-action-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 18V5"/><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"/><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 0 0-5.598 1.5"/><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"/><path d="M18 18a4 4 0 0 0 2-7.464"/><path d="M19.967 17.484A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.516"/><path d="M6 18a4 4 0 0 1-2-7.464"/><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"/></svg></span>
+                                New Quiz
                             </div>
-                            <div>
-                                <strong class="block text-white font-bold mb-0.5 tracking-tight">Unajua Hasa Wapi
-                                    Ulipokosea</strong>
-                                <span class="text-gray-400 text-sm">Badala ya alama tu, StudyPal inakuonyesha mada
-                                    hasa unazohitaji kuzirudia.</span>
+                            <div class="dash-action-card">
+                                <span class="dash-action-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                                Groups
                             </div>
                         </div>
-                        <div
-                            class="flex items-start gap-4 p-5 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-amber-500/30 transition-all">
-                            <div
-                                class="h-10 w-10 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center text-lg flex-shrink-0 border border-amber-500/20">
-                                <i class="fas fa-trophy"></i>
+                        <p class="dash-section-label">Recent Quizzes</p>
+                        <div class="dash-quiz-list">
+                            <div class="dash-quiz-row">
+                                <span class="dash-quiz-title">Biology 101</span>
+                                <span class="dash-quiz-score good">17/20 · 85%</span>
                             </div>
-                            <div>
-                                <strong class="block text-white font-bold mb-0.5 tracking-tight">Kusoma Kwa
-                                    Pamoja Kunavutia Zaidi</strong>
-                                <span class="text-gray-400 text-sm">Mashindano ya vikundi na ubao wa ushindi
-                                    unaobadilika muda halisi hukufanya uendelee kusoma bila kuchoka.</span>
+                            <div class="dash-quiz-row">
+                                <span class="dash-quiz-title">Microeconomics</span>
+                                <span class="dash-quiz-score">In Progress</span>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </header>
 
-                <div class="w-full md:w-1/2 reveal flex justify-center" style="animation-delay: 200ms">
-                    <div
-                        class="relative rounded-3xl border border-white/10 shadow-2xl overflow-hidden max-w-sm w-full bg-[#0a0a0a] p-12 flex items-center justify-center min-h-[380px]">
-                        <div class="sp-logo sp-logo--lg">
-                            <div class="sp-logo-inner">
-                                <div class="sp-blob sp-b1"></div>
-                                <div class="sp-blob sp-b2"></div>
-                                <div class="sp-blob sp-b3"></div>
-                                <div class="sp-blob sp-b4"></div>
-                                <div class="sp-blob sp-b5"></div>
-                            </div>
-                        </div>
-                        <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md border border-white/20 rounded-full px-3 py-1.5 flex items-center gap-1.5">
-                            <span class="w-1.5 h-1.5 bg-amber-400 rounded-full animate-pulse"></span>
-                            <span class="text-white text-[10px] uppercase tracking-widest font-bold">AI Powered</span>
-                        </div>
+        <!-- Marquee -->
+        <div class="marquee-wrap">
+            <div class="marquee-track">
+                <span>AI-Generated Quizzes</span>
+                <span>Weakness Profiles</span>
+                <span>Group Contests</span>
+                <span>Daily Streaks</span>
+                <span>Live Leaderboards</span>
+                <span>Instant AI Tutor</span>
+                <span>AI-Generated Quizzes</span>
+                <span>Weakness Profiles</span>
+                <span>Group Contests</span>
+                <span>Daily Streaks</span>
+                <span>Live Leaderboards</span>
+                <span>Instant AI Tutor</span>
+            </div>
+        </div>
+
+        <!-- Workflow -->
+        <section id="workflow" class="section container">
+            <div class="workflow-head reveal">
+                <span class="eyebrow">02 / The Loop</span>
+                <h2>The StudyPal workflow.</h2>
+                <p>A proven loop to master any subject — upload once, practice forever.</p>
+            </div>
+
+            <div class="workflow-list">
+                <div class="workflow-item reveal">
+                    <span class="step-num">01</span>
+                    <div>
+                        <h3>Upload Material</h3>
+                        <p>Drop your lecture slides, PDFs, or Word documents into your Personal Library.</p>
+                    </div>
+                </div>
+                <div class="workflow-item reveal">
+                    <span class="step-num">02</span>
+                    <div>
+                        <h3>Generate Practice</h3>
+                        <p>Our AI instantly parses your notes into timed, interactive quizzes.</p>
+                    </div>
+                </div>
+                <div class="workflow-item reveal">
+                    <span class="step-num">03</span>
+                    <div>
+                        <h3>Discover Weaknesses</h3>
+                        <p>We analyze your wrong answers across all quizzes to build your personal Weakness Profile.</p>
+                    </div>
+                </div>
+                <div class="workflow-item reveal">
+                    <span class="step-num">04</span>
+                    <div>
+                        <h3>Compete &amp; Improve</h3>
+                        <p>Create Group Contests. Study with friends on live leaderboards.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ====== CTA ====== -->
-    <section class="py-24 relative z-10 bg-gradient-to-b from-transparent to-black/80">
-        <div
-            class="max-w-4xl mx-auto px-4 text-center reveal border border-white/5 rounded-3xl p-12 bg-gray-900/30 backdrop-blur-sm">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tighter">Upo Tayari Kusoma kwa Ufanisi Zaidi?</h2>
-            <p class="text-gray-400 mb-10 text-lg font-light max-w-2xl mx-auto">Jiunge na wanafunzi wanaotumia
-                StudyPal kila siku. Hakuna kadi ya benki inayohitajika kuanza.</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="https://studypal.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                    class="group relative px-10 py-5 bg-white text-black font-bold rounded-full overflow-hidden transition-all hover:pr-12 inline-flex items-center justify-center gap-3">
-                    <span class="relative z-10">Anza Bure Sasa</span>
-                    <div
-                        class="absolute inset-0 bg-gray-200 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left">
+        <!-- Features -->
+        <section id="features" class="section container">
+
+            <!-- Feature 1: Group Contests -->
+            <div class="feature-row">
+                <div class="feature-content reveal">
+                    <div class="feature-tag">
+                        <span class="feature-index">03</span>
+                        <span class="feature-label">Group Contests</span>
                     </div>
-                    <i
-                        class="fas fa-arrow-right absolute right-5 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all z-10 text-xs"></i>
-                </a>
-                <a href="/projects/"
-                    class="px-10 py-5 border border-white/10 text-white font-medium rounded-full hover:bg-white/5 hover:border-white/30 transition-all backdrop-blur-sm inline-flex items-center justify-center gap-2">
-                    <i class="fas fa-layer-group text-xs"></i> Ona Miradi Mengine
-                </a>
-            </div>
-            <p class="text-gray-600 text-xs mt-8">Hakuna usajili wa kadi za kibenki unaohitajika &middot; Anza kwa
-                dakika chache</p>
-        </div>
-    </section>
-
-    <!-- ====== FOOTER — matches index.html ====== -->
-    <footer class="border-t border-gray-900 pt-16 pb-8 relative z-10 bg-black">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-
-                <div>
-                    <h4 class="text-white font-bold text-xl mb-6">StudyPal</h4>
-                    <ul class="space-y-4">
-                        <li><a href="https://studypal.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                                class="text-gray-400 hover:text-white transition-colors">Maswali ya AI</a></li>
-                        <li><a href="https://studypal.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                                class="text-gray-400 hover:text-white transition-colors">Vikundi na Mashindano</a></li>
-                        <li><a href="https://studypal.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                                class="text-gray-400 hover:text-white transition-colors">Tutor wa AI</a></li>
-                        <li><a href="https://studypal.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                                class="text-gray-400 hover:text-white transition-colors">Ufuatiliaji wa Udhaifu</a>
-                        </li>
+                    <h2>Study multiplayer.</h2>
+                    <p>Stop studying in isolation. Group Contests turn your shared notes into multi-day, timed challenges. Lock in your answers before the daily deadline, and watch the leaderboard shuffle.</p>
+                    <ul>
+                        <li>Real-time overtake alerts — "Jordan passed you!"</li>
+                        <li>Anti-cheat answer gating — answers lock until everyone submits</li>
+                        <li>Daily streak tracking, per contest</li>
                     </ul>
                 </div>
+                <div class="feature-visual reveal-scale">
+                    <div class="app-mockup">
+                        <div class="lb-container">
 
-                <div>
-                    <h4 class="text-white font-bold text-xl mb-6">Kampuni</h4>
-                    <ul class="space-y-4">
-                        <li><a href="/" class="text-gray-400 hover:text-white transition-colors">Kuhusu Watu
-                                Lab</a></li>
-                        <li><a href="/#about" class="text-gray-400 hover:text-white transition-colors">Kuhusu
-                                Sisi</a></li>
-                        <li><a href="/projects/" class="text-gray-400 hover:text-white transition-colors">Miradi</a>
-                        </li>
-                        <li><a href="/privacy/" class="text-gray-400 hover:text-white transition-colors">Sera ya
-                                Faragha</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-white font-bold text-xl mb-6">Ungana Nasi</h4>
-                    <div class="space-y-6">
-                        <a href="mailto:info@watulab.com"
-                            class="flex items-center gap-4 text-gray-400 hover:text-white transition-colors group">
-                            <div
-                                class="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center group-hover:bg-green-600 transition-all">
-                                <i class="fas fa-envelope text-sm"></i>
+                            <div class="lb-row">
+                                <div class="lb-left">
+                                    <span class="lb-rank gold">1</span>
+                                    <div class="lb-name">
+                                        <p class="name-text">Sarah M.</p>
+                                        <p class="name-sub">4 days completed</p>
+                                    </div>
+                                </div>
+                                <div class="lb-right">
+                                    <span class="lb-pts">450 pts</span>
+                                </div>
                             </div>
-                            <span class="font-mono text-sm">info@watulab.com</span>
-                        </a>
 
-                        <div class="flex gap-4 pt-2">
-                            <a href="https://instagram.com/watu.lab" target="_blank" rel="noopener noreferrer"
-                                class="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-pink-600 transition-all">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/company/watulab" target="_blank" rel="noopener noreferrer"
-                                class="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-sky-600 transition-all">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="https://www.tiktok.com/@watulab" target="_blank" rel="noopener noreferrer"
-                                class="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-600 transition-all">
-                                <i class="fab fa-tiktok"></i>
-                            </a>
+                            <div class="lb-row is-me">
+                                <div class="lb-left">
+                                    <span class="lb-rank">2</span>
+                                    <div class="lb-name">
+                                        <p class="name-text">You</p>
+                                        <p class="name-sub">4 days completed</p>
+                                    </div>
+                                </div>
+                                <div class="lb-right">
+                                    <span class="lb-streak"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>4</span>
+                                    <span class="lb-pts">420 pts</span>
+                                </div>
+                            </div>
+
+                            <div class="lb-row">
+                                <div class="lb-left">
+                                    <span class="lb-rank">3</span>
+                                    <div class="lb-name">
+                                        <p class="name-text">Alex T.</p>
+                                        <p class="name-sub">3 days completed</p>
+                                    </div>
+                                </div>
+                                <div class="lb-right">
+                                    <span class="lb-pts">415 pts</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
 
-            <div
-                class="notranslate border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm">
-                <p>&copy; 2026 StudyPal &middot; <a href="/" class="hover:text-white transition-colors font-bold">Watu
-                        Lab</a>. All Rights Reserved.</p>
-                <a href="/privacy/" class="hover:text-white transition-colors mt-4 md:mt-0">Sera ya Faragha</a>
+            <!-- Feature 2: Weakness Tracking -->
+            <div class="feature-row">
+                <div class="feature-content reveal">
+                    <div class="feature-tag">
+                        <span class="feature-index">04</span>
+                        <span class="feature-label">Weakness Tracking</span>
+                    </div>
+                    <h2>Know what you'll fail on.</h2>
+                    <p>StudyPal analyzes your performance across all your documents. Instead of re-reading everything blindly, use "Quiz me on weak areas" to target exactly the concepts you struggle with most.</p>
+                </div>
+                <div class="feature-visual reveal-scale">
+                    <div class="app-mockup">
+                        <div class="weak-container">
+                            <h4>Your Weak Areas</h4>
+
+                            <div class="weak-card">
+                                <div class="weak-header">
+                                    <span>Photosynthesis</span>
+                                    <span class="weak-pct bad">2/5 (40%)</span>
+                                </div>
+                                <div class="weak-bar-bg">
+                                    <div class="weak-bar-fill bad" style="width: 40%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="weak-card">
+                                <div class="weak-header">
+                                    <span>Cell Division</span>
+                                    <span class="weak-pct good">13/19 (68%)</span>
+                                </div>
+                                <div class="weak-bar-bg">
+                                    <div class="weak-bar-fill good" style="width: 68%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 3: AI Tutor -->
+            <div class="feature-row">
+                <div class="feature-content reveal">
+                    <div class="feature-tag">
+                        <span class="feature-index">05</span>
+                        <span class="feature-label">AI Tutor</span>
+                    </div>
+                    <h2>Get unstuck instantly.</h2>
+                    <p>Stuck on a concept? Ask your personal AI Tutor right inside the quiz or your results — it answers using your own uploaded materials, not a generic textbook.</p>
+                </div>
+                <div class="feature-visual reveal-scale tutor-visual">
+                    <div class="app-mockup">
+                        <div class="chat-glow" aria-hidden="true"></div>
+                        <div class="chat-container" id="tutor-demo">
+                            <div class="chat-messages" id="tutor-messages"></div>
+                            <div class="chat-input-row">
+                                <div class="chat-input-fake"><span id="chat-input-text"></span><span class="chat-caret"></span></div>
+                                <button class="chat-send" id="chat-send" tabindex="-1" aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section id="pricing" class="section container">
+            <div class="pricing-head reveal">
+                <span class="eyebrow">06 / Pricing</span>
+                <h2>Simple, transparent pricing.</h2>
+                <p>Start for free. Upgrade when you need more power. Mobile money (ClickPesa) supported.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Free -->
+                <div class="pricing-card reveal">
+                    <h3>Free</h3>
+                    <div class="price">Tsh 0<span>/mo</span></div>
+                    <p class="text-sm">Perfect to test the waters.</p>
+                    <ul class="pricing-features">
+                        <li>3,000 AI Credits monthly</li>
+                        <li>1 Group &amp; 2 Concurrent Contests</li>
+                        <li>Basic Quiz Generation</li>
+                        <li>Standard AI Tutor (GLM)</li>
+                        <li>30MB Storage</li>
+                    </ul>
+                    <a href="https://studypal.watulab.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Get Started</a>
+                </div>
+
+                <!-- Pro -->
+                <div class="pricing-card recommended reveal">
+                    <span class="pricing-badge">Recommended</span>
+                    <h3>Pro</h3>
+                    <div class="price">$1.99<span>/mo</span></div>
+                    <p class="text-sm">For serious students.</p>
+                    <ul class="pricing-features">
+                        <li>25,000 AI Credits monthly</li>
+                        <li>Full Weakness Report Unlocked</li>
+                        <li>3 Groups &amp; 5 Concurrent Contests</li>
+                        <li>Advanced AI (DeepSeek)</li>
+                        <li>180MB Storage</li>
+                    </ul>
+                    <a href="https://studypal.watulab.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Upgrade to Pro</a>
+                </div>
+
+                <!-- Pro Max -->
+                <div class="pricing-card reveal">
+                    <h3>Pro Max</h3>
+                    <div class="price">$2.99<span>/mo</span></div>
+                    <p class="text-sm">Maximum study power.</p>
+                    <ul class="pricing-features">
+                        <li>50,000 AI Credits monthly</li>
+                        <li>Full Weakness Report Unlocked</li>
+                        <li>5 Groups &amp; 10 Concurrent Contests</li>
+                        <li>Premium AI (Qwen)</li>
+                        <li>300MB Storage</li>
+                    </ul>
+                    <a href="https://studypal.watulab.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Upgrade to Pro Max</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="final-cta container reveal">
+            <span class="eyebrow" style="justify-content: center; margin-bottom: var(--space-4);">Ready when you are</span>
+            <h2>Ready to <span class="italic">ace</span> your next exam?</h2>
+            <p style="margin-bottom: var(--space-8); max-width: 40ch; margin-left: auto; margin-right: auto;">Join your classmates on StudyPal today.</p>
+            <a href="https://studypal.watulab.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-flex;">
+                Start Studying
+                <span class="btn-arrow">→</span>
+            </a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-word">Study, sharper.</div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Product</h4>
+                        <a href="#workflow">How it Works</a>
+                        <a href="#features">Features</a>
+                        <a href="#pricing">Pricing</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <a href="/" target="_blank" rel="noopener noreferrer">Watu Lab</a>
+                        <a href="/#about" target="_blank" rel="noopener noreferrer">About Us</a>
+                        <a href="/projects/" target="_blank" rel="noopener noreferrer">Projects</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <a href="https://studypal.watulab.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                        <a href="https://studypal.watulab.com/legal/terms-of-use" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 StudyPal. All rights reserved. &middot; A product of <a href="/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; font-weight: 500;">Watu Lab</a>.</span>
+                <span>Built for students.</span>
             </div>
         </div>
     </footer>
 
-    <script>
-        (function () {
-            var revealObs = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) entry.target.classList.add('active');
-                });
-            }, { threshold: 0.1, rootMargin: '0px 0px -24px 0px' });
-            document.querySelectorAll('.reveal').forEach(function (el) { revealObs.observe(el); });
-
-            document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-                a.addEventListener('click', function (e) {
-                    var t = document.querySelector(a.getAttribute('href'));
-                    if (t) {
-                        e.preventDefault();
-                        t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                });
-            });
-        })();
-    </script>
-
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.16/dist/lenis.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
-
 </html>
