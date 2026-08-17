@@ -4,11 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            var saved = localStorage.getItem('studio-theme');
+            var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
     <title>Studio · AI Visual Excellence | Watu Lab</title>
     <meta name="description" content="Studio — teknolojia ya AI inayoboresha picha zako hadi ubora wa 4K. DesignLab, Text to Photo, Photo to Video, AI Inpainting, na zaidi. Zao la Watu Lab.">
     <link rel="canonical" href="https://watulab.com/studio/">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#050505">
+    <meta name="theme-color" content="#08070a">
     <!-- Analytics: add tracking script here when ready (e.g. Plausible, Umami) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://watulab.com/studio/">
@@ -102,7 +109,10 @@
 
     <!-- Ambient hero glow -->
     <div class="absolute top-0 inset-x-0 h-[640px] z-0 overflow-hidden pointer-events-none">
-        <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[560px] bg-brand-gold rounded-full mix-blend-screen filter blur-[140px] opacity-[0.07]"></div>
+        <div class="absolute -top-40 left-[20%] w-[700px] h-[560px] bg-brand-gold rounded-full mix-blend-screen filter blur-[140px]"
+            style="opacity: var(--hero-glow);"></div>
+        <div class="absolute -top-20 right-[5%] w-[420px] h-[420px] bg-brand-gold rounded-full mix-blend-screen filter blur-[120px]"
+            style="opacity: calc(var(--hero-glow) * 0.6);"></div>
     </div>
 
     <!-- Navigation &mdash; matches index pattern -->
@@ -112,134 +122,152 @@
                 <div class="flex-shrink-0 flex items-center gap-3">
                     <a href="/" class="flex items-center gap-3 group">
                         <div
-                            class="h-10 w-10 border border-white/20 rounded-full flex items-center justify-center overflow-hidden bg-brand-grey transition-transform group-hover:-translate-x-1">
-                            <i class="fas fa-arrow-left text-sm"></i>
+                            class="h-10 w-10 border t-border-3 rounded-full flex items-center justify-center overflow-hidden t-surface transition-transform group-hover:-translate-x-1">
+                            <i class="fas fa-arrow-left text-sm t-ink"></i>
                         </div>
                         <span
-                            class="font-bold text-xl tracking-tight text-white group-hover:text-gray-300 transition-colors hidden sm:inline">Rudi
+                            class="font-bold text-xl tracking-tight t-ink group-hover:text-brand-gold transition-colors hidden sm:inline">Rudi
                             Mwanzo</span>
                     </a>
-                    <span class="text-gray-600 hidden sm:inline">&middot;</span>
-                    <span class="notranslate font-serif font-medium text-xl tracking-tight cursor-default">Studio</span>
+                    <span class="t-ink-6 hidden sm:inline">&middot;</span>
+                    <span class="notranslate font-serif font-medium text-xl tracking-tight cursor-default t-ink">Studio</span>
                 </div>
 
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#demo"
-                        class="nav-link text-sm font-medium transition-colors text-gray-300 hover:text-white px-1 py-2">Demo</a>
+                        class="nav-link text-sm font-medium transition-colors px-1 py-2">Demo</a>
                     <a href="#features"
-                        class="nav-link text-sm font-medium transition-colors text-gray-300 hover:text-white px-1 py-2">Vipengele</a>
+                        class="nav-link text-sm font-medium transition-colors px-1 py-2">Vipengele</a>
                     <a href="#how"
-                        class="nav-link text-sm font-medium transition-colors text-gray-300 hover:text-white px-1 py-2">Jinsi</a>
+                        class="nav-link text-sm font-medium transition-colors px-1 py-2">Jinsi</a>
                     <a href="#testimonials"
-                        class="nav-link text-sm font-medium transition-colors text-gray-300 hover:text-white px-1 py-2">Maoni</a>
+                        class="nav-link text-sm font-medium transition-colors px-1 py-2">Maoni</a>
+                    <button type="button" id="themeToggle" class="theme-toggle" aria-label="Badilisha mwonekano">
+                        <i class="fas fa-sun ic-sun"></i>
+                        <i class="fas fa-moon ic-moon"></i>
+                    </button>
                     <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                        class="px-6 py-2 rounded-full text-sm font-bold bg-white text-black hover:bg-gray-200 transition-all transform hover:scale-105">Jaribu
+                        class="t-btn px-6 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105">Jaribu
                         Bure</a>
                 </div>
 
                 <div class="flex md:hidden items-center gap-3">
+                    <button type="button" id="themeToggleMobile" class="theme-toggle" aria-label="Badilisha mwonekano">
+                        <i class="fas fa-sun ic-sun"></i>
+                        <i class="fas fa-moon ic-moon"></i>
+                    </button>
                     <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                        class="px-5 py-2 rounded-full text-xs font-bold bg-white text-black hover:bg-gray-200 transition-all">Jaribu
+                        class="t-btn px-5 py-2 rounded-full text-xs font-bold transition-all">Jaribu
                         Bure</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- ====== HERO ====== -->
-    <section
-        class="min-h-[100svh] flex items-start justify-center pt-24 pb-10 md:pt-20 md:pb-0 px-6 md:px-4 relative z-10">
-        <div class="max-w-4xl mx-auto text-center reveal active md:pt-0 relative">
-            <p
-                class="absolute top-0 left-0 right-0 text-brand-light text-sm md:text-base tracking-[0.3em] uppercase opacity-70">
-                Powered by WatuLab</p>
+    <!-- ====== HERO — editorial split ====== -->
+    <section class="pt-32 pb-20 md:pt-40 md:pb-28 px-6 md:px-4 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="hero-grid reveal active">
+                <div>
+                    <p class="hero-eyebrow"><span class="dot"></span>Powered by WatuLab</p>
 
-            <div class="flex justify-center mb-6 mt-16 md:mt-10">
-                <div class="stb-logo stb-logo--lg">
-                    <div class="stb-wrapper">
-                        <svg class="stb-svg" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                            <g class="stb-wing-right">
-                                <path class="stb-fill-a" d="M266.298,313.842c0,0,51.495,164.781,122.115,129.471c0,0,35.31,8.828,44.138-26.483c0,0,26.483,0,26.483-35.31c0,0,26.483-8.828,17.655-44.138c0,0,38.253-35.31-80.184-97.839l-131.678,0.736L266.298,313.842z"></path>
-                                <path class="stb-fill-b" d="M301.76,393.27c-22.227-37.143-35.46-79.428-35.46-79.428l-1.472-73.564l131.678-0.736c22.382,11.817,39.154,22.658,51.659,32.476c-19.908,45.301-77.406,14.268-77.406,65.364C370.759,379.803,331.148,393.87,301.76,393.27z"></path>
-                                <path class="stb-fill-c" d="M379.586,240.278v-0.641l16.919-0.095c22.382,11.817,39.154,22.658,51.659,32.476c-10.435,23.744-31.161,26.537-48.557,31.157C407.682,284.601,405.878,259.997,379.586,240.278z"></path>
-                                <path class="stb-fill-a" d="M476.69,63.727c12.868,0,35.31,8.828,35.31,44.138s0,105.931-26.483,123.586s-88.276,17.655-132.414,17.655s-88.276-8.828-88.276-8.828v-8.828C264.828,231.451,344.276,63.727,476.69,63.727z"></path>
-                            </g>
-                            <g class="stb-wing-left">
-                                <path class="stb-fill-a" d="M245.702,313.842c0,0-51.495,164.781-122.115,129.471c0,0-35.31,8.828-44.138-26.483c0,0-26.483,0-26.483-35.31c0,0-26.483-8.828-17.655-44.138c0,0-38.253-35.31,80.184-97.839l131.678,0.736L245.702,313.842z"></path>
-                                <path class="stb-fill-b" d="M210.24,393.27c22.227-37.143,35.46-79.428,35.46-79.428l1.472-73.564l-131.678-0.736c-22.382,11.817-39.154,22.658-51.659,32.476c19.908,45.301,77.406,14.268,77.406,65.364C141.241,379.803,180.852,393.87,210.24,393.27z"></path>
-                                <path class="stb-fill-c" d="M132.414,240.278v-0.641l-16.919-0.095c-22.382,11.817-39.154,22.658-51.659,32.476c10.435,23.744,31.161,26.537,48.557,31.157C104.318,284.601,106.122,259.997,132.414,240.278z"></path>
-                                <path class="stb-fill-a" d="M35.31,63.727C22.442,63.727,0,72.554,0,107.865s0,105.931,26.483,123.586s88.276,17.655,132.414,17.655s88.276-8.828,88.276-8.828v-8.828C247.172,231.451,167.724,63.727,35.31,63.727z"></path>
-                            </g>
-                            <path class="stb-body-light" d="M256,231.451c-2.44,0-4.414-1.974-4.414-4.414c0-17.038-17.992-60.301-42.845-85.155c-1.725-1.725-1.725-4.518,0-6.241c1.725-1.724,4.518-1.725,6.241,0c19.561,19.561,34.13,47.672,41.017,69.121c6.888-21.449,21.457-49.56,41.017-69.121c1.725-1.725,4.518-1.725,6.241,0c1.724,1.725,1.725,4.518,0,6.241c-24.853,24.854-42.845,68.117-42.845,85.155C260.414,229.477,258.44,231.451,256,231.451z"></path>
-                            <path class="stb-body-dark" d="M256,346.209L256,346.209c-9.751,0-17.655-7.904-17.655-17.655v-97.103c0-9.751,7.904-17.655,17.655-17.655l0,0c9.751,0,17.655,7.904,17.655,17.655v97.103C273.655,338.305,265.751,346.209,256,346.209z"></path>
-                        </svg>
+                    <h1 class="font-serif hero-title font-medium mb-7 tracking-tight t-ink">
+                        Ubunifu wako, na picha zako
+                        zinastahili ubora wa hali ya juu.
+                        <span class="block italic text-brand-gold mt-1">Wewe ndiye mhandisi wa picha zako.</span>
+                    </h1>
+                    <p class="t-ink-3 text-lg md:text-xl max-w-xl mb-10 font-light leading-relaxed">Jukwaa
+                        kamili la zana za ubunifu &mdash; DesignLab, uboreshaji wa picha kwa kutumia AI, inpaint editing,
+                        text-to-photo, text-to-video, TTS, na zaidi. Zana zote unazohitaji, mahali pamoja.</p>
+                    <div class="flex flex-col sm:flex-row gap-5">
+                        <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
+                            class="group relative px-8 py-4 t-btn font-bold rounded-full overflow-hidden transition-all hover:pr-10 text-center">
+                            <span class="relative z-10">Jaribu Bure Sasa</span>
+                            <i
+                                class="fas fa-arrow-right absolute right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all z-10 text-xs"></i>
+                        </a>
+                        <a href="#demo"
+                            class="px-8 py-4 border t-border-2 t-ink font-medium rounded-full hover:t-surface-hover hover:t-border-3 transition-all backdrop-blur-sm text-center">Ona
+                            Demo</a>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-x-6 gap-y-3 mt-12 text-xs t-ink-4">
+                        <div class="flex items-center gap-2"><i class="fas fa-check text-brand-gold text-[10px]"></i> Bila kadi ya
+                            benki</div>
+                        <div class="flex items-center gap-2"><i class="fas fa-shield-halved text-brand-gold text-[10px]"></i> Face
+                            Locker&trade; salama</div>
+                        <div class="flex items-center gap-2"><i class="fas fa-bolt text-brand-gold text-[10px]"></i> Sekunde chache
+                            tu</div>
                     </div>
                 </div>
-            </div>
 
-            <h1
-                class="font-serif text-4xl md:text-6xl lg:text-7xl font-medium mb-8 leading-[1.08] tracking-tight text-white">
-                Ubunifu wako, na picha zako<br class="hidden md:block">
-                zinastahili ubora wa hali ya juu.
-                <span class="block italic text-brand-gold mt-2">Wewe ndiye mhandisi wa picha zako.</span>
-            </h1>
-            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light leading-relaxed">Jukwaa
-                kamili la zana za ubunifu &mdash; DesignLab, uboreshaji wa picha kwa kutumia AI, inpaint editing,
-                text-to-photo,
-                text-to-video, TTS, na zaidi. Zana zote unazohitaji, mahali pamoja.</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-6">
-                <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                    class="group relative px-8 py-4 bg-white text-black font-bold rounded-full overflow-hidden transition-all hover:pr-10">
-                    <span class="relative z-10">Jaribu Bure Sasa</span>
-                    <div
-                        class="absolute inset-0 bg-gray-200 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left">
+                <div class="relative mt-6 lg:mt-0">
+                    <div class="hero-visual">
+                        <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=700&h=875&fit=crop"
+                            alt="Mfano wa uboreshaji wa AI wa Studio">
                     </div>
-                    <i
-                        class="fas fa-arrow-right absolute right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all z-10 text-xs"></i>
-                </a>
-                <a href="#demo"
-                    class="px-8 py-4 border border-white/10 text-white font-medium rounded-full hover:bg-white/5 hover:border-white/30 transition-all backdrop-blur-sm">Ona
-                    Demo</a>
-            </div>
-
-            <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mt-12 text-xs text-gray-500">
-                <div class="flex items-center gap-2"><i class="fas fa-check text-brand-gold text-[10px]"></i> Bila kadi ya
-                    benki</div>
-                <div class="flex items-center gap-2"><i class="fas fa-shield-halved text-brand-gold text-[10px]"></i> Face
-                    Locker&trade; salama</div>
-                <div class="flex items-center gap-2"><i class="fas fa-bolt text-brand-gold text-[10px]"></i> Sekunde chache
-                    tu</div>
+                    <div class="hero-float-card hero-float-card--stat">
+                        <div class="flex items-center gap-3">
+                            <div class="stb-logo stb-logo--sm">
+                                <div class="stb-wrapper">
+                                    <svg class="stb-svg" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                        <g class="stb-wing-right">
+                                            <path class="stb-fill-a" d="M266.298,313.842c0,0,51.495,164.781,122.115,129.471c0,0,35.31,8.828,44.138-26.483c0,0,26.483,0,26.483-35.31c0,0,26.483-8.828,17.655-44.138c0,0,38.253-35.31-80.184-97.839l-131.678,0.736L266.298,313.842z"></path>
+                                            <path class="stb-fill-b" d="M301.76,393.27c-22.227-37.143-35.46-79.428-35.46-79.428l-1.472-73.564l131.678-0.736c22.382,11.817,39.154,22.658,51.659,32.476c-19.908,45.301-77.406,14.268-77.406,65.364C370.759,379.803,331.148,393.87,301.76,393.27z"></path>
+                                            <path class="stb-fill-c" d="M379.586,240.278v-0.641l16.919-0.095c22.382,11.817,39.154,22.658,51.659,32.476c-10.435,23.744-31.161,26.537-48.557,31.157C407.682,284.601,405.878,259.997,379.586,240.278z"></path>
+                                            <path class="stb-fill-a" d="M476.69,63.727c12.868,0,35.31,8.828,35.31,44.138s0,105.931-26.483,123.586s-88.276,17.655-132.414,17.655s-88.276-8.828-88.276-8.828v-8.828C264.828,231.451,344.276,63.727,476.69,63.727z"></path>
+                                        </g>
+                                        <g class="stb-wing-left">
+                                            <path class="stb-fill-a" d="M245.702,313.842c0,0-51.495,164.781-122.115,129.471c0,0-35.31,8.828-44.138-26.483c0,0-26.483,0-26.483-35.31c0,0-26.483-8.828-17.655-44.138c0,0-38.253-35.31,80.184-97.839l131.678,0.736L245.702,313.842z"></path>
+                                            <path class="stb-fill-b" d="M210.24,393.27c22.227-37.143,35.46-79.428,35.46-79.428l1.472-73.564l-131.678-0.736c-22.382,11.817-39.154,22.658-51.659,32.476c19.908,45.301,77.406,14.268,77.406,65.364C141.241,379.803,180.852,393.87,210.24,393.27z"></path>
+                                            <path class="stb-fill-c" d="M132.414,240.278v-0.641l-16.919-0.095c-22.382,11.817-39.154,22.658-51.659,32.476c10.435,23.744,31.161,26.537,48.557,31.157C104.318,284.601,106.122,259.997,132.414,240.278z"></path>
+                                            <path class="stb-fill-a" d="M35.31,63.727C22.442,63.727,0,72.554,0,107.865s0,105.931,26.483,123.586s88.276,17.655,132.414,17.655s88.276-8.828,88.276-8.828v-8.828C247.172,231.451,167.724,63.727,35.31,63.727z"></path>
+                                        </g>
+                                        <path class="stb-body-light" d="M256,231.451c-2.44,0-4.414-1.974-4.414-4.414c0-17.038-17.992-60.301-42.845-85.155c-1.725-1.725-1.725-4.518,0-6.241c1.725-1.724,4.518-1.725,6.241,0c19.561,19.561,34.13,47.672,41.017,69.121c6.888-21.449,21.457-49.56,41.017-69.121c1.725-1.725,4.518-1.725,6.241,0c1.724,1.725,1.725,4.518,0,6.241c-24.853,24.854-42.845,68.117-42.845,85.155C260.414,229.477,258.44,231.451,256,231.451z"></path>
+                                        <path class="stb-body-dark" d="M256,346.209L256,346.209c-9.751,0-17.655-7.904-17.655-17.655v-97.103c0-9.751,7.904-17.655,17.655-17.655l0,0c9.751,0,17.655,7.904,17.655,17.655v97.103C273.655,338.305,265.751,346.209,256,346.209z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-bold t-ink leading-none"><span class="counter-val"
+                                        data-target="3400" data-suffix="+" data-compact="true">0</span></p>
+                                <p class="t-ink-4 text-[11px] mt-1">picha zilizoboreshwa</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-float-card hero-float-card--badge">
+                        <p class="text-xl font-bold t-ink leading-none"><span class="counter-val"
+                                data-target="8.5" data-suffix="s" data-decimal="true">0</span></p>
+                        <p class="t-ink-4 text-[11px] mt-1">muda wastani wa kukamilisha</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ====== STATS BAR ====== -->
-    <section class="py-12 relative z-10 border-y border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 reveal">
-                <div
-                    class="glass-card p-8 rounded-2xl text-center border border-white/5 relative overflow-hidden group">
-                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-2"><span class="counter-val"
+    <!-- ====== STATS TICKER STRIP ====== -->
+    <section class="pb-20 px-6 md:px-4 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="stats-strip reveal">
+                <div data-mark="01">
+                    <h3 class="text-3xl md:text-4xl font-bold t-ink mb-2 mt-3"><span class="counter-val"
                             data-target="3400" data-suffix="+" data-compact="true">0</span></h3>
-                    <p class="text-gray-400 text-sm font-light">Picha zilizoboreshwa</p>
+                    <p class="t-ink-4 text-sm font-light">Picha zilizoboreshwa</p>
                 </div>
-                <div
-                    class="glass-card p-8 rounded-2xl text-center border border-white/5 relative overflow-hidden group">
-                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-2"><span class="counter-val"
+                <div data-mark="02">
+                    <h3 class="text-3xl md:text-4xl font-bold t-ink mb-2 mt-3"><span class="counter-val"
                             data-target="99.99" data-suffix="%" data-decimal="true">0</span></h3>
-                    <p class="text-gray-400 text-sm font-light">Usahihi wa uso</p>
+                    <p class="t-ink-4 text-sm font-light">Usahihi wa uso</p>
                 </div>
-                <div
-                    class="glass-card p-8 rounded-2xl text-center border border-white/5 relative overflow-hidden group">
-                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-2"><span class="counter-val"
+                <div data-mark="03">
+                    <h3 class="text-3xl md:text-4xl font-bold t-ink mb-2 mt-3"><span class="counter-val"
                             data-target="8.5" data-suffix="s" data-decimal="true">0</span></h3>
-                    <p class="text-gray-400 text-sm font-light">Muda wastani</p>
+                    <p class="t-ink-4 text-sm font-light">Muda wastani</p>
                 </div>
-                <div
-                    class="glass-card p-8 rounded-2xl text-center border border-white/5 relative overflow-hidden group">
-                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-2"><span class="counter-val"
+                <div data-mark="04">
+                    <h3 class="text-3xl md:text-4xl font-bold t-ink mb-2 mt-3"><span class="counter-val"
                             data-target="180" data-suffix="+">0</span></h3>
-                    <p class="text-gray-400 text-sm font-light">Watumiaji</p>
+                    <p class="t-ink-4 text-sm font-light">Watumiaji</p>
                 </div>
             </div>
         </div>
@@ -250,10 +278,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
                 <div>
-                    <h2 class="font-serif text-4xl md:text-5xl font-medium mb-2 tracking-tight text-white">Demo ya Uboreshaji</h2>
-                    <div class="h-[3px] w-14 bg-brand-gold"></div>
+                    <span class="sec-label"><span class="num">01</span><span class="line"></span>Demo</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-medium tracking-tight t-ink">Demo ya Uboreshaji</h2>
                 </div>
-                <p class="text-gray-400 max-w-sm mt-6 md:mt-0 text-right md:text-left">Sogeza kiteuzi uone tofauti &mdash;
+                <p class="t-ink-4 max-w-sm mt-6 md:mt-0 text-right md:text-left">Sogeza kiteuzi uone tofauti &mdash;
                     kutoka ukungu hadi uhalisia wa 4K.</p>
             </div>
 
@@ -277,12 +305,12 @@
             </div>
 
             <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
-                <p class="text-gray-500 text-sm flex items-center gap-2">
-                    <i class="fas fa-hand-pointer text-white/40"></i>
+                <p class="t-ink-4 text-sm flex items-center gap-2">
+                    <i class="fas fa-hand-pointer t-ink-40"></i>
                     Buruta mpini &mdash; teknolojia yetu huboresha maelezo.
                 </p>
                 <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                    class="px-8 py-3 border border-white/10 text-white font-medium rounded-full hover:bg-white/5 hover:border-white/30 transition-all text-sm">
+                    class="px-8 py-3 border t-border-2 t-ink font-medium rounded-full hover:t-surface-hover hover:t-border-3 transition-all text-sm">
                     Jaribu na Picha Yako <i class="fas fa-arrow-right text-xs ml-2"></i>
                 </a>
             </div>
@@ -294,34 +322,35 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
                 <div>
-                    <h2 class="font-serif text-4xl md:text-5xl font-medium mb-2 tracking-tight text-white">Zana Zetu</h2>
-                    <div class="h-[3px] w-14 bg-brand-gold"></div>
+                    <span class="sec-label"><span class="num">02</span><span class="line"></span>Zana</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-medium tracking-tight t-ink">Zana Zetu</h2>
                 </div>
-                <p class="text-gray-400 max-w-sm mt-6 md:mt-0 text-right md:text-left">Jukwaa kamili la ubunifu &mdash; zana
+                <p class="t-ink-4 max-w-sm mt-6 md:mt-0 text-right md:text-left">Jukwaa kamili la ubunifu &mdash; zana
                     zote unazohitaji, mahali pamoja.</p>
             </div>
 
-            <!-- Hero Feature &mdash; Uboreshaji wa Picha -->
-            <div class="mb-20">
-                <!-- Photo Enhancement Card -->
+            <!-- Bento grid: hero tile spans full width, tools vary in size/rhythm -->
+            <div class="bento">
+
+                <!-- Hero Feature — Uboreshaji wa Picha (full width) -->
                 <div
-                    class="glass-card p-8 md:p-12 rounded-3xl reveal relative overflow-hidden group border border-white/10 hover:border-brand-gold/40 flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch">
+                    class="glass-card p-8 md:p-12 rounded-3xl reveal relative overflow-hidden group t-border-2 t-hover-border-gold flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch bento-item">
 
                     <div class="w-full lg:w-1/2 flex flex-col items-start text-left justify-center">
                         <div
                             class="h-16 w-16 bg-brand-gold/10 text-brand-gold border border-brand-gold/20 rounded-2xl flex items-center justify-center mb-6 text-3xl transition-transform group-hover:scale-110">
                             <i class="fas fa-wand-magic-sparkles"></i>
                         </div>
-                        <h3 class="text-3xl md:text-4xl font-bold mb-3 text-white">Uboreshaji wa Picha</h3>
+                        <h3 class="text-3xl md:text-4xl font-bold mb-3 t-ink">Uboreshaji wa Picha</h3>
                         <p
                             class="text-brand-gold font-medium text-xs mb-6 bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20">
                             Ubora wa 4K</p>
 
-                        <p class="text-gray-400 text-lg leading-relaxed mb-8 max-w-lg">Pakia picha yoyote &mdash; AI yetu
+                        <p class="t-ink-3 text-lg leading-relaxed mb-8 max-w-lg">Pakia picha yoyote &mdash; AI yetu
                             inaboresha ubora hadi 4K, inasafisha uso, na kuongeza mwangaza kwa usahihi wa hali ya juu.
                         </p>
                         <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                            class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-gray-200 transition-all hover:pr-10 relative overflow-hidden">
+                            class="inline-flex items-center justify-center gap-2 px-8 py-4 t-btn font-bold rounded-full transition-all hover:pr-10 relative overflow-hidden">
                             Jaribu Sasa <i class="fas fa-arrow-right text-xs"></i>
                         </a>
                     </div>
@@ -341,23 +370,38 @@
                             <input type="range" min="0" max="100" value="50" class="mini-ba-slider"
                                 aria-label="Uboreshaji kabla/baada">
                             <div class="mini-ba-handle">
-                                <div class="mini-handle-pill"><i class="fas fa-arrows-left-right text-black"
+                                <div class="mini-handle-pill"><i class="fas fa-arrows-left-right t-btn-text"
                                         style="font-size:.55rem"></i></div>
                             </div>
                             <span class="mini-lbl mini-lbl-b">KABLA</span><span class="mini-lbl mini-lbl-a">BAADA</span>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Additional Tools Grid (8 items) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- DesignLab — tall, wide feature tile -->
+                <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
+                    class="block glass-card p-7 rounded-2xl reveal relative overflow-hidden group t-border-2 t-hover-border-gold cursor-pointer bento-item bento-span-4 bento-tall flex flex-col justify-between">
+                    <div
+                        class="absolute top-5 right-5 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all t-ink-2">
+                        <i class="fas fa-arrow-up-right-from-square text-sm"></i>
+                    </div>
+                    <div
+                        class="h-14 w-14 shrink-0 bg-brand-gold/10 text-brand-gold border border-brand-gold/20 rounded-xl flex items-center justify-center text-2xl transition-transform group-hover:scale-110">
+                        <i class="fas fa-pen-ruler"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold t-ink group-hover:text-brand-gold transition-colors mb-2">
+                            DesignLab</h3>
+                        <p class="t-ink-4 text-sm leading-relaxed max-w-sm">Zana kamili ya usanifu wa mabango, machapisho
+                            na maudhui ya mitandao ya kijamii &mdash; bila haja ya Photoshop.</p>
+                    </div>
+                </a>
 
                 <!-- Text to Photo -->
                 <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-brand-gold/40 cursor-pointer">
+                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group t-border-2 t-hover-border-gold cursor-pointer bento-item bento-span-2">
                     <div
-                        class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all text-gray-300">
+                        class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all t-ink-2">
                         <i class="fas fa-arrow-up-right-from-square text-sm"></i>
                     </div>
                     <div class="flex items-start gap-4">
@@ -366,9 +410,9 @@
                             <i class="fas fa-image"></i>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold text-white group-hover:text-gray-200 transition-colors mb-1">
+                            <h3 class="text-lg font-bold t-ink group-hover:text-brand-gold transition-colors mb-1">
                                 Text to Photo</h3>
-                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Unda picha za kipekee kutoka kwa
+                            <p class="t-ink-4 text-xs sm:text-sm leading-relaxed">Unda picha za kipekee kutoka kwa
                                 maneno kwa kutumia AI.</p>
                         </div>
                     </div>
@@ -376,10 +420,10 @@
 
                 <!-- AI Inpainting -->
                 <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-brand-gold/40 cursor-pointer"
+                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group t-border-2 t-hover-border-gold cursor-pointer bento-item bento-span-2"
                     style="animation-delay: 50ms">
                     <div
-                        class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all text-gray-300">
+                        class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all t-ink-2">
                         <i class="fas fa-arrow-up-right-from-square text-sm"></i>
                     </div>
                     <div class="flex items-start gap-4">
@@ -388,42 +432,20 @@
                             <i class="fas fa-eraser"></i>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold text-white group-hover:text-gray-200 transition-colors mb-1">AI
+                            <h3 class="text-lg font-bold t-ink group-hover:text-brand-gold transition-colors mb-1">AI
                                 Inpainting</h3>
-                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Studio ya kuhariri na kuboresha
+                            <p class="t-ink-4 text-xs sm:text-sm leading-relaxed">Studio ya kuhariri na kuboresha
                                 sehemu za picha kwa AI.</p>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- DesignLab -->
-                <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-brand-gold/40 cursor-pointer"
-                    style="animation-delay: 100ms">
-                    <div
-                        class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all text-gray-300">
-                        <i class="fas fa-arrow-up-right-from-square text-sm"></i>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div
-                            class="h-12 w-12 shrink-0 bg-brand-gold/10 text-brand-gold border border-brand-gold/20 rounded-xl flex items-center justify-center text-xl transition-transform group-hover:scale-110">
-                            <i class="fas fa-pen-ruler"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-white group-hover:text-gray-200 transition-colors mb-1">
-                                DesignLab</h3>
-                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Zana kamili ya usanifu wa
-                                mabango na machapisho.</p>
                         </div>
                     </div>
                 </a>
 
                 <!-- Studio ya Mandharinyuma -->
                 <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-brand-gold/40 cursor-pointer"
-                    style="animation-delay: 150ms">
+                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group t-border-2 t-hover-border-gold cursor-pointer bento-item bento-span-2"
+                    style="animation-delay: 100ms">
                     <div
-                        class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all text-gray-300">
+                        class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all t-ink-2">
                         <i class="fas fa-arrow-up-right-from-square text-sm"></i>
                     </div>
                     <div class="flex items-start gap-4">
@@ -432,9 +454,9 @@
                             <i class="fas fa-mountain-sun"></i>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold text-white group-hover:text-gray-200 transition-colors mb-1">
+                            <h3 class="text-lg font-bold t-ink group-hover:text-brand-gold transition-colors mb-1">
                                 Mandharinyuma</h3>
-                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Ondoa au badilisha mandharinyuma
+                            <p class="t-ink-4 text-xs sm:text-sm leading-relaxed">Ondoa au badilisha mandharinyuma
                                 ya picha yoyote.</p>
                         </div>
                     </div>
@@ -442,10 +464,10 @@
 
                 <!-- Photo to Video -->
                 <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-brand-gold/40 cursor-pointer"
-                    style="animation-delay: 200ms">
+                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group t-border-2 t-hover-border-gold cursor-pointer bento-item bento-span-2"
+                    style="animation-delay: 150ms">
                     <div
-                        class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all text-gray-300">
+                        class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all t-ink-2">
                         <i class="fas fa-arrow-up-right-from-square text-sm"></i>
                     </div>
                     <div class="flex items-start gap-4">
@@ -454,20 +476,42 @@
                             <i class="fas fa-film"></i>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold text-white group-hover:text-gray-200 transition-colors mb-1">
+                            <h3 class="text-lg font-bold t-ink group-hover:text-brand-gold transition-colors mb-1">
                                 Photo to Video</h3>
-                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Badilisha picha tulivu kuwa
+                            <p class="t-ink-4 text-xs sm:text-sm leading-relaxed">Badilisha picha tulivu kuwa
                                 video zinazovutia kwa kutumia AI.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Na Zana Nyingine — wide closer -->
+                <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
+                    class="block glass-card p-7 rounded-2xl reveal relative overflow-hidden group t-border-2 t-hover-border-gold cursor-pointer bento-item bento-span-4"
+                    style="animation-delay: 200ms">
+                    <div
+                        class="absolute top-5 right-5 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all t-ink-2">
+                        <i class="fas fa-arrow-right text-sm"></i>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="h-14 w-14 shrink-0 bg-brand-gold/10 text-brand-gold border border-brand-gold/20 rounded-xl flex items-center justify-center text-2xl transition-transform group-hover:scale-110">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold t-ink group-hover:text-brand-gold transition-colors mb-1">Na
+                                Zana Nyingine...</h3>
+                            <p class="t-ink-4 text-sm leading-relaxed">Text to Speech, Mchota Maneno (OCR), Compressor,
+                                vichungi, mboreshaji wavuti, kibadilisha fomati, na zaidi.</p>
                         </div>
                     </div>
                 </a>
 
                 <!-- Text to Speech -->
                 <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-brand-gold/40 cursor-pointer"
+                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group t-border-2 t-hover-border-gold cursor-pointer bento-item bento-span-3"
                     style="animation-delay: 250ms">
                     <div
-                        class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all text-gray-300">
+                        class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all t-ink-2">
                         <i class="fas fa-arrow-up-right-from-square text-sm"></i>
                     </div>
                     <div class="flex items-start gap-4">
@@ -476,9 +520,9 @@
                             <i class="fas fa-microphone"></i>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold text-white group-hover:text-gray-200 transition-colors mb-1">
+                            <h3 class="text-lg font-bold t-ink group-hover:text-brand-gold transition-colors mb-1">
                                 Text to Speech</h3>
-                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Geuza maandishi kuwa sauti ya
+                            <p class="t-ink-4 text-xs sm:text-sm leading-relaxed">Geuza maandishi kuwa sauti ya
                                 asili kwa ubora wa juu.</p>
                         </div>
                     </div>
@@ -486,10 +530,10 @@
 
                 <!-- Mchota Maneno (OCR) -->
                 <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-brand-gold/40 cursor-pointer"
+                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group t-border-2 t-hover-border-gold cursor-pointer bento-item bento-span-3"
                     style="animation-delay: 300ms">
                     <div
-                        class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all text-gray-300">
+                        class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all t-ink-2">
                         <i class="fas fa-arrow-up-right-from-square text-sm"></i>
                     </div>
                     <div class="flex items-start gap-4">
@@ -498,32 +542,10 @@
                             <i class="fas fa-expand"></i>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold text-white group-hover:text-gray-200 transition-colors mb-1">
+                            <h3 class="text-lg font-bold t-ink group-hover:text-brand-gold transition-colors mb-1">
                                 Mchota Maneno</h3>
-                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Chota maneno (OCR) kutoka kwenye
+                            <p class="t-ink-4 text-xs sm:text-sm leading-relaxed">Chota maneno (OCR) kutoka kwenye
                                 picha yoyote kwa urahisi.</p>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Na Zana Nyingine -->
-                <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group border border-white/10 hover:border-brand-gold/40 cursor-pointer"
-                    style="animation-delay: 350ms">
-                    <div
-                        class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all text-gray-300">
-                        <i class="fas fa-arrow-right text-sm"></i>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div
-                            class="h-12 w-12 shrink-0 bg-brand-gold/10 text-brand-gold border border-brand-gold/20 rounded-xl flex items-center justify-center text-xl transition-transform group-hover:scale-110">
-                            <i class="fas fa-layer-group"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-white group-hover:text-gray-200 transition-colors mb-1">Na
-                                Zana Nyingine...</h3>
-                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Compressor, OCR, vichungi,
-                                mboreshaji wavuti, kibadilisha fomati, na zaidi.</p>
                         </div>
                     </div>
                 </a>
@@ -535,16 +557,16 @@
     <section class="py-12 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div
-                class="glass-card rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 border border-white/5 bg-gray-900/50 reveal">
+                class="glass-card rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 t-border-1 t-surface-panel reveal">
                 <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
                     <div
-                        class="h-16 w-16 shrink-0 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center text-3xl border border-brand-gold/20 shadow-[0_0_15px_rgba(212,175,55,0.12)]">
+                        class="h-16 w-16 shrink-0 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center text-3xl border border-brand-gold/20 shadow-[0_0_15px_rgba(224,171,53,0.12)]">
                         <i class="far fa-comment-dots"></i>
                     </div>
                     <div>
-                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Je, unahitaji msaada wa haraka
+                        <h3 class="text-xl md:text-2xl font-bold t-ink mb-2">Je, unahitaji msaada wa haraka
                             unapotumia Studio?</h3>
-                        <p class="text-gray-400 text-sm md:text-base leading-relaxed">Kutana na Monica, msaidizi wako
+                        <p class="t-ink-4 text-sm md:text-base leading-relaxed">Kutana na Monica, msaidizi wako
                             ndani ya Studio, yupo tayari kukupa mwongozo muda wowote. Chat na Monica kwenye app
                             kumuuliza jinsi ya
                             kutumia zana, kupata maelekezo, ushauri, au msaada wowote.</p>
@@ -566,54 +588,56 @@
     </section>
 
     <!-- ====== HOW IT WORKS ====== -->
-    <section id="how" class="py-24 relative z-10 border-y border-white/5">
+    <section id="how" class="py-24 relative z-10 border-y t-border-1">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
                 <div>
-                    <h2 class="font-serif text-4xl md:text-5xl font-medium mb-2 tracking-tight text-white">Hatua Tatu Tu</h2>
-                    <div class="h-[3px] w-14 bg-brand-gold"></div>
+                    <span class="sec-label"><span class="num">03</span><span class="line"></span>Mchakato</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-medium tracking-tight t-ink">Hatua Tatu Tu</h2>
                 </div>
-                <p class="text-gray-400 max-w-sm mt-6 md:mt-0 text-right md:text-left">Jinsi inavyofanya kazi &mdash; rahisi,
+                <p class="t-ink-4 max-w-sm mt-6 md:mt-0 text-right md:text-left">Jinsi inavyofanya kazi &mdash; rahisi,
                     haraka, na matokeo bora.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glass-card p-10 rounded-2xl reveal border border-white/10 relative group"
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                <div class="hidden md:block absolute top-[4.5rem] left-[16.6%] right-[16.6%] h-px t-border-3" style="border-top: 1px dashed var(--border-3);"></div>
+
+                <div class="glass-card p-10 rounded-2xl reveal t-border-2 relative group"
                     style="animation-delay: 0ms">
                     <span
-                        class="absolute top-6 right-6 text-gray-700 text-6xl font-bold leading-none select-none">01</span>
+                        class="absolute top-6 right-6 t-ink-6 text-6xl font-bold leading-none select-none">01</span>
                     <div
-                        class="h-16 w-16 bg-brand-gold/10 text-brand-gold border border-brand-gold/20 rounded-2xl flex items-center justify-center mb-8 text-3xl transition-transform group-hover:scale-110">
+                        class="h-16 w-16 bg-brand-gold/10 text-brand-gold border border-brand-gold/20 rounded-2xl flex items-center justify-center mb-8 text-3xl transition-transform group-hover:scale-110 relative z-10">
                         <i class="fas fa-cloud-arrow-up"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4 text-white">Pakia Picha</h3>
-                    <p class="text-gray-400 text-base leading-relaxed">Pakia selfie, picha ya studio, au screenshot &mdash;
+                    <h3 class="text-2xl font-bold mb-4 t-ink">Pakia Picha</h3>
+                    <p class="t-ink-4 text-base leading-relaxed">Pakia selfie, picha ya studio, au screenshot &mdash;
                         formatiti zote zinakubaliwa bila tatizo.</p>
                 </div>
 
-                <div class="glass-card p-10 rounded-2xl reveal border border-white/10 relative group"
+                <div class="glass-card p-10 rounded-2xl reveal t-border-2 relative group md:mt-8"
                     style="animation-delay: 150ms">
                     <span
-                        class="absolute top-6 right-6 text-gray-700 text-6xl font-bold leading-none select-none">02</span>
+                        class="absolute top-6 right-6 t-ink-6 text-6xl font-bold leading-none select-none">02</span>
                     <div
-                        class="h-16 w-16 bg-brand-gold/10 text-brand-gold border border-brand-gold/20 rounded-2xl flex items-center justify-center mb-8 text-3xl transition-transform group-hover:scale-110">
+                        class="h-16 w-16 bg-brand-gold/10 text-brand-gold border border-brand-gold/20 rounded-2xl flex items-center justify-center mb-8 text-3xl transition-transform group-hover:scale-110 relative z-10">
                         <i class="fas fa-wand-magic-sparkles"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4 text-white">Chagua Mtindo</h3>
-                    <p class="text-gray-400 text-base leading-relaxed">Chagua kutoka kwa mitindo ya nywele, mavazi, au
+                    <h3 class="text-2xl font-bold mb-4 t-ink">Chagua Mtindo</h3>
+                    <p class="t-ink-4 text-base leading-relaxed">Chagua kutoka kwa mitindo ya nywele, mavazi, au
                         uboreshaji wa picha kwa kubonyeza moja.</p>
                 </div>
 
-                <div class="glass-card p-10 rounded-2xl reveal border border-white/10 relative group"
+                <div class="glass-card p-10 rounded-2xl reveal t-border-2 relative group"
                     style="animation-delay: 300ms">
                     <span
-                        class="absolute top-6 right-6 text-gray-700 text-6xl font-bold leading-none select-none">03</span>
+                        class="absolute top-6 right-6 t-ink-6 text-6xl font-bold leading-none select-none">03</span>
                     <div
-                        class="h-16 w-16 bg-brand-gold/10 text-brand-gold border border-brand-gold/20 rounded-2xl flex items-center justify-center mb-8 text-3xl transition-transform group-hover:scale-110">
+                        class="h-16 w-16 bg-brand-gold/10 text-brand-gold border border-brand-gold/20 rounded-2xl flex items-center justify-center mb-8 text-3xl transition-transform group-hover:scale-110 relative z-10">
                         <i class="fas fa-download"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4 text-white">Pakua Matokeo</h3>
-                    <p class="text-gray-400 text-base leading-relaxed">Sekunde 8.5 tu &mdash; picha yako ya 4K iko tayari.
+                    <h3 class="text-2xl font-bold mb-4 t-ink">Pakua Matokeo</h3>
+                    <p class="t-ink-4 text-base leading-relaxed">Sekunde 8.5 tu &mdash; picha yako ya 4K iko tayari.
                         Pakua au shiriki moja kwa moja.</p>
                 </div>
             </div>
@@ -626,84 +650,84 @@
             <div class="flex flex-col md:flex-row gap-16 items-center">
                 <!-- Text Side -->
                 <div class="w-full md:w-1/2 reveal">
-                    <h2 class="font-serif text-4xl md:text-5xl font-medium mb-2 tracking-tight text-white">Siri ya Uhalisia Kamili</h2>
-                    <div class="h-[3px] w-14 bg-brand-gold mb-10"></div>
+                    <span class="sec-label"><span class="num">04</span><span class="line"></span>Ubora</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-medium mb-10 tracking-tight t-ink">Siri ya Uhalisia Kamili</h2>
 
                     <div class="space-y-4 mb-10">
                         <div
-                            class="flex items-start gap-4 p-5 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-white/20 transition-all">
+                            class="flex items-start gap-4 p-5 rounded-2xl border t-border-1 t-surface hover:t-border-3 transition-all">
                             <div
                                 class="h-10 w-10 bg-brand-gold/10 text-brand-gold border border-brand-gold/20 rounded-xl flex items-center justify-center text-lg flex-shrink-0">
                                 <i class="fas fa-face-smile"></i>
                             </div>
                             <div>
-                                <strong class="block text-white font-bold mb-0.5 tracking-tight">No AI
+                                <strong class="block t-ink font-bold mb-0.5 tracking-tight">No AI
                                     Plasticity</strong>
-                                <span class="text-gray-400 text-sm">Tunabakiza vinyweleo, mikunjo ya ngozi na mwonekano
+                                <span class="t-ink-4 text-sm">Tunabakiza vinyweleo, mikunjo ya ngozi na mwonekano
                                     asilia &mdash; bila uso wa plastiki wa AI.</span>
                             </div>
                         </div>
                         <div
-                            class="flex items-start gap-4 p-5 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-white/20 transition-all">
+                            class="flex items-start gap-4 p-5 rounded-2xl border t-border-1 t-surface hover:t-border-3 transition-all">
                             <div
                                 class="h-10 w-10 bg-brand-gold/10 text-brand-gold border border-brand-gold/20 rounded-xl flex items-center justify-center text-lg flex-shrink-0">
                                 <i class="fas fa-eraser"></i>
                             </div>
                             <div>
-                                <strong class="block text-white font-bold mb-0.5 tracking-tight">Noise Removal
+                                <strong class="block t-ink font-bold mb-0.5 tracking-tight">Noise Removal
                                     Pro</strong>
-                                <span class="text-gray-400 text-sm">Tunaondoa vitu visivyohitajika &mdash; logos, watu nyuma,
+                                <span class="t-ink-4 text-sm">Tunaondoa vitu visivyohitajika &mdash; logos, watu nyuma,
                                     UI &mdash; kwa usahihi wa hali ya juu.</span>
                             </div>
                         </div>
                         <div
-                            class="flex items-start gap-4 p-5 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-white/20 transition-all">
+                            class="flex items-start gap-4 p-5 rounded-2xl border t-border-1 t-surface hover:t-border-3 transition-all">
                             <div
                                 class="h-10 w-10 bg-brand-gold/10 text-brand-gold border border-brand-gold/20 rounded-xl flex items-center justify-center text-lg flex-shrink-0">
                                 <i class="fas fa-fingerprint"></i>
                             </div>
                             <div>
-                                <strong class="block text-white font-bold mb-0.5 tracking-tight">Face
+                                <strong class="block t-ink font-bold mb-0.5 tracking-tight">Face
                                     Locker&trade;</strong>
-                                <span class="text-gray-400 text-sm">Sura yako inahifadhiwa kwa usimbaji fiche wa
+                                <span class="t-ink-4 text-sm">Sura yako inahifadhiwa kwa usimbaji fiche wa
                                     kiwango cha juu &mdash; wewe pekee ndiye unayeiona.</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-3 gap-4">
-                        <div class="glass-card p-4 rounded-2xl text-center border border-white/5">
-                            <h3 class="text-2xl md:text-3xl font-bold text-white mb-1"><span class="counter-val"
+                        <div class="glass-card p-4 rounded-2xl text-center t-border-1">
+                            <h3 class="text-2xl md:text-3xl font-bold t-ink mb-1"><span class="counter-val"
                                     data-target="99.99" data-suffix="%" data-decimal="true">0</span></h3>
-                            <p class="text-gray-500 text-[10px] uppercase font-bold tracking-wider">usahihi</p>
+                            <p class="t-ink-5 text-[10px] uppercase font-bold tracking-wider">usahihi</p>
                         </div>
-                        <div class="glass-card p-4 rounded-2xl text-center border border-white/5">
-                            <h3 class="text-2xl md:text-3xl font-bold text-white mb-1"><span class="counter-val"
+                        <div class="glass-card p-4 rounded-2xl text-center t-border-1">
+                            <h3 class="text-2xl md:text-3xl font-bold t-ink mb-1"><span class="counter-val"
                                     data-target="8.5" data-suffix="s" data-decimal="true">0</span></h3>
-                            <p class="text-gray-500 text-[10px] uppercase font-bold tracking-wider">muda</p>
+                            <p class="t-ink-5 text-[10px] uppercase font-bold tracking-wider">muda</p>
                         </div>
-                        <div class="glass-card p-4 rounded-2xl text-center border border-white/5">
-                            <h3 class="text-2xl md:text-3xl font-bold text-white mb-1"><span class="counter-val"
+                        <div class="glass-card p-4 rounded-2xl text-center t-border-1">
+                            <h3 class="text-2xl md:text-3xl font-bold t-ink mb-1"><span class="counter-val"
                                     data-target="4.9" data-suffix="/5" data-decimal="true">0</span></h3>
-                            <p class="text-gray-500 text-[10px] uppercase font-bold tracking-wider">alama</p>
+                            <p class="t-ink-5 text-[10px] uppercase font-bold tracking-wider">alama</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Image Side -->
                 <div class="w-full md:w-1/2 reveal flex justify-center" style="animation-delay: 200ms">
-                    <div class="relative rounded-3xl border border-white/10 shadow-2xl overflow-hidden max-w-sm w-full">
-                        <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop"
+                    <div class="relative rounded-3xl border t-border-2 shadow-2xl overflow-hidden max-w-sm w-full" style="transform: rotate(1.5deg);">
+                        <img src="https://images.pexels.com/photos/1266302/pexels-photo-1266302.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop"
                             alt="Mfano wa uboreshaji wa AI"
                             class="w-full object-cover hover:scale-105 transition duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
                         <div class="absolute bottom-0 left-0 right-0 p-5">
                             <div class="flex gap-0.5 mb-2">
-                                <i class="fas fa-star text-white text-xs"></i>
-                                <i class="fas fa-star text-white text-xs"></i>
-                                <i class="fas fa-star text-white text-xs"></i>
-                                <i class="fas fa-star text-white text-xs"></i>
-                                <i class="fas fa-star text-white text-xs"></i>
+                                <i class="fas fa-star text-brand-goldSoft text-xs"></i>
+                                <i class="fas fa-star text-brand-goldSoft text-xs"></i>
+                                <i class="fas fa-star text-brand-goldSoft text-xs"></i>
+                                <i class="fas fa-star text-brand-goldSoft text-xs"></i>
+                                <i class="fas fa-star text-brand-goldSoft text-xs"></i>
                             </div>
                             <p class="text-white font-bold text-sm flex items-center gap-2">
                                 <i class="fas fa-circle-check text-white/60"></i> Uhalisia wa 99% &middot; Imehakikiwa
@@ -711,7 +735,7 @@
                         </div>
                         <div
                             class="absolute top-4 right-4 bg-black/60 backdrop-blur-md border border-white/20 rounded-full px-3 py-1.5 flex items-center gap-1.5">
-                            <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                            <span class="w-1.5 h-1.5 bg-brand-goldSoft rounded-full animate-pulse"></span>
                             <span class="text-white text-[10px] uppercase tracking-widest font-bold">AI Enhanced</span>
                         </div>
                     </div>
@@ -721,80 +745,86 @@
     </section>
 
     <!-- ====== TESTIMONIALS ====== -->
-    <section id="testimonials" class="py-24 relative z-10 border-t border-white/5">
+    <section id="testimonials" class="py-24 relative z-10 border-t t-border-1">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
                 <div>
-                    <h2 class="font-serif text-4xl md:text-5xl font-medium mb-2 tracking-tight text-white">Wanasema Nini?</h2>
-                    <div class="h-[3px] w-14 bg-brand-gold"></div>
+                    <span class="sec-label"><span class="num">05</span><span class="line"></span>Maoni</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-medium tracking-tight t-ink">Wanasema Nini?</h2>
                 </div>
-                <p class="text-gray-400 max-w-sm mt-6 md:mt-0 text-right md:text-left">Watumiaji wetu kutoka Afrika
+                <p class="t-ink-4 max-w-sm mt-6 md:mt-0 text-right md:text-left">Watumiaji wetu kutoka Afrika
                     Mashariki wanashiriki uzoefu wao wa kweli.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glass-card p-8 rounded-2xl reveal border border-white/10">
-                    <div class="flex gap-1 mb-4">
-                        <i class="fas fa-star text-white text-xs"></i>
-                        <i class="fas fa-star text-white text-xs"></i>
-                        <i class="fas fa-star text-white text-xs"></i>
-                        <i class="fas fa-star text-white text-xs"></i>
-                        <i class="fas fa-star text-white text-xs"></i>
-                    </div>
-                    <p class="text-gray-300 text-sm leading-relaxed mb-6">"Nilishangaa sana na matokeo. Picha yangu ya
-                        LinkedIn ilikuwa chafu &mdash; baada ya Studio ikawa professional kabisa. Msimamizi wangu aliuliza
-                        nimepiga wapi studio!"</p>
-                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
-                        <div
-                            class="w-10 h-10 rounded-full bg-gray-800 border border-white/10 flex items-center justify-center font-bold text-sm text-white">
-                            A</div>
-                        <div>
-                            <p class="text-white text-sm font-bold tracking-tight">Amina Hassan</p>
-                            <p class="text-gray-500 text-xs">Software Engineer &middot; Dar</p>
+                <div class="stagger-col">
+                    <div class="glass-card p-8 rounded-2xl reveal t-border-2">
+                        <div class="flex gap-1 mb-4">
+                            <i class="fas fa-star text-brand-gold text-xs"></i>
+                            <i class="fas fa-star text-brand-gold text-xs"></i>
+                            <i class="fas fa-star text-brand-gold text-xs"></i>
+                            <i class="fas fa-star text-brand-gold text-xs"></i>
+                            <i class="fas fa-star text-brand-gold text-xs"></i>
+                        </div>
+                        <p class="t-ink-2 text-sm leading-relaxed mb-6">"Nilishangaa sana na matokeo. Picha yangu ya
+                            LinkedIn ilikuwa chafu &mdash; baada ya Studio ikawa professional kabisa. Msimamizi wangu aliuliza
+                            nimepiga wapi studio!"</p>
+                        <div class="flex items-center gap-3 pt-4 border-t t-border-1">
+                            <div
+                                class="w-10 h-10 rounded-full bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center font-bold text-sm text-brand-gold">
+                                A</div>
+                            <div>
+                                <p class="t-ink text-sm font-bold tracking-tight">Amina Hassan</p>
+                                <p class="t-ink-5 text-xs">Software Engineer &middot; Dar</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="glass-card p-8 rounded-2xl reveal border border-white/10" style="animation-delay: 150ms">
-                    <div class="flex gap-1 mb-4">
-                        <i class="fas fa-star text-white text-xs"></i>
-                        <i class="fas fa-star text-white text-xs"></i>
-                        <i class="fas fa-star text-white text-xs"></i>
-                        <i class="fas fa-star text-white text-xs"></i>
-                        <i class="fas fa-star text-white text-xs"></i>
-                    </div>
-                    <p class="text-gray-300 text-sm leading-relaxed mb-6">"Badala ya kulipa sh 150,000 kwa studio,
-                        ninapata picha bora zaidi kwa sekunde chache tu. Professional Shots imebadilisha biashara yangu
-                        kabisa."</p>
-                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
-                        <div
-                            class="w-10 h-10 rounded-full bg-gray-800 border border-white/10 flex items-center justify-center font-bold text-sm text-white">
-                            K</div>
-                        <div>
-                            <p class="text-white text-sm font-bold tracking-tight">Kwame Osei</p>
-                            <p class="text-gray-500 text-xs">Entrepreneur &middot; Nairobi</p>
+                <div class="stagger-col stagger-col--mid">
+                    <div class="glass-card p-8 rounded-2xl reveal t-border-2" style="animation-delay: 150ms">
+                        <div class="flex gap-1 mb-4">
+                            <i class="fas fa-star text-brand-gold text-xs"></i>
+                            <i class="fas fa-star text-brand-gold text-xs"></i>
+                            <i class="fas fa-star text-brand-gold text-xs"></i>
+                            <i class="fas fa-star text-brand-gold text-xs"></i>
+                            <i class="fas fa-star text-brand-gold text-xs"></i>
+                        </div>
+                        <p class="t-ink-2 text-sm leading-relaxed mb-6">"Badala ya kulipa sh 150,000 kwa studio,
+                            ninapata picha bora zaidi kwa sekunde chache tu. Professional Shots imebadilisha biashara yangu
+                            kabisa."</p>
+                        <div class="flex items-center gap-3 pt-4 border-t t-border-1">
+                            <div
+                                class="w-10 h-10 rounded-full bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center font-bold text-sm text-brand-gold">
+                                K</div>
+                            <div>
+                                <p class="t-ink text-sm font-bold tracking-tight">Kwame Osei</p>
+                                <p class="t-ink-5 text-xs">Entrepreneur &middot; Nairobi</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="glass-card p-8 rounded-2xl reveal border border-white/10" style="animation-delay: 300ms">
-                    <div class="flex gap-1 mb-4">
-                        <i class="fas fa-star text-white text-xs"></i>
-                        <i class="fas fa-star text-white text-xs"></i>
-                        <i class="fas fa-star text-white text-xs"></i>
-                        <i class="fas fa-star text-white text-xs"></i>
-                        <i class="fas fa-star-half-alt text-white text-xs"></i>
-                    </div>
-                    <p class="text-gray-300 text-sm leading-relaxed mb-6">"Kama mtu wa fashion, Kabati Langu
-                        imebadilisha
-                        kazi yangu. Ninaonyesha wateja mavazi mapya bila hata kuvaa &mdash; wote wanaridhika na muundo."</p>
-                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
-                        <div
-                            class="w-10 h-10 rounded-full bg-gray-800 border border-white/10 flex items-center justify-center font-bold text-sm text-white">
-                            F</div>
-                        <div>
-                            <p class="text-white text-sm font-bold tracking-tight">Fatima Nkosi</p>
-                            <p class="text-gray-500 text-xs">Fashion Influencer &middot; Kampala</p>
+                <div class="stagger-col stagger-col--end">
+                    <div class="glass-card p-8 rounded-2xl reveal t-border-2" style="animation-delay: 300ms">
+                        <div class="flex gap-1 mb-4">
+                            <i class="fas fa-star text-brand-gold text-xs"></i>
+                            <i class="fas fa-star text-brand-gold text-xs"></i>
+                            <i class="fas fa-star text-brand-gold text-xs"></i>
+                            <i class="fas fa-star text-brand-gold text-xs"></i>
+                            <i class="fas fa-star-half-alt text-brand-gold text-xs"></i>
+                        </div>
+                        <p class="t-ink-2 text-sm leading-relaxed mb-6">"Kama mtu wa fashion, Kabati Langu
+                            imebadilisha
+                            kazi yangu. Ninaonyesha wateja mavazi mapya bila hata kuvaa &mdash; wote wanaridhika na muundo."</p>
+                        <div class="flex items-center gap-3 pt-4 border-t t-border-1">
+                            <div
+                                class="w-10 h-10 rounded-full bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center font-bold text-sm text-brand-gold">
+                                F</div>
+                            <div>
+                                <p class="t-ink text-sm font-bold tracking-tight">Fatima Nkosi</p>
+                                <p class="t-ink-5 text-xs">Fashion Influencer &middot; Kampala</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -803,75 +833,74 @@
     </section>
 
     <!-- ====== CTA ====== -->
-    <section class="py-24 relative z-10 bg-gradient-to-b from-transparent to-black/80">
+    <section class="py-24 relative z-10 t-fade-b">
         <div
-            class="max-w-4xl mx-auto px-4 text-center reveal border border-white/5 rounded-3xl p-12 bg-gray-900/30 backdrop-blur-sm">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tighter">Upo Tayari kuzipatia Picha zako ubora wa
+            class="max-w-4xl mx-auto px-4 text-center reveal t-border-1 rounded-3xl p-12 t-surface-panel backdrop-blur-sm relative overflow-hidden">
+            <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-brand-gold rounded-full mix-blend-screen filter blur-[110px] pointer-events-none"
+                style="opacity: var(--hero-glow);"></div>
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tighter t-ink relative">Upo Tayari kuzipatia Picha zako ubora wa
                 hali ya juu?</h2>
-            <p class="text-gray-400 mb-10 text-lg font-light max-w-2xl mx-auto">Jiunge na watumiaji wanaotumia Studio
+            <p class="t-ink-4 mb-10 text-lg font-light max-w-2xl mx-auto relative">Jiunge na watumiaji wanaotumia Studio
                 kila siku. Hakuna kadi ya benki inayohitajika.</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <div class="flex flex-col sm:flex-row justify-center gap-4 relative">
                 <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                    class="group relative px-10 py-5 bg-white text-black font-bold rounded-full overflow-hidden transition-all hover:pr-12 inline-flex items-center justify-center gap-3">
+                    class="group relative px-10 py-5 t-btn font-bold rounded-full overflow-hidden transition-all hover:pr-12 inline-flex items-center justify-center gap-3">
                     <span class="relative z-10">Anza Bure Sasa</span>
-                    <div
-                        class="absolute inset-0 bg-gray-200 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left">
-                    </div>
                     <i
                         class="fas fa-arrow-right absolute right-5 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all z-10 text-xs"></i>
                 </a>
                 <a href="#demo"
-                    class="px-10 py-5 border border-white/10 text-white font-medium rounded-full hover:bg-white/5 hover:border-white/30 transition-all backdrop-blur-sm inline-flex items-center justify-center gap-2">
+                    class="px-10 py-5 border t-border-2 t-ink font-medium rounded-full hover:t-surface-hover hover:t-border-3 transition-all backdrop-blur-sm inline-flex items-center justify-center gap-2">
                     <i class="fas fa-play text-xs"></i> Tazama Demo
                 </a>
             </div>
-            <p class="text-gray-600 text-xs mt-8">Hakuna usajili wa kadi za kibenki unaohitajika &middot; Matokeo kwa sekunde
+            <p class="t-ink-6 text-xs mt-8 relative">Hakuna usajili wa kadi za kibenki unaohitajika &middot; Matokeo kwa sekunde
             </p>
         </div>
     </section>
 
     <!-- ====== FOOTER &mdash; matches index.html ====== -->
-    <footer class="border-t border-gray-900 pt-16 pb-8 relative z-10 bg-black">
+    <footer class="border-t t-border-1 pt-16 pb-8 relative z-10 t-bg-raised">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
 
                 <div>
-                    <h4 class="text-white font-bold text-xl mb-6">Studio</h4>
+                    <h4 class="t-ink font-bold text-xl mb-6">Studio</h4>
                     <ul class="space-y-4">
                         <li><a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                                class="text-gray-400 hover:text-white transition-colors">Uboreshaji wa Picha</a></li>
+                                class="t-ink-4 hover:text-brand-gold transition-colors">Uboreshaji wa Picha</a></li>
                         <li><a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                                class="text-gray-400 hover:text-white transition-colors">Text to Photo / Video</a></li>
+                                class="t-ink-4 hover:text-brand-gold transition-colors">Text to Photo / Video</a></li>
                         <li><a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                                class="text-gray-400 hover:text-white transition-colors">DesignLab</a></li>
+                                class="t-ink-4 hover:text-brand-gold transition-colors">DesignLab</a></li>
                         <li><a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                                class="text-gray-400 hover:text-white transition-colors">BG Studio & Inpaint</a></li>
+                                class="t-ink-4 hover:text-brand-gold transition-colors">BG Studio & Inpaint</a></li>
                         <li><a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                                class="text-gray-400 hover:text-white transition-colors">Picha za HQ Bure</a></li>
+                                class="t-ink-4 hover:text-brand-gold transition-colors">Picha za HQ Bure</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="text-white font-bold text-xl mb-6">Kampuni</h4>
+                    <h4 class="t-ink font-bold text-xl mb-6">Kampuni</h4>
                     <ul class="space-y-4">
-                        <li><a href="/" class="text-gray-400 hover:text-white transition-colors">Kuhusu Watu
+                        <li><a href="/" class="t-ink-4 hover:text-brand-gold transition-colors">Kuhusu Watu
                                 Lab</a></li>
-                        <li><a href="/#about" class="text-gray-400 hover:text-white transition-colors">Kuhusu
+                        <li><a href="/#about" class="t-ink-4 hover:text-brand-gold transition-colors">Kuhusu
                                 Sisi</a></li>
-                        <li><a href="/projects/" class="text-gray-400 hover:text-white transition-colors">Miradi</a>
+                        <li><a href="/projects/" class="t-ink-4 hover:text-brand-gold transition-colors">Miradi</a>
                         </li>
-                        <li><a href="/privacy/" class="text-gray-400 hover:text-white transition-colors">Sera ya
+                        <li><a href="/privacy/" class="t-ink-4 hover:text-brand-gold transition-colors">Sera ya
                                 Faragha</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="text-white font-bold text-xl mb-6">Ungana Nasi</h4>
+                    <h4 class="t-ink font-bold text-xl mb-6">Ungana Nasi</h4>
                     <div class="space-y-6">
                         <a href="mailto:info@watulab.com"
-                            class="flex items-center gap-4 text-gray-400 hover:text-white transition-colors group">
+                            class="flex items-center gap-4 t-ink-4 hover:text-brand-gold transition-colors group">
                             <div
-                                class="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center group-hover:bg-green-600 transition-all">
+                                class="w-10 h-10 border t-border-3 rounded-full flex items-center justify-center group-hover:border-brand-gold group-hover:text-brand-gold transition-all">
                                 <i class="fas fa-envelope text-sm"></i>
                             </div>
                             <span class="font-mono text-sm">info@watulab.com</span>
@@ -879,19 +908,19 @@
 
                         <div class="flex gap-4 pt-2">
                             <a href="https://www.youtube.com/@Studio" target="_blank" rel="noopener noreferrer"
-                                class="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-red-600 transition-all">
+                                class="w-10 h-10 border t-border-3 rounded-full flex items-center justify-center t-ink-4 hover:text-brand-gold hover:border-brand-gold transition-all">
                                 <i class="fab fa-youtube"></i>
                             </a>
                             <a href="https://www.instagram.com/watulab" target="_blank" rel="noopener noreferrer"
-                                class="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-pink-600 transition-all">
+                                class="w-10 h-10 border t-border-3 rounded-full flex items-center justify-center t-ink-4 hover:text-brand-gold hover:border-brand-gold transition-all">
                                 <i class="fab fa-instagram"></i>
                             </a>
                             <a href="https://www.linkedin.com/company/watulab" target="_blank" rel="noopener noreferrer"
-                                class="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-sky-600 transition-all">
+                                class="w-10 h-10 border t-border-3 rounded-full flex items-center justify-center t-ink-4 hover:text-brand-gold hover:border-brand-gold transition-all">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
                             <a href="https://www.tiktok.com/@watulab" target="_blank" rel="noopener noreferrer"
-                                class="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-600 transition-all">
+                                class="w-10 h-10 border t-border-3 rounded-full flex items-center justify-center t-ink-4 hover:text-brand-gold hover:border-brand-gold transition-all">
                                 <i class="fab fa-tiktok"></i>
                             </a>
                         </div>
@@ -901,10 +930,10 @@
             </div>
 
             <div
-                class="notranslate border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm">
-                <p>&copy; 2026 Studio &middot; <a href="/" class="hover:text-white transition-colors font-bold">Watu
+                class="notranslate t-border-1 border-t pt-8 flex flex-col md:flex-row justify-between items-center t-ink-5 text-sm">
+                <p>&copy; 2026 Studio &middot; <a href="/" class="hover:text-brand-gold transition-colors font-bold t-ink-4">Watu
                         Lab</a>. All Rights Reserved.</p>
-                <a href="/privacy/" class="hover:text-white transition-colors mt-4 md:mt-0">Sera ya Faragha</a>
+                <a href="/privacy/" class="hover:text-brand-gold transition-colors mt-4 md:mt-0">Sera ya Faragha</a>
             </div>
         </div>
     </footer>

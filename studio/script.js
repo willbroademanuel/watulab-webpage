@@ -7,6 +7,35 @@
  * ==========================================================
  */
 
+// ── THEME TOGGLE (light/dark, persisted) ──
+(() => {
+    const root = document.documentElement;
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const colors = { dark: '#08070a', light: '#faf6ec' };
+
+    function apply(theme) {
+        root.setAttribute('data-theme', theme);
+        if (metaTheme) metaTheme.setAttribute('content', colors[theme] || colors.dark);
+    }
+
+    function current() {
+        return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+    }
+
+    function toggle() {
+        const next = current() === 'light' ? 'dark' : 'light';
+        localStorage.setItem('studio-theme', next);
+        apply(next);
+    }
+
+    apply(current());
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('#themeToggle, #themeToggleMobile').forEach(btn => {
+            btn.addEventListener('click', toggle);
+        });
+    });
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
     const pt = document.getElementById('page-transition');
     const tt = document.getElementById('transition-text');
