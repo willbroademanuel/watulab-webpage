@@ -1035,8 +1035,6 @@ body::after {
 }
 .socials svg { width: 20px; height: 20px; }
 .copyright { margin-top: 1.4rem; font-size: .85rem; opacity: .62; }
-.copyright a { color: inherit; text-decoration: none; transition: color .22s ease; }
-.copyright a:hover { color: #fff; }
 
 /* Reveal-on-scroll (gated behind html.js so no-JS still shows all) */
 .fade-in, .slide-in-left, .slide-in-right {
