@@ -29,6 +29,8 @@
 html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
@@ -39,6 +41,7 @@ body {
     color: var(--ink);
     background: var(--paper);
     overflow-x: hidden;
+    width: 100%;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -259,6 +262,7 @@ body::after {
     border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%;
     color: var(--ink);
     cursor: pointer;
+    flex-shrink: 0;
 }
 .burger svg { width: 22px; height: 22px; }
 .burger:hover { background: rgba(192, 91, 46, .12); }
@@ -423,20 +427,23 @@ body::after {
 }
 
 .hero-note {
-    display: inline-flex;
-    align-items: center;
-    gap: .5rem;
+    text-align: center;
     margin-top: 1.7rem;
     font-family: var(--font-hand);
     font-size: 1.3rem;
     color: var(--ink-soft);
     transform: rotate(-1deg);
+    max-width: 360px;
+    margin-inline: auto;
 }
 .note-arrow {
-    width: 30px;
-    height: 30px;
+    display: inline-block;
+    vertical-align: 2px;
+    width: 24px;
+    height: 24px;
     color: var(--clay);
-    transform: rotate(28deg);
+    margin-right: 3px;
+    transform: scaleY(-1);
 }
 
 .scroll-hint {
@@ -498,6 +505,8 @@ body::after {
     position: relative;
     z-index: 3;
     padding: 2.6rem 0 .6rem;
+    overflow: hidden;
+    max-width: 100%;
 }
 .ribbon {
     background: var(--clay);
@@ -1065,6 +1074,20 @@ html.js .slide-in-right.appear {
     .doodle-2, .doodle-3 { display: none; }
     .btn { width: 100%; justify-content: center; }
     .hero-cta { flex-direction: column; }
+    .hero-note {
+        font-size: 1.18rem;
+        max-width: 290px;
+        margin-top: 1.3rem;
+        text-align: center;
+        margin-inline: auto;
+    }
+    .note-arrow {
+        width: 20px;
+        height: 20px;
+        vertical-align: 2px;
+        margin-right: 2px;
+        transform: scaleY(-1);
+    }
     .more-btns { flex-direction: column; align-items: stretch; }
     .stamp { width: 66px; height: 78px; }
     .stamp svg { width: 22px; height: 22px; }
