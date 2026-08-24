@@ -1,6 +1,6 @@
-/* ============================================================
+﻿/* ============================================================
    GLORaHrts — a hand-crafted design system
-   paper · ink · clay · ochre — nothing here is accidental
+   paper / ink / clay / ochre — nothing here is accidental
    ============================================================ */
 
 :root {
@@ -139,7 +139,7 @@ body::after {
 }
 .hl-light .hl-line { color: var(--gold); }
 
-/* ── Sticker buttons (hand-drawn wobble borders) ─────────── */
+/* Sticker buttons (hand-drawn wobble borders) */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -186,7 +186,7 @@ body::after {
     box-shadow: 3px 3px 0 var(--ink);
 }
 
-/* ── Navigation ───────────────────────────────────────────── */
+/* Navigation */
 .nav {
     position: fixed;
     inset: 0 0 auto 0;
@@ -267,7 +267,7 @@ body::after {
 .burger svg { width: 22px; height: 22px; }
 .burger:hover { background: rgba(192, 91, 46, .12); }
 
-/* Mobile menu — a sheet of paper */
+/* Mobile menu - a sheet of paper */
 .mobile-menu {
     position: fixed;
     inset: 0;
@@ -327,7 +327,7 @@ body::after {
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Hero ─────────────────────────────────────────────────── */
+/* Hero */
 .hero {
     position: relative;
     min-height: 100vh;
@@ -500,13 +500,11 @@ body::after {
     50%      { transform: translateY(6px); }
 }
 
-/* ── Services ribbon ──────────────────────────────────────── */
+/* Services ribbon */
 .ribbon-wrap {
     position: relative;
     z-index: 3;
     padding: 2.6rem 0 .6rem;
-    overflow: hidden;
-    max-width: 100%;
 }
 .ribbon {
     background: var(--clay);
@@ -538,7 +536,7 @@ body::after {
 }
 @keyframes scroll-x { to { transform: translateX(-50%); } }
 
-/* ── Torn-paper section edges ─────────────────────────────── */
+/* Torn-paper section edges */
 .tear {
     position: relative;
     z-index: 2;
@@ -551,7 +549,7 @@ body::after {
 .sec-services  { background: var(--paper-deep); }
 .sec-portfolio { background: var(--paper-warm); }
 
-/* ── About ────────────────────────────────────────────────── */
+/* About */
 .about-grid {
     display: grid;
     grid-template-columns: minmax(290px, 400px) 1fr;
@@ -674,7 +672,7 @@ body::after {
     box-shadow: 2px 3px 0 rgba(51, 38, 26, .07);
 }
 
-/* ── Services cards — ruled index cards with folded corners ── */
+/* Services cards - ruled index cards with folded corners */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
@@ -758,7 +756,7 @@ body::after {
     z-index: 4;
 }
 
-/* ── Portfolio — polaroid wall ────────────────────────────── */
+/* Portfolio - polaroid wall */
 .pieces-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
@@ -783,7 +781,7 @@ body::after {
 .piece:nth-child(6n+5) { --tilt: -1.2deg; }
 .piece:nth-child(6n+6) { --tilt:  0.9deg; }
 
-/* every artwork gets a strip of selotape — position varies so it feels hand-placed */
+/* every artwork gets a strip of selotape - position varies so it feels hand-placed */
 .piece::before {
     content: "";
     position: absolute;
@@ -877,7 +875,7 @@ body::after {
 }
 .more-btns .btn { background: var(--paper-warm); }
 
-/* ── Contact — dark room, warm postcard ───────────────────── */
+/* Contact dark room, warm postcard */
 .sec-contact {
     background:
         radial-gradient(circle at 15% 20%, rgba(221, 154, 46, .09), transparent 45%),
@@ -998,7 +996,7 @@ body::after {
     transform: rotate(-.8deg);
 }
 
-/* ── Footer ───────────────────────────────────────────────── */
+/* Footer */
 .footer {
     background: var(--ink-2);
     color: rgba(246, 238, 221, .78);
@@ -1038,7 +1036,7 @@ body::after {
 .socials svg { width: 20px; height: 20px; }
 .copyright { margin-top: 1.4rem; font-size: .85rem; opacity: .62; }
 
-/* ── Reveal-on-scroll (gated behind html.js so no-JS still shows all) ── */
+/* Reveal-on-scroll (gated behind html.js so no-JS still shows all) */
 .fade-in, .slide-in-left, .slide-in-right {
     transition: opacity .7s ease, transform .7s cubic-bezier(.22, .61, .36, 1);
     transition-delay: var(--d, 0s);
@@ -1058,7 +1056,7 @@ html.js .slide-in-right.appear {
     transform: translateX(0) rotate(var(--tilt, 0deg));
 }
 
-/* ── Responsive ───────────────────────────────────────────── */
+/* Responsive */
 @media (max-width: 900px) {
     .nav-links, .nav-cta { display: none; }
     .burger { display: grid; }
@@ -1094,7 +1092,7 @@ html.js .slide-in-right.appear {
     .pieces-grid { gap: 2rem 1.2rem; }
 }
 
-/* ── Reduced motion ───────────────────────────────────────── */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after {
