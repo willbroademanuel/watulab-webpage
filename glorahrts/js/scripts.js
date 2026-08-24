@@ -1,37 +1,46 @@
-// Mobile menu toggle
-document.getElementById('mobileMenuButton').addEventListener('click', () => {
-    document.getElementById('mobileMenu').classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-});
+const nav = document.getElementById('siteNav');
+const mobileMenu = document.getElementById('mobileMenu');
+const openBtn = document.getElementById('mobileMenuButton');
+const closeBtn = document.getElementById('closeMobileMenu');
 
-document.getElementById('closeMobileMenu').addEventListener('click', () => {
-    document.getElementById('mobileMenu').classList.add('hidden');
-    document.body.style.overflow = '';
-});
-
-// Close mobile menu when clicking a link
-const mobileMenuLinks = document.querySelectorAll('#mobileMenu a');
-mobileMenuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        document.getElementById('mobileMenu').classList.add('hidden');
-        document.body.style.overflow = '';
-    });
-});
-
-// Scroll animation
-function checkVisibility() {
-    const elements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
-    
-    elements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        
-        if (elementTop < windowHeight - 100) {
-            element.classList.add('appear');
-        }
-    });
+function setMenu(open) {
+    mobileMenu.classList.toggle('hidden', !open);
+    document.body.style.overflow = open ? 'hidden' : '';
+    openBtn.setAttribute('aria-expanded', String(open));
 }
 
-// Check visibility on scroll and load
-window.addEventListener('scroll', checkVisibility);
-window.addEventListener('load', checkVisibility);
+openBtn.addEventListener('click', () => setMenu(true));
+closeBtn.addEventListener('click', () => setMenu(false));
+
+mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => setMenu(false));
+});
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) setMenu(false);
+});
+
+window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+}, { passive: true });
+
+// Reveal-on-scroll
+const revealEls = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealEls.forEach(el => el.classList.add('appear'));
+} else {
+    const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('appear');
+                io.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(el => io.observe(el));
+}
+
+document.getElementById('year').textContent = new Date().getFullYear();

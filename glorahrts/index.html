@@ -1,22 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="scroll-smooth">
+<html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.add('js');</script>
 
     <!-- ═══ SEO ═══ -->
     <title>GLORaHrts | Bring Your Imagination to Life</title>
-    <meta name="description" content="GLORaHrts — handcrafted artwork, paper crafts, logo design, fabric design, and gift items inspired by African culture. Custom creative works for every occasion.">
+    <meta name="description"
+        content="GLORaHrts — handcrafted artwork, paper crafts, logo design, fabric design, and gift items inspired by African culture. Custom creative works for every occasion.">
     <link rel="canonical" href="https://watulab.com/glorahrts/">
     <!-- Client pages are hosted on watulab.com — noindex keeps SEO clean for both parties -->
     <meta name="robots" content="noindex, follow">
-    <meta name="theme-color" content="#fffbeb">
+    <meta name="theme-color" content="#F6EEDD">
 
     <!-- ═══ Open Graph ═══ -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://watulab.com/glorahrts/">
     <meta property="og:title" content="GLORaHrts | Bring Your Imagination to Life">
-    <meta property="og:description" content="Handcrafted artwork, paper crafts, logo design, and gift items inspired by African culture.">
+    <meta property="og:description"
+        content="Handcrafted artwork, paper crafts, logo design, and gift items inspired by African culture.">
     <meta property="og:image" content="https://watulab.com/glorahrts/assets/glorah-portrait.jpeg">
 
     <!-- ═══ Twitter Card ═══ -->
@@ -43,394 +47,596 @@
     }
     </script>
 
-    <!-- ═══ Fonts & Icons ═══ -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- ═══ Fonts (Fraunces = display serif, Caveat = handwriting, Karla = body) ═══ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Karla:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- ═══ Module CSS ═══ -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-gray-50 text-gray-800 transition-colors duration-300">
+
+<body>
+
+    <a class="skip-link" href="#about">Skip to content</a>
+
+    <!-- ═══ Hand-drawn icon sprite ═══ -->
+    <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+        <symbol id="i-squiggle" viewBox="0 0 210 16">
+            <path d="M4 11C28 3 52 3 74 10s44 7 68-1 44-6 64 3" fill="none" stroke="currentColor" stroke-width="5"
+                stroke-linecap="round" />
+        </symbol>
+        <symbol id="i-sparkle" viewBox="0 0 24 24">
+            <path
+                d="M12 2.5c.9 4.6 2.9 6.6 7.5 7.5-4.6.9-6.6 2.9-7.5 7.5-.9-4.6-2.9-6.6-7.5-7.5 4.6-.9 6.6-2.9 7.5-7.5z"
+                fill="currentColor" />
+        </symbol>
+        <symbol id="i-check" viewBox="0 0 24 24">
+            <path d="M4 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </symbol>
+        <symbol id="i-arrow-dn" viewBox="0 0 24 24">
+            <path d="M12 4v14M6 12l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </symbol>
+        <symbol id="i-arrow-curve" viewBox="0 0 24 24">
+            <path d="M5 19C6 12 11 7.5 18.5 6.8M15 4.5l4 .9-.9 4" fill="none" stroke="currentColor" stroke-width="1.9"
+                stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="i-brush" viewBox="0 0 24 24">
+            <path
+                d="M20 4c-4 1-8.5 5-10.5 8l2.5 2.5C15 12.5 19 8 20 4zM9 12.5c-2 0-3.5 1.5-3.5 3.5 0 1.5-1 2.5-2.5 2.5 1.5 1.5 5.5 2 7.5-.5.9-1.1 1-2.7.3-3.9"
+                fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="i-scissors" viewBox="0 0 24 24">
+            <circle cx="6" cy="6.5" r="2.2" />
+            <circle cx="6" cy="17.5" r="2.2" />
+            <path d="M8 8l11.5 10.5M8 16L19.5 5.5M12.2 11.6l.6.7" fill="none" stroke="currentColor" stroke-width="1.7"
+                stroke-linecap="round" />
+        </symbol>
+        <symbol id="i-pen" viewBox="0 0 24 24">
+            <path d="M15 4l5 5L8.5 20.5 3 21l.5-5.5zM13.5 5.5l5 5" fill="none" stroke="currentColor" stroke-width="1.7"
+                stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="i-gift" viewBox="0 0 24 24">
+            <rect x="4" y="11.5" width="16" height="8.5" rx="1.2" />
+            <path
+                d="M12 11.5V20M4 11.5h16M12 11.5c-4.5 0-5.5-5.5-2.3-5.5 1.9 0 2.3 2.7 2.3 5.5zm0 0c4.5 0 5.5-5.5 2.3-5.5-1.9 0-2.3 2.7-2.3 5.5z"
+                fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="i-waves" viewBox="0 0 24 24">
+            <path d="M3 7.5c3-2.2 6 2.2 9 0s6 2.2 9 0M3 12.5c3-2.2 6 2.2 9 0s6 2.2 9 0M3 17.5c3-2.2 6 2.2 9 0s6 2.2 9 0"
+                fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+        </symbol>
+        <symbol id="i-chat" viewBox="0 0 24 24">
+            <path d="M4 5.5h16V16h-9.5L6 20v-4H4z" />
+            <path d="M8.5 10.8h.01M12 10.8h.01M15.5 10.8h.01" fill="none" stroke="currentColor" stroke-width="2.2"
+                stroke-linecap="round" />
+        </symbol>
+        <symbol id="i-heart" viewBox="0 0 24 24">
+            <path
+                d="M12 20s-7-4.5-9-9c-1.5-3.5 1-7 4.5-7 2 0 3.5 1 4.5 2.5C13 5 14.5 4 16.5 4 20 4 22.5 7.5 21 11c-2 4.5-9 9-9 9z"
+                fill="currentColor" />
+        </symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24">
+            <rect x="3.5" y="5.5" width="17" height="13" rx="2" />
+            <path d="M4.5 7.5l7.5 5.5 7.5-5.5" fill="none" stroke="currentColor" stroke-width="1.7"
+                stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="i-insta" viewBox="0 0 24 24">
+            <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" fill="none" stroke="currentColor"
+                stroke-width="1.7" />
+            <circle cx="12" cy="12" r="3.8" fill="none" stroke="currentColor" stroke-width="1.7" />
+            <circle cx="17.2" cy="6.8" r=".9" fill="currentColor" />
+        </symbol>
+        <symbol id="i-tiktok" viewBox="0 0 24 24">
+            <path
+                d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.59c.28 0 .55.05.81.13V9.79a6.07 6.07 0 0 0-.81-.06 5.71 5.71 0 1 0 5.71 5.71V9.29a7.35 7.35 0 0 0 4.03 1.2V7.4a4.3 4.3 0 0 1-3-1.58z"
+                fill="currentColor" />
+        </symbol>
+        <symbol id="i-wa" viewBox="0 0 24 24">
+            <path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.8L3.5 20.5l4.4-1.1A8.5 8.5 0 1 0 12 3.5z" fill="none"
+                stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M9 8.8c0 3.2 3 6.2 6.2 6.2l1-1.7-2.2-1.3-.9.7c-1-.4-1.9-1.3-2.3-2.3l.7-.9-1.3-2.2z"
+                fill="currentColor" />
+        </symbol>
+    </svg>
 
     <!-- Navigation Bar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/40 glass-effect px-6 py-4 flex justify-between items-center">
-        <div class="flex items-center">
-            <span class="text-2xl font-bold bg-gradient-to-r from-amber-600 to-yellow-500 bg-clip-text text-transparent tracking-tighter">GLORaHrts</span>
-        </div>
+    <header class="nav" id="siteNav">
+        <a class="brand" href="#home">GLOR<span class="brand-a">a</span>H<span class="brand-rts">rts</span><span
+                class="ast" aria-hidden="true">&#10035;</span></a>
 
-        <!-- Desktop Nav -->
-        <div class="hidden md:flex space-x-8">
-            <a href="#home" class="relative text-gray-700 hover:text-amber-600 transition-all duration-300 text-sm md:text-base group">
-                <span>Home</span><span class="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-500 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a href="#about" class="relative text-gray-700 hover:text-amber-600 transition-all duration-300 text-sm md:text-base group">
-                <span>About</span><span class="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-500 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a href="#services" class="relative text-gray-700 hover:text-amber-600 transition-all duration-300 text-sm md:text-base group">
-                <span>Services</span><span class="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-500 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a href="#portfolio" class="relative text-gray-700 hover:text-amber-600 transition-all duration-300 text-sm md:text-base group">
-                <span>Portfolio</span><span class="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-500 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a href="#contact" class="relative text-gray-700 hover:text-amber-600 transition-all duration-300 text-sm md:text-base group">
-                <span>Contact</span><span class="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-500 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-        </div>
+        <nav class="nav-links" aria-label="Primary">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </nav>
 
-        <!-- Mobile Menu Button -->
-        <div class="flex items-center">
-            <button id="mobileMenuButton" aria-label="Open menu" class="md:hidden p-2 rounded-md text-gray-700 focus:outline-none hover:bg-amber-100 transition-all">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        <div class="nav-end">
+            <a href="#contact" class="btn btn-solid btn-mini nav-cta">let&rsquo;s talk</a>
+            <button id="mobileMenuButton" aria-label="Open menu" class="burger" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <path d="M4 7c5-1.5 11-1.5 16 0M4 12c5-1.5 11-1.5 16 0M4 17c5-1.5 11-1.5 16 0" />
                 </svg>
             </button>
         </div>
-    </nav>
+    </header>
 
     <!-- Mobile Menu -->
-    <div id="mobileMenu" class="fixed inset-0 bg-white/95 z-40 flex flex-col items-center justify-center hidden glass-effect">
-        <button id="closeMobileMenu" aria-label="Close menu" class="absolute top-8 right-8 text-gray-700 hover:text-amber-600 transition-all">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+    <div id="mobileMenu" class="mobile-menu hidden">
+        <button id="closeMobileMenu" aria-label="Close menu" class="mm-close">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M6 6l12 12M18 6L6 18" />
             </svg>
         </button>
-        <nav class="flex flex-col items-center space-y-8">
-            <a href="#home"      class="text-2xl text-gray-700 hover:text-amber-600 transition-all px-4 py-2">Home</a>
-            <a href="#about"     class="text-2xl text-gray-700 hover:text-amber-600 transition-all px-4 py-2">About</a>
-            <a href="#services"  class="text-2xl text-gray-700 hover:text-amber-600 transition-all px-4 py-2">Services</a>
-            <a href="#portfolio" class="text-2xl text-gray-700 hover:text-amber-600 transition-all px-4 py-2">Portfolio</a>
-            <a href="#contact"   class="text-2xl text-gray-700 hover:text-amber-600 transition-all px-4 py-2">Contact</a>
+        <nav class="mm-links" aria-label="Mobile">
+            <a href="#home"><span>01</span>Home</a>
+            <a href="#about"><span>02</span>About</a>
+            <a href="#services"><span>03</span>Services</a>
+            <a href="#portfolio"><span>04</span>Portfolio</a>
+            <a href="#contact"><span>05</span>Contact</a>
         </nav>
+        <p class="mm-note">handmade with love &#10035; Tanzania</p>
     </div>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-gradient min-h-screen flex items-center justify-center px-4 pt-24 pb-16 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-amber-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-            <div class="absolute top-1/3 right-1/4 w-64 h-64 bg-yellow-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-            <div class="absolute bottom-1/4 left-1/2 w-64 h-64 bg-orange-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
-        </div>
-        <div class="max-w-5xl mx-auto text-center relative z-10 fade-in mt-10">
-            <div class="mb-8 slide-in-left">
-                <!-- ✅ Fixed: was <h3> (semantic error) — now proper <h1> for the brand name -->
-                <h1 class="hero-heading" style="font-size:4rem;font-weight:800;margin-bottom:1rem;background:linear-gradient(45deg,#B8860B,#D4AF37,#F3E5AB);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block;letter-spacing:-0.05em;">GLORaHrts</h1>
-            </div>
-            <p class="text-5xl md:text-7xl font-bold text-white mb-6 md:mb-8 tracking-tight slide-in-right">
-                <span class="heading-gradient">Bring your imagination</span> to life
+    <section id="home" class="hero">
+        <div class="hero-sun" aria-hidden="true"></div>
+        <svg class="doodle doodle-1" aria-hidden="true">
+            <use href="#i-sparkle" />
+        </svg>
+        <svg class="doodle doodle-2" aria-hidden="true">
+            <use href="#i-sparkle" />
+        </svg>
+        <svg class="doodle doodle-3" aria-hidden="true">
+            <use href="#i-sparkle" />
+        </svg>
+
+        <div class="hero-inner">
+            <p class="eyebrow-hand slide-in-left">&#10035; GLORaHrts &mdash; handmade art &amp; crafts from Tanzania</p>
+            <h1 class="hero-title slide-in-right" style="--d:.08s">
+                Bring your
+                <em>imagination<svg class="hl-line" aria-hidden="true">
+                        <use href="#i-squiggle" />
+                    </svg></em>
+                to life
+            </h1>
+            <p class="hero-sub fade-in" style="--d:.16s">
+                Hand-painted artwork, paper crafts, logos and gifts &mdash; cut, stitched and painted
+                by hand, with roots in African colour and story.
             </p>
-            <p class="text-xl md:text-2xl text-white mb-10 max-w-3xl mx-auto leading-relaxed px-4 text-secondary">
-                Transforming creative visions into beautiful, handcrafted reality through art and design
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 px-4">
-                <a href="#contact" class="relative overflow-hidden bg-gradient-to-r from-amber-500 to-yellow-500 text-white px-8 py-4 rounded-full font-medium hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-sm md:text-base glow-on-hover group">
-                    <span class="relative z-10">Let's Create Together</span>
-                    <span class="absolute inset-0 bg-gradient-to-r from-amber-600 to-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                </a>
-                <a href="#portfolio" class="border-2 border-white/30 text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 transform hover:scale-105 text-sm md:text-base">
-                    View Portfolio
-                </a>
+            <div class="hero-cta fade-in" style="--d:.24s">
+                <a href="#contact" class="btn btn-solid">Let&rsquo;s create together</a>
+                <a href="#portfolio" class="btn btn-dashed">See the work</a>
             </div>
-        </div>
-        <div class="absolute bottom-10 left-0 right-0 flex justify-center">
-            <a href="#about" class="text-white animate-bounce" aria-label="Scroll to About">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            <p class="hero-note fade-in" style="--d:.32s">
+                <svg class="note-arrow" aria-hidden="true">
+                    <use href="#i-arrow-curve" />
                 </svg>
-            </a>
+                psst &mdash; rough ideas &amp; napkin sketches welcome
+            </p>
+        </div>
+
+        <a class="scroll-hint" href="#about">
+            <span>come see</span>
+            <svg class="hint-arrow" aria-hidden="true">
+                <use href="#i-arrow-dn" />
+            </svg>
+        </a>
+
+        <div class="spin-badge" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+                <defs>
+                    <path id="badge-circ" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0" />
+                </defs>
+                <text class="badge-text">
+                    <textPath href="#badge-circ">handmade with love &#10035; one of a kind &#10035;</textPath>
+                </text>
+                <g transform="translate(48,48) scale(1)">
+                    <use href="#i-heart" width="24" height="24" x="0" y="0" />
+                </g>
+            </svg>
         </div>
     </section>
 
+    <!-- Services ribbon -->
+    <div class="ribbon-wrap" aria-hidden="true">
+        <div class="ribbon">
+            <div class="ribbon-track">
+                <span>Custom Artwork <i>&#10035;</i> Paper Crafts <i>&#10035;</i> Logo Design <i>&#10035;</i> Gift Items
+                    <i>&#10035;</i> Fabric Design <i>&#10035;</i> Workshops <i>&#10035;</i> </span>
+                <span>Custom Artwork <i>&#10035;</i> Paper Crafts <i>&#10035;</i> Logo Design <i>&#10035;</i> Gift Items
+                    <i>&#10035;</i> Fabric Design <i>&#10035;</i> Workshops <i>&#10035;</i> </span>
+            </div>
+        </div>
+    </div>
+
     <!-- About Section -->
-    <section id="about" class="py-24 px-6 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row items-center gap-12 px-4">
-                <div class="md:w-1/2 fade-in">
-                    <div class="artist-image-container">
-                        <img src="assets/glorah-portrait.jpeg" alt="Glorah — Artist and founder of GLORaHrts" class="artist-image">
-                    </div>
-                </div>
-                <div class="md:w-1/2 fade-in">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
-                        About <span class="heading-gradient">Glorah</span>
-                    </h2>
-                    <p class="text-lg text-gray-600 mb-6 text-secondary">
-                        Inspired by the vibrant colors of African sunsets and the intricate patterns of traditional crafts, Glorah transforms ordinary materials into extraordinary works of art. Her journey began as a child watching her grandmother weave baskets, sparking a lifelong passion for creating beauty with her hands.
-                    </p>
-                    <p class="text-lg text-gray-600 mb-8 text-secondary">
-                        Each piece Glorah creates tells a story, blending contemporary techniques with cultural heritage to bring your imagination to life. Her work has been featured in local exhibitions and has adorned homes across the region with its unique charm and craftsmanship.
-                    </p>
-                    <div class="flex flex-wrap gap-4">
-                        <span class="text-sm bg-amber-100 text-amber-800 px-4 py-2 rounded-full">Handmade with love</span>
-                        <span class="text-sm bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Cultural inspiration</span>
-                        <span class="text-sm bg-orange-100 text-orange-800 px-4 py-2 rounded-full">Unique designs</span>
-                    </div>
+    <section id="about" class="sec sec-about">
+        <div class="wrap about-grid">
+            <div class="about-photo-wrap slide-in-left">
+                <figure class="polaroid about-photo tilt-l">
+                    <span class="tape tape-l" aria-hidden="true"></span>
+                    <span class="tape tape-r" aria-hidden="true"></span>
+                    <img src="assets/glorah-portrait.jpeg" alt="Glorah — Artist and founder of GLORaHrts">
+                    <figcaption>glorah &mdash; the hands behind it all</figcaption>
+                    <svg class="photo-spark" aria-hidden="true">
+                        <use href="#i-sparkle" />
+                    </svg>
+                </figure>
+            </div>
+
+            <div class="about-copy slide-in-right" style="--d:.1s">
+                <p class="eyebrow-hand">&#10035; meet the artist</p>
+                <h2>Hi, I&rsquo;m <em class="hl">Glorah<svg class="hl-line" aria-hidden="true">
+                            <use href="#i-squiggle" />
+                        </svg></em></h2>
+                <p>
+                    Inspired by the vibrant colors of African sunsets and the intricate patterns of traditional
+                    crafts, Glorah transforms ordinary materials into extraordinary works of art. Her journey began
+                    as a child watching her grandmother weave baskets, sparking a lifelong passion for creating
+                    beauty with her hands.
+                </p>
+                <p>
+                    Each piece tells a story, blending contemporary techniques with cultural heritage to bring your
+                    imagination to life. Her work has been featured in local exhibitions and has adorned homes
+                    across the region with its unique charm and craftsmanship.
+                </p>
+                <ul class="checklist">
+                    <li><svg aria-hidden="true">
+                            <use href="#i-check" />
+                        </svg>Every piece is one-of-a-kind, made to order</li>
+                    <li><svg aria-hidden="true">
+                            <use href="#i-check" />
+                        </svg>Contemporary technique meets cultural heritage</li>
+                    <li><svg aria-hidden="true">
+                            <use href="#i-check" />
+                        </svg>Exhibited locally &amp; collected across the region</li>
+                </ul>
+                <p class="signature">&mdash; Glorah</p>
+                <div class="stamps">
+                    <span style="--r:-1.6deg">Handmade with love</span>
+                    <span style="--r:1.1deg">Cultural inspiration</span>
+                    <span style="--r:-.6deg">Unique designs</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services -->
-    <section id="services" class="py-24 px-6 bg-gray-50">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight">My <span class="heading-gradient">Services</span></h2>
-                <p class="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto px-4 text-secondary">Comprehensive creative solutions tailored to your artistic needs</p>
+    <section id="services" class="sec sec-services">
+        <div class="tear" style="color:#FFFCF5" aria-hidden="true">
+            <svg viewBox="0 0 1440 40" preserveAspectRatio="none">
+                <path
+                    d="M0 40L0 10L72 4L144 14L216 3L288 12L360 5L432 16L504 8L576 18L648 6L720 15L792 4L864 13L936 22L1008 9L1080 17L1152 5L1224 14L1296 7L1368 16L1440 10L1440 40Z"
+                    fill="currentColor" />
+            </svg>
+        </div>
+        <div class="wrap">
+            <div class="sec-head fade-in">
+                <p class="eyebrow-hand">&#10035; things i make</p>
+                <h2>My <em class="hl">Services<svg class="hl-line" aria-hidden="true">
+                            <use href="#i-squiggle" />
+                        </svg></em></h2>
+                <p>Creative solutions tailored to you &mdash; nothing here comes off a shelf.</p>
             </div>
-            <div class="grid md:grid-cols-3 gap-4 px-4">
-                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover fade-in gradient-border">
-                    <div class="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-paint-brush text-2xl text-amber-600"></i>
+
+            <div class="services-grid">
+                <article class="card tilt-l fade-in">
+                    <span class="fold" aria-hidden="true"></span>
+                    <div class="card-head">
+                        <span class="card-icon"><svg aria-hidden="true">
+                                <use href="#i-brush" />
+                            </svg></span>
+                        <span class="card-num">01</span>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4 heading-gradient">Custom Artwork</h3>
-                    <p class="text-gray-600 text-base md:text-lg mb-6 text-secondary">Hand-painted artworks tailored to your vision and space, perfect for home or office decoration.</p>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="text-xs bg-amber-100 text-amber-800 px-3 py-1.5 rounded-full">Canvas</span>
-                        <span class="text-xs bg-amber-100 text-amber-800 px-3 py-1.5 rounded-full">Acrylic</span>
-                        <span class="text-xs bg-amber-100 text-amber-800 px-3 py-1.5 rounded-full">Watercolor</span>
+                    <h3>Custom Artwork</h3>
+                    <p>Hand-painted artworks tailored to your vision and space, perfect for home or office decoration.
+                    </p>
+                    <ul class="tag-row">
+                        <li>Canvas</li>
+                        <li>Acrylic</li>
+                        <li>Watercolor</li>
+                    </ul>
+                </article>
+
+                <article class="card tilt-r fade-in" style="--d:.08s">
+                    <span class="fold" aria-hidden="true"></span>
+                    <div class="card-head">
+                        <span class="card-icon"><svg aria-hidden="true">
+                                <use href="#i-scissors" />
+                            </svg></span>
+                        <span class="card-num">02</span>
                     </div>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover fade-in gradient-border" style="transition-delay:100ms">
-                    <div class="w-14 h-14 bg-yellow-100 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-cut text-2xl text-yellow-600"></i>
+                    <h3>Paper Crafts</h3>
+                    <p>Elegant paper designs for invitations, decorations, and keepsakes with intricate detailing.</p>
+                    <ul class="tag-row">
+                        <li>Greeting Cards</li>
+                        <li>Wall Art</li>
+                        <li>Origami</li>
+                    </ul>
+                </article>
+
+                <article class="card tilt-l fade-in" style="--d:.16s">
+                    <span class="fold" aria-hidden="true"></span>
+                    <div class="card-head">
+                        <span class="card-icon"><svg aria-hidden="true">
+                                <use href="#i-pen" />
+                            </svg></span>
+                        <span class="card-num">03</span>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4 heading-gradient">Paper Crafts</h3>
-                    <p class="text-gray-600 text-base md:text-lg mb-6 text-secondary">Elegant paper designs for invitations, decorations, and keepsakes with intricate detailing.</p>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="text-xs bg-yellow-100 text-yellow-800 px-3 py-1.5 rounded-full">Greeting Cards</span>
-                        <span class="text-xs bg-yellow-100 text-yellow-800 px-3 py-1.5 rounded-full">Wall Art</span>
-                        <span class="text-xs bg-yellow-100 text-yellow-800 px-3 py-1.5 rounded-full">Origami</span>
+                    <h3>Logo Design</h3>
+                    <p>Handcrafted logos that capture your brand's essence with artistic flair and cultural depth.</p>
+                    <ul class="tag-row">
+                        <li>Business</li>
+                        <li>Personal Brand</li>
+                        <li>Events</li>
+                    </ul>
+                </article>
+
+                <article class="card tilt-r fade-in">
+                    <span class="fold" aria-hidden="true"></span>
+                    <div class="card-head">
+                        <span class="card-icon"><svg aria-hidden="true">
+                                <use href="#i-gift" />
+                            </svg></span>
+                        <span class="card-num">04</span>
                     </div>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover fade-in gradient-border" style="transition-delay:200ms">
-                    <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-pen-fancy text-2xl text-orange-600"></i>
+                    <h3>Gift Items</h3>
+                    <p>Thoughtfully crafted personalized gifts that celebrate special moments and relationships.</p>
+                    <ul class="tag-row">
+                        <li>Weddings</li>
+                        <li>Anniversaries</li>
+                        <li>Birthdays</li>
+                    </ul>
+                </article>
+
+                <article class="card tilt-l fade-in" style="--d:.08s">
+                    <span class="fold" aria-hidden="true"></span>
+                    <div class="card-head">
+                        <span class="card-icon"><svg aria-hidden="true">
+                                <use href="#i-waves" />
+                            </svg></span>
+                        <span class="card-num">05</span>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4 heading-gradient">Logo Design</h3>
-                    <p class="text-gray-600 text-base md:text-lg mb-6 text-secondary">Handcrafted logos that capture your brand's essence with artistic flair and cultural depth.</p>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="text-xs bg-orange-100 text-orange-800 px-3 py-1.5 rounded-full">Business</span>
-                        <span class="text-xs bg-orange-100 text-orange-800 px-3 py-1.5 rounded-full">Personal Brand</span>
-                        <span class="text-xs bg-orange-100 text-orange-800 px-3 py-1.5 rounded-full">Events</span>
+                    <h3>Fabric Design</h3>
+                    <p>Custom fabric patterns and textile designs inspired by traditional and contemporary motifs.</p>
+                    <ul class="tag-row">
+                        <li>Clothing</li>
+                        <li>Home Decor</li>
+                        <li>Accessories</li>
+                    </ul>
+                </article>
+
+                <article class="card tilt-r fade-in" style="--d:.16s">
+                    <span class="fold" aria-hidden="true"></span>
+                    <div class="card-head">
+                        <span class="card-icon"><svg aria-hidden="true">
+                                <use href="#i-chat" />
+                            </svg></span>
+                        <span class="card-num">06</span>
                     </div>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover fade-in gradient-border">
-                    <div class="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-gifts text-2xl text-amber-600"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 heading-gradient">Gift Items</h3>
-                    <p class="text-gray-600 text-base md:text-lg mb-6 text-secondary">Thoughtfully crafted personalized gifts that celebrate special moments and relationships.</p>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="text-xs bg-amber-100 text-amber-800 px-3 py-1.5 rounded-full">Weddings</span>
-                        <span class="text-xs bg-amber-100 text-amber-800 px-3 py-1.5 rounded-full">Anniversaries</span>
-                        <span class="text-xs bg-amber-100 text-amber-800 px-3 py-1.5 rounded-full">Birthdays</span>
-                    </div>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover fade-in gradient-border" style="transition-delay:100ms">
-                    <div class="w-14 h-14 bg-yellow-100 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-tshirt text-2xl text-yellow-600"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 heading-gradient">Fabric Design</h3>
-                    <p class="text-gray-600 text-base md:text-lg mb-6 text-secondary">Custom fabric patterns and textile designs inspired by traditional and contemporary motifs.</p>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="text-xs bg-yellow-100 text-yellow-800 px-3 py-1.5 rounded-full">Clothing</span>
-                        <span class="text-xs bg-yellow-100 text-yellow-800 px-3 py-1.5 rounded-full">Home Decor</span>
-                        <span class="text-xs bg-yellow-100 text-yellow-800 px-3 py-1.5 rounded-full">Accessories</span>
-                    </div>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover fade-in gradient-border" style="transition-delay:200ms">
-                    <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-chalkboard-teacher text-2xl text-orange-600"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 heading-gradient">Workshops</h3>
-                    <p class="text-gray-600 text-base md:text-lg mb-6 text-secondary">Hands-on creative workshops teaching various art and craft techniques for all skill levels.</p>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="text-xs bg-orange-100 text-orange-800 px-3 py-1.5 rounded-full">Beginners</span>
-                        <span class="text-xs bg-orange-100 text-orange-800 px-3 py-1.5 rounded-full">Advanced</span>
-                        <span class="text-xs bg-orange-100 text-orange-800 px-3 py-1.5 rounded-full">Corporate</span>
-                    </div>
-                </div>
+                    <h3>Workshops</h3>
+                    <p>Hands-on creative workshops teaching various art and craft techniques for all skill levels.</p>
+                    <ul class="tag-row">
+                        <li>Beginners</li>
+                        <li>Advanced</li>
+                        <li>Corporate</li>
+                    </ul>
+                </article>
             </div>
         </div>
     </section>
 
     <!-- Portfolio -->
-    <section id="portfolio" class="py-24 px-6 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Featured <span class="heading-gradient">Projects</span></h2>
-                <p class="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto px-4 text-secondary">A showcase of my recent creative works across different mediums</p>
+    <section id="portfolio" class="sec sec-portfolio">
+        <div class="tear" style="color:#F0E4C9" aria-hidden="true">
+            <svg viewBox="0 0 1440 40" preserveAspectRatio="none">
+                <path
+                    d="M0 40L0 14L80 5L160 16L240 8L320 19L400 10L480 4L560 15L640 7L720 18L800 9L880 20L960 11L1040 5L1120 14L1200 6L1280 17L1360 9L1440 15L1440 40Z"
+                    fill="currentColor" />
+            </svg>
+        </div>
+        <div class="wrap">
+            <div class="sec-head fade-in">
+                <p class="eyebrow-hand">&#10035; fresh off the table</p>
+                <h2>Featured <em class="hl">Projects<svg class="hl-line" aria-hidden="true">
+                            <use href="#i-squiggle" />
+                        </svg></em></h2>
+                <p>Every piece below is one-of-a-kind &mdash; hover to peek, tap for more on Instagram.</p>
             </div>
-            <div class="grid md:grid-cols-3 gap-4 px-4">
-                <div class="group relative overflow-hidden rounded-xl shadow-xl fade-in h-96">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-end p-8">
-                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <h3 class="text-2xl font-bold text-white mb-2">Textured Tulips in Bloom</h3>
-                            <p class="text-gray-300 mb-6">Framed Mixed-Media Relief</p>
-                            <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 flex items-center transition">View more <i class="fas fa-arrow-right ml-2"></i></a>
-                        </div>
-                    </div>
-                    <img src="assets/textured-tulips-in-bloom.jpeg" alt="3D mixed-media artwork of pink tulips in a textured brown vase with a patterned frame by GLORaHrts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                </div>
-                <div class="group relative overflow-hidden rounded-xl shadow-xl fade-in h-96">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-end p-8">
-                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <h3 class="text-2xl font-bold text-white mb-2">Lit Candle Relief</h3>
-                            <p class="text-gray-300 mb-6">Relief Canvas Painting</p>
-                            <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 flex items-center transition">View more <i class="fas fa-arrow-right ml-2"></i></a>
-                        </div>
-                    </div>
-                    <img src="assets/lit-candle-relief.jpeg" alt="Lit candle canvas relief painting with textured paper flame by GLORaHrts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                </div>
-                <div class="group relative overflow-hidden rounded-xl shadow-xl fade-in h-96" style="transition-delay:100ms">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-end p-8">
-                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <h3 class="text-2xl font-bold text-white mb-2">The Walking Armadillo</h3>
-                            <p class="text-gray-300 mb-6">Framed Paper Craft</p>
-                            <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 flex items-center transition">View more <i class="fas fa-arrow-right ml-2"></i></a>
-                        </div>
-                    </div>
-                    <img src="assets/the-walking-armadillo.jpeg" alt="Armadillo pen and ink paper cutout artwork with wildflower details by GLORaHrts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                </div>
-                <div class="group relative overflow-hidden rounded-xl shadow-xl fade-in h-96" style="transition-delay:100ms">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-end p-8">
-                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <h3 class="text-2xl font-bold text-white mb-2">Extracting Nature's Beauty</h3>
-                            <p class="text-gray-300 mb-6">Feeling Alive Arts</p>
-                            <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 flex items-center transition">View more <i class="fas fa-arrow-right ml-2"></i></a>
-                        </div>
-                    </div>
-                    <img src="assets/extracting-natures-beauty.jpeg" alt="Extracting nature's beauty — artwork by GLORaHrts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                </div>
-                <div class="group relative overflow-hidden rounded-xl shadow-xl fade-in h-96" style="transition-delay:100ms">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-end p-8">
-                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <h3 class="text-2xl font-bold text-white mb-2">Africans King of the Jungle</h3>
-                            <p class="text-gray-300 mb-6">Wood Painting</p>
-                            <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 flex items-center transition">View more <i class="fas fa-arrow-right ml-2"></i></a>
-                        </div>
-                    </div>
-                    <img src="assets/africans-king-of-the-jungle.jpeg" alt="African king of the jungle — wood painting by GLORaHrts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                </div>
-                <div class="group relative overflow-hidden rounded-xl shadow-xl fade-in h-96" style="transition-delay:100ms">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-end p-8">
-                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <h3 class="text-2xl font-bold text-white mb-2">Guess What Time Is It</h3>
-                            <p class="text-gray-300 mb-6">Handcrafted Innovations</p>
-                            <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 flex items-center transition">View more <i class="fas fa-arrow-right ml-2"></i></a>
-                        </div>
-                    </div>
-                    <img src="assets/guess-what-time-is-it.jpeg" alt="Handcrafted clock innovation by GLORaHrts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                </div>
-                <div class="group relative overflow-hidden rounded-xl shadow-xl fade-in h-96" style="transition-delay:200ms">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-end p-8">
-                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <h3 class="text-2xl font-bold text-white mb-2">Life Is a Journey</h3>
-                            <p class="text-gray-300 mb-6">Life is full of possibilities</p>
-                            <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 flex items-center transition">View more <i class="fas fa-arrow-right ml-2"></i></a>
-                        </div>
-                    </div>
-                    <img src="assets/life-is-a-journey.jpeg" alt="Life is a journey — boat artwork by GLORaHrts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                </div>
-                <div class="group relative overflow-hidden rounded-xl shadow-xl fade-in h-96">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-end p-8">
-                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <h3 class="text-2xl font-bold text-white mb-2">Daisies & Patterns</h3>
-                            <p class="text-gray-300 mb-6">Acrylic on Canvas</p>
-                            <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 flex items-center transition">View more <i class="fas fa-arrow-right ml-2"></i></a>
-                        </div>
-                    </div>
-                    <img src="assets/daisies-and-patterns.jpeg" alt="Acrylic canvas painting blending structured black geometric patterns with a field of white daisies by GLORaHrts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                </div>
-                <div class="group relative overflow-hidden rounded-xl shadow-xl fade-in h-96" style="transition-delay:100ms">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-end p-8">
-                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <h3 class="text-2xl font-bold text-white mb-2">Wild Zebra on Wood</h3>
-                            <p class="text-gray-300 mb-6">Acrylic Wood Art</p>
-                            <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 flex items-center transition">View more <i class="fas fa-arrow-right ml-2"></i></a>
-                        </div>
-                    </div>
-                    <img src="assets/wild-zebra-on-wood.jpeg" alt="Zebra profile and acacia tree painted on a map of Africa shaped wood slice by GLORaHrts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                </div>
-                <div class="group relative overflow-hidden rounded-xl shadow-xl fade-in h-96" style="transition-delay:200ms">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-end p-8">
-                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <h3 class="text-2xl font-bold text-white mb-2">Monarch Butterfly</h3>
-                            <p class="text-gray-300 mb-6">Framed Mixed-Media</p>
-                            <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 flex items-center transition">View more <i class="fas fa-arrow-right ml-2"></i></a>
-                        </div>
-                    </div>
-                    <img src="assets/monarch-butterfly.jpeg" alt="Detailed orange monarch butterfly painting on textured background with carved dark frame by GLORaHrts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                </div>
-                <div class="group relative overflow-hidden rounded-xl shadow-xl fade-in h-96">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-end p-8">
-                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <h3 class="text-2xl font-bold text-white mb-2">Kilimanjaro & Giraffes</h3>
-                            <p class="text-gray-300 mb-6">Acrylic Wood Art</p>
-                            <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 flex items-center transition">View more <i class="fas fa-arrow-right ml-2"></i></a>
-                        </div>
-                    </div>
-                    <img src="assets/kilimanjaro-and-giraffes.jpeg" alt="Giraffes and Mount Kilimanjaro savanna scene painted on Africa shaped wood slice by GLORaHrts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                </div>
-                <div class="group relative overflow-hidden rounded-xl shadow-xl fade-in h-96" style="transition-delay:100ms">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-end p-8">
-                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <h3 class="text-2xl font-bold text-white mb-2">Faith & Strength Cross</h3>
-                            <p class="text-gray-300 mb-6">Framed Ink Drawing</p>
-                            <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 flex items-center transition">View more <i class="fas fa-arrow-right ml-2"></i></a>
-                        </div>
-                    </div>
-                    <img src="assets/faith-and-strength-cross.jpeg" alt="Wooden cross and daisies pen illustration with scripture verse by GLORaHrts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                </div>
-                <div class="group relative overflow-hidden rounded-xl shadow-xl fade-in h-96" style="transition-delay:200ms">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-end p-8">
-                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <h3 class="text-2xl font-bold text-white mb-2">Lily Pads Triptych</h3>
-                            <p class="text-gray-300 mb-6">Three-Panel Wall Art</p>
-                            <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 flex items-center transition">View more <i class="fas fa-arrow-right ml-2"></i></a>
-                        </div>
-                    </div>
-                    <img src="assets/lily-pads-triptych.jpeg" alt="Three-panel water lily leaves acrylic painting on narrow wooden blocks by GLORaHrts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                </div>
-                <div class="group relative overflow-hidden rounded-xl shadow-xl fade-in h-96">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-end p-8">
-                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <h3 class="text-2xl font-bold text-white mb-2">Cultural Art Patterns</h3>
-                            <p class="text-gray-300 mb-6">Handmade Paper Art</p>
-                            <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 flex items-center transition">View more <i class="fas fa-arrow-right ml-2"></i></a>
-                        </div>
-                    </div>
-                    <img src="assets/cultural-art-patterns.jpeg" alt="Cultural art patterns — handmade paper art by GLORaHrts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                </div>
-                <div class="group relative overflow-hidden rounded-xl shadow-xl fade-in h-96" style="transition-delay:100ms">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-end p-8">
-                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <h3 class="text-2xl font-bold text-white mb-2">Creative Arts for Client Office</h3>
-                            <p class="text-gray-300 mb-6">Acrylic Painting</p>
-                            <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 flex items-center transition">View more <i class="fas fa-arrow-right ml-2"></i></a>
-                        </div>
-                    </div>
-                    <img src="assets/creative-arts-for-client-office.jpeg" alt="Creative arts for client office — acrylic painting by GLORaHrts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                </div>
-                <div class="group relative overflow-hidden rounded-xl shadow-xl fade-in h-96" style="transition-delay:200ms">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-end p-8">
-                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <h3 class="text-2xl font-bold text-white mb-2">Hilltop Sanctuary</h3>
-                            <p class="text-gray-300 mb-6">Relief Mixed-Media</p>
-                            <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 flex items-center transition">View more <i class="fas fa-arrow-right ml-2"></i></a>
-                        </div>
-                    </div>
-                    <img src="assets/hilltop-sanctuary.jpeg" alt="Relief mixed-media artwork of a house on a grassy hill with black geometric border by GLORaHrts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                </div>
-            </div>
-            <div class="text-center mt-16 fade-in">
-                <div class="flex flex-col sm:flex-row justify-center gap-6 px-4">
-                    <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-white px-8 py-4 rounded-full font-medium text-gray-900 hover:shadow-lg transition-all duration-300 border-2 border-gray-200 hover:border-amber-400">
-                        <i class="fab fa-instagram mr-3 text-lg"></i><span>View on Instagram</span>
+
+            <div class="pieces-grid">
+                <figure class="piece fade-in">
+                    <a class="piece-link" href="https://instagram.com/_glorahrts" target="_blank"
+                        rel="noopener noreferrer" aria-label="Textured Tulips in Bloom — view on Instagram">
+                        <img src="assets/textured-tulips-in-bloom.jpeg"
+                            alt="3D mixed-media artwork of pink tulips in a textured brown vase with a patterned frame by GLORaHrts">
+                        <span class="piece-cta">view on instagram &#8599;</span>
                     </a>
-                    <a href="https://tiktok.com/@gloraharts" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-white px-8 py-4 rounded-full font-medium text-gray-900 hover:shadow-lg transition-all duration-300 border-2 border-gray-200 hover:border-amber-400">
-                        <i class="fab fa-tiktok mr-3 text-lg"></i><span>View on TikTok</span>
+                    <figcaption><strong>Textured Tulips in Bloom</strong><span>Framed Mixed-Media Relief</span>
+                    </figcaption>
+                </figure>
+
+                <figure class="piece fade-in" style="--d:.06s">
+                    <a class="piece-link" href="https://instagram.com/_glorahrts" target="_blank"
+                        rel="noopener noreferrer" aria-label="Lit Candle Relief — view on Instagram">
+                        <img src="assets/lit-candle-relief.jpeg"
+                            alt="Lit candle canvas relief painting with textured paper flame by GLORaHrts">
+                        <span class="piece-cta">view on instagram &#8599;</span>
+                    </a>
+                    <figcaption><strong>Lit Candle Relief</strong><span>Relief Canvas Painting</span></figcaption>
+                </figure>
+
+                <figure class="piece fade-in" style="--d:.12s">
+                    <a class="piece-link" href="https://instagram.com/_glorahrts" target="_blank"
+                        rel="noopener noreferrer" aria-label="The Walking Armadillo — view on Instagram">
+                        <img src="assets/the-walking-armadillo.jpeg"
+                            alt="Armadillo pen and ink paper cutout artwork with wildflower details by GLORaHrts">
+                        <span class="piece-cta">view on instagram &#8599;</span>
+                    </a>
+                    <figcaption><strong>The Walking Armadillo</strong><span>Framed Paper Craft</span></figcaption>
+                </figure>
+
+                <figure class="piece fade-in">
+                    <a class="piece-link" href="https://instagram.com/_glorahrts" target="_blank"
+                        rel="noopener noreferrer" aria-label="Extracting Nature's Beauty — view on Instagram">
+                        <img src="assets/extracting-natures-beauty.jpeg"
+                            alt="Extracting nature's beauty — artwork by GLORaHrts" loading="lazy">
+                        <span class="piece-cta">view on instagram &#8599;</span>
+                    </a>
+                    <figcaption><strong>Extracting Nature's Beauty</strong><span>Feeling Alive Arts</span></figcaption>
+                </figure>
+
+                <figure class="piece fade-in" style="--d:.06s">
+                    <a class="piece-link" href="https://instagram.com/_glorahrts" target="_blank"
+                        rel="noopener noreferrer" aria-label="Africans King of the Jungle — view on Instagram">
+                        <img src="assets/africans-king-of-the-jungle.jpeg"
+                            alt="African king of the jungle — wood painting by GLORaHrts" loading="lazy">
+                        <span class="piece-cta">view on instagram &#8599;</span>
+                    </a>
+                    <figcaption><strong>Africans King of the Jungle</strong><span>Wood Painting</span></figcaption>
+                </figure>
+
+                <figure class="piece fade-in" style="--d:.12s">
+                    <a class="piece-link" href="https://instagram.com/_glorahrts" target="_blank"
+                        rel="noopener noreferrer" aria-label="Guess What Time Is It — view on Instagram">
+                        <img src="assets/guess-what-time-is-it.jpeg" alt="Handcrafted clock innovation by GLORaHrts"
+                            loading="lazy">
+                        <span class="piece-cta">view on instagram &#8599;</span>
+                    </a>
+                    <figcaption><strong>Guess What Time Is It</strong><span>Handcrafted Innovations</span></figcaption>
+                </figure>
+
+                <figure class="piece fade-in">
+                    <a class="piece-link" href="https://instagram.com/_glorahrts" target="_blank"
+                        rel="noopener noreferrer" aria-label="Life Is a Journey — view on Instagram">
+                        <img src="assets/life-is-a-journey.jpeg" alt="Life is a journey — boat artwork by GLORaHrts"
+                            loading="lazy">
+                        <span class="piece-cta">view on instagram &#8599;</span>
+                    </a>
+                    <figcaption><strong>Life Is a Journey</strong><span>Life is full of possibilities</span>
+                    </figcaption>
+                </figure>
+
+                <figure class="piece fade-in" style="--d:.06s">
+                    <a class="piece-link" href="https://instagram.com/_glorahrts" target="_blank"
+                        rel="noopener noreferrer" aria-label="Daisies and Patterns — view on Instagram">
+                        <img src="assets/daisies-and-patterns.jpeg"
+                            alt="Acrylic canvas painting blending structured black geometric patterns with a field of white daisies by GLORaHrts"
+                            loading="lazy">
+                        <span class="piece-cta">view on instagram &#8599;</span>
+                    </a>
+                    <figcaption><strong>Daisies &amp; Patterns</strong><span>Acrylic on Canvas</span></figcaption>
+                </figure>
+
+                <figure class="piece fade-in" style="--d:.12s">
+                    <a class="piece-link" href="https://instagram.com/_glorahrts" target="_blank"
+                        rel="noopener noreferrer" aria-label="Wild Zebra on Wood — view on Instagram">
+                        <img src="assets/wild-zebra-on-wood.jpeg"
+                            alt="Zebra profile and acacia tree painted on a map of Africa shaped wood slice by GLORaHrts"
+                            loading="lazy">
+                        <span class="piece-cta">view on instagram &#8599;</span>
+                    </a>
+                    <figcaption><strong>Wild Zebra on Wood</strong><span>Acrylic Wood Art</span></figcaption>
+                </figure>
+
+                <figure class="piece fade-in">
+                    <a class="piece-link" href="https://instagram.com/_glorahrts" target="_blank"
+                        rel="noopener noreferrer" aria-label="Monarch Butterfly — view on Instagram">
+                        <img src="assets/monarch-butterfly.jpeg"
+                            alt="Detailed orange monarch butterfly painting on textured background with carved dark frame by GLORaHrts"
+                            loading="lazy">
+                        <span class="piece-cta">view on instagram &#8599;</span>
+                    </a>
+                    <figcaption><strong>Monarch Butterfly</strong><span>Framed Mixed-Media</span></figcaption>
+                </figure>
+
+                <figure class="piece fade-in" style="--d:.06s">
+                    <a class="piece-link" href="https://instagram.com/_glorahrts" target="_blank"
+                        rel="noopener noreferrer" aria-label="Kilimanjaro and Giraffes — view on Instagram">
+                        <img src="assets/kilimanjaro-and-giraffes.jpeg"
+                            alt="Giraffes and Mount Kilimanjaro savanna scene painted on Africa shaped wood slice by GLORaHrts"
+                            loading="lazy">
+                        <span class="piece-cta">view on instagram &#8599;</span>
+                    </a>
+                    <figcaption><strong>Kilimanjaro &amp; Giraffes</strong><span>Acrylic Wood Art</span></figcaption>
+                </figure>
+
+                <figure class="piece fade-in" style="--d:.12s">
+                    <a class="piece-link" href="https://instagram.com/_glorahrts" target="_blank"
+                        rel="noopener noreferrer" aria-label="Faith and Strength Cross — view on Instagram">
+                        <img src="assets/faith-and-strength-cross.jpeg"
+                            alt="Wooden cross and daisies pen illustration with scripture verse by GLORaHrts"
+                            loading="lazy">
+                        <span class="piece-cta">view on instagram &#8599;</span>
+                    </a>
+                    <figcaption><strong>Faith &amp; Strength Cross</strong><span>Framed Ink Drawing</span></figcaption>
+                </figure>
+
+                <figure class="piece fade-in">
+                    <a class="piece-link" href="https://instagram.com/_glorahrts" target="_blank"
+                        rel="noopener noreferrer" aria-label="Lily Pads Triptych — view on Instagram">
+                        <img src="assets/lily-pads-triptych.jpeg"
+                            alt="Three-panel water lily leaves acrylic painting on narrow wooden blocks by GLORaHrts"
+                            loading="lazy">
+                        <span class="piece-cta">view on instagram &#8599;</span>
+                    </a>
+                    <figcaption><strong>Lily Pads Triptych</strong><span>Three-Panel Wall Art</span></figcaption>
+                </figure>
+
+                <figure class="piece fade-in" style="--d:.06s">
+                    <a class="piece-link" href="https://instagram.com/_glorahrts" target="_blank"
+                        rel="noopener noreferrer" aria-label="Cultural Art Patterns — view on Instagram">
+                        <img src="assets/cultural-art-patterns.jpeg"
+                            alt="Cultural art patterns — handmade paper art by GLORaHrts" loading="lazy">
+                        <span class="piece-cta">view on instagram &#8599;</span>
+                    </a>
+                    <figcaption><strong>Cultural Art Patterns</strong><span>Handmade Paper Art</span></figcaption>
+                </figure>
+
+                <figure class="piece fade-in" style="--d:.12s">
+                    <a class="piece-link" href="https://instagram.com/_glorahrts" target="_blank"
+                        rel="noopener noreferrer" aria-label="Creative Arts for Client Office — view on Instagram">
+                        <img src="assets/creative-arts-for-client-office.jpeg"
+                            alt="Creative arts for client office — acrylic painting by GLORaHrts" loading="lazy">
+                        <span class="piece-cta">view on instagram &#8599;</span>
+                    </a>
+                    <figcaption><strong>Creative Arts for Client Office</strong><span>Acrylic Painting</span>
+                    </figcaption>
+                </figure>
+
+                <figure class="piece fade-in">
+                    <a class="piece-link" href="https://instagram.com/_glorahrts" target="_blank"
+                        rel="noopener noreferrer" aria-label="Hilltop Sanctuary — view on Instagram">
+                        <img src="assets/hilltop-sanctuary.jpeg"
+                            alt="Relief mixed-media artwork of a house on a grassy hill with black geometric border by GLORaHrts"
+                            loading="lazy">
+                        <span class="piece-cta">view on instagram &#8599;</span>
+                    </a>
+                    <figcaption><strong>Hilltop Sanctuary</strong><span>Relief Mixed-Media</span></figcaption>
+                </figure>
+            </div>
+
+            <div class="portfolio-more fade-in">
+                <p class="more-note">new pieces land on socials first &#10035;</p>
+                <div class="more-btns">
+                    <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-dashed">
+                        <svg class="btn-ico" aria-hidden="true">
+                            <use href="#i-insta" />
+                        </svg>View on Instagram
+                    </a>
+                    <a href="https://tiktok.com/@gloraharts" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-dashed">
+                        <svg class="btn-ico" aria-hidden="true">
+                            <use href="#i-tiktok" />
+                        </svg>View on TikTok
                     </a>
                 </div>
             </div>
@@ -438,67 +644,111 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="py-24 px-6 bg-gray-50">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Get In <span class="heading-gradient">Touch</span></h2>
-                <p class="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto px-4 text-secondary">Ready to bring your creative vision to life? Reach out through these channels.</p>
+    <section id="contact" class="sec sec-contact">
+        <div class="tear" style="color:#F6EEDD" aria-hidden="true">
+            <svg viewBox="0 0 1440 40" preserveAspectRatio="none">
+                <path
+                    d="M0 40L0 9L60 17L120 6L180 14L240 4L300 13L360 20L420 8L480 16L540 5L600 12L660 19L720 7L780 15L840 4L900 13L960 21L1020 9L1080 16L1140 6L1200 14L1260 5L1320 12L1380 18L1440 8L1440 40Z"
+                    fill="currentColor" />
+            </svg>
+        </div>
+        <div class="wrap">
+            <div class="sec-head fade-in">
+                <p class="eyebrow-hand">&#10035; say hello</p>
+                <h2>Get In <em class="hl hl-light">Touch<svg class="hl-line" aria-hidden="true">
+                            <use href="#i-squiggle" />
+                        </svg></em></h2>
+                <p>Ready to bring your vision to life? Pick a channel &mdash; I answer fast and I love an unusual brief.
+                </p>
             </div>
-            <div class="grid sm:grid-cols-3 gap-8 text-center px-4">
-                <div class="bg-white p-8 rounded-2xl shadow-lg fade-in hover:shadow-xl transition-shadow">
-                    <div class="w-16 h-16 bg-gradient-to-r from-amber-500 to-yellow-400 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 animate-float">
-                        <i class="fab fa-whatsapp text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">WhatsApp</h3>
-                    <a href="https://wa.me/255678438537" target="_blank" rel="noopener noreferrer" class="text-amber-600 hover:text-amber-800 text-base">+255 678 438 537</a>
+
+            <div class="postcard fade-in">
+                <span class="stamp" aria-hidden="true">
+                    <svg>
+                        <use href="#i-heart" />
+                    </svg>
+                    <small>hand&#8209;delivered</small>
+                </span>
+                <span class="postmark" aria-hidden="true">
+                    <svg viewBox="0 0 110 110">
+                        <defs>
+                            <path id="pm-circ" d="M55,55 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0" />
+                        </defs>
+                        <circle cx="55" cy="55" r="50" fill="none" stroke="currentColor" stroke-width="2" />
+                        <circle cx="55" cy="55" r="43" fill="none" stroke="currentColor" stroke-width="1" />
+                        <text class="postmark-text">
+                            <textPath href="#pm-circ">&#10035; sent with love &#10035; made by hand</textPath>
+                        </text>
+                    </svg>
+                </span>
+
+                <div class="contact-row">
+                    <span class="row-ico"><svg aria-hidden="true">
+                            <use href="#i-wa" />
+                        </svg></span>
+                    <span class="row-body">
+                        <span class="pc-label">WhatsApp &mdash; fastest</span>
+                        <a class="pc-link" href="https://wa.me/255678438537" target="_blank"
+                            rel="noopener noreferrer">+255 678 438 537</a>
+                    </span>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg fade-in hover:shadow-xl transition-shadow" style="transition-delay:100ms">
-                    <div class="w-16 h-16 bg-gradient-to-r from-amber-500 to-yellow-400 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 animate-float" style="animation-delay:0.5s">
-                        <i class="fas fa-envelope text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">Email</h3>
-                    <a href="mailto:glorah.gift@icloud.com" class="text-amber-600 hover:text-amber-800 text-base">glorah.gift@icloud.com</a>
+                <div class="contact-row">
+                    <span class="row-ico"><svg aria-hidden="true">
+                            <use href="#i-mail" />
+                        </svg></span>
+                    <span class="row-body">
+                        <span class="pc-label">Email &mdash; for the details</span>
+                        <a class="pc-link" href="mailto:glorah.gift@icloud.com">glorah.gift@icloud.com</a>
+                    </span>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg fade-in hover:shadow-xl transition-shadow" style="transition-delay:200ms">
-                    <div class="w-16 h-16 bg-gradient-to-r from-amber-500 to-yellow-400 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 animate-float" style="animation-delay:1s">
-                        <i class="fab fa-instagram text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">Instagram</h3>
-                    <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-amber-600 hover:text-amber-800 text-base">@glorahrts</a>
+                <div class="contact-row">
+                    <span class="row-ico"><svg aria-hidden="true">
+                            <use href="#i-insta" />
+                        </svg></span>
+                    <span class="row-body">
+                        <span class="pc-label">Instagram &mdash; daily sketches</span>
+                        <a class="pc-link" href="https://instagram.com/_glorahrts" target="_blank"
+                            rel="noopener noreferrer">@glorahrts</a>
+                    </span>
                 </div>
+
+                <p class="post-note">tell me your idea &mdash; I&rsquo;d truly love to hear it &#9786;</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-16 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-8 md:mb-0 text-center md:text-left">
-                    <a href="#home" class="flex items-center justify-center md:justify-start">
-                        <span class="text-3xl font-bold text-white tracking-tighter">GLOR</span><span class="heading-gradient text-3xl font-bold tracking-tighter">a</span><span class="text-3xl font-bold text-white tracking-tighter">H</span><span class="heading-gradient text-3xl font-bold tracking-tighter">rts</span>
-                    </a>
-                    <p class="mt-3 text-sm text-secondary">Bring your imagination to life</p>
-                </div>
-                <div class="flex space-x-8 mb-8 md:mb-0">
-                    <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-all transform hover:scale-125" aria-label="GLORaHrts on Instagram">
-                        <i class="fab fa-instagram text-2xl"></i>
-                    </a>
-                    <a href="https://tiktok.com/@gloraharts" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-all transform hover:scale-125" aria-label="GLORaHrts on TikTok">
-                        <i class="fab fa-tiktok text-2xl"></i>
-                    </a>
-                    <a href="https://wa.me/255678438537" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-all transform hover:scale-125" aria-label="Chat with GLORaHrts on WhatsApp">
-                        <i class="fab fa-whatsapp text-2xl"></i>
-                    </a>
-                </div>
+    <footer class="footer">
+        <div class="wrap footer-inner">
+            <a class="brand brand-footer" href="#home">GLOR<span class="brand-a">a</span>H<span
+                    class="brand-rts">rts</span><span class="ast" aria-hidden="true">&#10035;</span></a>
+            <p class="footer-note">bring your imagination to life &mdash; made by hand with love, paint &amp; probably
+                glitter</p>
+            <div class="socials">
+                <a href="https://instagram.com/_glorahrts" target="_blank" rel="noopener noreferrer"
+                    aria-label="GLORaHrts on Instagram">
+                    <svg aria-hidden="true">
+                        <use href="#i-insta" />
+                    </svg>
+                </a>
+                <a href="https://tiktok.com/@gloraharts" target="_blank" rel="noopener noreferrer"
+                    aria-label="GLORaHrts on TikTok">
+                    <svg aria-hidden="true">
+                        <use href="#i-tiktok" />
+                    </svg>
+                </a>
+                <a href="https://wa.me/255678438537" target="_blank" rel="noopener noreferrer"
+                    aria-label="Chat with GLORaHrts on WhatsApp">
+                    <svg aria-hidden="true">
+                        <use href="#i-wa" />
+                    </svg>
+                </a>
             </div>
-            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-sm mb-4 md:mb-0 text-secondary">&copy; 2026 GLORaHrts. All rights reserved.</p>
-            </div>
+            <p class="copyright">&copy; <span id="year">2026</span> WatuLab Digital. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Module Script -->
     <script src="js/scripts.js"></script>
 </body>
+
 </html>
