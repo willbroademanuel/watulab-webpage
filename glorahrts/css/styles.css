@@ -504,7 +504,7 @@ body::after {
 .ribbon-wrap {
     position: relative;
     z-index: 3;
-    padding: 2.6rem 0 .6rem;
+    padding: .5rem 0 clamp(2.5rem, 5vw, 4rem);
 }
 .ribbon {
     background: var(--clay);
@@ -541,8 +541,10 @@ body::after {
     position: relative;
     z-index: 2;
     height: 32px;
-    margin-top: -31px;
+    margin-top: calc(clamp(4.5rem, 9vw, 7.5rem) * -1);
+    margin-bottom: calc(clamp(4.5rem, 9vw, 7.5rem) - 32px);
 }
+.sec-about .tear { margin-bottom: 0; }
 .tear svg { display: block; width: 100%; height: 100%; }
 
 .sec-about     { background: var(--paper-warm); }
@@ -1035,6 +1037,8 @@ body::after {
 }
 .socials svg { width: 20px; height: 20px; }
 .copyright { margin-top: 1.4rem; font-size: .85rem; opacity: .62; }
+.watulab-link { color: inherit; text-decoration: none; transition: color 0.3s ease; }
+.watulab-link:hover { color: #ffffff; }
 
 /* Reveal-on-scroll (gated behind html.js so no-JS still shows all) */
 .fade-in, .slide-in-left, .slide-in-right {
