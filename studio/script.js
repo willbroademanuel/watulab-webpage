@@ -1,6 +1,6 @@
 /**
  * ==========================================================
- * STUDIO PAGE â€” SELF-CONTAINED JAVASCRIPT
+ * STUDIO PAGE — SELF-CONTAINED JAVASCRIPT
  * Module: /studio/
  * Handles: page transitions, before/after sliders,
  *          animated counters, scroll reveal, smooth scroll.
@@ -75,7 +75,7 @@ window.addEventListener('pageshow', (event) => {
     }
 });
 
-// â”€â”€ SCROLL REVEAL â”€â”€
+// ──SCROLL REVEAL ──
 const revealObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('active');
@@ -83,7 +83,7 @@ const revealObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -24px 0px' });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-// â”€â”€ ANIMATED COUNTERS â”€â”€
+// ──ANIMATED COUNTERS ──
 const animatedSet = new Set();
 function runCounter(el) {
     if (animatedSet.has(el)) return;
@@ -123,7 +123,7 @@ const cntObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.counter-val').forEach(el => cntObs.observe(el));
 
-// â”€â”€ MAIN BEFORE/AFTER SLIDER â”€â”€
+// ──MAIN BEFORE/AFTER SLIDER ──
 const baSlider = document.getElementById('baSlider');
 const baClip   = document.getElementById('baClipLayer');
 const baHandle = document.getElementById('baHandle');
@@ -139,7 +139,7 @@ if (baSlider && baClip) {
     upMain(50);
 }
 
-// â”€â”€ MINI BEFORE/AFTER SLIDERS â”€â”€
+// ──MINI BEFORE/AFTER SLIDERS ──
 document.querySelectorAll('.mini-ba').forEach(w => {
     const clip   = w.querySelector('.mini-ba-clip');
     const slider = w.querySelector('.mini-ba-slider');
@@ -155,7 +155,7 @@ document.querySelectorAll('.mini-ba').forEach(w => {
     up(50);
 });
 
-// â”€â”€ SMOOTH SCROLL â”€â”€
+// ──SMOOTH SCROLL ──
 document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
         const t = document.querySelector(a.getAttribute('href'));

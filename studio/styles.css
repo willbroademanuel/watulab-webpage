@@ -232,23 +232,10 @@ body::before {
 }
 .hero-eyebrow .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--gold); box-shadow: 0 0 10px var(--gold); }
 
-.hero-visual {
-    position: relative;
-    aspect-ratio: 4/5;
-    border-radius: 2rem;
-    overflow: hidden;
-    border: 1px solid var(--border-2);
-    box-shadow: 0 40px 80px -30px var(--shadow-color);
-}
-.hero-visual img { width: 100%; height: 100%; object-fit: cover; }
-.hero-visual::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(200deg, rgba(224,171,53,0.16) 0%, transparent 45%), linear-gradient(0deg, rgba(0,0,0,.55), transparent 55%);
-}
+/* (hero photo frame moved to §17 HANDCRAFTED LAYER — .polaroid) */
 .hero-float-card {
     position: absolute;
-    z-index: 5;
+    z-index: 7;
     background: var(--chip-bg);
     backdrop-filter: blur(14px);
     border: 1px solid var(--border-2);
@@ -508,4 +495,201 @@ body::before {
 @keyframes stb-bob {
     0%, 100% { transform: rotateX(5deg); }
     50%      { transform: translateY(-5%) rotateX(15deg); }
+}
+
+/* ==========================================================
+   17. HANDCRAFTED LAYER
+   Polaroids, washi tape, ink doodles, handwritten notes,
+   scribble circles, gentle tilts. The machine made the grid;
+   this layer is the maker's pen on top of it.
+   ========================================================== */
+:root {
+    --font-hand: 'Caveat', cursive;
+    --paper: #f7f2e4;
+    --paper-ink: #3a3226;
+}
+.hand { font-family: var(--font-hand); }
+
+/* ── ink-sketch border (organic wobble) ── */
+.sketch {
+    border: 1.5px solid var(--border-3);
+    border-radius: 255px 22px 225px 22px / 22px 225px 22px 255px;
+}
+
+/* ── gentle tilts (compose safely with .reveal transforms) ── */
+.tilt-l { --tr: -0.7deg; }
+.tilt-r { --tr: 0.7deg; }
+.reveal.active.tilt-l,
+.reveal.active.tilt-r { transform: translateY(0) rotate(var(--tr, 0deg)); }
+.tilt-l.glass-card:hover,
+.tilt-r.glass-card:hover { transform: translateY(-2px) rotate(var(--tr, 0deg)); }
+
+/* ── button wobble on hover ── */
+@keyframes wobble {
+    0%, 100% { transform: rotate(0); }
+    25%      { transform: rotate(-1.1deg); }
+    60%      { transform: rotate(0.7deg); }
+}
+.btn-wobble:hover { animation: wobble 0.45s ease; }
+
+/* ── polaroid print ── */
+.polaroid {
+    position: relative;
+    background: var(--paper);
+    padding: 10px 10px 0;
+    border-radius: 6px 5px 7px 5px;
+    box-shadow: 0 34px 70px -26px rgba(0, 0, 0, 0.55);
+    transform: rotate(var(--tilt, -2deg));
+    max-width: 100%;
+}
+.polaroid > img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    border-radius: 3px;
+}
+.polaroid-caption {
+    font-family: var(--font-hand);
+    color: var(--paper-ink);
+    font-size: clamp(1.15rem, 2vw, 1.45rem);
+    text-align: center;
+    padding: 0.7rem 0.6rem 0.95rem;
+    line-height: 1.05;
+}
+[data-theme="light"] .polaroid { box-shadow: 0 30px 60px -30px rgba(90, 70, 20, 0.35); }
+
+/* ── washi tape strip (position via inline styles) ── */
+.tape {
+    position: absolute;
+    width: 104px;
+    height: 28px;
+    background: linear-gradient(100deg, rgba(236, 210, 130, 0.78), rgba(214, 178, 74, 0.55));
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0.85;
+    z-index: 6;
+    pointer-events: none;
+}
+[data-theme="light"] .tape { opacity: 0.95; }
+.tape::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(90deg, transparent 0 7px, rgba(255, 255, 255, 0.16) 7px 8px);
+}
+
+/* ── handwritten notes & doodles ── */
+.hand-note {
+    font-family: var(--font-hand);
+    font-size: 1.3rem;
+    color: var(--ink-3);
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 0.3rem;
+    user-select: none;
+    white-space: nowrap;
+    pointer-events: none;
+}
+.hand-note svg {
+    width: 42px;
+    height: 30px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.ba-note {
+    position: absolute;
+    top: -56px;
+    right: 6%;
+    z-index: 12;
+    transform: rotate(2.5deg);
+}
+.tick {
+    width: 16px;
+    height: 16px;
+    stroke: var(--gold);
+    stroke-width: 2.4;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+    margin-top: 0.2em;
+}
+.d-spark {
+    width: 16px;
+    height: 16px;
+    stroke: var(--gold);
+    stroke-width: 1.8;
+    fill: none;
+    stroke-linecap: round;
+    flex-shrink: 0;
+    animation: spinSlow 18s linear infinite;
+}
+@keyframes spinSlow { to { transform: rotate(360deg); } }
+
+/* hand-drawn speech bubble doodle */
+.doodle-bubble {
+    width: 58px;
+    height: 50px;
+    stroke: var(--gold);
+    stroke-width: 2.2;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+}
+.doodle-bubble circle { fill: var(--gold); stroke: none; }
+
+/* ── hand-drawn circle around a word (draws itself in) ── */
+.circled { position: relative; display: inline-block; padding: 0 0.12em; }
+.circled svg {
+    position: absolute;
+    inset: -32% -9%;
+    width: 118%;
+    height: 164%;
+    overflow: visible;
+    pointer-events: none;
+}
+.circled path {
+    fill: none;
+    stroke: var(--gold);
+    stroke-width: 2.6;
+    stroke-linecap: round;
+    stroke-dasharray: 430;
+    stroke-dashoffset: 430;
+}
+.reveal.active .circled path {
+    transition: stroke-dashoffset 1s ease 0.7s;
+    stroke-dashoffset: 0;
+}
+
+/* ── oversized serif quote mark ── */
+.quote-mark {
+    position: absolute;
+    top: -10px;
+    left: 16px;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 5.5rem;
+    line-height: 1;
+    color: var(--gold);
+    opacity: 0.16;
+    pointer-events: none;
+}
+
+/* ── handwritten attribution under names ── */
+.role-hand {
+    font-family: var(--font-hand);
+    font-size: 1.1rem;
+    color: var(--ink-4);
+    line-height: 1.1;
+}
+
+/* ── respect reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+    .d-spark, .stb-wrapper, .stb-wing-left, .stb-wing-right { animation: none !important; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    .circled path { stroke-dashoffset: 0 !important; transition: none !important; }
 }

@@ -53,7 +53,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Caveat:wght@500;600&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -120,14 +120,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex-shrink-0 flex items-center gap-3">
-                    <a href="/" class="flex items-center gap-3 group">
+                    <a href="/" class="flex items-center gap-3 group" aria-label="Rudi Mwanzo">
                         <div
                             class="h-10 w-10 border t-border-3 rounded-full flex items-center justify-center overflow-hidden t-surface transition-transform group-hover:-translate-x-1">
                             <i class="fas fa-arrow-left text-sm t-ink"></i>
                         </div>
-                        <span
-                            class="font-bold text-xl tracking-tight t-ink group-hover:text-brand-gold transition-colors hidden sm:inline">Rudi
-                            Mwanzo</span>
                     </a>
                     <span class="t-ink-6 hidden sm:inline">&middot;</span>
                     <span class="notranslate font-serif font-medium text-xl tracking-tight cursor-default t-ink">Studio</span>
@@ -169,11 +166,15 @@
         <div class="max-w-7xl mx-auto">
             <div class="hero-grid reveal active">
                 <div>
-                    <p class="hero-eyebrow"><span class="dot"></span>Powered by WatuLab</p>
+                    <p class="hero-eyebrow"><svg class="d-spark" viewBox="0 0 24 24" aria-hidden="true"><path
+                                d="M12 3v18M3 12h18M6.2 6.2l11.6 11.6M17.8 6.2L6.2 17.8" /></svg>Powered by WatuLab</p>
 
                     <h1 class="font-serif hero-title font-medium mb-7 tracking-tight t-ink">
                         Ubunifu wako, na picha zako
-                        zinastahili ubora wa hali ya juu.
+                        zinastahili ubora wa <span class="circled">hali ya juu.<svg viewBox="0 0 142 71"
+                                aria-hidden="true">
+                                <path d="M72 9C34 5 9 17 9 33c0 18 27 29 61 29 36 0 63-12 62-30C131 15 104 5 68 8" />
+                            </svg></span>
                         <span class="block italic text-brand-gold mt-1">Wewe ndiye mhandisi wa picha zako.</span>
                     </h1>
                     <p class="t-ink-3 text-lg md:text-xl max-w-xl mb-10 font-light leading-relaxed">Jukwaa
@@ -181,7 +182,7 @@
                         text-to-photo, text-to-video, TTS, na zaidi. Zana zote unazohitaji, mahali pamoja.</p>
                     <div class="flex flex-col sm:flex-row gap-5">
                         <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                            class="group relative px-8 py-4 t-btn font-bold rounded-full overflow-hidden transition-all hover:pr-10 text-center">
+                            class="group btn-wobble relative px-8 py-4 t-btn font-bold rounded-full overflow-hidden transition-all hover:pr-10 text-center">
                             <span class="relative z-10">Jaribu Bure Sasa</span>
                             <i
                                 class="fas fa-arrow-right absolute right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all z-10 text-xs"></i>
@@ -191,20 +192,27 @@
                             Demo</a>
                     </div>
 
-                    <div class="flex flex-wrap items-center gap-x-6 gap-y-3 mt-12 text-xs t-ink-4">
-                        <div class="flex items-center gap-2"><i class="fas fa-check text-brand-gold text-[10px]"></i> Bila kadi ya
-                            benki</div>
-                        <div class="flex items-center gap-2"><i class="fas fa-shield-halved text-brand-gold text-[10px]"></i> Face
-                            Locker&trade; salama</div>
-                        <div class="flex items-center gap-2"><i class="fas fa-bolt text-brand-gold text-[10px]"></i> Sekunde chache
-                            tu</div>
+                    <div class="flex flex-wrap items-center gap-x-7 gap-y-2 mt-12 hand"
+                        style="font-size:1.25rem;line-height:1.15;color:var(--ink-3)">
+                        <span class="inline-flex items-center gap-2"><svg class="tick" viewBox="0 0 24 24"
+                                aria-hidden="true"><path d="M4 13c2.2 2.8 3.4 5 4.3 5 1.7 0 6.4-9.4 11.7-13.5" /></svg>bila
+                            kadi ya benki</span>
+                        <span class="inline-flex items-center gap-2"><svg class="tick" viewBox="0 0 24 24"
+                                aria-hidden="true"><path d="M4 13c2.2 2.8 3.4 5 4.3 5 1.7 0 6.4-9.4 11.7-13.5" /></svg>face
+                            locker&trade; salama</span>
+                        <span class="inline-flex items-center gap-2"><svg class="tick" viewBox="0 0 24 24"
+                                aria-hidden="true"><path d="M4 13c2.2 2.8 3.4 5 4.3 5 1.7 0 6.4-9.4 11.7-13.5" /></svg>sekunde
+                            chache tu</span>
                     </div>
                 </div>
 
                 <div class="relative mt-6 lg:mt-0">
-                    <div class="hero-visual">
+                    <div class="polaroid" style="--tilt:-2.2deg">
                         <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=700&h=875&fit=crop"
                             alt="Mfano wa uboreshaji wa AI wa Studio">
+                        <span class="tape" style="top:-14px;left:50%;transform:translateX(-50%) rotate(-3deg);"
+                            aria-hidden="true"></span>
+                        <p class="polaroid-caption">boresha hadi 4K &mdash; bila plastiki.</p>
                     </div>
                     <div class="hero-float-card hero-float-card--stat">
                         <div class="flex items-center gap-3">
@@ -250,23 +258,23 @@
         <div class="max-w-7xl mx-auto">
             <div class="stats-strip reveal">
                 <div data-mark="01">
-                    <h3 class="text-3xl md:text-4xl font-bold t-ink mb-2 mt-3"><span class="counter-val"
-                            data-target="3400" data-suffix="+" data-compact="true">0</span></h3>
+                    <h3 class="text-3xl md:text-4xl font-serif italic font-semibold t-ink mb-2 mt-3 tracking-tight"><span
+                            class="counter-val" data-target="3400" data-suffix="+" data-compact="true">0</span></h3>
                     <p class="t-ink-4 text-sm font-light">Picha zilizoboreshwa</p>
                 </div>
                 <div data-mark="02">
-                    <h3 class="text-3xl md:text-4xl font-bold t-ink mb-2 mt-3"><span class="counter-val"
-                            data-target="99.99" data-suffix="%" data-decimal="true">0</span></h3>
+                    <h3 class="text-3xl md:text-4xl font-serif italic font-semibold t-ink mb-2 mt-3 tracking-tight"><span
+                            class="counter-val" data-target="99.99" data-suffix="%" data-decimal="true">0</span></h3>
                     <p class="t-ink-4 text-sm font-light">Usahihi wa uso</p>
                 </div>
                 <div data-mark="03">
-                    <h3 class="text-3xl md:text-4xl font-bold t-ink mb-2 mt-3"><span class="counter-val"
-                            data-target="8.5" data-suffix="s" data-decimal="true">0</span></h3>
+                    <h3 class="text-3xl md:text-4xl font-serif italic font-semibold t-ink mb-2 mt-3 tracking-tight"><span
+                            class="counter-val" data-target="8.5" data-suffix="s" data-decimal="true">0</span></h3>
                     <p class="t-ink-4 text-sm font-light">Muda wastani</p>
                 </div>
                 <div data-mark="04">
-                    <h3 class="text-3xl md:text-4xl font-bold t-ink mb-2 mt-3"><span class="counter-val"
-                            data-target="180" data-suffix="+">0</span></h3>
+                    <h3 class="text-3xl md:text-4xl font-serif italic font-semibold t-ink mb-2 mt-3 tracking-tight"><span
+                            class="counter-val" data-target="180" data-suffix="+">0</span></h3>
                     <p class="t-ink-4 text-sm font-light">Watumiaji</p>
                 </div>
             </div>
@@ -302,6 +310,12 @@
                 </div>
                 <div class="ba-label ba-label-left">KABLA</div>
                 <div class="ba-label ba-label-right">BAADA (AI 4K)</div>
+                <div class="hand-note ba-note" aria-hidden="true">sogeza hapa
+                    <svg viewBox="0 0 56 40">
+                        <path d="M50 5C43 21 32 30 14 31.5" />
+                        <path d="M22 24l-9 7.5 11 5.5" />
+                    </svg>
+                </div>
             </div>
 
             <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -334,30 +348,40 @@
 
                 <!-- Hero Feature — Uboreshaji wa Picha (full width) -->
                 <div
-                    class="glass-card p-8 md:p-12 rounded-3xl reveal relative overflow-hidden group t-border-2 t-hover-border-gold flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch bento-item">
+                    class="glass-card p-8 md:p-12 rounded-3xl reveal relative group t-border-2 t-hover-border-gold flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch bento-item">
+                    <span class="tape" style="top:-13px;left:34px;width:96px;transform:rotate(-6deg);"
+                        aria-hidden="true"></span>
 
                     <div class="w-full lg:w-1/2 flex flex-col items-start text-left justify-center">
-                        <div
-                            class="h-16 w-16 bg-brand-gold/10 text-brand-gold border border-brand-gold/20 rounded-2xl flex items-center justify-center mb-6 text-3xl transition-transform group-hover:scale-110">
-                            <i class="fas fa-wand-magic-sparkles"></i>
-                        </div>
-                        <h3 class="text-3xl md:text-4xl font-bold mb-3 t-ink">Uboreshaji wa Picha</h3>
-                        <p
-                            class="text-brand-gold font-medium text-xs mb-6 bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20">
-                            Ubora wa 4K</p>
+                        <p class="hand"
+                            style="font-size:1.45rem;color:var(--gold);margin-bottom:.35rem;display:inline-flex;align-items:center;gap:.55rem;">
+                            <svg class="d-spark" viewBox="0 0 24 24" aria-hidden="true"><path
+                                    d="M12 3v18M3 12h18M6.2 6.2l11.6 11.6M17.8 6.2L6.2 17.8" /></svg>
+                            hadi 4K &mdash; bila plastiki
+                        </p>
+                        <h3 class="font-serif text-4xl md:text-5xl font-medium tracking-tight t-ink mb-5">Uboreshaji wa
+                            Picha</h3>
 
-                        <p class="t-ink-3 text-lg leading-relaxed mb-8 max-w-lg">Pakia picha yoyote &mdash; AI yetu
+                        <p class="t-ink-3 text-lg leading-relaxed mb-9 max-w-lg">Pakia picha yoyote &mdash; AI yetu
                             inaboresha ubora hadi 4K, inasafisha uso, na kuongeza mwangaza kwa usahihi wa hali ya juu.
                         </p>
                         <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                            class="inline-flex items-center justify-center gap-2 px-8 py-4 t-btn font-bold rounded-full transition-all hover:pr-10 relative overflow-hidden">
+                            class="btn-wobble inline-flex items-center justify-center gap-2 px-8 py-4 t-btn font-bold rounded-full transition-all hover:pr-10 relative overflow-hidden">
                             Jaribu Sasa <i class="fas fa-arrow-right text-xs"></i>
                         </a>
                     </div>
 
-                    <div class="w-full lg:w-1/2 flex items-stretch">
+                    <div class="w-full lg:w-1/2 flex items-stretch relative">
+                        <div class="hand-note"
+                            style="position:absolute;top:-2.2rem;right:10%;transform:rotate(2deg);font-size:1.25rem;">sogeza
+                            &mdash; uone mwenyewe
+                            <svg viewBox="0 0 44 42" aria-hidden="true">
+                                <path d="M38 4C34 18 28 27 14 32" />
+                                <path d="M22 28l-9 4 6 8" />
+                            </svg>
+                        </div>
                         <div class="mini-ba shadow-2xl rounded-xl overflow-hidden w-full h-full min-h-[350px] m-0"
-                            style="height: auto; margin-bottom: 0;">
+                            style="height: auto; margin-bottom: 0; transform: rotate(0.8deg);">
                             <img src="https://images.pexels.com/photos/3998420/pexels-photo-3998420.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
                                 alt="Kabla" class="mini-ba-base"
                                 style="filter:blur(3.5px) saturate(.22) brightness(.62) contrast(.82)">
@@ -380,7 +404,7 @@
 
                 <!-- DesignLab — tall, wide feature tile -->
                 <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                    class="block glass-card p-7 rounded-2xl reveal relative overflow-hidden group t-border-2 t-hover-border-gold cursor-pointer bento-item bento-span-4 bento-tall flex flex-col justify-between">
+                    class="block glass-card p-7 rounded-2xl reveal relative overflow-hidden group t-border-2 t-hover-border-gold cursor-pointer bento-item bento-span-4 bento-tall tilt-r flex flex-col justify-between">
                     <div
                         class="absolute top-5 right-5 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all t-ink-2">
                         <i class="fas fa-arrow-up-right-from-square text-sm"></i>
@@ -399,7 +423,7 @@
 
                 <!-- Text to Photo -->
                 <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group t-border-2 t-hover-border-gold cursor-pointer bento-item bento-span-2">
+                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group t-border-2 t-hover-border-gold cursor-pointer bento-item bento-span-2 tilt-l">
                     <div
                         class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all t-ink-2">
                         <i class="fas fa-arrow-up-right-from-square text-sm"></i>
@@ -420,7 +444,7 @@
 
                 <!-- AI Inpainting -->
                 <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group t-border-2 t-hover-border-gold cursor-pointer bento-item bento-span-2"
+                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group t-border-2 t-hover-border-gold cursor-pointer bento-item bento-span-2 tilt-r"
                     style="animation-delay: 50ms">
                     <div
                         class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all t-ink-2">
@@ -442,7 +466,7 @@
 
                 <!-- Studio ya Mandharinyuma -->
                 <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group t-border-2 t-hover-border-gold cursor-pointer bento-item bento-span-2"
+                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group t-border-2 t-hover-border-gold cursor-pointer bento-item bento-span-2 tilt-l"
                     style="animation-delay: 100ms">
                     <div
                         class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all t-ink-2">
@@ -464,7 +488,7 @@
 
                 <!-- Photo to Video -->
                 <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group t-border-2 t-hover-border-gold cursor-pointer bento-item bento-span-2"
+                    class="block glass-card p-6 rounded-2xl reveal relative overflow-hidden group t-border-2 t-hover-border-gold cursor-pointer bento-item bento-span-2 tilt-r"
                     style="animation-delay: 150ms">
                     <div
                         class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all t-ink-2">
@@ -486,7 +510,7 @@
 
                 <!-- Na Zana Nyingine — wide closer -->
                 <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                    class="block glass-card p-7 rounded-2xl reveal relative overflow-hidden group t-border-2 t-hover-border-gold cursor-pointer bento-item bento-span-4"
+                    class="block glass-card p-7 rounded-2xl reveal relative overflow-hidden group t-border-2 t-hover-border-gold cursor-pointer bento-item bento-span-4 tilt-l"
                     style="animation-delay: 200ms">
                     <div
                         class="absolute top-5 right-5 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all t-ink-2">
@@ -557,15 +581,20 @@
     <section class="py-12 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div
-                class="glass-card rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 t-border-1 t-surface-panel reveal">
+                class="glass-card rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 t-border-1 t-surface-panel reveal tilt-l">
+                <span class="tape" style="top:-12px;left:38px;width:88px;height:24px;transform:rotate(-5deg);"
+                    aria-hidden="true"></span>
                 <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
-                    <div
-                        class="h-16 w-16 shrink-0 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center text-3xl border border-brand-gold/20 shadow-[0_0_15px_rgba(224,171,53,0.12)]">
-                        <i class="far fa-comment-dots"></i>
-                    </div>
+                    <svg class="doodle-bubble" viewBox="0 0 64 56" aria-hidden="true">
+                        <path
+                            d="M10 14C12 6 24 4 34 5c12 1 22 4 22 13 0 9-8 13-20 14-6 .5-10 .4-14-.7-4 4-10 7-12 3-1-3 1-6 2-8-4-3-4-8-2-12Z" />
+                        <circle cx="26" cy="18.5" r="1.9" />
+                        <circle cx="34" cy="18.5" r="1.9" />
+                        <circle cx="42" cy="18.5" r="1.9" />
+                    </svg>
                     <div>
-                        <h3 class="text-xl md:text-2xl font-bold t-ink mb-2">Je, unahitaji msaada wa haraka
-                            unapotumia Studio?</h3>
+                        <h3 class="font-serif text-2xl md:text-3xl font-medium tracking-tight t-ink mb-2">Je,
+                            unahitaji msaada wa haraka unapotumia Studio?</h3>
                         <p class="t-ink-4 text-sm md:text-base leading-relaxed">Kutana na Monica, msaidizi wako
                             ndani ya Studio, yupo tayari kukupa mwongozo muda wowote. Chat na Monica kwenye app
                             kumuuliza jinsi ya
@@ -573,14 +602,14 @@
                     </div>
                 </div>
                 <div class="shrink-0 mt-4 md:mt-0">
-                    <span
-                        class="inline-flex items-center gap-2 text-xs font-bold text-brand-gold bg-brand-gold/10 px-4 py-2 rounded-full border border-brand-gold/20">
+                    <span class="hand inline-flex items-center gap-2"
+                        style="font-size:1.4rem;line-height:1;color:var(--ink-3);">
                         <span class="relative flex h-2 w-2">
                             <span
                                 class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-gold opacity-75"></span>
                             <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-gold"></span>
                         </span>
-                        Msaada Ndani ya App
+                        yupo mtandaoni
                     </span>
                 </div>
             </div>
@@ -600,10 +629,11 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-                <div class="hidden md:block absolute top-[4.5rem] left-[16.6%] right-[16.6%] h-px t-border-3" style="border-top: 1px dashed var(--border-3);"></div>
 
-                <div class="glass-card p-10 rounded-2xl reveal t-border-2 relative group"
+                <div class="glass-card p-10 rounded-2xl reveal t-border-2 relative group tilt-l"
                     style="animation-delay: 0ms">
+                    <span class="tape" style="top:-12px;left:50%;width:84px;height:22px;transform:translateX(-50%) rotate(-2deg);"
+                        aria-hidden="true"></span>
                     <span
                         class="absolute top-6 right-6 t-ink-6 text-6xl font-bold leading-none select-none">01</span>
                     <div
@@ -615,8 +645,10 @@
                         formatiti zote zinakubaliwa bila tatizo.</p>
                 </div>
 
-                <div class="glass-card p-10 rounded-2xl reveal t-border-2 relative group md:mt-8"
+                <div class="glass-card p-10 rounded-2xl reveal t-border-2 relative group md:mt-8 tilt-r"
                     style="animation-delay: 150ms">
+                    <span class="tape" style="top:-12px;left:44%;width:84px;height:22px;transform:rotate(3deg);"
+                        aria-hidden="true"></span>
                     <span
                         class="absolute top-6 right-6 t-ink-6 text-6xl font-bold leading-none select-none">02</span>
                     <div
@@ -628,8 +660,10 @@
                         uboreshaji wa picha kwa kubonyeza moja.</p>
                 </div>
 
-                <div class="glass-card p-10 rounded-2xl reveal t-border-2 relative group"
+                <div class="glass-card p-10 rounded-2xl reveal t-border-2 relative group tilt-l"
                     style="animation-delay: 300ms">
+                    <span class="tape" style="top:-12px;left:52%;width:84px;height:22px;transform:translateX(-50%) rotate(-3deg);"
+                        aria-hidden="true"></span>
                     <span
                         class="absolute top-6 right-6 t-ink-6 text-6xl font-bold leading-none select-none">03</span>
                     <div
@@ -716,28 +750,19 @@
 
                 <!-- Image Side -->
                 <div class="w-full md:w-1/2 reveal flex justify-center" style="animation-delay: 200ms">
-                    <div class="relative rounded-3xl border t-border-2 shadow-2xl overflow-hidden max-w-sm w-full" style="transform: rotate(1.5deg);">
-                        <img src="https://images.pexels.com/photos/1266302/pexels-photo-1266302.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop"
-                            alt="Mfano wa uboreshaji wa AI"
-                            class="w-full object-cover hover:scale-105 transition duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-5">
-                            <div class="flex gap-0.5 mb-2">
-                                <i class="fas fa-star text-brand-goldSoft text-xs"></i>
-                                <i class="fas fa-star text-brand-goldSoft text-xs"></i>
-                                <i class="fas fa-star text-brand-goldSoft text-xs"></i>
-                                <i class="fas fa-star text-brand-goldSoft text-xs"></i>
-                                <i class="fas fa-star text-brand-goldSoft text-xs"></i>
+                    <div class="polaroid max-w-sm w-full" style="--tilt:1.8deg">
+                        <div class="relative">
+                            <img src="https://images.pexels.com/photos/1266302/pexels-photo-1266302.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop"
+                                alt="Mfano wa uboreshaji wa AI" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:3px;">
+                            <div
+                                class="absolute top-3 right-3 bg-black/60 backdrop-blur-md border border-white/20 rounded-full px-3 py-1.5 flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 bg-brand-goldSoft rounded-full animate-pulse"></span>
+                                <span class="text-white text-[10px] uppercase tracking-widest font-bold">AI Enhanced</span>
                             </div>
-                            <p class="text-white font-bold text-sm flex items-center gap-2">
-                                <i class="fas fa-circle-check text-white/60"></i> Uhalisia wa 99% &middot; Imehakikiwa
-                            </p>
                         </div>
-                        <div
-                            class="absolute top-4 right-4 bg-black/60 backdrop-blur-md border border-white/20 rounded-full px-3 py-1.5 flex items-center gap-1.5">
-                            <span class="w-1.5 h-1.5 bg-brand-goldSoft rounded-full animate-pulse"></span>
-                            <span class="text-white text-[10px] uppercase tracking-widest font-bold">AI Enhanced</span>
-                        </div>
+                        <span class="tape" style="top:-13px;left:-34px;width:92px;transform:rotate(-38deg);"
+                            aria-hidden="true"></span>
+                        <p class="polaroid-caption">asilia 99% &mdash; hakuna uso wa plastiki.</p>
                     </div>
                 </div>
             </div>
@@ -758,7 +783,8 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="stagger-col">
-                    <div class="glass-card p-8 rounded-2xl reveal t-border-2">
+                    <div class="glass-card p-8 rounded-2xl reveal t-border-2 relative tilt-l">
+                        <span class="quote-mark" aria-hidden="true">&ldquo;</span>
                         <div class="flex gap-1 mb-4">
                             <i class="fas fa-star text-brand-gold text-xs"></i>
                             <i class="fas fa-star text-brand-gold text-xs"></i>
@@ -775,14 +801,15 @@
                                 A</div>
                             <div>
                                 <p class="t-ink text-sm font-bold tracking-tight">Amina Hassan</p>
-                                <p class="t-ink-5 text-xs">Software Engineer &middot; Dar</p>
+                                <p class="role-hand">Software Engineer &middot; Dar</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="stagger-col stagger-col--mid">
-                    <div class="glass-card p-8 rounded-2xl reveal t-border-2" style="animation-delay: 150ms">
+                    <div class="glass-card p-8 rounded-2xl reveal t-border-2 relative tilt-r" style="animation-delay: 150ms">
+                        <span class="quote-mark" aria-hidden="true">&ldquo;</span>
                         <div class="flex gap-1 mb-4">
                             <i class="fas fa-star text-brand-gold text-xs"></i>
                             <i class="fas fa-star text-brand-gold text-xs"></i>
@@ -799,14 +826,15 @@
                                 K</div>
                             <div>
                                 <p class="t-ink text-sm font-bold tracking-tight">Kwame Osei</p>
-                                <p class="t-ink-5 text-xs">Entrepreneur &middot; Nairobi</p>
+                                <p class="role-hand">Entrepreneur &middot; Nairobi</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="stagger-col stagger-col--end">
-                    <div class="glass-card p-8 rounded-2xl reveal t-border-2" style="animation-delay: 300ms">
+                    <div class="glass-card p-8 rounded-2xl reveal t-border-2 relative tilt-l" style="animation-delay: 300ms">
+                        <span class="quote-mark" aria-hidden="true">&ldquo;</span>
                         <div class="flex gap-1 mb-4">
                             <i class="fas fa-star text-brand-gold text-xs"></i>
                             <i class="fas fa-star text-brand-gold text-xs"></i>
@@ -823,7 +851,7 @@
                                 F</div>
                             <div>
                                 <p class="t-ink text-sm font-bold tracking-tight">Fatima Nkosi</p>
-                                <p class="t-ink-5 text-xs">Fashion Influencer &middot; Kampala</p>
+                                <p class="role-hand">Fashion Influencer &middot; Kampala</p>
                             </div>
                         </div>
                     </div>
@@ -844,7 +872,7 @@
                 kila siku. Hakuna kadi ya benki inayohitajika.</p>
             <div class="flex flex-col sm:flex-row justify-center gap-4 relative">
                 <a href="https://studio.watulab.com?ref=landing" target="_blank" rel="noopener noreferrer"
-                    class="group relative px-10 py-5 t-btn font-bold rounded-full overflow-hidden transition-all hover:pr-12 inline-flex items-center justify-center gap-3">
+                    class="group btn-wobble relative px-10 py-5 t-btn font-bold rounded-full overflow-hidden transition-all hover:pr-12 inline-flex items-center justify-center gap-3">
                     <span class="relative z-10">Anza Bure Sasa</span>
                     <i
                         class="fas fa-arrow-right absolute right-5 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all z-10 text-xs"></i>
@@ -854,7 +882,10 @@
                     <i class="fas fa-play text-xs"></i> Tazama Demo
                 </a>
             </div>
-            <p class="t-ink-6 text-xs mt-8 relative">Hakuna usajili wa kadi za kibenki unaohitajika &middot; Matokeo kwa sekunde
+            <p class="t-ink-6 text-xs mt-8 relative">Hakuna usajili wa kadi za kibenki unaohitajika &middot; Matokeo kwa
+                <span class="circled">sekunde<svg viewBox="0 0 142 71" aria-hidden="true">
+                        <path d="M72 9C34 5 9 17 9 33c0 18 27 29 61 29 36 0 63-12 62-30C131 15 104 5 68 8" />
+                    </svg></span>
             </p>
         </div>
     </section>
