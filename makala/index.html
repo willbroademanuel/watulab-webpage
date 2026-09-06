@@ -11,6 +11,17 @@
     <link rel="canonical" href="https://watulab.com/makala/">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#050505">
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('watulab-theme');
+                var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+                document.documentElement.setAttribute('data-theme', theme);
+                var meta = document.querySelector('meta[name="theme-color"]');
+                if (meta && theme === 'light') meta.setAttribute('content', '#f8f9fa');
+            } catch (e) {}
+        })();
+    </script>
 
     <!-- ═══ Open Graph ═══ -->
     <meta property="og:type" content="website">
@@ -153,9 +164,15 @@
                         <span class="font-bold text-xl tracking-tight">Rudi Mwanzo</span>
                     </a>
                 </div>
-                <a href="/"
-                    class="notranslate font-bold text-lg tracking-tight text-gray-400 hover:text-white transition-colors">WATU
-                    LAB</a>
+                <div class="flex items-center gap-4">
+                    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Badilisha mwonekano">
+                        <i class="fas fa-sun ic-sun"></i>
+                        <i class="fas fa-moon ic-moon"></i>
+                    </button>
+                    <a href="/"
+                        class="notranslate font-bold text-lg tracking-tight text-gray-400 hover:text-white transition-colors">WATU
+                        LAB</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -213,7 +230,7 @@
                         kutumia fork na branch, hadi kutuma Pull Request yako ya kwanza.</p>
                     <div class="flex items-center justify-between text-sm text-gray-500 font-light">
                         <span><i class="far fa-calendar-alt mr-2"></i>Septemba 6, 2026</span>
-                        <span><i class="far fa-clock mr-2"></i>Dakika 9</span>
+                        <span><i class="far fa-clock mr-2"></i>Dakika 6</span>
                     </div>
                 </a>
 

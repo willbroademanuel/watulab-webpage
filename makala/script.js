@@ -212,6 +212,16 @@ function initThemeToggle() {
         }
     }
 
+    // Ensure data-theme is synchronized on boot
+    try {
+        const saved = localStorage.getItem('watulab-theme');
+        if (saved) {
+            applyTheme(saved);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            applyTheme('light');
+        }
+    } catch (e) {}
+
     // Bind click events on all theme toggles
     document.querySelectorAll('#themeToggle, #themeToggleMobile, .theme-toggle').forEach(btn => {
         btn.addEventListener('click', (e) => {

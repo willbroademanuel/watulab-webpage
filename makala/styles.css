@@ -514,6 +514,16 @@ body {
 [data-theme="light"] .post-card .post-title {
     color: #09090b;
 }
+[data-theme="light"] .post-card:hover .post-title {
+    color: #000000;
+}
+[data-theme="light"] .post-card i.fa-arrow-up-right-from-square {
+    color: #94a3b8;
+    transition: color 0.3s ease;
+}
+[data-theme="light"] .post-card:hover i.fa-arrow-up-right-from-square {
+    color: #09090b;
+}
 [data-theme="light"] .badge {
     color: #64748b;
 }
@@ -620,5 +630,53 @@ body {
 }
 [data-theme="light"] .bg-brand-grey {
     background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Hairline borders in Light Mode */
+[data-theme="light"] .border-white\/10 {
+    border-color: rgba(0, 0, 0, 0.09) !important;
+}
+[data-theme="light"] .border-white\/20 {
+    border-color: rgba(0, 0, 0, 0.14) !important;
+}
+[data-theme="light"] .border-white\/5 {
+    border-color: rgba(0, 0, 0, 0.06) !important;
+}
+[data-theme="light"] .border-white {
+    border-color: rgba(0, 0, 0, 0.25) !important;
+}
+[data-theme="light"] .border-gray-700,
+[data-theme="light"] .border-gray-800,
+[data-theme="light"] .border-gray-900 {
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Primary buttons in Light Mode (matches root styles.css) */
+[data-theme="light"] a.bg-white,
+[data-theme="light"] button.bg-white {
+    background-color: #09090b !important;
+    color: #ffffff !important;
+}
+[data-theme="light"] a.bg-white:hover,
+[data-theme="light"] button.bg-white:hover {
+    background-color: #27272a !important;
+    color: #ffffff !important;
+}
+[data-theme="light"] a.bg-white span,
+[data-theme="light"] a.bg-white i,
+[data-theme="light"] button.bg-white span,
+[data-theme="light"] button.bg-white i {
+    color: #ffffff !important;
+}
+
+/* Empty state in Light Mode */
+[data-theme="light"] #empty-state i {
+    color: #cbd5e1 !important;
+}
+[data-theme="light"] #empty-state p.text-gray-400 {
+    color: #334155 !important;
+}
+[data-theme="light"] #empty-state p.text-gray-600 {
+    color: #64748b !important;
 }
 

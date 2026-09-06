@@ -146,7 +146,7 @@
             <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-500 font-light">
                 <span class="flex items-center gap-2"><i class="fas fa-pen-nib"></i>Watu Lab Team</span>
                 <span class="flex items-center gap-2"><i class="far fa-calendar-alt"></i>Septemba 6, 2026</span>
-                <span class="flex items-center gap-2"><i class="far fa-clock"></i>Dakika 9 za kusoma</span>
+                <span class="flex items-center gap-2"><i class="far fa-clock"></i>Dakika 6 za kusoma</span>
             </div>
         </div>
     </header>
@@ -155,180 +155,106 @@
     <main class="relative z-10 px-4 pb-16 flex-grow">
         <article id="article-body" class="article-prose max-w-3xl mx-auto">
 
-            <p>Mara ya kwanza unapoangalia mradi maarufu wa open source kwenye GitHub &mdash; uwe ni React, Linux, au
-                maktaba yoyote ndogo unayopenda kuitumia &mdash; ni rahisi sana kuhisi hofu. Unaona maelfu ya commits,
-                majina ya wahandisi kutoka kila pembe ya dunia, na unaweza kujiuliza kwa unyonge: <em>"Mimi ni nani hata
-                    nithubutu kuweka mchango hapa? Hawa ni magwiji, wakiona nilichoandika watanicheka."</em></p>
+            <p>Huna haja ya kuwa mhandisi nguli au kuandika algorithms ngumu ili uanze kuchangia open source. Iwe ni kusahihisha sentensi kwenye nyaraka au kurekebisha hitilafu ndogo ya kodi, mchango wako una thamani kubwa. Huu hapa ni mwongozo wa vitendo hatua kwa hatua unaokuonyesha jinsi ya kufanya mchango wako wa kwanza kwenye GitHub kuanzia mwanzo hadi mwisho.</p>
 
-            <p>Huu ni mtazamo wa kawaida kabisa, lakini ukweli ni kinyume na vile unavyofikiri. Jumuiya za open source
-                zinatamani sana kupata watu wenye nia ya kujifunza na kusaidia. Kila mhandisi unayemwona leo akiwa na
-                mchango mkubwa alianza siku moja bila kujua hata neno moja la Git. Basi, hebu tuchambue ukweli kuhusu
-                open source na namna unavyoweza kutoa mchango wako wa kwanza kwa ujasiri kamili.</p>
+            <h2>Hatua 7 za Vitendo: Mchango Wako wa Kwanza (Workflow Kamili)</h2>
 
-            <h2>Open Source Ni Nini Hasa?</h2>
+            <p>Huu ndio mzunguko rasmi (workflow) unaotumiwa na watengenezaji programu duniani kote kutuma michango kwenye miradi ya wazi:</p>
 
-            <p>Fikiria kisima cha jamii kijijini au maktaba huria ya umma. Hakuna mtu anayefungia kitabu ndani ya sanduku
-                lake binafsi; kila mtu ana haki ya kusoma, kuazima, na kutumia. Mtu mmoja akiona meza imevunjika mguu,
-                anakuja na msumeno na kuitengeneza. Mwingine akiona kibao cha kuelekeza vitabu kimefutika, anachukua
-                kalamu na kukiandika upya ili wanaofuata wasipotee.</p>
+            <h3>Hatua 1: Tafuta Mradi na Usome CONTRIBUTING.md</h3>
+            <p>Kila mradi uliopangika vizuri una faili liitwalo <code>CONTRIBUTING.md</code> (au maelekezo ndani ya <code>README.md</code>). Faili hili linakueleza miongozo yao: jinsi ya kuendesha mradi huo kwenye kompyuta yako, viwango vyao vya kuandika code, na jinsi ya kufanya majaribio (tests). Lipitie kabla ya kuanza chochote.</p>
 
-            <p><strong>Hivyo ndivyo miradi ya Open Source inavyofanya kazi.</strong> Ni programu au mifumo ambayo kodi
-                yake (source code) iko wazi hadharani mtandaoni. Yeyote anaruhusiwa kuitazama, kuitumia katika miradi yake,
-                kurekebisha hitilafu (bugs), au kuongeza vipengele vipya kwa manufaa ya ulimwengu mzima.</p>
+            <h3>Hatua 2: Tengeneza Nakala Yako (Fork)</h3>
+            <p>Nenda kwenye ukurasa wa GitHub wa mradi unaotaka kuuchangia. Bonyeza kitufe cha <strong>Fork</strong> kilicho juu kulia. Hatua hii inatengeneza nakala kamili ya mradi huo ndani ya akaunti yako binafsi ya GitHub.</p>
 
-            <p>Sehemu kubwa ya mtandao tunaoutumia leo &mdash; kuanzia mfumo wa Android kwenye simu yako, lugha kama
-                Python na JavaScript, hadi mifumo inayowasha seva kubwa za benki &mdash; imeundwa kwa msingi wa open
-                source.</p>
+            <h3>Hatua 3: Shusha Mradi Kwenye Mashine Yako (Clone)</h3>
+            <p>Fungua terminal yako na u-clone nakala uliyoi-fork kwenye kompyuta yako:</p>
 
-            <h2>Kwa Nini Uchangie? Faida Kubwa Kwako Binafsi</h2>
-
-            <p>Kuchangia open source siyo tu tendo la hisani; ni mojawapo ya njia zenye kasi zaidi za kukuza taaluma yako
-                ya kiteknolojia:</p>
-
-            <ul>
-                <li><strong>Uzoefu halisi wa mifumo mikubwa (Production-Grade Code):</strong> Tofauti na miradi unayoifanya
-                    chumbani peke yako, hapa unajifunza jinsi miradi ya watu wengi inavyopangwa, mtindo wa uandishi safi
-                    wa code (clean code), na taratibu za uhakiki wa ubora (testing).</li>
-                <li><strong>Kujifunza kupitia Code Review:</strong> Unapotuma mchango wako, watengenezaji wenye uzoefu
-                    watausoma na kukupa maoni ya kitaalamu bila kukulipisha hata senti moja. Huu ni mafunzo ya daraja la
-                    kwanza bila gharama.</li>
-                <li><strong>Ushahidi thabiti kwenye Portfolio yako:</strong> Waajiri wanapenda kuona matendo badala ya
-                    maneno. Kuwa na Pull Requests zilizopokelewa (merged) kwenye miradi ya wazi kunathibitisha mara moja
-                    kuwa unajua kutumia Git, unaweza kushirikiana na timu, na code yako inakidhi viwango halisi vya kazi.
-                </li>
-                <li><strong>Kupanua mtandao wa marafiki na wataalamu:</strong> Unapata fursa ya kufahamiana na
-                    watengenezaji wengine ndani na nje ya nchi, jambo linalofungua milango ya fursa mpya za kazi na ushauri.
-                </li>
-            </ul>
-
-            <h2>Huna Haja ya Kuanza na Code Ngumu: Njia 4 za Kuanza</h2>
-
-            <p>Dhana potofu kubwa zaidi ni kuamini kwamba mchango wa open source lazima uwe ni kuandika algorithm ya
-                hesabu ngumu. Ukweli ni kwamba miradi mingi inakabiliwa na uhaba wa michango ya mambo mepesi lakini yenye
-                umuhimu mkubwa:</p>
-
-            <h3>1. Marekebisho ya Nyaraka (Documentation &amp; Typos)</h3>
-            <p>Nyaraka (docs au README) ndicho kitu cha kwanza anachokisoma mtu yeyote anapofika kwenye mradi. Ukiona
-                maelekezo ya usakinishaji (installation steps) hayafanyi kazi, kiungo kilichovunjika (broken link), au
-                makosa ya kisarufi &mdash; kurekebisha hilo ni mchango wenye thamani kubwa sana kwa jumuiya.</p>
-
-            <h3>2. Kuripoti Hitilafu kwa Usahihi (Reporting Issues)</h3>
-            <p>Unapotumia zana fulani kisha ikakwama, badala ya kukasirika na kuondoka, fungua <em>Issue</em> kwenye
-                GitHub. Eleza wazi: ulikuwa unajaribu kufanya nini, nini kilitokea, na hatua za kurudia tatizo hilo (steps
-                to reproduce). Taarifa safi ya hitilafu inamsaidia mtengenezaji mkuu kuokoa saa nyingi za uchunguzi.</p>
-
-            <h3>3. Tafsiri na Mifano ya Matumizi</h3>
-            <p>Miradi mingi inahitaji kutafsiriwa katika lugha mbalimbali, ikiwemo Kiswahili. Pia kuongeza mfano mdogo wa
-                jinsi ya kutumia kipengele fulani kwenye nyaraka kunawasaidia sana wanaoanza baada yako.</p>
-
-            <h3>4. Kuanza na Masuala ya "Good First Issue"</h3>
-            <p>Wasimamizi wa miradi wengi huweka lebo (label) maalum kwenye masuala mepesi yanayofaa wageni:
-                <strong>good first issue</strong> au <strong>help wanted</strong>. Haya ni masuala yaliyotengwa mahsusi
-                kwa mtu anayetaka kufanya mchango wake wa kwanza bila shinikizo.</p>
-
-            <div class="callout">
-                <div class="callout-title"><i class="fas fa-lightbulb"></i>Siri ndogo</div>
-                <p>Mchango wa kwanza maarufu zaidi kwa watengenezaji wengi duniani ulikuwa kusahihisha herufi moja
-                    iliyokosewa (typo) kwenye faili la README. Mara tu Pull Request yako ya kwanza inapokubaliwa na
-                    kuunganishwa, hofu yote hutoweka na hamasa mpya inazaliwa.</p>
-            </div>
-
-            <h2>Hatua kwa Hatua: Jinsi ya Kutuma Mchango Wako wa Kwanza</h2>
-
-            <p>Basi ngoja tupitie hatua kamili za kiufundi unazopaswa kuzifuata kutoka mwanzo hadi mwisho:</p>
-
-            <h3>Hatua 1: Tafuta Mradi na Usome Sheria Zake</h3>
-            <p>Kila mradi mkubwa una faili liitwalo <code>CONTRIBUTING.md</code>. Faili hili linakueleza sheria zao: jinsi
-                ya kuweka mazingira ya mradi kwenye kompyuta yako (setup), viwango vyao vya kuandika code, na jinsi ya
-                kupima (test). Hakikisha unalipitia kabla ya kuanza chochote.</p>
-
-            <h3>Hatua 2: Tengeneza Fork ya Mradi</h3>
-            <p>Kwenye ukurasa wa GitHub wa mradi huo, bonyeza kitufe cha <strong>Fork</strong> kilicho juu kulia. Kitendo
-                hiki kinatengeneza nakala kamili ya mradi huo ndani ya akaunti yako ya GitHub.</p>
-
-            <h3>Hatua 3: Shusha Mradi Kwenye Kompyuta Yako</h3>
-            <p>Fungua terminal yako kisha piga amri ya ku-clone nakala yako uliyoi-fork:</p>
-
-            <pre><code>git clone https://github.com/jina-lako/jina-la-mradi.git
+            <pre><code># Shusha mradi kwenye kompyuta yako
+git clone https://github.com/jina-lako-la-github/jina-la-mradi.git
 cd jina-la-mradi</code></pre>
 
             <h3>Hatua 4: Tengeneza Tawi Jipya (Branch)</h3>
-            <p>Kamwe usifanye marekebisho moja kwa moja kwenye tawi kuu la <code>main</code> au <code>master</code>. Daima
-                tengeneza tawi lenye jina linaloelezea unachotaka kufanya:</p>
+            <p><strong>Kanuni ya dhahabu:</strong> Kamwe usifanye kazi moja kwa moja kwenye tawi la <code>main</code> au <code>master</code>. Daima tengeneza tawi jipya lenye jina linaloeleza kazi unayotaka kuifanya:</p>
 
-            <pre><code># Tengeneza na uhamie kwenye tawi jipya
-git checkout -b rekebisha-maelekezo-readme</code></pre>
+            <pre><code># Tengeneza tawi jipya na uingie humo
+git checkout -b rekebisha-nyaraka-za-mwanzo</code></pre>
 
             <h3>Hatua 5: Fanya Mabadiliko na Uyapime</h3>
-            <p>Fungua code editor yako, fanya marekebisho unayotaka, na hakikisha kila kitu kinafanya kazi vizuri bila
-                kuharibu sehemu nyingine za mfumo.</p>
+            <p>Fungua mradi kwenye editor yako (kama VS Code). Fanya marekebisho unayokusudia &mdash; iwe ni kurekebisha hitilafu kwenye kodi au kuboresha maelezo ya faili la <code>README.md</code>. Hakikisha mradi unaendelea kufanya kazi vizuri na majaribio (tests) yanapita.</p>
 
-            <h3>Hatua 6: Hifadhi Mabadiliko Yako (Commit &amp; Push)</h3>
-            <p>Andika ujumbe wa commit ulio wazi na mfupi unaoeleza nini kimebadilika:</p>
+            <h3>Hatua 6: Hifadhi na Tuma Kwenye GitHub Yako (Commit &amp; Push)</h3>
+            <p>Hifadhi mabadiliko yako kwa ujumbe ulio wazi, kisha yasogeze kwenye nakala yako ya GitHub:</p>
 
-            <pre><code>git add .
-git commit -m "Boresha maelekezo ya usakinishaji kwenye README"
-git push origin rekebisha-maelekezo-readme</code></pre>
+            <pre><code># Ongeza faili zilizobadilika
+git add .
+
+# Hifadhi kwa ujumbe unaoeleweka
+git commit -m "docs: rekebisha maelekezo ya usakinishaji kwenye README"
+
+# Tuma tawi lako jipya GitHub
+git push origin rekebisha-nyaraka-za-mwanzo</code></pre>
 
             <h3>Hatua 7: Fungua Pull Request (PR)</h3>
-            <p>Rudi kwenye ukurasa wa GitHub wa mradi uliou-fork. Utaona kitufe cha kijani kikisema <strong>"Compare &amp;
-                    pull request"</strong>. Kibonyeze, andika maelezo mafupi na ya heshima yanayofafanua mabadiliko yako,
-                kisha bonyeza <strong>"Create pull request"</strong>.</p>
+            <p>Rudi kwenye kivinjari chako kwenye ukurasa wa mradi asilia (au fork yako). Utaona bango la kijani likiwa na kitufe: <strong>"Compare &amp; pull request"</strong>. Kibonyeze.</p>
+            <ul>
+                <li>Andika kichwa cha habari kifupi na wazi kuhusu mabadiliko uliyofanya.</li>
+                <li>Fafanua kwa kifupi: ulibadilisha nini, na kwa nini mabadiliko hayo ni muhimu.</li>
+                <li>Bofya <strong>"Create pull request"</strong>.</li>
+            </ul>
+            <p>Hapo unakuwa umetuma mchango wako rasmi kwa wasimamizi wa mradi huo kwa ajili ya mapitio!</p>
 
-            <p>Hapo unakuwa umetuma mchango wako kwa wasimamizi wa mradi huo kwa ajili ya mapitio!</p>
+            <!-- ═══ CHEAT SHEET CALLOUT ═══ -->
+            <div class="callout">
+                <div class="callout-title"><i class="fas fa-terminal"></i>Amri 4 za Terminal za Kunakili Moja kwa Moja</div>
+                <pre><code>git clone https://github.com/&lt;jina-lako&gt;/&lt;mradi&gt;.git
+git checkout -b jina-la-tawi-lako
+git commit -m "maelezo mafupi ya ulichobadilisha"
+git push origin jina-la-tawi-lako</code></pre>
+            </div>
 
-            <h2>Adabu na Maadili Muhimu Wakati wa Kuchangia</h2>
+            <h2>Njia 3 Rahisi Zaidi za Kuanza Kama Huna Uzoefu Mkubwa</h2>
 
-            <p>Mbali na uwezo wa kuandika code, mafanikio yako kwenye open source yanategemea sana jinsi unavyowasiliana
-                na wenzako:</p>
+            <p>Huna haja ya kusubiri mpaka uwe gwiji wa software ndipo uchangie. Miradi mingi mikubwa inahitaji msaada mkubwa katika maeneo haya mepesi lakini muhimu sana:</p>
+
+            <h3>1. Marekebisho ya Nyaraka na Maelekezo (Documentation)</h3>
+            <p>Unaposoma <code>README.md</code> au tovuti ya nyaraka ya maktaba fulani, ukiangukia kiungo kisichofanya kazi (broken link), sentensi isiyoeleweka, au kosa la kisarufi &mdash; hapo ndipo mahali bora zaidi pa kufanya PR yako ya kwanza. Wasimamizi hupokea michango hii kwa mikono miwili.</p>
+
+            <h3>2. Tafuta Masuala ya "Good First Issue"</h3>
+            <p>Miradi mingi ya GitHub hutenga masuala mepesi mahsusi kwa ajili ya wageni wanaotaka kuanza. Yanatambuliwa kwa lebo maalum za <strong>good first issue</strong> au <strong>help wanted</strong>. Masuala haya huwa yameelezwa wazi nini kinatakiwa kufanywa.</p>
+
+            <h3>3. Ripoti Hitilafu kwa Usahihi (Issue Reporting)</h3>
+            <p>Unapotumia zana au maktaba fulani ikakwama, fungua <em>Issue</em> kwenye repo husika. Eleza ulichokuwa unataka kufanya, toleo la software ulilolitumia, na ujumbe wa hitilafu uliojitokeza. Kutoa ripoti yenye maelezo ya kutosha ni mchango mkubwa unaosaidia wasanidi programu wengine.</p>
+
+            <h2>Wapi Pa Kupata Miradi ya Kuanzia Sasa Hivi?</h2>
+
+            <p>Unaweza kuanza mara moja kupitia majukwaa haya ya bure yaliyotengenezwa mahsusi kukusaidia:</p>
 
             <ul>
-                <li><strong>Kuwa na subira:</strong> Wasimamizi wengi wa miradi ya open source wanafanya kazi hiyo kwa
-                    kujitolea baada ya masaa yao ya kawaida ya kazi. Huenda wasijibu ndani ya dakika tano; wape muda wa
-                    kupitia kazi yako.</li>
-                <li><strong>Pokea mrejesho (code review) kwa moyo wazi:</strong> Msimamizi akikuomba ubadilishe njia
-                    fulani uliyotumia, hicho siyo kiburi wala dharau &mdash; bali ni fursa ya bure ya kujifunza njia bora
-                    zaidi. Jibu kwa heshima na urekebishe inavyotakiwa.</li>
-                <li><strong>Uliza kabla ya kuanza kazi kubwa:</strong> Kama una mpango wa kuandika kipengele kikubwa kipya
-                    (feature), fungua kwanza <em>Issue</em> ili kujadili na wasimamizi kama wanahitaji wazo hilo kabla
-                    hujapoteza wiki nzima kuandika code ambayo huenda isikubaliane na dira ya mradi.</li>
+                <li><strong><a href="https://goodfirstissue.dev" target="_blank" rel="noopener noreferrer" class="text-white underline">goodfirstissue.dev</a></strong> &mdash; inakusanya masuala mepesi kutoka miradi mikubwa na midogo ya JavaScript, Python, Go, na lugha nyingine.</li>
+                <li><strong><a href="https://firstcontributions.github.io" target="_blank" rel="noopener noreferrer" class="text-white underline">First Contributions</a></strong> &mdash; mazoezi ya vitendo yanayokuongoza kutuma PR yako ya majaribio ndani ya dakika tano bila kuogopa kukosea.</li>
+                <li><strong>Miradi unayoitumia kila siku:</strong> Angalia maktaba au zana ndogo unazozitumia kwenye miradi yako binafsi. Ukiona chochote kinachoweza kuboreshwa, huo ndio mradi bora wa kuchangia.</li>
             </ul>
 
-            <h2>Wapi pa Kupata Miradi ya Kuanzia?</h2>
+            <h2>Mambo ya Kuzingatia Wakati wa Code Review</h2>
 
-            <p>Ikiwa unajiuliza wapi unaweza kupata miradi inayokufaa hivi sasa, zana hizi za bure zitakusaidia sana:</p>
-
+            <p>Baada ya kutuma Pull Request yako:</p>
             <ul>
-                <li><strong><a href="https://goodfirstissue.dev" target="_blank" rel="noopener noreferrer"
-                            class="text-white underline">Good First Issue</a></strong> &mdash; tovuti inayokusanya
-                    masuala mepesi ya wanaoanza kutoka miradi maarufu ya lugha mbalimbali (JavaScript, Python, Go, n.k.).
-                </li>
-                <li><strong><a href="https://firstcontributions.github.io" target="_blank" rel="noopener noreferrer"
-                            class="text-white underline">First Contributions</a></strong> &mdash; mwongozo wa hatua kwa
-                    hatua uliotengenezwa mahsusi kukufundisha kufanya PR yako ya kwanza kwa vitendo ndani ya dakika tano.
-                </li>
-                <li><strong>Miradi unayoitumia kila siku:</strong> Angalia maktaba au zana ndogo unazozipenda kwenye
-                    miradi yako binafsi. Mara nyingi miradi hiyo ndiyo yenye uhitaji mkubwa zaidi wa msaada wako.</li>
+                <li><strong>Kuwa na subira:</strong> Wasimamizi wa miradi mingi wanafanya kazi hiyo kwa kujitolea. Inaweza kuchukua siku kadhaa kabla hawajaipitia kazi yako.</li>
+                <li><strong>Mrejesho ni mafunzo ya bure:</strong> Msimamizi akikuomba ubadilishe kitu au uandike upya kipande cha code, pokea hilo kama fursa ya kujifunza mbinu za kiwango cha juu kutoka kwa wahandisi wazoefu.</li>
             </ul>
 
             <h2>Neno la Mwisho</h2>
 
-            <p>Kumbuka: hata wasanifu wakuu wa mifumo mikubwa duniani leo walianza kwa kubonyeza kitufe kimoja kwa
-                kusitasita. Open source si klabu ya siri ya watu wachache &mdash; ni jukwaa wazi linalosubiri mchango
-                wako, mawazo yako, na shauku yako ya kujenga.</p>
+            <p>Kizuizi kikubwa cha kuchangia open source huwa siyo ujuzi wa kiufundi, bali ni hofu ya kuanza. Mara tu Pull Request yako ya kwanza inapokubaliwa na kuingizwa kwenye mradi (merged), utajihisi kuwa sehemu halisi ya jamii ya kimataifa ya wahandisi.</p>
 
-            <p>Usisubiri mpaka ujihisi "umekamilika." Tafuta mradi mmoja mdogo leo, soma nyaraka zake, na ufungue mlango
-                huo. Hatua ya kwanza ndiyo yenye uzito zaidi &mdash; ukishaivuka, ulimwengu wote wa teknolojia unakuwa wazi
-                mbele yako.</p>
-
-            <p><strong>Fungua GitHub yako, tafuta mradi unaoupenda, na anza safari yako ya kuchangia leo!</strong></p>
+            <p><strong>Fungua terminal yako, chagua mradi mmoja mdogo, na utume mchango wako leo!</strong></p>
 
             <hr>
 
             <!-- ═══ SHARE ═══ -->
             <div class="not-prose mt-10">
-                <p class="text-gray-500 text-sm font-bold tracking-widest uppercase mb-4">Imekusaidia? Shirikisha
-                    wengine:</p>
+                <p class="text-gray-500 text-sm font-bold tracking-widest uppercase mb-4">Imekusaidia? Shirikisha wengine:</p>
                 <div class="flex flex-wrap gap-3">
                     <a class="share-btn" target="_blank" rel="noopener noreferrer"
                         href="https://wa.me/?text=Mwongozo%20wa%20kuchangia%20Open%20Source%20%E2%80%94%20makala%20kutoka%20Watu%20Lab%3A%20https%3A%2F%2Fwatulab.com%2Fmakala%2Fkuchangia-open-source%2F">
