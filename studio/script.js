@@ -24,6 +24,7 @@
 
     function toggle() {
         const next = current() === 'light' ? 'dark' : 'light';
+        localStorage.setItem('watulab-theme', next);
         localStorage.setItem('studio-theme', next);
         apply(next);
     }
@@ -32,6 +33,11 @@
     document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('#themeToggle, #themeToggleMobile').forEach(btn => {
             btn.addEventListener('click', toggle);
+        });
+        window.addEventListener('storage', (e) => {
+            if ((e.key === 'watulab-theme' || e.key === 'studio-theme') && e.newValue) {
+                apply(e.newValue);
+            }
         });
     });
 })();

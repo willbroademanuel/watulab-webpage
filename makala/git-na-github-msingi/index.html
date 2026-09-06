@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="sw" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git na GitHub — Misingi Unayohitaji Kujua Kama Unaunda Programu — Watu Lab</title>
+    <meta name="description" content="Git inakusaidia kutunza historia ya mabadiliko ya code zako, na GitHub inakuwezesha kushirikiana na wenzako. Mwongozo mwepesi na wa vitendo.">
+    <link rel="canonical" href="https://watulab.com/makala/git-na-github-msingi/">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#050505">
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('watulab-theme');
+                var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+                document.documentElement.setAttribute('data-theme', theme);
+                var meta = document.querySelector('meta[name="theme-color"]');
+                if (meta && theme === 'light') meta.setAttribute('content', '#f8f9fa');
+            } catch (e) {}
+        })();
+    </script>
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://watulab.com/makala/git-na-github-msingi/">
+    <meta property="og:title" content="Git na GitHub — Misingi Unayohitaji Kujua Kama Unaunda Programu">
+    <meta property="og:description" content="Git inakusaidia kutunza historia ya mabadiliko ya code zako, na GitHub inakuwezesha kushirikiana na timu yako. Mwongozo mwepesi na wa vitendo.">
+    <meta property="og:image" content="https://watulab.com/assets/logo.jpeg">
+    <meta property="og:locale" content="sw_TZ">
+    <meta property="article:published_time" content="2026-09-06">
+    <meta property="article:section" content="Mbinu za Mtandao">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Git na GitHub — Misingi Unayohitaji Kujua Kama Unaunda Programu">
+    <meta name="twitter:description" content="Git inakusaidia kutunza historia ya mabadiliko ya code zako, na GitHub inakuwezesha kushirikiana.">
+    <meta name="twitter:image" content="https://watulab.com/assets/logo.jpeg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://watulab.com/makala/git-na-github-msingi/" },
+      "headline": "Git na GitHub — Misingi Unayohitaji Kujua Kama Unaunda Programu",
+      "description": "Git inakusaidia kutunza historia ya mabadiliko ya code zako, na GitHub inakuwezesha kushirikiana na timu yako. Mwongozo mwepesi na wa vitendo.",
+      "image": "https://watulab.com/assets/logo.jpeg",
+      "author": { "@type": "Organization", "name": "Watu Lab", "url": "https://watulab.com" },
+      "publisher": { "@type": "Organization", "name": "Watu Lab", "logo": { "@type": "ImageObject", "url": "https://watulab.com/assets/logo.jpeg" } },
+      "datePublished": "2026-09-06",
+      "dateModified": "2026-09-06",
+      "inLanguage": "sw"
+    }
+    </script>
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { brand: { black: '#050505', dark: '#0a0a0a', grey: '#1a1a1a', light: '#d4d4d4', white: '#ffffff' } },
+                    fontFamily: { sans: ['Space Grotesk', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="pt-24 flex-body">
+
+    <div id="reading-progress"></div>
+    <div id="page-transition">
+        <div class="notranslate brand-text show" id="transition-text">WATU LAB</div>
+    </div>
+
+    <nav class="glass-nav fixed w-full z-40 top-0 pt-5 md:pt-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a href="/makala/" class="flex items-center gap-3 group">
+                        <div class="h-10 w-10 border border-white/20 rounded-full flex items-center justify-center overflow-hidden bg-brand-grey transition-transform group-hover:-translate-x-1"><i class="fas fa-arrow-left text-sm"></i></div>
+                        <span class="font-bold text-xl tracking-tight">Rudi Makala</span>
+                    </a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Badilisha mwonekano">
+                        <i class="fas fa-sun ic-sun"></i>
+                        <i class="fas fa-moon ic-moon"></i>
+                    </button>
+                    <a href="/" class="notranslate font-bold text-lg tracking-tight text-gray-400 hover:text-white transition-colors">WATU LAB</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative z-10 pt-10 md:pt-16 pb-10 px-4">
+        <div class="max-w-3xl mx-auto reveal active">
+            <span class="badge badge-web mb-6">Mbinu za Mtandao</span>
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tighter leading-tight mb-8">Git na GitHub — Misingi Unayohitaji Kujua Kama Unaunda Programu</h1>
+            <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-500 font-light">
+                <span class="flex items-center gap-2"><i class="fas fa-pen-nib"></i>Watu Lab Team</span>
+                <span class="flex items-center gap-2"><i class="far fa-calendar-alt"></i>Septemba 6, 2026</span>
+                <span class="flex items-center gap-2"><i class="far fa-clock"></i>Dakika 8 za kusoma</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10 px-4 pb-16 flex-grow">
+        <article id="article-body" class="article-prose max-w-3xl mx-auto">
+
+            <p>Mara ya kwanza niliposikia neno "Git," niliwaza labda ni chombo kigumu cha wataalamu wakubwa pekee &mdash; watu wanaofanya kazi Silicon Valley wanaojua kila kitu. Lakini nilipokuja kugundua kuwa ni rahisi kuliko nilivyodhani, na kwamba kila developer anaitumia kila siku &mdash; ndipo nilipoanza kuiona kama rafiki mwema badala ya kitu cha kuogopa.</p>
+
+            <p>Basi ngoja nikueleze kwa mfano rahisi utakaokaa kichwani moja kwa moja.</p>
+
+            <h2>Git Ni Kama Historia ya Insha Yako Shuleni</h2>
+
+            <p>Fikiria unaandika insha ndefu au ripoti muhimu. Kila unapoandika ukurasa mpya, ungependa kutunza nakala yake. Siku ya kwanza unaandika ukurasa wa kwanza. Siku ya pili unaongeza wa pili. Siku ya tatu unafanya marekebisho makubwa. Bila Git, ukipata hitilafu na kutaka kurudi kwenye toleo la siku ya kwanza &mdash; umekwama, kila kitu kinakuwa kimepotea.</p>
+
+            <p><strong>Git inarekodi kila hatua ya safari yako.</strong> Kila mabadiliko unayofanya, Git inayakumbuka. Unaweza kurudi nyuma muda wowote, kuona nini kilibadilishwa, lini, na kwa nini. Katika ulimwengu wa kiteknolojia inaitwa <strong>version control</strong> &mdash; yaani kudhibiti na kufuatilia matoleo ya code zako.</p>
+
+            <h2>Git vs GitHub — Tofauti Yake Ni Nini?</h2>
+
+            <p>Hili ndilo swali linalowatatiza wengi wanaoanza, lakini jibu lake ni rahisi sana:</p>
+
+            <ul>
+                <li><strong>Git</strong> ni programu inayofanya kazi ndani ya kompyuta yako. Inasimamia historia ya mabadiliko ya code zako bila hata kuhitaji intaneti.</li>
+                <li><strong>GitHub</strong> ni jukwaa la mtandaoni ambapo unaweka nakala ya code zako ili zihifadhiwe salama, zionekane na ulimwengu, au ushirikiane na wenzako kwenye timu. Fikiria Git kama daftari lako la siri mezani, na GitHub kama maktaba ya wazi ambapo unaweka nakala ili wengine wasome na kusaidiana nawe.</li>
+            </ul>
+
+            <p>Kuna majukwaa mengine pia kama GitLab na Bitbucket, lakini GitHub ndiyo maarufu zaidi duniani kote.</p>
+
+            <h2>Amri 5 Muhimu Za Kwanza Kujua</h2>
+
+            <p>Hizi ndizo amri kuu za kwanza unazohitaji kuzifahamu. Usihofu kuhusu kuzikariri &mdash; utazitumia mara nyingi sana kiasi kwamba vidole vyako vitazichapa bila hata kufikiria:</p>
+
+            <pre><code># Anzisha Git kwenye mradi wako mpya
+git init
+
+# Angalia hali ya mabadiliko uliyoyafanya
+git status
+
+# Weka faili tayari kwa ajili ya kuhifadhiwa
+git add .
+
+# Hifadhi mabadiliko na weka maelezo mafupi
+git commit -m "Nimeongeza ukurasa mpya wa mawasiliano"
+
+# Tuma code zako zikahifadhiwe GitHub
+git push origin main
+
+# Pakua mradi kutoka GitHub kwenda kwenye kompyuta yako
+git clone https://github.com/jina-lako/project</code></pre>
+            <p class="code-caption">Amri hizi chache ndizo utazozitumia kwa zaidi ya asilimia 90 ya kazi zako za kila siku.</p>
+
+            <h2>Kwa Nini Kila Mtengenezaji Programu Anatumia Git?</h2>
+
+            <p>Kwa sababu code zinaweza kupata hitilafu wakati wowote. Kwa sababu unahitaji kufanya kazi na timu ya watu wengine kwa wakati mmoja bila kufutana kazi. Na kwa sababu unahitaji kujua hitilafu ilipotokea na nani aliifanya. Git inakupa majibu ya maswali haya yote.</p>
+
+            <ul>
+                <li><strong>Kushirikiana bila vurugu.</strong> Watu kumi wanaweza kuandika code kwenye mradi mmoja kwa wakati mmoja, kisha Git inawawezesha kuunganisha kazi zao bila kupoteza mstari hata mmoja.</li>
+                <li><strong>Kurejea nyuma salama.</strong> Umeongeza kitu kipya kisha mfumo mzima ukagoma kufanya kazi? Unaweza kurudi kwenye toleo lililokuwa linafanya kazi vizuri kwa sekunde chache tu.</li>
+                <li><strong>Kujenga wasifu wako (Portfolio).</strong> GitHub ni kioo cha uwezo wako. Waajiri hupenda kuona namna unavyoandika code, mpangilio wako, na miradi halisi uliyojenga.</li>
+            </ul>
+
+            <h2>Jinsi ya Kuanza Leo Hii</h2>
+
+            <p>Hatua zake ni nyepesi:</p>
+            <ol>
+                <li>Tembelea <strong>git-scm.com</strong>, pakua Git kisha isakinishe (install) kwenye kompyuta yako.</li>
+                <li>Fungua tovuti ya <strong>github.com</strong> na ufungue akaunti yako ya bure.</li>
+                <li>Fanya zoezi la "Hello World" kwenye GitHub &mdash; litakufundisha misingi kwa vitendo vya moja kwa moja.</li>
+                <li>Anza kuitumia Git kwenye mradi wako wa kwanza, hata kama ni faili moja tu ya HTML. Usiogope kukosea &mdash; Git inakupa uwezo wa kurekebisha makosa kwa urahisi na kurejesha kazi yako pale ilipokuwa salama.</li>
+            </ol>
+
+            <div class="callout">
+                <div class="callout-title"><i class="fas fa-heart"></i>Neno la ushauri</div>
+                <p>Git inaweza kuonekana ngumu siku zako za mwanzo. Kila developer alipitia hatua hiyo. Lakini baada ya wiki chache za kuitumia mara kwa mara, utashangaa ulikuwa unaishije bila Git! Inakuwa sehemu ya maisha yako ya kila siku ya ujenzi wa programu.</p>
+            </div>
+
+            <h2>Neno la Mwisho</h2>
+
+            <p>Git na GitHub siyo vitu vya ziada &mdash; ni nyenzo za lazima kwa kila anayejenga programu. Kama una ndoto ya kuandika mifumo, kushirikiana na timu, au kuajiriwa kama developer &mdash; Git itakuwa mwandani wako mkuu. Kumbuka: kila developer mkubwa unayemwona leo, wakiwemo wanaofanya kazi kwenye makampuni makubwa kama Google, walianza kujifunza Git wakiwa hawajui chochote. Nawe pia unaweza kufika huko.</p>
+
+            <p><strong>Anza leo. Fungua terminal yako na uanze safari!</strong></p>
+
+            <hr>
+
+            <div class="not-prose mt-10">
+                <p class="text-gray-500 text-sm font-bold tracking-widest uppercase mb-4">Imekusaidia? Shirikisha wengine:</p>
+                <div class="flex flex-wrap gap-3">
+                    <a class="share-btn" target="_blank" rel="noopener noreferrer" href="https://wa.me/?text=Git%20na%20GitHub%20%E2%80%94%20misingi%20unavyohitaji%20kujua%3A%20https%3A%2F%2Fwatulab.com%2Fmakala%2Fgit-na-github-msingi%2F"><i class="fab fa-whatsapp"></i>WhatsApp</a>
+                    <a class="share-btn" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=Git%20na%20GitHub%20%E2%80%94%20misingi%20unavyohitaji%20kujua&url=https%3A%2F%2Fwatulab.com%2Fmakala%2Fgit-na-github-msingi%2F"><i class="fab fa-x-twitter"></i>X (Twitter)</a>
+                    <button class="share-btn" id="copy-link-btn"><i class="fas fa-link"></i><span class="copy-label">Nakili Kiungo</span></button>
+                </div>
+            </div>
+
+        </article>
+    </main>
+
+    <section class="relative z-10 px-4 pb-16">
+        <div class="max-w-5xl mx-auto">
+            <h3 class="text-2xl font-bold mb-8 tracking-tight">Endelea Kusoma</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <a href="/makala/cloud-computing-kwa-lugha-rahisi/" class="glass-card rounded-2xl p-8 flex flex-col">
+                    <span class="badge badge-web mb-4 self-start">Mbinu za Mtandao</span>
+                    <h4 class="text-xl font-bold text-gray-200 mb-3">Cloud Computing Kwa Lugha Rahisi — AWS, Azure, Google Cloud</h4>
+                    <span class="text-sm text-gray-500 font-light mt-auto">Soma makala <i class="fas fa-arrow-right ml-1 text-xs"></i></span>
+                </a>
+                <a href="/makala/kujenga-portfolio-ya-teknolojia/" class="glass-card rounded-2xl p-8 flex flex-col">
+                    <span class="badge badge-kazi mb-4 self-start">Elimu &amp; Kazi</span>
+                    <h4 class="text-xl font-bold text-gray-200 mb-3">Kujenga Portfolio ya Teknolojia — Hatua za Kujionyesha kwa Waajiri</h4>
+                    <span class="text-sm text-gray-500 font-light mt-auto">Soma makala <i class="fas fa-arrow-right ml-1 text-xs"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-gray-900 py-8 relative z-10 bg-black mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-600 text-sm">
+            <p class="notranslate">&copy; 2026 Watu Lab. All Rights Reserved.</p>
+            <div class="flex gap-6">
+                <a href="/makala/" class="hover:text-white transition-colors">Makala Zote</a>
+                <a href="/privacy/" class="hover:text-white transition-colors">Sera ya Faragha</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>

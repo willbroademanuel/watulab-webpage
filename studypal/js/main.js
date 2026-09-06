@@ -39,12 +39,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     function setTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
-        try { localStorage.setItem('studypal-theme', theme); } catch (e) {}
+        try {
+            localStorage.setItem('watulab-theme', theme);
+            localStorage.setItem('studypal-theme', theme);
+        } catch (e) {}
     }
     themeToggles.forEach((btn) => {
         btn.addEventListener('click', () => {
             setTheme(currentTheme() === 'dark' ? 'light' : 'dark');
         });
+    });
+    window.addEventListener('storage', (e) => {
+        if ((e.key === 'watulab-theme' || e.key === 'studypal-theme') && e.newValue) {
+            document.documentElement.setAttribute('data-theme', e.newValue);
+        }
     });
 
     // --- Lenis smooth scroll ---

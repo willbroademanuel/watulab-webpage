@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="sw" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makala — Watu Lab</title>
+    <!-- ═══ SEO ═══ -->
+    <meta name="description"
+        content="Makala ya teknolojia na ujenzi wa programu — miongozo ya vitendo, uzoefu halisi, na maarifa kutoka kwa jumuiya ya waendelezaji huru ya Watu Lab.">
+    <link rel="canonical" href="https://watulab.com/makala/">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#050505">
+
+    <!-- ═══ Open Graph ═══ -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://watulab.com/makala/">
+    <meta property="og:title" content="Makala — Watu Lab">
+    <meta property="og:description"
+        content="Miongozo ya vitendo, uzoefu halisi, na maarifa ya wazi kutoka kwa jumuiya ya waendelezaji huru ya Watu Lab.">
+    <meta property="og:image" content="https://watulab.com/assets/logo.jpeg">
+    <meta property="og:locale" content="sw_TZ">
+
+    <!-- ═══ Twitter Card ═══ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Makala — Watu Lab">
+    <meta name="twitter:description"
+        content="Miongozo ya vitendo na uzoefu halisi kutoka kwa jumuiya ya waendelezaji huru ya Watu Lab.">
+    <meta name="twitter:image" content="https://watulab.com/assets/logo.jpeg">
+
+    <!-- ═══ JSON-LD Structured Data ═══ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Makala — Watu Lab",
+      "url": "https://watulab.com/makala/",
+      "description": "Makala ya teknolojia na uzoefu halisi kutoka kwa waendelezaji huru Watu Lab.",
+      "inLanguage": "sw",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Watu Lab",
+        "url": "https://watulab.com",
+        "logo": "https://watulab.com/assets/logo.jpeg"
+      },
+      "blogPost": [
+        {
+          "@type": "BlogPosting",
+          "headline": "SSR vs ISR: Tofauti Zao, na Ujue Wakati wa Kutumia Kila Moja",
+          "url": "https://watulab.com/makala/ssr-vs-isr/",
+          "datePublished": "2026-09-06"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Umehitimu Kidato cha Sita? Hizi Ndizo Kozi Bora za Teknolojia Sasa Hivi",
+          "url": "https://watulab.com/makala/kozi-bora-za-teknolojia-baada-ya-kidato-cha-sita/",
+          "datePublished": "2026-09-06"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Jinsi ya Kuendelea Mbele katika Teknolojia — Hata Katika Enzi ya AI",
+          "url": "https://watulab.com/makala/kuendelea-na-teknolojia-katika-enzi-ya-ai/",
+          "datePublished": "2026-09-06"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Framework ni Nini? Na Kwa Nini Usijenge Tovuti Kutoka Sifuri",
+          "url": "https://watulab.com/makala/framework-ni-nini/",
+          "datePublished": "2026-09-06"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Jinsi ya Kuanza Kujifunza Programming — Mwongozo Kamili kwa Mwanagenzi",
+          "url": "https://watulab.com/makala/jinsi-ya-kuanza-kujifunza-programming/",
+          "datePublished": "2026-09-06"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Cloud Computing Kwa Lugha Rahisi — AWS, Azure, Google Cloud Ni Nini?",
+          "url": "https://watulab.com/makala/cloud-computing-kwa-lugha-rahisi/",
+          "datePublished": "2026-09-06"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Git na GitHub — Misingi Unayohitaji Kujua Kama Unaunda Programu",
+          "url": "https://watulab.com/makala/git-na-github-msingi/",
+          "datePublished": "2026-09-06"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Kujenga Portfolio ya Teknolojia — Hatua za Kujionyesha kwa Waajiri",
+          "url": "https://watulab.com/makala/kujenga-portfolio-ya-teknolojia/",
+          "datePublished": "2026-09-06"
+        }
+      ]
+    }
+    </script>
+
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#050505',
+                            dark: '#0a0a0a',
+                            grey: '#1a1a1a',
+                            light: '#d4d4d4',
+                            white: '#ffffff'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="pt-24 flex-body">
+
+    <div id="page-transition">
+        <div class="notranslate brand-text show" id="transition-text">WATU LAB</div>
+    </div>
+
+    <nav class="glass-nav fixed w-full z-40 top-0 pt-5 md:pt-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a href="/" class="flex items-center gap-3 group">
+                        <div
+                            class="h-10 w-10 border border-white/20 rounded-full flex items-center justify-center overflow-hidden bg-brand-grey transition-transform group-hover:-translate-x-1">
+                            <i class="fas fa-arrow-left text-sm"></i>
+                        </div>
+                        <span class="font-bold text-xl tracking-tight">Rudi Mwanzo</span>
+                    </a>
+                </div>
+                <a href="/"
+                    class="notranslate font-bold text-lg tracking-tight text-gray-400 hover:text-white transition-colors">WATU
+                    LAB</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="relative z-10 pt-10 md:pt-16 pb-12 px-4">
+        <div class="max-w-4xl mx-auto text-center reveal active">
+            <p class="text-brand-light text-sm md:text-base tracking-[0.3em] uppercase opacity-70 mb-6">Makala na
+                Maarifa</p>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tighter">Kujenga, kujifunza, na kushiriki maarifa.
+            </h1>
+            <p class="text-gray-400 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto">Uzoefu halisi wa
+                ujenzi wa mifumo na programu, miongozo ya vitendo, na masomo tunayojifunza kila siku kama waendelezaji
+                huru.</p>
+        </div>
+    </section>
+
+    <!-- ═══ SEARCH + FILTERS ═══ -->
+    <section class="relative z-10 px-4 pb-12">
+        <div class="max-w-5xl mx-auto space-y-8">
+
+            <div class="blog-search flex items-center gap-3 rounded-full px-6 py-4 max-w-2xl mx-auto">
+                <i class="fas fa-search text-gray-500"></i>
+                <input id="post-search" type="text" placeholder="Tafuta makala... (mfano: SSR, kozi, AI)"
+                    class="text-base font-light" autocomplete="off">
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-3">
+                <button class="chip active" data-category="all">Zote</button>
+                <button class="chip" data-category="web">Mbinu za Mtandao</button>
+                <button class="chip" data-category="kazi">Elimu &amp; Kazi</button>
+                <button class="chip" data-category="ai">AI &amp; Mustakabali</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ ARTICLES GRID ═══ -->
+    <section class="relative z-10 px-4 pb-24 flex-grow">
+        <div class="max-w-6xl mx-auto">
+
+            <div id="post-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Post: SSR vs ISR -->
+                <a href="/makala/ssr-vs-isr/" data-category="web"
+                    data-searchtext="ssr isr server side rendering incremental static regeneration mbinu za mtandao next.js wavuti"
+                    class="post-card glass-card rounded-2xl p-8 reveal active flex flex-col">
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="badge badge-web">Mbinu za Mtandao</span>
+                        <i class="fas fa-arrow-up-right-from-square text-gray-600 text-sm"></i>
+                    </div>
+                    <h2 class="post-title text-2xl font-bold mb-4 text-gray-200 leading-snug">SSR vs ISR: Tofauti
+                        Zao, na Ujue Wakati wa Kutumia Kila Moja</h2>
+                    <p class="text-gray-400 text-base leading-relaxed font-light mb-8 flex-grow">SSR na ISR zinaweza
+                        kusikika kama maneno magumu, lakini ukweli ni kwamba ni mbinu mbili tu za kuhakikisha
+                        mtumiaji wako anaona ukurasa haraka. Ngoja nikueleze kwa lugha nyepesi &mdash; utashangaa
+                        jinsi ilivyo rahisi kueleweka.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 font-light">
+                        <span><i class="far fa-calendar-alt mr-2"></i>Septemba 6, 2026</span>
+                        <span><i class="far fa-clock mr-2"></i>Dakika 8</span>
+                    </div>
+                </a>
+
+                <!-- Post: Kozi za teknolojia -->
+                <a href="/makala/kozi-bora-za-teknolojia-baada-ya-kidato-cha-sita/" data-category="kazi"
+                    data-searchtext="kozi teknolojia kidato cha sita form 6 computer science software engineering data science elimu kazi chuo"
+                    class="post-card glass-card rounded-2xl p-8 reveal active flex flex-col">
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="badge badge-kazi">Elimu &amp; Kazi</span>
+                        <i class="fas fa-arrow-up-right-from-square text-gray-600 text-sm"></i>
+                    </div>
+                    <h2 class="post-title text-2xl font-bold mb-4 text-gray-200 leading-snug">Umehitimu Kidato cha
+                        Sita? Hizi Ndiyo Kozi Bora za Teknolojia Sasa Hivi</h2>
+                    <p class="text-gray-400 text-base leading-relaxed font-light mb-8 flex-grow">Kama umemaliza
+                        kidato cha sita na una mapenzi ya dhati na teknolojia, hongera sana! Huu hapa mwongozo wa
+                        kila kozi &mdash; inafundisha nini, inafaa nani, na fursa za ajira zilipo.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 font-light">
+                        <span><i class="far fa-calendar-alt mr-2"></i>Septemba 6, 2026</span>
+                        <span><i class="far fa-clock mr-2"></i>Dakika 10</span>
+                    </div>
+                </a>
+
+                <!-- Post: AI era -->
+                <a href="/makala/kuendelea-na-teknolojia-katika-enzi-ya-ai/" data-category="ai"
+                    data-searchtext="ai akili mnemba chatgpt mustakabali kuendelea mbele kazi za baadaye kujifunza"
+                    class="post-card glass-card rounded-2xl p-8 reveal active flex flex-col">
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="badge badge-ai">AI &amp; Mustakabali</span>
+                        <i class="fas fa-arrow-up-right-from-square text-gray-600 text-sm"></i>
+                    </div>
+                    <h2 class="post-title text-2xl font-bold mb-4 text-gray-200 leading-snug">Jinsi ya Kuendelea
+                        Mbele katika Teknolojia &mdash; Hata Katika Enzi ya AI</h2>
+                    <p class="text-gray-400 text-base leading-relaxed font-light mb-8 flex-grow">AI inabadilisha kila
+                        kitu kwa kasi, na najua wakati mwingine inaleta wasiwasi. Lakini nina habari njema
+                        kwako: huu ndio wakati mzuri zaidi wa kuwa kwenye teknolojia. Ngoja nikupe sababu.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 font-light">
+                        <span><i class="far fa-calendar-alt mr-2"></i>Septemba 6, 2026</span>
+                        <span><i class="far fa-clock mr-2"></i>Dakika 9</span>
+                    </div>
+                </a>
+
+                <!-- Post: Framework -->
+                <a href="/makala/framework-ni-nini/" data-category="web"
+                    data-searchtext="framework react next.js django spring boot vue mbinu za mtandao kujenga tovuti"
+                    class="post-card glass-card rounded-2xl p-8 reveal active flex flex-col">
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="badge badge-web">Mbinu za Mtandao</span>
+                        <i class="fas fa-arrow-up-right-from-square text-gray-600 text-sm"></i>
+                    </div>
+                    <h2 class="post-title text-2xl font-bold mb-4 text-gray-200 leading-snug">Framework ni Nini? Na Kwa
+                        Nini Usijenge Tovuti Kutoka Sifuri</h2>
+                    <p class="text-gray-400 text-base leading-relaxed font-light mb-8 flex-grow">React, Django, au
+                        Spring
+                        Boot — majina haya yanakuchanganya? Framework ni kama nyumba yenye msingi na kuta tayari, wewe
+                        unaongeza ubunifu wako wa ndani. Ngoja nikueleze vizuri.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 font-light">
+                        <span><i class="far fa-calendar-alt mr-2"></i>Septemba 6, 2026</span>
+                        <span><i class="far fa-clock mr-2"></i>Dakika 7</span>
+                    </div>
+                </a>
+
+                <!-- Post: Kuanza programming -->
+                <a href="/makala/jinsi-ya-kuanza-kujifunza-programming/" data-category="kazi"
+                    data-searchtext="programming kuanza kujifunza mwanagenzi lugha ya kwanza python javascript html css elimu kazi"
+                    class="post-card glass-card rounded-2xl p-8 reveal active flex flex-col">
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="badge badge-kazi">Elimu &amp; Kazi</span>
+                        <i class="fas fa-arrow-up-right-from-square text-gray-600 text-sm"></i>
+                    </div>
+                    <h2 class="post-title text-2xl font-bold mb-4 text-gray-200 leading-snug">Jinsi ya Kuanza Kujifunza
+                        Programming — Mwongozo Kamili kwa Mwanagenzi</h2>
+                    <p class="text-gray-400 text-base leading-relaxed font-light mb-8 flex-grow">Unatamani kuanza
+                        programming lakini hujui pa kuanzia? Twende pamoja hatua kwa hatua &mdash; lugha ya kwanza,
+                        rasilimali za bure, na mbinu zitakazokusaidia usikate tamaa.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 font-light">
+                        <span><i class="far fa-calendar-alt mr-2"></i>Septemba 6, 2026</span>
+                        <span><i class="far fa-clock mr-2"></i>Dakika 10</span>
+                    </div>
+                </a>
+
+                <!-- Post: Cloud computing -->
+                <a href="/makala/cloud-computing-kwa-lugha-rahisi/" data-category="web"
+                    data-searchtext="cloud computing aws azure google cloud wingu mbinu za mtandao server hosting"
+                    class="post-card glass-card rounded-2xl p-8 reveal active flex flex-col">
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="badge badge-web">Mbinu za Mtandao</span>
+                        <i class="fas fa-arrow-up-right-from-square text-gray-600 text-sm"></i>
+                    </div>
+                    <h2 class="post-title text-2xl font-bold mb-4 text-gray-200 leading-snug">Cloud Computing Kwa Lugha
+                        Rahisi — AWS, Azure, Google Cloud Ni Nini?</h2>
+                    <p class="text-gray-400 text-base leading-relaxed font-light mb-8 flex-grow">Cloud computing ni kama
+                        kupanga nyumba badala ya kujenga yako tangu msingi. AWS, Azure, Google Cloud — ni vitu gani,
+                        tofauti zao, na kwa nini mifumo mingi inahamia huko.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 font-light">
+                        <span><i class="far fa-calendar-alt mr-2"></i>Septemba 6, 2026</span>
+                        <span><i class="far fa-clock mr-2"></i>Dakika 8</span>
+                    </div>
+                </a>
+
+                <!-- Post: Git na GitHub -->
+                <a href="/makala/git-na-github-msingi/" data-category="web"
+                    data-searchtext="git github version control msimbo kushirikiana mbinu za mtandao repository"
+                    class="post-card glass-card rounded-2xl p-8 reveal active flex flex-col">
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="badge badge-web">Mbinu za Mtandao</span>
+                        <i class="fas fa-arrow-up-right-from-square text-gray-600 text-sm"></i>
+                    </div>
+                    <h2 class="post-title text-2xl font-bold mb-4 text-gray-200 leading-snug">Git na GitHub — Misingi
+                        Unayohitaji Kujua Kama Unaunda Programu</h2>
+                    <p class="text-gray-400 text-base leading-relaxed font-light mb-8 flex-grow">Git inakusaidia
+                        kutunza historia ya mabadiliko ya code zako, na GitHub inakuwezesha kushirikiana na wenzako.
+                        Ngoja
+                        nikueleze kwa mfano mwepesi utakaouelewa mara moja.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 font-light">
+                        <span><i class="far fa-calendar-alt mr-2"></i>Septemba 6, 2026</span>
+                        <span><i class="far fa-clock mr-2"></i>Dakika 8</span>
+                    </div>
+                </a>
+
+                <!-- Post: Portfolio -->
+                <a href="/makala/kujenga-portfolio-ya-teknolojia/" data-category="kazi"
+                    data-searchtext="portfolio kujenga kujionyesha waajiri github projects elimu kazi kazi interview"
+                    class="post-card glass-card rounded-2xl p-8 reveal active flex flex-col">
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="badge badge-kazi">Elimu &amp; Kazi</span>
+                        <i class="fas fa-arrow-up-right-from-square text-gray-600 text-sm"></i>
+                    </div>
+                    <h2 class="post-title text-2xl font-bold mb-4 text-gray-200 leading-snug">Kujenga Portfolio ya
+                        Teknolojia — Hatua za Kujionyesha kwa Waajiri</h2>
+                    <p class="text-gray-400 text-base leading-relaxed font-light mb-8 flex-grow">Portfolio yako
+                        inaongea kwa nguvu zaidi kuliko vyeti vyako. Jinsi ya kujenga portfolio ya teknolojia inayovutia
+                        waajiri —
+                        projects, GitHub, tovuti binafsi, na zaidi.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 font-light">
+                        <span><i class="far fa-calendar-alt mr-2"></i>Septemba 6, 2026</span>
+                        <span><i class="far fa-clock mr-2"></i>Dakika 9</span>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- Empty state -->
+            <div id="empty-state" class="empty-state text-center py-20">
+                <i class="fas fa-search text-4xl text-gray-700 mb-6"></i>
+                <h3 class="text-xl font-bold text-gray-300 mb-2">Hakuna makala yaliyopatikana</h3>
+                <p class="text-gray-500 font-light">Jaribu neno lingine, au chagua kategoria nyingine &mdash;
+                    bado tunaendelea kuandika makala mpya!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ SUGGEST A TOPIC CTA ═══ -->
+    <section class="relative z-10 px-4 pb-20">
+        <div class="max-w-3xl mx-auto text-center glass-card rounded-3xl p-10 md:p-12 border border-white/5 reveal">
+            <h3 class="text-2xl font-bold mb-3">Una swali au wazo la makala?</h3>
+            <p class="text-gray-400 font-light mb-8">Tuma ujumbe &mdash; tunapenda kusikia kutoka kwako, na labda
+                swali lako litakuwa makala inayofuata.</p>
+            <a href="mailto:info@watulab.com?subject=Wazo%20la%20Makala"
+                class="inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-bold rounded-full transition-all transform hover:scale-105">
+                Tuma Wazo Lako <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <footer class="border-t border-gray-900 py-8 relative z-10 bg-black mt-auto">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-600 text-sm">
+            <p class="notranslate">&copy; 2026 Watu Lab. All Rights Reserved.</p>
+            <div class="flex gap-6">
+                <a href="/" class="hover:text-white transition-colors">Mwanzo</a>
+                <a href="/privacy/" class="hover:text-white transition-colors">Sera ya Faragha</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

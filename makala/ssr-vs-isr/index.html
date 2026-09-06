@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="sw" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSR vs ISR: Tofauti Zao na Wakati wa Kutumia Kila Moja — Watu Lab</title>
+    <!-- ═══ SEO ═══ -->
+    <meta name="description"
+        content="SSR na ISR zinaonekana kama maneno magumu, lakini sivyo. Kwa lugha nyepesi: tofauti zao, faida zao, na wakati gani utumie kila moja katika project yako.">
+    <link rel="canonical" href="https://watulab.com/makala/ssr-vs-isr/">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#050505">
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('watulab-theme');
+                var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+                document.documentElement.setAttribute('data-theme', theme);
+                var meta = document.querySelector('meta[name="theme-color"]');
+                if (meta && theme === 'light') meta.setAttribute('content', '#f8f9fa');
+            } catch (e) {}
+        })();
+    </script>
+
+    <!-- ═══ Open Graph ═══ -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://watulab.com/makala/ssr-vs-isr/">
+    <meta property="og:title" content="SSR vs ISR: Tofauti Zao na Wakati wa Kutumia Kila Moja">
+    <meta property="og:description"
+        content="Mbinu mbili za kujenga tovuti za kisasa — kwa lugha nyepesi kabisa. Utashangaa jinsi ilivyo rahisi kueleweka.">
+    <meta property="og:image" content="https://watulab.com/assets/logo.jpeg">
+    <meta property="og:locale" content="sw_TZ">
+    <meta property="article:published_time" content="2026-09-06">
+    <meta property="article:section" content="Mbinu za Mtandao">
+
+    <!-- ═══ Twitter Card ═══ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SSR vs ISR: Tofauti Zao na Wakati wa Kutumia Kila Moja">
+    <meta name="twitter:description" content="Mbinu mbili za kujenga ukurasa wa wavuti — kwa lugha rahisi kabisa.">
+    <meta name="twitter:image" content="https://watulab.com/assets/logo.jpeg">
+
+    <!-- ═══ JSON-LD Structured Data ═══ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://watulab.com/makala/ssr-vs-isr/"
+      },
+      "headline": "SSR vs ISR: Tofauti Zao na Wakati wa Kutumia Kila Moja",
+      "description": "SSR na ISR zinaonekana kama maneno magumu, lakini sivyo. Kwa lugha nyepesi: tofauti zao, faida zao, na wakati gani utumie kila moja.",
+      "image": "https://watulab.com/assets/logo.jpeg",
+      "author": {
+        "@type": "Organization",
+        "name": "Watu Lab",
+        "url": "https://watulab.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Watu Lab",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://watulab.com/assets/logo.jpeg"
+        }
+      },
+      "datePublished": "2026-09-06",
+      "dateModified": "2026-09-06",
+      "inLanguage": "sw"
+    }
+    </script>
+
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="../styles.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#050505',
+                            dark: '#0a0a0a',
+                            grey: '#1a1a1a',
+                            light: '#d4d4d4',
+                            white: '#ffffff'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="pt-24 flex-body">
+
+    <div id="reading-progress"></div>
+
+    <div id="page-transition">
+        <div class="notranslate brand-text show" id="transition-text">WATU LAB</div>
+    </div>
+
+    <nav class="glass-nav fixed w-full z-40 top-0 pt-5 md:pt-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a href="/makala/" class="flex items-center gap-3 group">
+                        <div
+                            class="h-10 w-10 border border-white/20 rounded-full flex items-center justify-center overflow-hidden bg-brand-grey transition-transform group-hover:-translate-x-1">
+                            <i class="fas fa-arrow-left text-sm"></i>
+                        </div>
+                        <span class="font-bold text-xl tracking-tight">Rudi Makala</span>
+                    </a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Badilisha mwonekano">
+                        <i class="fas fa-sun ic-sun"></i>
+                        <i class="fas fa-moon ic-moon"></i>
+                    </button>
+                    <a href="/"
+                        class="notranslate font-bold text-lg tracking-tight text-gray-400 hover:text-white transition-colors">WATU
+                        LAB</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══ ARTICLE HEADER ═══ -->
+    <header class="relative z-10 pt-10 md:pt-16 pb-10 px-4">
+        <div class="max-w-3xl mx-auto reveal active">
+            <span class="badge badge-web mb-6">Mbinu za Mtandao</span>
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tighter leading-tight mb-8">SSR vs ISR: Tofauti Zao,
+                na Ujue Wakati wa Kutumia Kila Moja</h1>
+            <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-500 font-light">
+                <span class="flex items-center gap-2"><i class="fas fa-pen-nib"></i>Watu Lab Team</span>
+                <span class="flex items-center gap-2"><i class="far fa-calendar-alt"></i>Septemba 6, 2026</span>
+                <span class="flex items-center gap-2"><i class="far fa-clock"></i>Dakika 8 za kusoma</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ═══ ARTICLE BODY ═══ -->
+    <main class="relative z-10 px-4 pb-16 flex-grow">
+        <article id="article-body" class="article-prose max-w-3xl mx-auto">
+
+            <p>Nitakuwa mkweli na wewe. Mara ya kwanza niliposikia maneno kama <strong>"SSR"</strong> na
+                <strong>"ISR"</strong>, nilifikiri ni majina ya roboti kutoka kwenye movie ya sci-fi.
+                Nilikuwa najiuliza &mdash; hawa watu wanazungumza nini hasa?</p>
+
+            <p>Lakini baada ya muda, nikazifanyia kazi, nikazielewa, nikagundua siri moja kubwa: <strong>mambo haya
+                    si magumu kabisa</strong>. Yanaonekana tu magumu kwa sababu hakuna aliyekueleza kwa lugha ya
+                kawaida.</p>
+
+            <p>Basi ngoja turahisishe dhana hii. Tutaichambua hatua kwa hatua kwa lugha nyepesi, na mwishoni mwa makala hii, utaweza kumweleza mtu mwingine kuhusu SSR na ISR kwa ujasiri kamili.</p>
+
+            <h2>Kwanza, twende nyuma kidogo</h2>
+
+            <p>Kabla hatujaingia kwenye SSR na ISR, unahitaji kuelewa swali moja rahisi: <strong>ukurasa wa wavuti
+                    unajengwa wapi, na lini?</strong></p>
+
+            <p>Fikiria hivi: unafungua tovuti fulani kwenye simu yako. Browser yako inatuma request (ombi) kwenda kwenye server &mdash;
+                <em>"tafadhali naomba nione ukurasa huu"</em> &mdash; kisha server inajibu kwa kukutumia HTML. Browser
+                yako inachukua HTML hiyo na kuichora vizuri kwenye kioo cha simu yako. Ni rahisi hivyo tu.</p>
+
+            <p>Sasa, swali la msingi ni: <strong>HTML hiyo inajengwa wapi na lini?</strong> Jibu ndilo linaleta
+                tofauti kati ya mbinu hizi zote. Kuna majibu matatu maarufu:</p>
+
+            <ul>
+                <li><strong>CSR (Client-Side Rendering):</strong> Browser yako ndiyo inayojenga ukurasa &mdash; server
+                    inakutumia ukurasa "mtupu" wenye JavaScript, kisha JavaScript inajenga kila kitu hapo hapo kwenye
+                    simu yako.</li>
+                <li><strong>SSR (Server-Side Rendering):</strong> Server inajenga ukurasa &mdash; kila wakati mtu
+                    anapofika.</li>
+                <li><strong>ISR (Incremental Static Regeneration):</strong> Ukurasa unajengwa mapema, unahifadhiwa,
+                    kisha unarefreshwa taratibu kwa nyuma.</li>
+            </ul>
+
+            <p>Kwa makala hii, tunazingatia mbili za mwisho &mdash; SSR na ISR. Na kila moja ina "utamu" wake.</p>
+
+            <h2>SSR &mdash; Mkahawa Unaopika Kila Sahani Upya</h2>
+
+            <p>Fikiria mkahawa ambao <strong>hupika kila sahani tangu mwanzo kila mteja anapoagiza</strong>. Huwezi
+                kupata chakula kilichopikwa jana &mdash; kila kitu ni fresh, kinatoka kwenye jiko sasa hivi.</p>
+
+            <p>Ndiyo hivyo hivyo SSR inavyofanya kazi. Kila mtu anapofika kwenye ukurasa wako:</p>
+
+            <ol>
+                <li>Browser inatuma ombi kwenye server.</li>
+                <li>Server inachukua data <strong>mpya kabisa</strong> (kutoka database, API, au popote).</li>
+                <li>Server inajenga HTML kamili, hapo hapo.</li>
+                <li>Inakutumia HTML hiyo tayari kwa kuonyeshwa.</li>
+            </ol>
+
+            <h3>Faida zake (na ni nzuri sana)</h3>
+
+            <ul>
+                <li><strong>Data ni fresh kila wakati.</strong> Mtu anapofika, anaona taarifa za sasa hivi &mdash;
+                    hakuna kitu kilichopitwa na wakati.</li>
+                <li><strong>SEO nzuri sana.</strong> Google na injini zingine zinapokea ukurasa kamili tayari,
+                    hivyo tovuti yako inaweza kuonekana vizuri kwenye matokeo ya utafutaji.</li>
+                <li><strong>Personalization.</strong> Unaweza kumpa kila mtu ukurasa wake mwenyewe &mdash; kwa
+                    mfano, dashibodi inayoonyesha data ya mtu huyo pekee.</li>
+            </ul>
+
+            <h3>Nini cha kuangalia</h3>
+
+            <p>Kila chenye uzuri kina changamoto zake pia, na SSR si ubaguzi:</p>
+
+            <ul>
+                <li><strong>Server inafanya kazi muda wote.</strong> Kila mgeni anahitaji server "ipike" ukurasa
+                    mpya. Watu wengi wakifika kwa pamoja, unahitaji server imara &mdash; na hiyo ina gharama yake.
+                </li>
+                <li><strong>Muda wa kwanza kuona ukurasa (TTFB) unaweza kuwa mrefu kidogo</strong> ukilinganisha na
+                    ukurasa uliotayarishwa mapema. Server inahitaji muda wa "kupika".</li>
+            </ul>
+
+            <div class="callout">
+                <div class="callout-title"><i class="fas fa-lightbulb"></i>Siri ndogo</div>
+                <p>TTFB inamaanisha <em>Time To First Byte</em> &mdash; muda unaochukua browser kupokea byte ya
+                    kwanza kutoka kwenye server. Unapunguza TTFB, mtumiaji wako anahisi tovuti ni ya haraka.
+                    Watumiaji wenye furaha = watu wanaorudi tena!</p>
+            </div>
+
+            <h2>ISR &mdash; Mama Lishe Mwenye Chakula Tayari</h2>
+
+            <p>Sasa fikiria mama lishe maarufu mtaani ambaye <strong>ameshapika vyakula maarufu mapema asubuhi</strong>.
+                Ukifika, unapata chakula <em>papo hapo</em> &mdash; hakuna kusubiri kupika. Na akiona chakula
+                kinaanza kuisha, anapika kingine kwa nyuma, bila wewe kusubiri.</p>
+
+            <p>Hii ndiyo ISR kwa kifupi (imetoka kwenye dunia ya <strong>Next.js</strong>, framework maarufu ya
+                React). Inafanya kazi hivi:</p>
+
+            <ol>
+                <li>Ukurasa unajengwa <strong>mapema</strong> (build time) na kuhifadhiwa kama faili tuli
+                    (static).</li>
+                <li>Ukurasa huo unasambazwa kwenye <strong>CDN</strong> &mdash; seva zilizotawanywa duniani, karibu
+                    na watumiaji wako.</li>
+                <li>Mtu akifika, anapokea ukurasa <strong>kwa kasi ya umeme</strong> kutoka kwenye CDN iliyo karibu
+                    naye.</li>
+                <li>Baada ya muda uliowekwa (kuitwa <code>revalidate</code>), ukurasa unajengwa upya <strong>kwa
+                        nyuma</strong> &mdash; bila mtumiaji kusubiri hata sekunde.</li>
+            </ol>
+
+            <h3>Faida zake (utazipenda)</h3>
+
+            <ul>
+                <li><strong>Kasi ya ajabu.</strong> Kurasa zinatoka kwenye CDN iliyo karibu na mtumiaji &mdash;
+                    mara nyingi chini ya sekunde moja.</li>
+                <li><strong>Server inapumzika.</strong> Maombi mengi yanashughulikiwa na CDN, si database yako.
+                    Hata watu milioni wakifika, mfumo unabeba vizuri.</li>
+                <li><strong>Data hubaki fresh bila rebuild.</strong> Huhitaji kujenga tovuti upya kila mara &mdash;
+                    ISR inajifanyia kazi yake yenyewe kwa nyuma.</li>
+                <li><strong>Gharama ndogo.</strong> CDN ni nafuu kuliko kuongeza server kila wakati.</li>
+            </ul>
+
+            <h3>Nini cha kuangalia</h3>
+
+            <ul>
+                <li><strong>Data inaweza kuwa sekunde chache "nyuma"</strong> ndani ya dirisha la
+                    <code>revalidate</code>. Kwa blog au orodha ya bidhaa, hii si tatizo kabisa. Lakini kwa data
+                    ambayo lazima iwe fresh kwa kila sekunde, kuna mbinu bora zaidi (kama SSR au caching fupi
+                    sana).</li>
+            </ul>
+
+            <h2>Hebu tulinganishe kwa pamoja</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>SSR</th>
+                        <th>ISR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Ukurasa unajengwa lini?</strong></td>
+                        <td>Kila mtu anapofika (kila request)</td>
+                        <td>Mapema, kisha unarefreshwa kwa nyuma</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Freshness ya data</strong></td>
+                        <td>Fresh 100%, kila wakati</td>
+                        <td>Fresh kulingana na muda wa revalidate</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kasi kwa mtumiaji</strong></td>
+                        <td>Nzuri (inategemea server yako)</td>
+                        <td>Ya haraka sana (CDN)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mzigo wa server</strong></td>
+                        <td>Mkubwa &mdash; kila request inafanyiwa kazi</td>
+                        <td>Mdogo sana &mdash; CDN inabeba kazi</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Inafaa zaidi kwa</strong></td>
+                        <td>Dashibodi, akaunti, data za kibinafsi</td>
+                        <td>Blog, bidhaa, habari, kurasa za kampuni</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Basi nitumie ipi?</h2>
+
+            <p>Hapa ndipo penye swali la msingi. Jibu ni rahisi na liko wazi:</p>
+
+            <h3>Tumia SSR pale ambapo...</h3>
+            <ul>
+                <li>Kila mtumiaji anaona <strong>data yake mwenyewe</strong> (dashibodi, benki, akaunti).</li>
+                <li>Data inabadilika <strong>kila sekunde</strong> na lazima iwe fresh kwa kila request &mdash;
+                    kwa mfano, bei za hisa au matokeo ya mechi live.</li>
+                <li>Unahitaji kuamua nini cha kuonyesha <strong>kulingana na mtu aliyefika</strong>.</li>
+            </ul>
+
+            <h3>Tumia ISR pale ambapo...</h3>
+            <ul>
+                <li>Unajenga <strong>blog</strong>, kurasa za habari, au makala (kama hii ninayokuandikia sasa!).
+                </li>
+                <li>Unaonyesha <strong>orodha ya bidhaa</strong> za dukani.</li>
+                <li>Unajenga <strong>kurasa za kampuni</strong>, nyaraka (docs), au portfolio.</li>
+                <li>Data ni ile ile kwa watu wote, na kuwa sekunde chache nyuma si tatizo.</li>
+            </ul>
+
+            <div class="callout">
+                <div class="callout-title"><i class="fas fa-heart"></i>Habari njema</div>
+                <p>Hulazimiki kuchagua moja tu! Katika project moja ya Next.js, unaweza <strong>kuchanganya
+                        mbinu zote mbili</strong> &mdash; ukurasa wa bidhaa uwe ISR, dashibodi ya mtumiaji iwe
+                    SSR. Huu ndio uzuri wa frameworks za kisasa: zinakupa uhuru wa kuchagua zana sahihi kwa kila
+                    kazi.</p>
+            </div>
+
+            <h2>Tuone kwa code kidogo</h2>
+
+            <p>Maneno ni mazuri, lakini code inaonyesha ukweli. Hivi ndivyo SSR na ISR zinavyoonekana katika
+                Next.js (Pages Router):</p>
+
+            <pre><code>// SSR — ukurasa unajengwa UPYA kila mtu anapofika
+export async function getServerSideProps() {
+  const res = await fetch('https://api.example.com/bei-hisa');
+  const data = await res.json();
+
+  // Data hizi ni fresh kwa kila request
+  return { props: { data } };
+}</code></pre>
+            <p class="code-caption">SSR: kila mgeni anapata ukurasa uliopikwa sasa hivi.</p>
+
+            <pre><code>// ISR — ukurasa unajengwa mapema, kisha hurefresh kila sekunde 60
+export async function getStaticProps() {
+  const res = await fetch('https://api.example.com/bidhaa');
+  const data = await res.json();
+
+  return {
+    props: { data },
+    revalidate: 60, // kila sekunde 60, Next.js hujenga upya kwa nyuma
+  };
+}</code></pre>
+            <p class="code-caption">ISR: wageni wanapata ukurasa wa haraka kutoka CDN, nao unarefreshwa bila
+                kuwasubirisha.</p>
+
+            <div class="callout">
+                <div class="callout-title"><i class="fas fa-code"></i>Kwa wanaotumia App Router</div>
+                <p>Kama unatumia App Router ya Next.js (njia mpya), dhana ni ile ile:
+                    <code>export const dynamic = 'force-dynamic'</code> inakupa tabia kama SSR, na
+                    <code>export const revalidate = 60</code> inakupa ISR. Mbinu ni zile zile &mdash; jina la
+                    "kitufe" ndilo limebadilika tu.</p>
+            </div>
+
+            <h2>Neno la mwisho kutoka kwangu</h2>
+
+            <p>Umeona sasa? Si nilikwambia &mdash; <strong>mambo haya si magumu hata kidogo</strong>. SSR ni kama "kupika kila sahani upya mteja anapoagiza", na ISR ni kama
+                "kuwa na chakula tayari huku ukipika kingine taratibu kwa nyuma bila mteja kusubiri". Ukishazielewa kwa mfano huu, hata kusoma
+                documentation mtandaoni kutakuwa na maana kubwa kwako.</p>
+
+            <p>Na kama bado una swali, usijali kabisa &mdash; kuuliza ni ishara ya akili inayotaka kukua.
+                Tutumie ujumbe, au endelea kusoma makala mengine hapa. Nafurahi kuwa nawe katika safari hii.</p>
+
+            <p><strong>Endelea kujifunza, endelea kujenga. Tutaonana kwenye makala inayofuata!</strong></p>
+
+            <hr>
+
+            <!-- ═══ SHARE ═══ -->
+            <div class="not-prose mt-10">
+                <p class="text-gray-500 text-sm font-bold tracking-widest uppercase mb-4">Imekusaidia? Shirikisha
+                    wengine:</p>
+                <div class="flex flex-wrap gap-3">
+                    <a class="share-btn" target="_blank" rel="noopener noreferrer"
+                        href="https://wa.me/?text=SSR%20vs%20ISR%20%E2%80%94%20makala%20nzuri%20kutoka%20Watu%20Lab%3A%20https%3A%2F%2Fwatulab.com%2Fmakala%2Fssr-vs-isr%2F">
+                        <i class="fab fa-whatsapp"></i>WhatsApp
+                    </a>
+                    <a class="share-btn" target="_blank" rel="noopener noreferrer"
+                        href="https://twitter.com/intent/tweet?text=SSR%20vs%20ISR%20%E2%80%94%20kwa%20lugha%20rahisi%20kabisa&url=https%3A%2F%2Fwatulab.com%2Fmakala%2Fssr-vs-isr%2F">
+                        <i class="fab fa-x-twitter"></i>X (Twitter)
+                    </a>
+                    <button class="share-btn" id="copy-link-btn">
+                        <i class="fas fa-link"></i><span class="copy-label">Nakili Kiungo</span>
+                    </button>
+                </div>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- ═══ RELATED ═══ -->
+    <section class="relative z-10 px-4 pb-16">
+        <div class="max-w-5xl mx-auto">
+            <h3 class="text-2xl font-bold mb-8 tracking-tight">Endelea Kusoma</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <a href="/makala/kozi-bora-za-teknolojia-baada-ya-kidato-cha-sita/"
+                    class="glass-card rounded-2xl p-8 flex flex-col">
+                    <span class="badge badge-kazi mb-4 self-start">Elimu &amp; Kazi</span>
+                    <h4 class="text-xl font-bold text-gray-200 mb-3">Umehitimu Kidato cha Sita? Hizi Ndiyo Kozi Bora
+                        za Teknolojia Sasa Hivi</h4>
+                    <span class="text-sm text-gray-500 font-light mt-auto">Soma makala <i
+                            class="fas fa-arrow-right ml-1 text-xs"></i></span>
+                </a>
+                <a href="/makala/kuendelea-na-teknolojia-katika-enzi-ya-ai/" class="glass-card rounded-2xl p-8 flex flex-col">
+                    <span class="badge badge-ai mb-4 self-start">AI &amp; Mustakabali</span>
+                    <h4 class="text-xl font-bold text-gray-200 mb-3">Jinsi ya Kuendelea Mbele katika Teknolojia — Hata
+                        Katika Enzi ya AI</h4>
+                    <span class="text-sm text-gray-500 font-light mt-auto">Soma makala <i
+                            class="fas fa-arrow-right ml-1 text-xs"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-gray-900 py-8 relative z-10 bg-black mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-600 text-sm">
+            <p class="notranslate">&copy; 2026 Watu Lab. All Rights Reserved.</p>
+            <div class="flex gap-6">
+                <a href="/makala/" class="hover:text-white transition-colors">Makala Zote</a>
+                <a href="/privacy/" class="hover:text-white transition-colors">Sera ya Faragha</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>

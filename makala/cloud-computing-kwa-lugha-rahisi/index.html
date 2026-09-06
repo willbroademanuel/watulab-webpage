@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="sw" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Computing Kwa Lugha Rahisi — AWS, Azure, Google Cloud Ni Nini? — Watu Lab</title>
+    <meta name="description" content="Cloud computing ni kama kukodi nyumba badala ya kuinunua. AWS, Azure, Google Cloud — ni nini, tofauti zao, na kwa nini biashara zote zinahamia kwenye wingu.">
+    <link rel="canonical" href="https://watulab.com/makala/cloud-computing-kwa-lugha-rahisi/">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#050505">
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('watulab-theme');
+                var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+                document.documentElement.setAttribute('data-theme', theme);
+                var meta = document.querySelector('meta[name="theme-color"]');
+                if (meta && theme === 'light') meta.setAttribute('content', '#f8f9fa');
+            } catch (e) {}
+        })();
+    </script>
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://watulab.com/makala/cloud-computing-kwa-lugha-rahisi/">
+    <meta property="og:title" content="Cloud Computing Kwa Lugha Rahisi — AWS, Azure, Google Cloud Ni Nini?">
+    <meta property="og:description" content="Cloud computing ni kama kukodi nyumba badala ya kuinunua. AWS, Azure, Google Cloud kwa lugha rahisi.">
+    <meta property="og:image" content="https://watulab.com/assets/logo.jpeg">
+    <meta property="og:locale" content="sw_TZ">
+    <meta property="article:published_time" content="2026-09-06">
+    <meta property="article:section" content="Mbinu za Mtandao">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cloud Computing Kwa Lugha Rahisi — AWS, Azure, Google Cloud Ni Nini?">
+    <meta name="twitter:description" content="Cloud computing ni kama kukodi nyumba badala ya kuinunua.">
+    <meta name="twitter:image" content="https://watulab.com/assets/logo.jpeg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://watulab.com/makala/cloud-computing-kwa-lugha-rahisi/" },
+      "headline": "Cloud Computing Kwa Lugha Rahisi — AWS, Azure, Google Cloud Ni Nini?",
+      "description": "Cloud computing ni kama kukodi nyumba badala ya kuinunua. AWS, Azure, Google Cloud kwa lugha rahisi.",
+      "image": "https://watulab.com/assets/logo.jpeg",
+      "author": { "@type": "Organization", "name": "Watu Lab", "url": "https://watulab.com" },
+      "publisher": { "@type": "Organization", "name": "Watu Lab", "logo": { "@type": "ImageObject", "url": "https://watulab.com/assets/logo.jpeg" } },
+      "datePublished": "2026-09-06",
+      "dateModified": "2026-09-06",
+      "inLanguage": "sw"
+    }
+    </script>
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { brand: { black: '#050505', dark: '#0a0a0a', grey: '#1a1a1a', light: '#d4d4d4', white: '#ffffff' } },
+                    fontFamily: { sans: ['Space Grotesk', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="pt-24 flex-body">
+
+    <div id="reading-progress"></div>
+    <div id="page-transition">
+        <div class="notranslate brand-text show" id="transition-text">WATU LAB</div>
+    </div>
+
+    <nav class="glass-nav fixed w-full z-40 top-0 pt-5 md:pt-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a href="/makala/" class="flex items-center gap-3 group">
+                        <div class="h-10 w-10 border border-white/20 rounded-full flex items-center justify-center overflow-hidden bg-brand-grey transition-transform group-hover:-translate-x-1"><i class="fas fa-arrow-left text-sm"></i></div>
+                        <span class="font-bold text-xl tracking-tight">Rudi Makala</span>
+                    </a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Badilisha mwonekano">
+                        <i class="fas fa-sun ic-sun"></i>
+                        <i class="fas fa-moon ic-moon"></i>
+                    </button>
+                    <a href="/" class="notranslate font-bold text-lg tracking-tight text-gray-400 hover:text-white transition-colors">WATU LAB</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative z-10 pt-10 md:pt-16 pb-10 px-4">
+        <div class="max-w-3xl mx-auto reveal active">
+            <span class="badge badge-web mb-6">Mbinu za Mtandao</span>
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tighter leading-tight mb-8">Cloud Computing Kwa Lugha Rahisi — AWS, Azure, Google Cloud Ni Nini?</h1>
+            <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-500 font-light">
+                <span class="flex items-center gap-2"><i class="fas fa-pen-nib"></i>Watu Lab Team</span>
+                <span class="flex items-center gap-2"><i class="far fa-calendar-alt"></i>Septemba 6, 2026</span>
+                <span class="flex items-center gap-2"><i class="far fa-clock"></i>Dakika 8 za kusoma</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10 px-4 pb-16 flex-grow">
+        <article id="article-body" class="article-prose max-w-3xl mx-auto">
+
+            <p>Mara ya kwanza niliposikia neno "cloud computing," niliwaza labda ni kompyuta zinazoelea angani mawinguni. Nilikuwa najiuliza: "data yangu inahifadhiwa wapi, angani? Siku mvua ikinyesha au kukitokea dhoruba, data zangu hazitapotea?"</p>
+
+            <p>Najua inaweza kuchekesha, lakini ukweli ni kwamba cloud computing ni rahisi kueleweka kuliko jina lake linavyosikika. Ngoja nikueleze kwa mfano mwepesi wa maisha ya kila siku &mdash; utaelewa mara moja.</p>
+
+            <h2>Ni Kama Kupanga Nyumba, Badala ya Kujenga</h2>
+
+            <p>Fikiria unataka kuanzisha biashara mpya na unahitaji ofisi ya kufanyia kazi. Una machaguo mawili makuu:</p>
+
+            <ul>
+                <li><strong>Chaguo 1: Kununua kiwanja na kujenga jengo lako.</strong> Unalipa mamilioni ya fedha mwanzoni kabla hata hujaanza biashara, unanunua vifaa, unalipia umeme na maji, na biashara ikikua inabidi ujenge ghorofa nyingine &mdash; gharama kubwa kila hatua.</li>
+                <li><strong>Chaguo 2: Kupanga ofisi.</strong> Unalipa kodi ya mwezi, unaanza kazi siku hiyo hiyo, na biashara yako ikikua unaongeza vyumba vikubwa zaidi. Biashara ikipungua au ukiamua kubadili mfumo, unaachana nayo bila hasara kubwa.</li>
+            </ul>
+
+            <p>Cloud computing inafanya kazi kwa mtindo huo huo wa <strong>kupanga</strong>. Badala ya kununua server zako mwenyewe, kuziweka ofisini kwako, kuzilipia umeme muda wote na viyoyozi vya kupoza (AC), na kuhangaika na ulinzi wake mwenyewe &mdash; unakodi uwezo wa server kutoka kwa kampuni kubwa kama AWS, Microsoft Azure, au Google Cloud. Unalipia tu kile unachokitumia (pay-as-you-go). Na biashara yako ikikua, unaongeza uwezo wa kompyuta hizo kwa dakika chache tu.</p>
+
+            <h2>Kwa Nini Mifumo Mingi Inahamia Cloud?</h2>
+
+            <p>Sababu kuu ziko tatu:</p>
+
+            <ul>
+                <li><strong>Gharama nafuu za kuanzia.</strong> Huna haja ya kununua mitambo ya mamilioni mwanzoni. Unalipia kile unachotumia. Kama mradi wako bado ni mchanga na una watumiaji wachache, unalipa fedha kidogo sana.</li>
+                <li><strong>Uwezo wa kupanuka (Scalability).</strong> Watumiaji wengi wakiongezeka ghafla (kwa mfano tovuti ikipata wageni maelfu kwa mkupuo), mfumo wa cloud unaongeza uwezo wa server moja kwa moja bila mtandao kukata. Hakuna haja ya kulipia server kubwa muda wote wakati watumiaji wako bado ni wachache.</li>
+                <li><strong>Ulinzi na Usalama wa Juu.</strong> AWS, Azure, na Google Cloud wana maelfu ya wahandisi bingwa wa usalama wanaolinda mifumo hiyo masaa 24. Wewe peke yako huwezi kufikia kiwango hicho cha ulinzi kwa gharama nafuu.</li>
+            </ul>
+
+            <h2>Wachezaji Wakuu Watatu wa Cloud</h2>
+
+            <h3>AWS (Amazon Web Services)</h3>
+            <p>Hii ndiyo nguli ya huduma za cloud duniani. Ilianza mapema kuliko zote na ina huduma nyingi zaidi. Zaidi ya asilimia 30 ya tovuti zote duniani zinaendeshwa kwenye AWS ikiwemo Netflix na Airbnb. Kama unataka kuanza kujifunza cloud, AWS ni mahali pazuri sana pa kuanzia.</p>
+
+            <h3>Microsoft Azure</h3>
+            <p>Azure ni mshindani mkuu wa AWS, hasa miongoni mwa makampuni makubwa, benki na taasisi za serikali. Taasisi zinazotumia mifumo ya Microsoft (Windows Server, Office 365, Teams) hupenda kutumia Azure kwa sababu inashirikiana kirahisi na mifumo hiyo. Hapa Tanzania na Afrika Mashariki, matumizi ya Azure yanaongezeka kwa kasi.</p>
+
+            <h3>Google Cloud Platform (GCP)</h3>
+            <p>Google Cloud inatambulika sana kwa nguvu zake kwenye usimamizi wa data kubwa (Big Data) na Akili Mnemba (AI). Mifumo maarufu kama YouTube, Gmail, na injini ya Google Search inaendeshwa hapa. Kama kazi zako zinahusiana na data science au machine learning, Google Cloud ni chaguo zuri sana.</p>
+
+            <h2>Je, Kila Mtengenezaji Programu Anahitaji Kujua Cloud?</h2>
+
+            <p>Kama unataka kuwa software developer wa kisasa, <strong>jibu ni ndiyo</strong>. Karibu kila mfumo unaotengenezwa leo unapelekwa (deploy) kwenye cloud. Kujua misingi ya cloud siyo tu nyongeza ya kawaida &mdash; inazidi kuwa <strong>sharti la msingi</strong> kwa nafasi nyingi za kazi. Habari njema ni kwamba AWS, Azure, na Google Cloud wote wana viwango vya bure kwa wanaoanza (free tier) vinavyokuwezesha kujifunza na kujenga miradi bila kulipa senti moja.</p>
+
+            <div class="callout">
+                <div class="callout-title"><i class="fas fa-lightbulb"></i>Siri ndogo</div>
+                <p>Huhitaji kujua kila huduma iliyopo kwenye cloud &mdash; ziko mamia! Anza na misingi ya jukwaa moja (kama AWS). Ukishaelewa misingi ya AWS vizuri, kujifunza Azure au Google Cloud inakuwa kazi ndogo kwa sababu dhana zote ni zile zile, majina tu ndiyo yanatofautiana.</p>
+            </div>
+
+            <h2>Neno la Mwisho</h2>
+
+            <p>Cloud computing si jambo la kuogopa au kudhani ni la wataalamu wa ngazi za juu pekee. Fikiria kama kupanga nafasi unayoihitaji, kuitumia kukuza ndoto yako, na kulipia kile ulichotumia. Huo ndio msingi wake wote. Kama unataka kujenga mifumo imara ya kisasa, ujuzi wa cloud utakuwa nyenzo muhimu sana kwako. Anza kidogo leo, na utajionea jinsi milango mipya itakavyokufungukia.</p>
+
+            <p><strong>Fursa zipo wazi &mdash; anza safari yako ya kujifunza leo!</strong></p>
+
+            <hr>
+
+            <div class="not-prose mt-10">
+                <p class="text-gray-500 text-sm font-bold tracking-widest uppercase mb-4">Imekusaidia? Shirikisha wengine:</p>
+                <div class="flex flex-wrap gap-3">
+                    <a class="share-btn" target="_blank" rel="noopener noreferrer" href="https://wa.me/?text=Cloud%20computing%20kwa%20lugha%20rahisi%20%E2%80%94%20makala%20kutoka%20Watu%20Lab%3A%20https%3A%2F%2Fwatulab.com%2Fmakala%2Fcloud-computing-kwa-lugha-rahisi%2F"><i class="fab fa-whatsapp"></i>WhatsApp</a>
+                    <a class="share-btn" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=Cloud%20computing%20kwa%20lugha%20rahisi&url=https%3A%2F%2Fwatulab.com%2Fmakala%2Fcloud-computing-kwa-lugha-rahisi%2F"><i class="fab fa-x-twitter"></i>X (Twitter)</a>
+                    <button class="share-btn" id="copy-link-btn"><i class="fas fa-link"></i><span class="copy-label">Nakili Kiungo</span></button>
+                </div>
+            </div>
+
+        </article>
+    </main>
+
+    <section class="relative z-10 px-4 pb-16">
+        <div class="max-w-5xl mx-auto">
+            <h3 class="text-2xl font-bold mb-8 tracking-tight">Endelea Kusoma</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <a href="/makala/git-na-github-msingi/" class="glass-card rounded-2xl p-8 flex flex-col">
+                    <span class="badge badge-web mb-4 self-start">Mbinu za Mtandao</span>
+                    <h4 class="text-xl font-bold text-gray-200 mb-3">Git na GitHub — Misingi Unayohitaji Kujua</h4>
+                    <span class="text-sm text-gray-500 font-light mt-auto">Soma makala <i class="fas fa-arrow-right ml-1 text-xs"></i></span>
+                </a>
+                <a href="/makala/framework-ni-nini/" class="glass-card rounded-2xl p-8 flex flex-col">
+                    <span class="badge badge-web mb-4 self-start">Mbinu za Mtandao</span>
+                    <h4 class="text-xl font-bold text-gray-200 mb-3">Framework ni Nini? Na Kwa Nini Usijenge Tovuti Kutoka Sifuri</h4>
+                    <span class="text-sm text-gray-500 font-light mt-auto">Soma makala <i class="fas fa-arrow-right ml-1 text-xs"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-gray-900 py-8 relative z-10 bg-black mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-600 text-sm">
+            <p class="notranslate">&copy; 2026 Watu Lab. All Rights Reserved.</p>
+            <div class="flex gap-6">
+                <a href="/makala/" class="hover:text-white transition-colors">Makala Zote</a>
+                <a href="/privacy/" class="hover:text-white transition-colors">Sera ya Faragha</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>

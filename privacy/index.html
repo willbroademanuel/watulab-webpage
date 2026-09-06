@@ -9,6 +9,17 @@
     <link rel="canonical" href="https://watulab.com/privacy/">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#050505">
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('watulab-theme');
+                var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+                document.documentElement.setAttribute('data-theme', theme);
+                var meta = document.querySelector('meta[name="theme-color"]');
+                if (meta && theme === 'light') meta.setAttribute('content', '#f8f9fa');
+            } catch (e) {}
+        })();
+    </script>
     <link rel="icon" type="image/png" href="/assets/favicon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,13 +52,17 @@
     <nav class="glass-nav fixed w-full z-40 top-0 pt-5 md:pt-0">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
-                <div class="flex-shrink-0 flex items-center gap-3">
+                <div class="flex-shrink-0 flex items-center justify-between w-full">
                     <a href="/" class="flex items-center gap-3 group">
                         <div class="h-10 w-10 border border-white/20 rounded-full flex items-center justify-center overflow-hidden bg-brand-grey transition-transform group-hover:-translate-x-1">
                             <i class="fas fa-arrow-left text-sm"></i>
                         </div>
                         <span class="font-bold text-xl tracking-tight">Rudi Mwanzo</span>
                     </a>
+                    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Badilisha mwonekano">
+                        <i class="fas fa-sun ic-sun"></i>
+                        <i class="fas fa-moon ic-moon"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -94,6 +109,25 @@
                 const pc = document.getElementById('policy-container');
                 if (pc) pc.style.opacity = '1';
             }, 100);
+
+            // Theme toggle
+            const root = document.documentElement;
+            const metaTheme = document.querySelector('meta[name="theme-color"]');
+            function applyTheme(theme) {
+                root.setAttribute('data-theme', theme);
+                if (metaTheme) metaTheme.setAttribute('content', theme === 'light' ? '#f8f9fa' : '#050505');
+            }
+            const toggleBtn = document.getElementById('themeToggle');
+            if (toggleBtn) {
+                toggleBtn.addEventListener('click', () => {
+                    const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+                    applyTheme(next);
+                    try { localStorage.setItem('watulab-theme', next); } catch (e) {}
+                });
+            }
+            window.addEventListener('storage', (e) => {
+                if (e.key === 'watulab-theme' && e.newValue) applyTheme(e.newValue);
+            });
         });
         window.addEventListener('pageshow', (e) => {
             if (e.persisted) {

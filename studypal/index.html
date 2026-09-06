@@ -20,7 +20,7 @@
     <script>
         (function () {
             try {
-                var stored = localStorage.getItem('studypal-theme');
+                var stored = localStorage.getItem('watulab-theme') || localStorage.getItem('studypal-theme');
                 var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
                 document.documentElement.setAttribute('data-theme', theme);
             } catch (e) {}

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
         (function () {
-            var saved = localStorage.getItem('studio-theme');
+            var saved = localStorage.getItem('watulab-theme') || localStorage.getItem('studio-theme');
             var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
             document.documentElement.setAttribute('data-theme', theme);
         })();

@@ -123,12 +123,59 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Fire off theme toggle setup
+    initThemeToggle();
+
     // Fire off specific Homepage features
     startAutoTabShift();
     if (document.getElementById('typewriter')) {
         setTimeout(type, 1000); // Wait 1 sec before hacking typing effect starts
     }
 });
+
+/* =========================================================================
+   THEME TOGGLE LOGIC
+   ========================================================================= */
+function initThemeToggle() {
+    const root = document.documentElement;
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+
+    function applyTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        if (metaTheme) {
+            metaTheme.setAttribute('content', theme === 'light' ? '#f8f9fa' : '#050505');
+        }
+    }
+
+    function getTheme() {
+        return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+    }
+
+    function toggleTheme() {
+        const next = getTheme() === 'light' ? 'dark' : 'light';
+        applyTheme(next);
+        try {
+            localStorage.setItem('watulab-theme', next);
+        } catch (e) {
+            console.warn('Failed to save theme to localStorage.', e);
+        }
+    }
+
+    // Bind click events on all theme toggles
+    document.querySelectorAll('#themeToggle, #themeToggleMobile, .theme-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleTheme();
+        });
+    });
+
+    // Multi-tab synchronization
+    window.addEventListener('storage', (e) => {
+        if (e.key === 'watulab-theme' && e.newValue) {
+            applyTheme(e.newValue);
+        }
+    });
+}
 
 // Safari Cache fix (Ensures animations aren't broken when pressing 'Back' button on iPhones/Macs)
 window.addEventListener('pageshow', (event) => {
@@ -544,9 +591,14 @@ if (scrollTrack) {
 
         // The user requested: Finish animation by 0.7, leaving a 0.3 'Pause' phase
         const PHASE_LEN = 0.35;
+        const maxAnimProgress = (animCards.length - 1) * PHASE_LEN;
+        const animProgress = Math.min(progress, maxAnimProgress);
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
 
         animCards.forEach((card, i) => {
             if (!card) return;
+
+            const isLastCard = (i === animCards.length - 1);
 
             // 1. ENTRANCE LOGIC (Slide up from bottom)
             let enterP = 1; // Card 1 is fully entered at 0
@@ -556,8 +608,12 @@ if (scrollTrack) {
             }
 
             // 2. SHRINK LOGIC (Being pushed back)
-            let shrinkP = (progress - i * PHASE_LEN) / PHASE_LEN;
-            shrinkP = Math.max(0, shrinkP); // Can exceed 1 for deeper stacking
+            // The last front card NEVER shrinks or gets pushed back/shadowed (no subsequent card exists)
+            let shrinkP = 0;
+            if (!isLastCard) {
+                shrinkP = (animProgress - i * PHASE_LEN) / PHASE_LEN;
+                shrinkP = Math.max(0, shrinkP); // Pushed back as subsequent cards enter
+            }
 
             // 3. CALCULATE TRANSFORMS
             const tyEntrance = (1 - enterP) * 120; // 120% start -> 0%
@@ -565,10 +621,12 @@ if (scrollTrack) {
             const totalTy = tyEntrance + tyShrink;
 
             const scale = 1 - (shrinkP * 0.05);    // Shrinks 5% per phase
-            const brightness = 1 - (shrinkP * 0.4); // Darkens 40% per phase
+            const brightness = isLight
+                ? Math.max(0.88, 1 - (shrinkP * 0.05))
+                : Math.max(0.2, 1 - (shrinkP * 0.4));
 
             card.style.transform = `translateY(${totalTy}%) scale(${scale})`;
-            card.style.filter = `brightness(${brightness})`;
+            card.style.filter = shrinkP > 0 ? `brightness(${brightness})` : 'none';
 
             // Only show if it's currently entering or entered
             card.style.opacity = enterP > 0 ? 1 : 0;
