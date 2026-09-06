@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="sw" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mwongozo wa Kuchangia Open Source — Jinsi ya Kuanza Bila Hofu — Watu Lab</title>
+    <!-- ═══ SEO ═══ -->
+    <meta name="description"
+        content="Huna haja ya kuwa mhandisi nguli ili kuanza kuchangia open source. Jifunze hatua kwa hatua: fork, branches, pull requests (PR), na jinsi ya kupata miradi inayofaa wanaoanza.">
+    <link rel="canonical" href="https://watulab.com/makala/kuchangia-open-source/">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#050505">
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('watulab-theme');
+                var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+                document.documentElement.setAttribute('data-theme', theme);
+                var meta = document.querySelector('meta[name="theme-color"]');
+                if (meta && theme === 'light') meta.setAttribute('content', '#f8f9fa');
+            } catch (e) {}
+        })();
+    </script>
+
+    <!-- ═══ Open Graph ═══ -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://watulab.com/makala/kuchangia-open-source/">
+    <meta property="og:title" content="Mwongozo wa Kuchangia Open Source — Jinsi ya Kuanza Bila Hofu">
+    <meta property="og:description"
+        content="Hatua kwa hatua za kuchangia miradi huria (open source): kutoka marekebisho ya nyaraka hadi pull request yako ya kwanza GitHub.">
+    <meta property="og:image" content="https://watulab.com/assets/logo.jpeg">
+    <meta property="og:locale" content="sw_TZ">
+    <meta property="article:published_time" content="2026-09-06">
+    <meta property="article:section" content="Mbinu za Mtandao">
+
+    <!-- ═══ Twitter Card ═══ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mwongozo wa Kuchangia Open Source — Jinsi ya Kuanza Bila Hofu">
+    <meta name="twitter:description" content="Mwongozo wa vitendo wa kuchangia open source kwa watengenezaji programu.">
+    <meta name="twitter:image" content="https://watulab.com/assets/logo.jpeg">
+
+    <!-- ═══ JSON-LD Structured Data ═══ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://watulab.com/makala/kuchangia-open-source/"
+      },
+      "headline": "Mwongozo wa Kuchangia Open Source — Jinsi ya Kuanza Bila Hofu",
+      "description": "Huna haja ya kuwa mhandisi nguli ili kuanza kuchangia open source. Mwongozo wa vitendo hatua kwa hatua wa kuanza safari yako ya kuchangia miradi huria.",
+      "image": "https://watulab.com/assets/logo.jpeg",
+      "author": {
+        "@type": "Organization",
+        "name": "Watu Lab",
+        "url": "https://watulab.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Watu Lab",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://watulab.com/assets/logo.jpeg"
+        }
+      },
+      "datePublished": "2026-09-06",
+      "dateModified": "2026-09-06",
+      "inLanguage": "sw"
+    }
+    </script>
+
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#050505',
+                            dark: '#0a0a0a',
+                            grey: '#1a1a1a',
+                            light: '#d4d4d4',
+                            white: '#ffffff'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="pt-24 flex-body">
+
+    <!-- ═══ READING PROGRESS BAR ═══ -->
+    <div id="reading-progress"></div>
+
+    <!-- ═══ PAGE TRANSITION ═══ -->
+    <div id="page-transition">
+        <div class="notranslate brand-text show" id="transition-text">WATU LAB</div>
+    </div>
+
+    <!-- ═══ TOP NAV ═══ -->
+    <nav class="glass-nav fixed w-full z-40 top-0 pt-5 md:pt-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a href="/makala/" class="flex items-center gap-3 group">
+                        <div
+                            class="h-10 w-10 border border-white/20 rounded-full flex items-center justify-center overflow-hidden bg-brand-grey transition-transform group-hover:-translate-x-1">
+                            <i class="fas fa-arrow-left text-sm"></i>
+                        </div>
+                        <span class="font-bold text-xl tracking-tight">Rudi Makala</span>
+                    </a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Badilisha mwonekano">
+                        <i class="fas fa-sun ic-sun"></i>
+                        <i class="fas fa-moon ic-moon"></i>
+                    </button>
+                    <a href="/"
+                        class="notranslate font-bold text-lg tracking-tight text-gray-400 hover:text-white transition-colors">WATU
+                        LAB</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══ ARTICLE HEADER ═══ -->
+    <header class="relative z-10 pt-10 md:pt-16 pb-10 px-4">
+        <div class="max-w-3xl mx-auto reveal active">
+            <span class="badge badge-web mb-6">Mbinu za Mtandao</span>
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tighter leading-tight mb-8">Mwongozo wa Kuchangia Open
+                Source — Jinsi ya Kuanza Bila Hofu</h1>
+            <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-500 font-light">
+                <span class="flex items-center gap-2"><i class="fas fa-pen-nib"></i>Watu Lab Team</span>
+                <span class="flex items-center gap-2"><i class="far fa-calendar-alt"></i>Septemba 6, 2026</span>
+                <span class="flex items-center gap-2"><i class="far fa-clock"></i>Dakika 9 za kusoma</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ═══ ARTICLE BODY ═══ -->
+    <main class="relative z-10 px-4 pb-16 flex-grow">
+        <article id="article-body" class="article-prose max-w-3xl mx-auto">
+
+            <p>Mara ya kwanza unapoangalia mradi maarufu wa open source kwenye GitHub &mdash; uwe ni React, Linux, au
+                maktaba yoyote ndogo unayopenda kuitumia &mdash; ni rahisi sana kuhisi hofu. Unaona maelfu ya commits,
+                majina ya wahandisi kutoka kila pembe ya dunia, na unaweza kujiuliza kwa unyonge: <em>"Mimi ni nani hata
+                    nithubutu kuweka mchango hapa? Hawa ni magwiji, wakiona nilichoandika watanicheka."</em></p>
+
+            <p>Huu ni mtazamo wa kawaida kabisa, lakini ukweli ni kinyume na vile unavyofikiri. Jumuiya za open source
+                zinatamani sana kupata watu wenye nia ya kujifunza na kusaidia. Kila mhandisi unayemwona leo akiwa na
+                mchango mkubwa alianza siku moja bila kujua hata neno moja la Git. Basi, hebu tuchambue ukweli kuhusu
+                open source na namna unavyoweza kutoa mchango wako wa kwanza kwa ujasiri kamili.</p>
+
+            <h2>Open Source Ni Nini Hasa?</h2>
+
+            <p>Fikiria kisima cha jamii kijijini au maktaba huria ya umma. Hakuna mtu anayefungia kitabu ndani ya sanduku
+                lake binafsi; kila mtu ana haki ya kusoma, kuazima, na kutumia. Mtu mmoja akiona meza imevunjika mguu,
+                anakuja na msumeno na kuitengeneza. Mwingine akiona kibao cha kuelekeza vitabu kimefutika, anachukua
+                kalamu na kukiandika upya ili wanaofuata wasipotee.</p>
+
+            <p><strong>Hivyo ndivyo miradi ya Open Source inavyofanya kazi.</strong> Ni programu au mifumo ambayo kodi
+                yake (source code) iko wazi hadharani mtandaoni. Yeyote anaruhusiwa kuitazama, kuitumia katika miradi yake,
+                kurekebisha hitilafu (bugs), au kuongeza vipengele vipya kwa manufaa ya ulimwengu mzima.</p>
+
+            <p>Sehemu kubwa ya mtandao tunaoutumia leo &mdash; kuanzia mfumo wa Android kwenye simu yako, lugha kama
+                Python na JavaScript, hadi mifumo inayowasha seva kubwa za benki &mdash; imeundwa kwa msingi wa open
+                source.</p>
+
+            <h2>Kwa Nini Uchangie? Faida Kubwa Kwako Binafsi</h2>
+
+            <p>Kuchangia open source siyo tu tendo la hisani; ni mojawapo ya njia zenye kasi zaidi za kukuza taaluma yako
+                ya kiteknolojia:</p>
+
+            <ul>
+                <li><strong>Uzoefu halisi wa mifumo mikubwa (Production-Grade Code):</strong> Tofauti na miradi unayoifanya
+                    chumbani peke yako, hapa unajifunza jinsi miradi ya watu wengi inavyopangwa, mtindo wa uandishi safi
+                    wa code (clean code), na taratibu za uhakiki wa ubora (testing).</li>
+                <li><strong>Kujifunza kupitia Code Review:</strong> Unapotuma mchango wako, watengenezaji wenye uzoefu
+                    watausoma na kukupa maoni ya kitaalamu bila kukulipisha hata senti moja. Huu ni mafunzo ya daraja la
+                    kwanza bila gharama.</li>
+                <li><strong>Ushahidi thabiti kwenye Portfolio yako:</strong> Waajiri wanapenda kuona matendo badala ya
+                    maneno. Kuwa na Pull Requests zilizopokelewa (merged) kwenye miradi ya wazi kunathibitisha mara moja
+                    kuwa unajua kutumia Git, unaweza kushirikiana na timu, na code yako inakidhi viwango halisi vya kazi.
+                </li>
+                <li><strong>Kupanua mtandao wa marafiki na wataalamu:</strong> Unapata fursa ya kufahamiana na
+                    watengenezaji wengine ndani na nje ya nchi, jambo linalofungua milango ya fursa mpya za kazi na ushauri.
+                </li>
+            </ul>
+
+            <h2>Huna Haja ya Kuanza na Code Ngumu: Njia 4 za Kuanza</h2>
+
+            <p>Dhana potofu kubwa zaidi ni kuamini kwamba mchango wa open source lazima uwe ni kuandika algorithm ya
+                hesabu ngumu. Ukweli ni kwamba miradi mingi inakabiliwa na uhaba wa michango ya mambo mepesi lakini yenye
+                umuhimu mkubwa:</p>
+
+            <h3>1. Marekebisho ya Nyaraka (Documentation &amp; Typos)</h3>
+            <p>Nyaraka (docs au README) ndicho kitu cha kwanza anachokisoma mtu yeyote anapofika kwenye mradi. Ukiona
+                maelekezo ya usakinishaji (installation steps) hayafanyi kazi, kiungo kilichovunjika (broken link), au
+                makosa ya kisarufi &mdash; kurekebisha hilo ni mchango wenye thamani kubwa sana kwa jumuiya.</p>
+
+            <h3>2. Kuripoti Hitilafu kwa Usahihi (Reporting Issues)</h3>
+            <p>Unapotumia zana fulani kisha ikakwama, badala ya kukasirika na kuondoka, fungua <em>Issue</em> kwenye
+                GitHub. Eleza wazi: ulikuwa unajaribu kufanya nini, nini kilitokea, na hatua za kurudia tatizo hilo (steps
+                to reproduce). Taarifa safi ya hitilafu inamsaidia mtengenezaji mkuu kuokoa saa nyingi za uchunguzi.</p>
+
+            <h3>3. Tafsiri na Mifano ya Matumizi</h3>
+            <p>Miradi mingi inahitaji kutafsiriwa katika lugha mbalimbali, ikiwemo Kiswahili. Pia kuongeza mfano mdogo wa
+                jinsi ya kutumia kipengele fulani kwenye nyaraka kunawasaidia sana wanaoanza baada yako.</p>
+
+            <h3>4. Kuanza na Masuala ya "Good First Issue"</h3>
+            <p>Wasimamizi wa miradi wengi huweka lebo (label) maalum kwenye masuala mepesi yanayofaa wageni:
+                <strong>good first issue</strong> au <strong>help wanted</strong>. Haya ni masuala yaliyotengwa mahsusi
+                kwa mtu anayetaka kufanya mchango wake wa kwanza bila shinikizo.</p>
+
+            <div class="callout">
+                <div class="callout-title"><i class="fas fa-lightbulb"></i>Siri ndogo</div>
+                <p>Mchango wa kwanza maarufu zaidi kwa watengenezaji wengi duniani ulikuwa kusahihisha herufi moja
+                    iliyokosewa (typo) kwenye faili la README. Mara tu Pull Request yako ya kwanza inapokubaliwa na
+                    kuunganishwa, hofu yote hutoweka na hamasa mpya inazaliwa.</p>
+            </div>
+
+            <h2>Hatua kwa Hatua: Jinsi ya Kutuma Mchango Wako wa Kwanza</h2>
+
+            <p>Basi ngoja tupitie hatua kamili za kiufundi unazopaswa kuzifuata kutoka mwanzo hadi mwisho:</p>
+
+            <h3>Hatua 1: Tafuta Mradi na Usome Sheria Zake</h3>
+            <p>Kila mradi mkubwa una faili liitwalo <code>CONTRIBUTING.md</code>. Faili hili linakueleza sheria zao: jinsi
+                ya kuweka mazingira ya mradi kwenye kompyuta yako (setup), viwango vyao vya kuandika code, na jinsi ya
+                kupima (test). Hakikisha unalipitia kabla ya kuanza chochote.</p>
+
+            <h3>Hatua 2: Tengeneza Fork ya Mradi</h3>
+            <p>Kwenye ukurasa wa GitHub wa mradi huo, bonyeza kitufe cha <strong>Fork</strong> kilicho juu kulia. Kitendo
+                hiki kinatengeneza nakala kamili ya mradi huo ndani ya akaunti yako ya GitHub.</p>
+
+            <h3>Hatua 3: Shusha Mradi Kwenye Kompyuta Yako</h3>
+            <p>Fungua terminal yako kisha piga amri ya ku-clone nakala yako uliyoi-fork:</p>
+
+            <pre><code>git clone https://github.com/jina-lako/jina-la-mradi.git
+cd jina-la-mradi</code></pre>
+
+            <h3>Hatua 4: Tengeneza Tawi Jipya (Branch)</h3>
+            <p>Kamwe usifanye marekebisho moja kwa moja kwenye tawi kuu la <code>main</code> au <code>master</code>. Daima
+                tengeneza tawi lenye jina linaloelezea unachotaka kufanya:</p>
+
+            <pre><code># Tengeneza na uhamie kwenye tawi jipya
+git checkout -b rekebisha-maelekezo-readme</code></pre>
+
+            <h3>Hatua 5: Fanya Mabadiliko na Uyapime</h3>
+            <p>Fungua code editor yako, fanya marekebisho unayotaka, na hakikisha kila kitu kinafanya kazi vizuri bila
+                kuharibu sehemu nyingine za mfumo.</p>
+
+            <h3>Hatua 6: Hifadhi Mabadiliko Yako (Commit &amp; Push)</h3>
+            <p>Andika ujumbe wa commit ulio wazi na mfupi unaoeleza nini kimebadilika:</p>
+
+            <pre><code>git add .
+git commit -m "Boresha maelekezo ya usakinishaji kwenye README"
+git push origin rekebisha-maelekezo-readme</code></pre>
+
+            <h3>Hatua 7: Fungua Pull Request (PR)</h3>
+            <p>Rudi kwenye ukurasa wa GitHub wa mradi uliou-fork. Utaona kitufe cha kijani kikisema <strong>"Compare &amp;
+                    pull request"</strong>. Kibonyeze, andika maelezo mafupi na ya heshima yanayofafanua mabadiliko yako,
+                kisha bonyeza <strong>"Create pull request"</strong>.</p>
+
+            <p>Hapo unakuwa umetuma mchango wako kwa wasimamizi wa mradi huo kwa ajili ya mapitio!</p>
+
+            <h2>Adabu na Maadili Muhimu Wakati wa Kuchangia</h2>
+
+            <p>Mbali na uwezo wa kuandika code, mafanikio yako kwenye open source yanategemea sana jinsi unavyowasiliana
+                na wenzako:</p>
+
+            <ul>
+                <li><strong>Kuwa na subira:</strong> Wasimamizi wengi wa miradi ya open source wanafanya kazi hiyo kwa
+                    kujitolea baada ya masaa yao ya kawaida ya kazi. Huenda wasijibu ndani ya dakika tano; wape muda wa
+                    kupitia kazi yako.</li>
+                <li><strong>Pokea mrejesho (code review) kwa moyo wazi:</strong> Msimamizi akikuomba ubadilishe njia
+                    fulani uliyotumia, hicho siyo kiburi wala dharau &mdash; bali ni fursa ya bure ya kujifunza njia bora
+                    zaidi. Jibu kwa heshima na urekebishe inavyotakiwa.</li>
+                <li><strong>Uliza kabla ya kuanza kazi kubwa:</strong> Kama una mpango wa kuandika kipengele kikubwa kipya
+                    (feature), fungua kwanza <em>Issue</em> ili kujadili na wasimamizi kama wanahitaji wazo hilo kabla
+                    hujapoteza wiki nzima kuandika code ambayo huenda isikubaliane na dira ya mradi.</li>
+            </ul>
+
+            <h2>Wapi pa Kupata Miradi ya Kuanzia?</h2>
+
+            <p>Ikiwa unajiuliza wapi unaweza kupata miradi inayokufaa hivi sasa, zana hizi za bure zitakusaidia sana:</p>
+
+            <ul>
+                <li><strong><a href="https://goodfirstissue.dev" target="_blank" rel="noopener noreferrer"
+                            class="text-white underline">Good First Issue</a></strong> &mdash; tovuti inayokusanya
+                    masuala mepesi ya wanaoanza kutoka miradi maarufu ya lugha mbalimbali (JavaScript, Python, Go, n.k.).
+                </li>
+                <li><strong><a href="https://firstcontributions.github.io" target="_blank" rel="noopener noreferrer"
+                            class="text-white underline">First Contributions</a></strong> &mdash; mwongozo wa hatua kwa
+                    hatua uliotengenezwa mahsusi kukufundisha kufanya PR yako ya kwanza kwa vitendo ndani ya dakika tano.
+                </li>
+                <li><strong>Miradi unayoitumia kila siku:</strong> Angalia maktaba au zana ndogo unazozipenda kwenye
+                    miradi yako binafsi. Mara nyingi miradi hiyo ndiyo yenye uhitaji mkubwa zaidi wa msaada wako.</li>
+            </ul>
+
+            <h2>Neno la Mwisho</h2>
+
+            <p>Kumbuka: hata wasanifu wakuu wa mifumo mikubwa duniani leo walianza kwa kubonyeza kitufe kimoja kwa
+                kusitasita. Open source si klabu ya siri ya watu wachache &mdash; ni jukwaa wazi linalosubiri mchango
+                wako, mawazo yako, na shauku yako ya kujenga.</p>
+
+            <p>Usisubiri mpaka ujihisi "umekamilika." Tafuta mradi mmoja mdogo leo, soma nyaraka zake, na ufungue mlango
+                huo. Hatua ya kwanza ndiyo yenye uzito zaidi &mdash; ukishaivuka, ulimwengu wote wa teknolojia unakuwa wazi
+                mbele yako.</p>
+
+            <p><strong>Fungua GitHub yako, tafuta mradi unaoupenda, na anza safari yako ya kuchangia leo!</strong></p>
+
+            <hr>
+
+            <!-- ═══ SHARE ═══ -->
+            <div class="not-prose mt-10">
+                <p class="text-gray-500 text-sm font-bold tracking-widest uppercase mb-4">Imekusaidia? Shirikisha
+                    wengine:</p>
+                <div class="flex flex-wrap gap-3">
+                    <a class="share-btn" target="_blank" rel="noopener noreferrer"
+                        href="https://wa.me/?text=Mwongozo%20wa%20kuchangia%20Open%20Source%20%E2%80%94%20makala%20kutoka%20Watu%20Lab%3A%20https%3A%2F%2Fwatulab.com%2Fmakala%2Fkuchangia-open-source%2F">
+                        <i class="fab fa-whatsapp"></i>WhatsApp
+                    </a>
+                    <a class="share-btn" target="_blank" rel="noopener noreferrer"
+                        href="https://twitter.com/intent/tweet?text=Mwongozo%20wa%20kuchangia%20Open%20Source%20bila%20hofu&url=https%3A%2F%2Fwatulab.com%2Fmakala%2Fkuchangia-open-source%2F">
+                        <i class="fab fa-x-twitter"></i>X (Twitter)
+                    </a>
+                    <button class="share-btn" id="copy-link-btn">
+                        <i class="fas fa-link"></i><span class="copy-label">Nakili Kiungo</span>
+                    </button>
+                </div>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- ═══ RELATED ARTICLES ═══ -->
+    <section class="relative z-10 px-4 pb-16">
+        <div class="max-w-5xl mx-auto">
+            <h3 class="text-2xl font-bold mb-8 tracking-tight">Endelea Kusoma</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <a href="/makala/git-na-github-msingi/" class="glass-card rounded-2xl p-8 flex flex-col">
+                    <span class="badge badge-web mb-4 self-start">Mbinu za Mtandao</span>
+                    <h4 class="text-xl font-bold text-gray-200 mb-3">Git na GitHub — Misingi Unayohitaji Kujua</h4>
+                    <span class="text-sm text-gray-500 font-light mt-auto">Soma makala <i
+                            class="fas fa-arrow-right ml-1 text-xs"></i></span>
+                </a>
+                <a href="/makala/kujenga-portfolio-ya-teknolojia/" class="glass-card rounded-2xl p-8 flex flex-col">
+                    <span class="badge badge-kazi mb-4 self-start">Elimu &amp; Kazi</span>
+                    <h4 class="text-xl font-bold text-gray-200 mb-3">Kujenga Portfolio ya Teknolojia — Hatua za
+                        Kujionyesha kwa Waajiri</h4>
+                    <span class="text-sm text-gray-500 font-light mt-auto">Soma makala <i
+                            class="fas fa-arrow-right ml-1 text-xs"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="border-t border-gray-900 py-8 relative z-10 bg-black mt-auto">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-600 text-sm">
+            <p class="notranslate">&copy; 2026 Watu Lab. All Rights Reserved.</p>
+            <div class="flex gap-6">
+                <a href="/makala/" class="hover:text-white transition-colors">Makala Zote</a>
+                <a href="/privacy/" class="hover:text-white transition-colors">Sera ya Faragha</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>
